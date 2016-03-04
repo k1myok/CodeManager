@@ -1,0 +1,8 @@
+F:\NET\MVCProject\Hospital\HospitalData\bin\Debug\HospitalData.dll.config
+F:\NET\MVCProject\Hospital\HospitalData\bin\Debug\HospitalData.dll
+F:\NET\MVCProject\Hospital\HospitalData\bin\Debug\HospitalData.pdb
+F:\NET\MVCProject\Hospital\HospitalData\bin\Debug\EntityFramework.dll
+F:\NET\MVCProject\Hospital\HospitalData\bin\Debug\EntityFramework.xml
+F:\NET\MVCProject\Hospital\HospitalData\bin\Debug\zh-Hans\EntityFramework.resources.dll
+F:\NET\MVCProject\Hospital\HospitalData\obj\Debug\HospitalData.dll
+F:\NET\MVCProject\Hospital\HospitalData\obj\Debug\HospitalData.pdb
