@@ -1,0 +1,80 @@
+﻿@model ShareService.ServiceManager.Models.Service
+
+<script>
+    var selectedDirectory = '@Model.Directory';
+    function onSuccess(result) {
+        if (result.State) {
+            showServiceList(selectedDirectory);
+            $('#resourceWindow').jqxWindow('close');
+        }
+        else
+        {
+            alert("资源保存失败，请检查您输入的数据有效性！");
+        }
+    }
+</script>
+
+@using (Ajax.BeginForm("Edit", "GISResourceManager", new AjaxOptions { HttpMethod = "Post", OnSuccess = "onSuccess" }))
+{
+
+    <ul id="infoTabs" class="nav nav-tabs">
+        <li class="active">
+            <a href="#baseDetails" data-toggle="tab">
+                基本信息
+            </a>
+        </li>
+        @if (Model.MetadataDetails != null && Model.MetadataDetails.Count > 0)
+        {
+            <li>
+                <a href="#extensionDetails" data-toggle="tab">扩展信息</a>
+            </li>
+        }
+    </ul>
+    <div class="tab-content">
+        <div style="padding:10px;overflow-x:hidden;" id="baseDetails"  class="tab-pane fade in active">
+            @Html.HiddenFor(model => model.Code)
+            @Html.AntiForgeryToken()
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                @Html.HiddenFor(model => model.Directory)
+                <div class="form-group">
+                    @Html.LabelFor(model => model.SourcePath, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.SourcePath, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.SourcePath, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.VisitAddress, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.VisitAddress, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.VisitAddress, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        @if (Model.MetadataDetails != null && Model.MetadataDetails.Count > 0)
+        {
+            <div style="padding:10px;overflow-x:hidden;" id="extensionDetails" class="tab-pane fade">
+                @Html.EditorFor(model => model.MetadataDetails)
+            </div>
+        }
+    </div>
+    <input type="submit" value="保  存" class="btn btn-default" style="position:absolute; left:50%;bottom:15px; margin-left:-40px;width:80px;" />
+}

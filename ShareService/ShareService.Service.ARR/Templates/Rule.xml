@@ -1,0 +1,8 @@
+﻿<rule name="{0}" patternSyntax="ECMAScript" stopProcessing="false">
+  <match url="^({1})(.*)" />
+  <action type="Rewrite" url="http://{2}/{{R:0}}" />
+  <conditions logicalGrouping="MatchAll">
+    <add input="{{HTTP_HOST}}" pattern="{3}" />
+    <add input="{{SERVER_PORT}}" pattern="{4}" />
+  </conditions>
+</rule>

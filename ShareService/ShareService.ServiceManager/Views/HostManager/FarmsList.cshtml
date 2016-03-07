@@ -1,0 +1,58 @@
+﻿@model IEnumerable<ShareService.ServiceManager.Models.ServerFarm>
+
+<script>
+    var farmCode = '@(ViewBag.FarmCode)';
+        $(document).ready(function(){
+            $('#resourceWindow').jqxWindow({
+                width: '400px',
+                height: '200px',
+                resizable: true,
+                initContent: function () {
+                }
+            });
+
+        });
+        function showServerInstances(farmCode)
+        {
+            $('#loader').show();
+            $.ajax({
+                url: '../HostManager/HostsList?farmCode=' + farmCode,
+                success: function (data) {
+                    $('#serviceListContainer').empty().html(data);
+                },
+                complete: function () {
+                    $('#loader').hide();
+                }
+            });
+        }
+
+        function addFarm()
+        {
+            $('#loader').show();
+            $.ajax({
+                url: '../HostManager/CreateFarm',
+                success: function (data) {
+                    $('#resourceWindow #titleContainer').html('添加集群');
+                    $('#resourceWindow #customWindowContent').empty().html(data);
+                    $('#resourceWindow').jqxWindow('open');
+                },
+                complete: function () {
+                    $('#loader').hide();
+                }
+            });
+        }
+</script>
+<div class="list-group" style="height:100%;">
+    <div class="list-group-item active">
+        集群
+        <div style="float:right;">
+            <a onclick="addFarm();">添 加</a>
+            <a>刷 新</a>
+        </div>
+    </div>
+      
+    @foreach (var item in Model)
+    {
+        <a onclick="showServerInstances('@item.Code')" class="list-group-item">@item.Name</a>
+    }
+</div>

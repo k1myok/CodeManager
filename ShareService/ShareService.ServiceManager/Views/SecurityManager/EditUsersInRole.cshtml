@@ -1,0 +1,136 @@
+﻿<div id='contentEditUserAndRole'>
+    <link href="~/Content/jquery-ui-1.11.4/jquery-ui.css" rel="stylesheet" />
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //alert(2);
+            LoadAllUsers();
+        });
+
+        function LoadAllUsers() {
+            $.ajax({
+                type: "GET",
+                url: "http://localhost/ShareService.ServiceManager/SecurityManager/AllUsers",
+                success: function (msg) {
+                    $("#listBoxA").jqxListBox("clear");
+                    var dataAdapter = new $.jqx.dataAdapter(msg);
+                    $("#listBoxA").jqxListBox({ source: dataAdapter, displayMember: "UserName", valueMember: "Id", width: '200px', height: '250px' });
+                    $("#listBoxA").on('select', function (event) {
+                        if (event.args) {
+                            var item = event.args.item;
+                            if (item) {
+                                //alert(item.value);
+                            }
+                        }
+                    });
+                }
+            });
+        }
+
+        function LoadUsersOfRole(selectedRoleId) {
+            $.ajax({
+                type: "GET",
+                url: "http://localhost/ShareService.ServiceManager/SecurityManager/UsersOfRole?roleId=" + selectedRoleId,
+                success: function (msg) {
+                    $("#listBoxB").jqxListBox("clear");
+                    var dataAdapter = new $.jqx.dataAdapter(msg);
+                    $("#listBoxB").jqxListBox({ source: dataAdapter, displayMember: "UserName", valueMember: "Id", width: '200px', height: '250px' });
+                    $("#listBoxB").on('select', function (event) {
+                        if (event.args) {
+                            var item = event.args.item;
+                            if (item) {
+                                //alert(item.value);
+                            }
+                        }
+                    });
+                }
+            });
+        }
+
+        function AddUser() {
+            var itemsA = $("#listBoxA").jqxListBox('getSelectedItems');
+            if (itemsA.length > 0) {
+                var itemsB = $("#listBoxB").jqxListBox("getItems");
+                var isContained = false;
+                if (itemsB!=null) {
+                    for (var i = 0; i < itemsB.length; i++) {
+                        if (itemsA[0].label == itemsB[i].label) {
+                            isContained = true;
+                        }
+                    }
+                }
+                if (isContained) {
+                    alert("该用户已有此角色。");
+                } else {
+                    $("#listBoxB").jqxListBox('addItem', itemsA[0]);
+                }
+            } else {
+                alert("未选择用户。。");
+            }
+        }
+        function ReduceUser() {
+            var itemsB = $("#listBoxB").jqxListBox('getSelectedItems');
+            if (itemB.length!=undefined&&itemsB.length > 0) {
+                $("#listBoxB").jqxListBox('removeItem', itemsB[0]);
+            } else {
+                alert("未选择用户。。");
+            }
+        }
+        function BtnEditUsersInRoleOKClick() {
+            //alert(selectedUserRow.UserId);
+            var itemsInB = $("#listBoxB").jqxListBox("getItems");
+            if (itemsInB.length != undefined) {
+                var postStr = ',';
+                for (var i = 0; i < itemsInB.length; i++) {
+                    postStr += itemsInB[i].value + ',';
+                }
+                $.ajax({
+                    type: "get",
+                    url: "http://localhost/ShareService.ServiceManager/SecurityManager/UpdateUsersOfRole",
+                    data: "roleId=" + selectedRoleRow.Id + "&userIds=" + postStr,
+                    success: function (msg) {
+                        //alert(msg.message);
+                        if ("successed" == msg.message) {
+                            alert("更新成功！");
+                            $('#EditUsersInRoleWindow').jqxWindow('close');
+                        } else {
+                            alert("更新失败！");
+                            $('#EditUsersInRoleWindow').jqxWindow('close');
+                        }
+                    }
+                });             
+            }            
+        }
+    </script>
+    <div id='jqxWidgetEditUserAndRole'>
+        <table id="editUserTable">
+            <thead><tr style="text-align:center;font-size:12px;"><th style="text-align:center;width:40%">所有角色</th><th style="text-align:center;"></th><th style="text-align:center;width:40%">已选角色</th></tr></thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div style="float: left;" id="listBoxA">
+                        </div>
+                    </td>
+                    <td style="text-align:center;">
+                        <div><button onclick="AddUser()" id="addUser"><span class="ui-icon ui-icon-carat-1-e"></span></button></div>
+                        <br /><br />
+                        <div><button onclick="ReduceUser()" id="reduceUser"><span class="ui-icon ui-icon-carat-1-w"></span></button></div>
+                    </td>
+                    <td>
+                        <div style="float: right;" id="listBoxB">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="button" value="OK" style="width:60px;margin:5px;padding:5px;float:right;" onclick="BtnEditUsersInRoleOKClick()" />
+                    </td>
+                    <td></td>
+                    <td>
+                        <input type="button" value="Cancel" style="width:60px;margin:5px;padding:5px;" onclick="javascript: { $('#EditUsersInRoleWindow').jqxWindow('close'); }" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+

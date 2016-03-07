@@ -1,0 +1,202 @@
+﻿@model IEnumerable<ShareService.ServiceManager.Models.ServerInstance>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ServerInstances</title>
+    <style>
+        .leftDock {
+            float: left;
+            top: 5px;
+            left: 5px;
+            margin-left: 5px;
+            margin-top: 5px;
+        }
+
+        .rightDock {
+            float: right;
+            top: 5px;
+            left: 5px;
+            margin-right: 5px;
+            margin-top: 5px;
+        }
+    </style>
+
+</head>
+<body>   
+    <script>
+        var selectedServerInstanceRow = null;
+        var selectedServerInstanceIndex = -1;
+        $(document).ready(function () {
+            $("#ServerInstancesTable").jqxDataTable(
+                {
+                    sortable: true,
+                    editable: false,
+                    width: '100%',
+                    selectionMode: 'singleRow',
+                    columns: [
+                      { text: '主机', dataField: '主机', width:'25%', align: 'center', cellsAlign: 'center' },
+                      { text: '端口', dataField: '端口', width: '25%', align: 'center', cellsAlign: 'center' },
+                      { text: '是否启用', dataField: '是否启用', width: '25%', align: 'center', cellsAlign: 'center' },
+                      { text: '所属场', dataField: '所属场', width: '25%', align: 'center', cellsAlign: 'center' },
+                    ]
+                });
+            $('#ServerInstancesTable').on('rowSelect',
+                function (event) {
+                    selectedServerInstanceRow = args.row;
+                    selectedServerInstanceIndex = args.index;
+                }
+            );
+
+            initServerInstanceButtons();
+        });
+        function initServerInstanceButtons() {
+            $("#leftServerInstanceButtons").jqxButtonGroup({ mode: 'default' });
+            $("#rightServerInstanceButtons").jqxButtonGroup({ mode: 'default' });
+            $("#leftServerInstanceButtons").unbind('buttonclick').on('buttonclick', function (event) {
+                var clickedButton = event.args.button;
+                var id = clickedButton[0].id;
+                if (id == "add") {
+                    addServerInstanceRow();
+                }
+                else if (id == "delete") {
+                    if (selectedServerInstanceRow != null) {
+                        if (confirm("确定删除？")) {
+                            DeleteServerInstance(selectedServerInstanceRow.GUID);
+                        }
+
+                    } else { alert("请选择项！"); }
+                }
+            });
+
+            $("#rightServerInstanceButtons").unbind('buttonclick').on('buttonclick', function (event) {
+                var clickedButton = event.args.button;
+                var id = clickedButton[0].id;
+                if (id == "edit") {
+                    if (selectedServerInstanceRow != null) {
+                        EditServerInstance(selectedServerInstanceRow.GUID);
+                    }
+                    else {
+                        alert('请选择项！');
+                    }
+                } else if (id = "detail") {
+                    if (selectedServerInstanceRow != null) {
+                        DetailServerInstance(selectedServerInstanceRow.GUID);
+                    }
+                    else {
+                        alert('请选择项！');
+                    }
+                }
+            });
+        }
+        function addServerInstanceRow() {
+            $('#createServerInstance').jqxWindow({
+                width: 360,
+                height: 300,
+                resizable: false
+            });
+            $('#createServerInstance').jqxWindow('open');
+        }
+        function DeleteServerInstance(guid) {
+            window.location.href = "http://localhost/ShareService.ServiceManager/ServiceManage/DeleteServerInstance?guid=" + guid;
+
+        }
+        function EditServerInstance(guid) {
+            window.location.href = "http://localhost/ShareService.ServiceManager/ServiceManage/EditServerInstance?guid=" + guid;
+        }
+        function DetailServerInstance(guid) {
+            window.location.href = "http://localhost/ShareService.ServiceManager/ServiceManage/DetailServerInstance?guid=" + guid;
+
+        }
+      
+    </script>
+    <div style="height:35px; background-color:lightgray; margin-top:1px; margin-bottom:1px;">
+        <div id='leftServerInstanceButtons' class="leftDock">
+            <button style="padding:4px 16px;" id="add">
+                新建
+            </button>
+            <button style="padding:4px 16px;" id="delete">
+                删除
+            </button>
+        </div>
+        <div id='rightServerInstanceButtons' class="rightDock">
+            <button style="padding:4px 16px;" id="edit">
+                编辑
+            </button>
+            <button style="padding:4px 16px;" id="detail">
+                详情
+            </button>
+        </div>
+    </div>
+    <table id="ServerInstancesTable" style="width:100%;" border="1">
+        <thead>
+            <tr>
+                <th>
+                    @*@Html.DisplayNameFor(model => model.Address)*@
+                    主机
+                </th>
+                <th>
+                    @*@Html.DisplayNameFor(model => model.HttpPort)*@
+                    端口
+                </th>
+                <th>
+                    @*@Html.DisplayNameFor(model => model.Enable)*@
+                    是否启用
+                </th>
+                <th>
+                    @*@Html.DisplayNameFor(model => model.FarmCode)*@
+                    所属场
+                </th>
+                <th style="display:none;">GUID</th>
+                @*<th>其他操作</th>*@
+            </tr>
+        </thead>
+        <tbody>
+            @if (null != Model && Model.Count() > 0)
+            {
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Address)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.HttpPort)
+                        </td>
+                        <td>
+                            @*@Html.DisplayFor(modelItem => item.Enable)*@
+                            @if (item.Enable == true)
+                            {
+                                <label>是</label>
+                            }
+                            else {
+                                <label>否</label>
+                            }
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BelongedFarmName)                            
+                        </td>
+                      <td style="display:none;">@Html.DisplayFor(modelItem => item.Code)</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+    <div id="createServerInstance" style="display:none;">
+        <div id="customWindowHeader">
+            <span id="captureContainer" style="float: left">新建服务器实例</span>
+        </div>
+        <div id="customWindowContent" style="overflow: hidden">
+            <div style="margin: 10px">
+                @{ Html.RenderPartial("CreateServerInstance", new ShareService.ServiceManager.Models.ServerInstance());}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,180 @@
+﻿@model IEnumerable<ShareService.ServiceManager.Models.Groups>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Groups</title>
+</head>
+<body>
+    <script>
+        var selectedGroupRow = null;
+        var selectedGroupIndex = -1;
+        $(document).ready(function () {
+            $("#groupsTable").jqxDataTable(
+                {
+                    sortable: true,
+                    editable: false,
+                    width: '100%',
+                    selectionMode: 'singleRow',
+                    columns: [
+                      { text: 'ID', dataField: 'Id', width: '70%', align: 'center', cellsAlign: 'center' },
+                      { text: '组名', dataField: 'GroupName', width: '30%', align: 'center', cellsAlign: 'center' },
+                    ]
+                });
+            $('#groupsTable').on('rowSelect',
+                function (event) {
+                    selectedGroupRow = args.row;
+                    selectedGroupIndex = args.index;
+                }
+            );
+
+            initGroupsButtons();
+        });
+        function initGroupsButtons() {
+            $("#leftGroupsButtons").jqxButtonGroup({ mode: 'default' });
+            $("#rightGroupsButtons").jqxButtonGroup({ mode: 'default' });
+            $("#leftGroupsButtons").unbind('buttonclick').on('buttonclick', function (event) {
+                var clickedButton = event.args.button;
+                var id = clickedButton[0].id;
+                if (id == "add") {
+                    AddGroupRow();
+                }
+                else if (id == "delete") {
+                    if (selectedGroupRow != null) {
+                        if (confirm("确定删除？")) {
+                            DeleteGroup(selectedGroupRow.Id);
+                        }
+
+                    } else { alert("请选择项！");}
+                }
+            });
+
+            $("#rightGroupsButtons").unbind('buttonclick').on('buttonclick', function (event) {
+                var clickedButton = event.args.button;
+                var id = clickedButton[0].id;
+                if (id == "role") {
+                    if (selectedGroupRow != null) {
+                        EditRolesInGroup(selectedGroupRow.Id)
+                    }
+                    else {
+                        alert('请选择项！');
+                    }
+                } else if (id == "plan")
+                {
+                    if (selectedGroupRow != null) {
+                        //DetailRole(selectedGroupRow.GUID);
+                    }
+                    else {
+                        alert('请选择项！');
+                    }
+                }
+            });
+        }
+        function AddGroupRow() {
+            $('#createGroup').jqxWindow({
+                width: 360,
+                height: 240,
+                resizable: false
+            });
+            $('#createGroup').jqxWindow('open');
+
+        }
+
+        function DeleteGroup(id) {
+            var url = "http://localhost/ShareService.ServiceManager/SecurityManager/DeleteGroupById?groupId=" + id;
+            $.ajax({
+                url: url,
+                type: "get",
+                success: function (msg) {
+                    if (msg.message = "successed") {
+                        alert("删除成功!");
+                        location.reload();
+                    } else {
+                        alert("删除失败！");
+                        location.reload();
+
+                    }
+                }
+            });
+        }
+        function EditRolesInGroup(id) {
+            LoadRolesOfGroup(id);
+            $('#EditRolesInGroupWindow').jqxWindow({
+                width: 500,
+                height: 360,
+                resizable: false,
+                isModal: true,
+                modalOpacity: 0.3,
+            });
+            $('#EditRolesInGroupWindow').jqxWindow('open');
+        }
+    </script>
+    <div style="height:35px; background-color:lightgray; margin-top:1px; margin-bottom:1px;">
+        <div id='leftGroupsButtons' class="leftDock">
+            <button style="padding:4px 16px;" id="add">
+                新建
+            </button>
+            <button style="padding:4px 16px;" id="delete">
+                删除
+            </button>
+        </div>
+        <div id='rightGroupsButtons' class="rightDock">
+            <button style="padding:4px 16px;" id="role">
+                角色
+            </button>
+            <button style="padding:4px 16px;" id="plan">
+                方案
+            </button>
+        </div>
+    </div>
+    <table id="groupsTable"style="width:100%;"border="1">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.GroupName)
+                </th>
+            </tr>
+        </thead>
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GroupName)
+            </td>
+        </tr>
+    }
+    
+    </table>
+    <div id="createGroup" style="display:none;">
+        <div id="customWindowHeader">
+            <span id="captureContainer" style="float: left">新建组</span>
+        </div>
+        <div id="customWindowContent" style="overflow: hidden">
+            <div style="margin:10px">
+                @{ Html.RenderPartial("CreateGroup", new ShareService.ServiceManager.Models.Groups());}
+            </div>
+        </div>
+    </div>
+    <div id="EditRolesInGroupWindow" style="display:none;">
+        <div id="customWindowHeader">
+            <span id="captureContainer" style="float: left">编辑角色与组</span>
+        </div>
+        <div id="customWindowContent" style="overflow: hidden">
+            <div style="margin: 10px">
+                @{Html.RenderPartial("EditRolesInGroup");}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
