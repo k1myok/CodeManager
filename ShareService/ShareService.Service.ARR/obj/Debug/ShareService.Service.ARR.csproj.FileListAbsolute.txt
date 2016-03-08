@@ -1,0 +1,4 @@
+E:\Projects\PreProjects\Source\ShareService\Source\ShareService.Service.ARR\bin\Debug\ShareService.Service.ARR.dll
+E:\Projects\PreProjects\Source\ShareService\Source\ShareService.Service.ARR\bin\Debug\ShareService.Service.ARR.pdb
+E:\Projects\PreProjects\Source\ShareService\Source\ShareService.Service.ARR\obj\Debug\ShareService.Service.ARR.dll
+E:\Projects\PreProjects\Source\ShareService\Source\ShareService.Service.ARR\obj\Debug\ShareService.Service.ARR.pdb

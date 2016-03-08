@@ -27,6 +27,16 @@ namespace ShareService.ServiceManager.DAL
         public DbSet<ShareService.ServiceManager.Models.Groups> Groups { get; set; }
         public DbSet<ShareService.ServiceManager.Models.RolesInGroups> RoleInGroups { get; set; }
 
+        public DbSet<ShareService.ServiceManager.Models.UFUser> UFUser { get; set; }
+        public DbSet<ShareService.ServiceManager.Models.UFRole> UFRole { get; set; }
+        public DbSet<ShareService.ServiceManager.Models.UFGroup> UFGroup { get; set; }
+        public DbSet<ShareService.ServiceManager.Models.UFUserInRole> UFUserInRole { get; set; }
+        public DbSet<ShareService.ServiceManager.Models.UFServicesOfUser> UFServicesOfUser { get; set; }
+        public DbSet<ShareService.ServiceManager.Models.UFUserInGroup> UFUserInGroup { get; set; }
+        public DbSet<ShareService.ServiceManager.Models.UFServicesOfGroup> UFServicesOfGroup { get; set; }
+        public DbSet<ShareService.ServiceManager.Models.UFGroupInRole> UFGroupInRole { get; set; }
+        public DbSet<ShareService.ServiceManager.Models.UFServicesOfRole> UFServicesOfRole { get; set; }
+
         [NotMapped]
         public DbSet<AspNetUsers> AspNetUsers { get; set; }
         [NotMapped]

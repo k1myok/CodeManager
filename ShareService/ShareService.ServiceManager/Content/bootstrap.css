@@ -858,8 +858,10 @@ pre code {
 .col-lg-12 {
   position: relative;
   min-height: 1px;
-  padding-right: 0px;
+  padding-right: 10px;
   padding-left: 10px;
+  font-size:12px;
+  margin-top:-3px;
 }
 
 .col-xs-1,
@@ -2050,7 +2052,7 @@ fieldset[disabled] .btn {
 
 .btn-default {
   color: #333333;
-  background-color: #ffffff;
+  background-color: white;
   border-color: #cccccc;
 }
 

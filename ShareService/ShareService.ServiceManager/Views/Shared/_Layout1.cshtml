@@ -41,15 +41,33 @@
 </head>
 <body>
     <div class="Header">
-
-    </div>
-    <div class="MainMenu">
-        <button type="button" class="btn btn-default" onclick="onMenuClick('../HostManager/Manager')"><span class="glyphicon glyphicon-star"></span> 服务器管理</button>
-        <button type="button" class="btn btn-default" onclick="onMenuClick('')"><span class="glyphicon glyphicon-star"></span> 服务资源管理</button>
-        <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-star"></span> 安全管理</button>
-        <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-star"></span> 资源展示</button>
-        <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-star"></span> 统计分析</button>
-        <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-star"></span> 帮助文档</button>
+        <div class="Title">
+            地理信息共享服务平台
+        </div>
+        <div class="MenuLink">
+            <div onclick="onMenuClick('../HostManager/Manager')">
+                <img src="~/Images/server.png" />
+                <div>
+                    服务器管理
+                </div>
+            </div>
+            <div onclick="onMenuClick('../SecurityManager/Index')">
+                <img src="~/Images/server.png" />
+                <div>
+                    安全管理
+                </div>
+            </div>
+            @*<ul>
+                <li>
+                </li>
+                <li><a onclick="onMenuClick('../DirectoryManager/List')">服务管理</a></li>
+                <li><a onclick="onMenuClick('../SecurityManager/Index')">安全管理</a></li>
+                <li>@Html.ActionLink("资源查询", "About", "Home")</li>
+                <li>@Html.ActionLink("资源统计", "Contact", "Home")</li>
+                <li>@Html.ActionLink("元数据管理", "List", "MetadataManager")</li>
+                <li>@Html.ActionLink("系统帮助", "Contact", "Home")</li>
+            </ul>*@
+        </div>
     </div>
     <div class="MainContentContainer">
         <div class="MainContent" id="MainContent">

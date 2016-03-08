@@ -1,30 +1,34 @@
-﻿<script>
-    $('#mainSplitter').ready(function () {
-        $('#mainSplitter').jqxSplitter({ width: '100%', height: '100%', panels: [{ size: 300 }] });
-        showFarmsList();
-    });
+﻿@{
+    Layout = "~/Views/Shared/HSplitLayout.cshtml";
+}
 
-    function showFarmsList()
-    {
-        $('#loader').show();
-        $.ajax({
-            url: '../HostManager/FarmsList',
-            success: function (data) {
-                $('#farmsList').empty().html(data);
-            },
-            complete: function () {
-                $('#loader').hide();
-            }
+@section LeftPanel
+{
+    <script>
+        $('#farmsList').ready(function () {
+            showFarmsList();
         });
-    }
-</script>
+        function showFarmsList()
+        {
+            $('#loader').show();
+            $.ajax({
+                url: '../HostManager/FarmsList',
+                success: function (data) {
+                    $('#farmsList').empty().html(data);
+                },
+                complete: function () {
+                    $('#loader').hide();
+                }
+            });
+        }
+    </script>
+    <div id="farmsList">
+    </div>
+}
 
-<div id="mainSplitter" style="height:100%;">
-    <div class="splitter-panel" id="farmsList">
+@section RightPanel
+{
+    <div id="serviceListContainer" style="width:100%; height:100%;">
     </div>
-    <div class="splitter-panel">
-        <div id="serviceListContainer" style="width:100%; height:100%;">
-        </div>
-    </div>
-</div>
+}
 

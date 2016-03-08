@@ -15,7 +15,7 @@ namespace ResoureManager.Content.Controllers
         // GET: DirectoryManager
         public ActionResult List()
         {
-            return View();
+            return PartialView();
         }
 
         public ActionResult DirectoryTree()
@@ -31,12 +31,6 @@ namespace ResoureManager.Content.Controllers
         public ActionResult DirectoryTreeItem(ServiceDirectory resourceItem)
         {
             return PartialView(resourceItem);
-        }
-
-        public ActionResult ServiceList(Guid directoryCode)
-        {
-            ViewBag.DirectoryCode = directoryCode;
-            return PartialView(context.Service.Where(p => p.Directory == directoryCode));
         }
 
         private void Insert(List<ServiceDirectory> rootItems, List<ServiceDirectory> childsItems)

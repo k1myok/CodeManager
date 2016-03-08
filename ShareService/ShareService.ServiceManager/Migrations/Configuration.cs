@@ -9,7 +9,7 @@ namespace ShareService.ServiceManager.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
         }
 
         protected override void Seed(ShareService.ServiceManager.DAL.ShareServiceContext context)

@@ -15,6 +15,11 @@ namespace ShareService.ServiceManager.Controllers
     {
         private ShareServiceContext context = new ShareServiceContext();
 
+        public PartialViewResult UserInfo()
+        {
+            return PartialView();
+        }
+
         // GET: SecurityManager
         public ActionResult Index(int index=0)
         {

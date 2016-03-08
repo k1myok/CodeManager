@@ -32,7 +32,6 @@ E:\Projects\PreProjects\Source\ShareService\Source\ShareService.ServiceManager\b
 E:\Projects\PreProjects\Source\ShareService\Source\ShareService.ServiceManager\bin\Microsoft.Web.Infrastructure.dll
 E:\Projects\PreProjects\Source\ShareService\Source\ShareService.ServiceManager\bin\Newtonsoft.Json.dll
 E:\Projects\PreProjects\Source\ShareService\Source\ShareService.ServiceManager\bin\Owin.dll
-E:\Projects\PreProjects\Source\ShareService\Source\ShareService.ServiceManager\bin\ShareService.Service.ARR.dll
 E:\Projects\PreProjects\Source\ShareService\Source\ShareService.ServiceManager\bin\System.Web.Helpers.dll
 E:\Projects\PreProjects\Source\ShareService\Source\ShareService.ServiceManager\bin\System.Web.Mvc.dll
 E:\Projects\PreProjects\Source\ShareService\Source\ShareService.ServiceManager\bin\System.Web.Optimization.dll
@@ -41,7 +40,6 @@ E:\Projects\PreProjects\Source\ShareService\Source\ShareService.ServiceManager\b
 E:\Projects\PreProjects\Source\ShareService\Source\ShareService.ServiceManager\bin\System.Web.WebPages.dll
 E:\Projects\PreProjects\Source\ShareService\Source\ShareService.ServiceManager\bin\System.Web.WebPages.Razor.dll
 E:\Projects\PreProjects\Source\ShareService\Source\ShareService.ServiceManager\bin\WebGrease.dll
-E:\Projects\PreProjects\Source\ShareService\Source\ShareService.ServiceManager\bin\ShareService.Service.ARR.pdb
 E:\Projects\PreProjects\Source\ShareService\Source\ShareService.ServiceManager\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 E:\Projects\PreProjects\Source\ShareService\Source\ShareService.ServiceManager\bin\System.Web.Helpers.xml
 E:\Projects\PreProjects\Source\ShareService\Source\ShareService.ServiceManager\bin\System.Web.Mvc.xml
@@ -76,7 +74,10 @@ E:\Projects\PreProjects\Source\ShareService\Source\ShareService.ServiceManager\o
 E:\Projects\PreProjects\Source\ShareService\Source\ShareService.ServiceManager\obj\x64\Debug\ShareService.ServiceManager.Migrations.addAccountModels.resources
 E:\Projects\PreProjects\Source\ShareService\Source\ShareService.ServiceManager\obj\x64\Debug\ShareService.ServiceManager.Migrations.addGroups.resources
 E:\Projects\PreProjects\Source\ShareService\Source\ShareService.ServiceManager\obj\x64\Debug\ShareService.ServiceManager.Migrations.modifyUserEmailToUserName.resources
+E:\Projects\PreProjects\Source\ShareService\Source\ShareService.ServiceManager\obj\x64\Debug\ShareService.ServiceManager.Migrations.usermodels.resources
 E:\Projects\PreProjects\Source\ShareService\Source\ShareService.ServiceManager\obj\x64\Debug\ShareService.ServiceManager.Properties.Resources.resources
 E:\Projects\PreProjects\Source\ShareService\Source\ShareService.ServiceManager\obj\x64\Debug\ShareService.ServiceManager.csproj.GenerateResource.Cache
 E:\Projects\PreProjects\Source\ShareService\Source\ShareService.ServiceManager\obj\x64\Debug\ShareService.ServiceManager.dll
 E:\Projects\PreProjects\Source\ShareService\Source\ShareService.ServiceManager\obj\x64\Debug\ShareService.ServiceManager.pdb
+E:\Projects\PreProjects\Source\ShareService\Source\ShareService.ServiceManager\bin\ShareService.Service.ARR.dll
+E:\Projects\PreProjects\Source\ShareService\Source\ShareService.ServiceManager\bin\ShareService.Service.ARR.pdb

@@ -28,6 +28,7 @@ namespace ShareService.ServiceManager.Models
 
         [Display(Name = "启用")]
         public bool Enable { get; set; }
+
         public Guid FarmCode { get; set; }       
     }
 }

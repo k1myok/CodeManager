@@ -13,8 +13,15 @@ namespace ShareService.ServiceManager.Controllers
         // GET: GISResourceManager
         private ShareServiceContext context = new ShareServiceContext();
 
+        public ActionResult List(Guid directoryCode)
+        {
+            ViewBag.DirectoryCode = directoryCode;
+            return PartialView(context.Service.Where(p => p.Directory == directoryCode));
+        }
+
         public ActionResult Create(Guid directoryCode)
         {
+            ViewBag.Farms = context.ServerFarm.Select(p => new SelectListItem() { Text = p.Name, Value = p.Code.ToString() });
             var model = new ShareService.ServiceManager.Models.Service()
             {
                 Directory = directoryCode
@@ -26,7 +33,10 @@ namespace ShareService.ServiceManager.Controllers
         [HttpPost]
         public JsonResult Create(ShareService.ServiceManager.Models.Service model)
         {
+            var currentDate = DateTime.Now;
             model.Code = Guid.NewGuid();
+            model.CreateDate = currentDate;
+            model.UpdateDate = currentDate;
             this.UpdateResourceMetadataToDB(model);
             context.Service.Add(model);
             var reuslt = context.SaveChanges() > 0;
@@ -38,6 +48,7 @@ namespace ShareService.ServiceManager.Controllers
 
         public ActionResult Edit(Guid resourceCode)
         {
+            ViewBag.Farms = context.ServerFarm.Select(p => new SelectListItem() { Text = p.Name, Value = p.Code.ToString() });
             var model = context.Service.FirstOrDefault(p => p.Code == resourceCode);
             this.AttachMetadataDetails(model);
             return PartialView(model);
@@ -57,6 +68,7 @@ namespace ShareService.ServiceManager.Controllers
 
         public ActionResult Detail(Guid resourceCode)
         {
+            ViewBag.Farms = context.ServerFarm.Select(p => new SelectListItem() { Text = p.Name, Value = p.Code.ToString() });
             var model = context.Service.FirstOrDefault(p => p.Code == resourceCode);
             this.AttachMetadataDetails(model);
             return PartialView(model);
@@ -64,10 +76,19 @@ namespace ShareService.ServiceManager.Controllers
 
         public JsonResult Delete(Guid resourceCode)
         {
-            var reuslt = context.Database.ExecuteSqlCommand(string.Format("delete from [Service] where Code='{0}'", resourceCode));
+            var target = context.Service.Find(resourceCode);
+            if(target != null)
+            {
+                context.Service.Remove(target);
+                var result = context.SaveChanges();
+                return Json(new
+                {
+                    State = result
+                }, JsonRequestBehavior.AllowGet);
+            }
             return Json(new
             {
-                State = reuslt > 0
+                State = false
             }, JsonRequestBehavior.AllowGet);
         }
 

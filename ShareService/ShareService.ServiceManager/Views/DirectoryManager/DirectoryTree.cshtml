@@ -96,7 +96,7 @@
     function showServiceList(directoryCode) {
         $('#loader').show();
         $.ajax({
-            url: 'ServiceList?directoryCode=' + directoryCode,
+            url: '../ServiceManager/List?directoryCode=' + directoryCode,
             success: function (data) {
                 $('#serviceListContainer').empty().html(data);
             },
@@ -111,7 +111,7 @@
         var selectedItem = $('#resourceTree').jqxTree('selectedItem');
         var code = selectedItem ? $(selectedItem.element).data("directory") : "";
         $.ajax({
-            url: "AddDirectoryTreeNode?parent=" + code + "&child=" + newNodeName,
+            url: "../DirectoryManager/AddDirectoryTreeNode?parent=" + code + "&child=" + newNodeName,
             success: function (result) {
                 if (result.State)
                 {
@@ -154,7 +154,7 @@
         
         //alert(childCodes);
         $.ajax({
-            url: "DeleteDirectoryTreeNode?code=" + code+"&childCodes="+childCodes,
+            url: "../DirectoryManager/DeleteDirectoryTreeNode?code=" + code + "&childCodes=" + childCodes,
             success: function (result) {
                 if (result.State) {
                     $('#resourceTree').jqxTree('removeItem', selectedItem.element);

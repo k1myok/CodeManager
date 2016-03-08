@@ -39,6 +39,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -224,6 +225,10 @@
     <Compile Include="Migrations\201601310546056_modifyUserEmailToUserName.Designer.cs">
       <DependentUpon>201601310546056_modifyUserEmailToUserName.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201603080102484_usermodels.cs" />
+    <Compile Include="Migrations\201603080102484_usermodels.Designer.cs">
+      <DependentUpon>201603080102484_usermodels.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -234,6 +239,7 @@
     <Compile Include="Models\ServiceModels\ServerFarm.cs" />
     <Compile Include="Models\ServiceModels\ServerInstance.cs" />
     <Compile Include="Models\ServiceModels\Service.cs" />
+    <Compile Include="Models\ServiceModels\UFUser.cs" />
     <Compile Include="Models\UserModels\AspNetRoles.cs" />
     <Compile Include="Models\UserModels\AspNetUserRoles.cs" />
     <Compile Include="Models\UserModels\AspNetUsers.cs" />
@@ -591,6 +597,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Images\bg.png" />
     <Content Include="Images\lbg.png" />
+    <Content Include="Images\server.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -1079,11 +1086,13 @@
     <Content Include="Views\DirectoryManager\DirectoryTreeItem.cshtml" />
     <Content Include="Views\DirectoryManager\List.cshtml" />
     <Content Include="Views\DirectoryManager\ResourceList.cshtml" />
-    <Content Include="Views\DirectoryManager\ServiceResourceList.cshtml" />
+    <Content Include="Views\ServiceManager\List.cshtml" />
     <Content Include="Views\ServiceManager\Create.cshtml" />
-    <Content Include="Views\ServiceManager\Detail.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\ServiceMetadata.cshtml" />
     <Content Include="Views\ServiceManager\Edit.cshtml" />
-    <Content Include="Views\HostManager\CreateServerInstance.cshtml" />
+    <Content Include="Views\ServiceManager\Detail.cshtml" />
+    <Content Include="Views\Shared\HSplitLayout.cshtml" />
+    <Content Include="Views\SecurityManager\UserInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\ARRManager\" />
@@ -1124,6 +1133,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201601310546056_modifyUserEmailToUserName.resx">
       <DependentUpon>201601310546056_modifyUserEmailToUserName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603080102484_usermodels.resx">
+      <DependentUpon>201603080102484_usermodels.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
