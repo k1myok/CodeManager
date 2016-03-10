@@ -36,6 +36,11 @@ namespace ShareService.ServiceManager.Models
 
         [Display(Name = "组名称")]
         public string Name { get; set; }
+
+        public Guid? Parent { get; set; }
+
+        [NotMapped]
+        public List<UFGroup> Children { get; set; }
     }
 
     public class UFUserInRole {

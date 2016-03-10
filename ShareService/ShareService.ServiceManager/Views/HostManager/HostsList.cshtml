@@ -12,6 +12,11 @@
         });
     });
 
+    function loadAllServers()
+    {
+
+    }
+
     function addServerInstance()
     {
         $('#loader').show();
@@ -79,7 +84,7 @@
             <div  onclick="addServerInstance();" class="UFButton">
                 添加
             </div>
-            <div onclick="addServerInstance();" class="UFButton">
+            <div onclick="showServerInstances('@(ViewBag.FarmCode)');" class="UFButton">
                 刷新
             </div>
         </div>

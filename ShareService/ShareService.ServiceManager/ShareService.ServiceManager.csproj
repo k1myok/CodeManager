@@ -231,6 +231,14 @@
     <Compile Include="Migrations\201603080102484_usermodels.Designer.cs">
       <DependentUpon>201603080102484_usermodels.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201603100712012_groupparent.cs" />
+    <Compile Include="Migrations\201603100712012_groupparent.Designer.cs">
+      <DependentUpon>201603100712012_groupparent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603100745075_group1.cs" />
+    <Compile Include="Migrations\201603100745075_group1.Designer.cs">
+      <DependentUpon>201603100745075_group1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -1109,6 +1117,10 @@
     <Content Include="Views\RoleManager\Detail.cshtml" />
     <Content Include="Views\RoleManager\Edit.cshtml" />
     <Content Include="Views\RoleManager\List.cshtml" />
+    <Content Include="Views\GroupManager\DirectoryTree.cshtml" />
+    <Content Include="Views\GroupManager\DirectoryTreeItem.cshtml" />
+    <Content Include="Views\HostManager\CreateServerInstance.cshtml" />
+    <Content Include="Views\GroupManager\UsersOfGroup.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\ARRManager\" />
@@ -1152,6 +1164,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201603080102484_usermodels.resx">
       <DependentUpon>201603080102484_usermodels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603100712012_groupparent.resx">
+      <DependentUpon>201603100712012_groupparent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603100745075_group1.resx">
+      <DependentUpon>201603100745075_group1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
