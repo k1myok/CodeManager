@@ -1,12 +1,6 @@
 ﻿@model IEnumerable<ShareService.ServiceManager.Models.Service>
 
-<div style="width:100%; height:100%;">
-    <style>
-        th, td {
-            text-align: center;
-        }
-    </style>
-    <script>
+<script>
         var selectedDirectory = '@(ViewBag.DirectoryCode)';
             $(document).ready(function () {
                 $('#resourceWindow').jqxWindow({
@@ -90,53 +84,68 @@
                     });
                 }
             }
-    </script>
-    <div style="padding:5px; text-align:right;">
-        <input type="button" value="添加资源" class="btn btn-default"  onclick="createService();" style="font-size:12px;float:left;"/>
-        <input type="button" value="刷新列表" class="btn btn-default" onclick="showServiceList('@ViewBag.DirectoryCode')"  style="font-size:12px;"/>
+</script>
+<div class="NavWindow">
+    <div class="NavHeader">
+        <img src="~/Images/home.png" />
+        <span>您当前的位置：服务资源管理</span>
     </div>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.URL)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Decription)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.UpdateDate)
-            </th>
-            <th>
-                操作
-            </th>
-        </tr>
+    <div class="NavContent">
+        <div class="Title">
+            <div style="float:left;margin-left:10px;font-weight:bold;">服务资源列表</div>
+            <div onclick="createService();" class="UFButton">
+                添加
+            </div>
+            <div onclick="showServiceList('@ViewBag.DirectoryCode')" class="UFButton">
+                刷新
+            </div>
+        </div>
+        <div class="Content">
+            <table class="UFTable">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.URL)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Decription)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.UpdateDate)
+                    </th>
+                    <th>
+                        操作
+                    </th>
+                </tr>
 
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.URL)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Decription)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.UpdateDate)
-                </td>
-                <td>
-                    <a onclick="editService('@item.Code')" style="cursor:pointer;">编辑</a>
-                    <a onclick="viewService('@item.Code')" style="cursor:pointer;">详细信息</a>
-                    <a onclick="deleteService('@item.Code')" style="cursor:pointer;">删除</a>
-                </td>
-            </tr>
-        }
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.URL)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Decription)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UpdateDate)
+                        </td>
+                        <td>
+                            <a onclick="editService('@item.Code')" style="cursor:pointer;">编辑</a>
+                            <a onclick="viewService('@item.Code')" style="cursor:pointer;">详细信息</a>
+                            <a onclick="deleteService('@item.Code')" style="cursor:pointer;">删除</a>
+                        </td>
+                    </tr>
+                }
 
-    </table>
+            </table>
+        </div>
+    </div>
 </div>
+
 

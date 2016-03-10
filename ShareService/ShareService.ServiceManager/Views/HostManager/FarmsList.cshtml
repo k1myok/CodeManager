@@ -41,17 +41,25 @@
             });
         }
 </script>
-<div class="list-group" style="height:100%;">
-    <div class="list-group-item active">
-        集群
-        <div style="float:right;">
-            <a onclick="addFarm();">添 加</a>
-            <a>刷 新</a>
+
+<div class="SimpleWindow">
+    <div class="TitleContainer">
+        <div class="Title">
+            <img src="~/Images/server.png"/>
+            <a>集 群</a>
+        </div>
+        
+        <div class="HImgToolbar">
+            <img onclick="addFarm();" src="~/Images/server.png" title="添加"/>
         </div>
     </div>
-      
-    @foreach (var item in Model)
-    {
-        <a onclick="showServerInstances('@item.Code')" class="list-group-item">@item.Name</a>
-    }
+    <div class="Content">
+        <div class="SimpleListView">
+            @foreach (var item in Model)
+            {
+                <div onclick="showServerInstances('@item.Code')" class="ListItem"><span>@item.Name</span></div>
+            }
+        </div>
+    </div>
 </div>
+

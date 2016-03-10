@@ -15,6 +15,11 @@ namespace ShareService.ServiceManager.Controllers
     {
         private ShareServiceContext context = new ShareServiceContext();
 
+        public PartialViewResult List()
+        {
+            return PartialView();
+        }
+
         public PartialViewResult UserInfo()
         {
             return PartialView();

@@ -5,7 +5,9 @@
 
 @section LeftPanel
 {
-    Html.RenderAction("DirectoryTree");
+    @{
+        Html.RenderAction("DirectoryTree", "DirectoryManager");
+    }
 }
 
 @section RightPanel

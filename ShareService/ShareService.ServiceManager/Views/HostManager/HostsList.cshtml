@@ -68,53 +68,69 @@
 
 </script>
 
-<div style="height:38px;">
-    <a onclick="addServerInstance();">添加</a>
-    <a>刷新</a>
+<div class="NavWindow">
+    <div class="NavHeader">
+        <img src="~/Images/home.png"/>
+        <span>您当前的位置：服务器管理</span>
+    </div>
+    <div class="NavContent">
+        <div class="Title">
+            <div style="float:left;margin-left:10px;font-weight:bold;">服务器列表</div>
+            <div  onclick="addServerInstance();" class="UFButton">
+                添加
+            </div>
+            <div onclick="addServerInstance();" class="UFButton">
+                刷新
+            </div>
+        </div>
+        <div class="Content">
+            <table id="ServerInstancesTable" class="UFTable">
+                <tr>
+                    <th>
+                        主机
+                    </th>
+                    <th>
+                        端口
+                    </th>
+                    <th>
+                        是否启用
+                    </th>
+                    <th>
+                        操作
+                    </th>
+                    <th style="display:none;">GUID</th>
+                </tr>
+                @if (null != Model && Model.Count() > 0)
+                {
+                    foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Address)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.HttpPort)
+                            </td>
+                            <td>
+                                @*@Html.DisplayFor(modelItem => item.Enable)*@
+                                @if (item.Enable == true)
+                    {
+                                    <label>是</label>
+                                }
+                                else
+                                {
+                                    <label>否</label>
+                                }
+                            </td>
+                            <td>
+                                <a onclick="editServer('@item.Code')" style="cursor:pointer;">编辑</a>
+                                <a onclick="deleteServer('@item.Code')" style="cursor:pointer;">删除</a>
+                            </td>
+                        </tr>
+                    }
+                }
+            </table>
+        </div>
+    </div>
 </div>
-<table id="ServerInstancesTable"  class="table">
-    <tr>
-        <th>
-            主机
-        </th>
-        <th>
-            端口
-        </th>
-        <th>
-            是否启用
-        </th>
-        <th>
-            操作
-        </th>
-        <th style="display:none;">GUID</th>
-    </tr>
-    @if (null != Model && Model.Count() > 0)
-    {
-        foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Address)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.HttpPort)
-                </td>
-                <td>
-                    @*@Html.DisplayFor(modelItem => item.Enable)*@
-                    @if (item.Enable == true)
-                    {
-                        <label>是</label>
-                    }
-                    else
-                    {
-                        <label>否</label>
-                    }
-                </td>
-                <td>
-                    <a onclick="editServer('@item.Code')" style="cursor:pointer;">编辑</a>
-                    <a onclick="deleteServer('@item.Code')" style="cursor:pointer;">删除</a>
-                </td>
-            </tr>
-        }
-    }
-</table>
+

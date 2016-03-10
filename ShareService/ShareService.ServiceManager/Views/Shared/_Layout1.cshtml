@@ -51,7 +51,13 @@
                     服务器管理
                 </div>
             </div>
-            <div onclick="onMenuClick('../SecurityManager/Index')">
+            <div onclick="onMenuClick('../DirectoryManager/List')">
+                <img src="~/Images/server.png" />
+                <div>
+                    服务管理
+                </div>
+            </div>
+            <div onclick="onMenuClick('../SecurityManager/List')">
                 <img src="~/Images/server.png" />
                 <div>
                     安全管理
@@ -74,19 +80,19 @@
             @RenderBody()
         </div>
     </div>
-    <footer>
+    @*<footer>
         <div>
             <div>
                 <a href="http://www.china-ccw.com">&copy; @DateTime.Now.Year - 苏州云联智慧信息技术应用有限公司</a>
             </div>
         </div>
-    </footer>
+    </footer>*@
 
     <div id="resourceWindow" style="display:none;">
         <div id="customWindowHeader">
             <span id="titleContainer" style="float: left"></span>
         </div>
-        <div id="customWindowContent" style="overflow: hidden">
+        <div id="customWindowContent" style="overflow: auto">
         </div>
     </div>
 
