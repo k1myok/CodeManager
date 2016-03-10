@@ -13,8 +13,10 @@ namespace ShareService.ServiceManager.Models
         [Key]
         public Guid Code { get; set; }
 
+        [Display(Name = "用户名")]
         public string Name { get; set; }
 
+        [Display(Name = "密码")]
         public string Password { get; set; }
     }
 
@@ -23,6 +25,7 @@ namespace ShareService.ServiceManager.Models
         [Key]
         public Guid Code { get; set; }
 
+        [Display(Name = "角色名称")]
         public string Name { get; set; }
     }
 
@@ -31,7 +34,13 @@ namespace ShareService.ServiceManager.Models
         [Key]
         public Guid Code { get; set; }
 
+        [Display(Name = "组名称")]
         public string Name { get; set; }
+
+        public Guid? Parent { get; set; }
+
+        [NotMapped]
+        public List<UFGroup> Children { get; set; }
     }
 
     public class UFUserInRole {

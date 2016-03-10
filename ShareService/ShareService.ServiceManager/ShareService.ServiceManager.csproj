@@ -39,7 +39,6 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -177,14 +176,17 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ARRManagerController.cs" />
     <Compile Include="Controllers\DirectoryManagerController.cs" />
+    <Compile Include="Controllers\GroupManagerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HostManagerController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MetadataManagerController.cs" />
+    <Compile Include="Controllers\RoleManagerController.cs" />
     <Compile Include="Controllers\SecurityManagerController.cs" />
     <Compile Include="Controllers\ServiceDirectoryManagerController.cs" />
     <Compile Include="Controllers\ServiceManageController.cs" />
     <Compile Include="Controllers\ServiceManagerController.cs" />
+    <Compile Include="Controllers\UserManagerController.cs" />
     <Compile Include="DAL\ShareServiceContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -228,6 +230,14 @@
     <Compile Include="Migrations\201603080102484_usermodels.cs" />
     <Compile Include="Migrations\201603080102484_usermodels.Designer.cs">
       <DependentUpon>201603080102484_usermodels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603100712012_groupparent.cs" />
+    <Compile Include="Migrations\201603100712012_groupparent.Designer.cs">
+      <DependentUpon>201603100712012_groupparent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603100745075_group1.cs" />
+    <Compile Include="Migrations\201603100745075_group1.Designer.cs">
+      <DependentUpon>201603100745075_group1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -596,6 +606,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Images\bg.png" />
+    <Content Include="Images\home.png" />
     <Content Include="Images\lbg.png" />
     <Content Include="Images\server.png" />
     <Content Include="Scripts\bootstrap.js" />
@@ -1093,6 +1104,23 @@
     <Content Include="Views\ServiceManager\Detail.cshtml" />
     <Content Include="Views\Shared\HSplitLayout.cshtml" />
     <Content Include="Views\SecurityManager\UserInfo.cshtml" />
+    <Content Include="Views\UserManager\List.cshtml" />
+    <Content Include="Views\UserManager\Create.cshtml" />
+    <Content Include="Views\SecurityManager\List.cshtml" />
+    <Content Include="Views\UserManager\Edit.cshtml" />
+    <Content Include="Views\UserManager\Detail.cshtml" />
+    <Content Include="Views\GroupManager\Create.cshtml" />
+    <Content Include="Views\GroupManager\Detail.cshtml" />
+    <Content Include="Views\GroupManager\Edit.cshtml" />
+    <Content Include="Views\GroupManager\List.cshtml" />
+    <Content Include="Views\RoleManager\Create.cshtml" />
+    <Content Include="Views\RoleManager\Detail.cshtml" />
+    <Content Include="Views\RoleManager\Edit.cshtml" />
+    <Content Include="Views\RoleManager\List.cshtml" />
+    <Content Include="Views\GroupManager\DirectoryTree.cshtml" />
+    <Content Include="Views\GroupManager\DirectoryTreeItem.cshtml" />
+    <Content Include="Views\HostManager\CreateServerInstance.cshtml" />
+    <Content Include="Views\GroupManager\UsersOfGroup.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\ARRManager\" />
@@ -1136,6 +1164,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201603080102484_usermodels.resx">
       <DependentUpon>201603080102484_usermodels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603100712012_groupparent.resx">
+      <DependentUpon>201603100712012_groupparent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603100745075_group1.resx">
+      <DependentUpon>201603100745075_group1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
