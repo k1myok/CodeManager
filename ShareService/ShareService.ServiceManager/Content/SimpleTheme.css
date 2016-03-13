@@ -160,7 +160,7 @@ footer
     height:100%;
     background-color:#23262B;
 }
-.SimpleWindow .TitleContainer
+.SimpleWindow >  .TitleContainer
 {
     width:100%;
     height:40px;
@@ -168,13 +168,13 @@ footer
     border-bottom-color:#42424A;
     border-bottom-width:1px;
 }
-.SimpleWindow .TitleContainer .Title
+.SimpleWindow >  .TitleContainer .Title
 {
     line-height:40px;
     float:left;
     margin-left:10px;
 }
-.SimpleWindow .TitleContainer .Title > a
+.SimpleWindow >  .TitleContainer .Title > a
 {
     font-weight:bold;
     color:white;
@@ -184,16 +184,16 @@ footer
     background-color:transparent;
 }
 
-.SimpleWindow .TitleContainer .Title img:first-child
+.SimpleWindow  > .TitleContainer >  .Title img:first-child
 {
     width:24px;
     height:24px;
 }
 
-.SimpleWindow .Content
+.SimpleWindow > .Content
 {
     width:100%;
-    height:100%;
+    height:calc(100% - 40px);
 }
 
 .HsplitLayout_LeftPanel
@@ -249,7 +249,7 @@ footer
     height:100%;
     background-color:#F6F6F6;
 }
-.NavWindow .NavHeader
+.NavWindow > .NavHeader
 {
     height:40px;
     border-bottom-width:2px;
@@ -260,7 +260,7 @@ footer
     font-size:12px;
     font-family:微软雅黑;
 }
-.NavWindow .NavHeader img
+.NavWindow > .NavHeader img
 {
     width:24px;
     height:24px;
@@ -269,12 +269,12 @@ footer
     margin-left:10px;
 }
 
-.NavWindow .NavContent
+.NavWindow > .NavContent
 {
     padding:15px;
     height:100%;
 }
-.NavWindow .NavContent .Title
+.NavWindow > .NavContent > .Title
 {
     height:40px;
     border-top-width:3px;
@@ -283,7 +283,7 @@ footer
     background-color:white;
     line-height:40px;
 }
-.NavWindow .NavContent .Content 
+.NavWindow > .NavContent > .Content 
 {
     width:100%;
     height:auto;
@@ -392,9 +392,14 @@ footer
 
 .security_group_table
 {
+    margin:0px;
     width:100%;
     height:100%;
-    background-color:red;
+    background-color:transparent;
+    border-width:1px;
+    border-style:solid;
+    border-color:gray;
+
 }
 
 #groupTree #panelContentpanelgroupTree
@@ -406,12 +411,20 @@ footer
 {
     border-width:0px;
     color:black;
+    /*border-right-width:2px;
+    border-right-style:solid;
+    border-right-color:black;*/
 }
 
 .security_group_table td:first-child
 {
     width:250px;
-    background-color:black;
+    background-color:transparent;
+    padding:1px 0px 1px 1px;
+}
+.security_group_table td
+{
+    padding:1px;
 }
 
 

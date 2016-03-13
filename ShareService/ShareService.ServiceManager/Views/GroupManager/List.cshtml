@@ -79,6 +79,8 @@
         }
     }
 </script>
+
+
 <div class="NavWindow">
     <div class="NavHeader">
         <img src="~/Images/home.png" />
@@ -87,41 +89,13 @@
     <div class="NavContent">
         <div class="Title">
             <div style="float:left;margin-left:10px;font-weight:bold;">组管理</div>
-            <div onclick="createGroup();" class="UFButton">
-                添加
-            </div>
-            <div onclick="showGroupsList()" class="UFButton">
-                刷新
-            </div>
         </div>
-        <div class="Content">
-            <table class="UFTable">
-                <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Name)
-                    </th>
-                    <th>
-                        操作
-                    </th>
-                </tr>
-
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Name)
-                        </td>
-                        <td>
-                            <a onclick="editGroup('@item.Code')" style="cursor:pointer;">编辑</a>
-                            <a onclick="viewGroup('@item.Code')" style="cursor:pointer;">详细信息</a>
-                            <a onclick="deleteGroup('@item.Code')" style="cursor:pointer;">删除</a>
-                            <a onclick="rolesOfGroup('@item.Code')" style="cursor:pointer;">角色</a>
-                            <a onclick="servicesOfGroup('@item.Code')" style="cursor:pointer;">权限</a>
-                        </td>
-                    </tr>
+        <div class="Content" style="width:100%; height:100%;">
+            <div style="height:100%;">
+                @{
+                    Html.RenderAction("DirectoryTree");
                 }
-
-            </table>
+            </div>
         </div>
     </div>
 </div>

@@ -77,6 +77,8 @@ E:\Projects\PreProjects\Source\ShareService\Source\ShareService.ServiceManager\o
 E:\Projects\PreProjects\Source\ShareService\Source\ShareService.ServiceManager\obj\x64\Debug\ShareService.ServiceManager.Migrations.addGroups.resources
 E:\Projects\PreProjects\Source\ShareService\Source\ShareService.ServiceManager\obj\x64\Debug\ShareService.ServiceManager.Migrations.modifyUserEmailToUserName.resources
 E:\Projects\PreProjects\Source\ShareService\Source\ShareService.ServiceManager\obj\x64\Debug\ShareService.ServiceManager.Migrations.usermodels.resources
+E:\Projects\PreProjects\Source\ShareService\Source\ShareService.ServiceManager\obj\x64\Debug\ShareService.ServiceManager.Migrations.groupparent.resources
+E:\Projects\PreProjects\Source\ShareService\Source\ShareService.ServiceManager\obj\x64\Debug\ShareService.ServiceManager.Migrations.group1.resources
 E:\Projects\PreProjects\Source\ShareService\Source\ShareService.ServiceManager\obj\x64\Debug\ShareService.ServiceManager.Properties.Resources.resources
 E:\Projects\PreProjects\Source\ShareService\Source\ShareService.ServiceManager\obj\x64\Debug\ShareService.ServiceManager.csproj.GenerateResource.Cache
 E:\Projects\PreProjects\Source\ShareService\Source\ShareService.ServiceManager\obj\x64\Debug\ShareService.ServiceManager.dll

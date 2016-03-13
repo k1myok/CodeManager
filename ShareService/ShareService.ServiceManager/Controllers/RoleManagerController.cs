@@ -63,5 +63,27 @@ namespace ShareService.ServiceManager.Controllers
             var result = context.SaveChanges() > 0;
             return Json(new { State = result }, JsonRequestBehavior.AllowGet);
         }
+
+        public PartialViewResult EditUsersOfRole(Guid code) {
+            var userCodes = context.UFUserInRole.Where(ur => ur.RoleCode == code).Select(u=>u.UserCode).ToList();
+            var allUsers = context.UFUser.ToList();
+            ViewBag.userCodes = userCodes;
+            ViewBag.roleCode = code;
+            return PartialView(allUsers);
+        }
+
+        [HttpPost]
+        public JsonResult EditUsersOfRole( string userCode,string roleCode) {
+            Guid userGuid = Guid.Parse(userCode);
+            var target = context.UFUserInRole.FirstOrDefault(ur => ur.UserCode == userGuid);
+            if (target != null)
+            {
+                context.UFUserInRole.Remove(target);
+            }
+            else {
+                context.UFUserInRole.Add(new UFUserInRole() { RoleCode = Guid.Parse(roleCode), UserCode = Guid.Parse(userCode) });
+            }
+            return Json(new { State = context.SaveChanges() > 0 });
+        }
     }
 }

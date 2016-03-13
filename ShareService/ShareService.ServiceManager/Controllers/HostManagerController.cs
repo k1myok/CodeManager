@@ -83,36 +83,6 @@ namespace ShareService.ServiceManager.Controllers
                 State = false
             });
         }
-        public PartialViewResult CreateServerInstance(Guid farmCode)
-        {
-            var model = new ServerInstance() {
-                FarmCode = farmCode
-            };
-            return PartialView(model);
-        }
-
-        [HttpPost]
-        public JsonResult CreateServerInstance(ServerInstance model)
-        {
-            if (ModelState.IsValid)
-            {
-                model.Code = Guid.NewGuid();
-                context.ServerInstance.Add(model);
-                var result = context.SaveChanges() > 0;
-                return Json(new
-                {
-                    State = result
-                });
-            }
-            else
-            {
-                return Json(new
-                {
-                    State = false
-                });
-            }
-        }
-
 
         public PartialViewResult EditServerInstance(Guid code)
         {

@@ -86,9 +86,20 @@
         }
     }
 
-    function rolesOfUser()
+    function rolesOfUser(code)
     {
-
+        $('#loader').show();
+        $.ajax({
+            url: '../UserManager/EditRolesOfUser?userCode=' + code,
+            success: function (data) {
+                $('#resourceWindow #titleContainer').html('编辑用户与角色信息');
+                $('#resourceWindow #customWindowContent').empty().html(data);
+                $('#resourceWindow').jqxWindow('open');
+            },
+            complete: function () {
+                $('#loader').hide();
+            }
+        });
     }
 
     function servicesOfUser()

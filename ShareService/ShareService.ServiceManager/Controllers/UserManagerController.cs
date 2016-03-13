@@ -65,5 +65,61 @@ namespace ShareService.ServiceManager.Controllers
             var result = context.SaveChanges() > 0;
             return Json(new { State = result }, JsonRequestBehavior.AllowGet);
         }
+
+        public PartialViewResult EditRolesOfUser(Guid userCode) {
+            var roleCodes = context.UFUserInRole.Where(ur => ur.UserCode == userCode).Select(e => e.RoleCode).ToList();
+            //var rolesOfUser = context.UFRole.Where(r => roleCodes.Contains(r.Code)).ToList();
+            var allRoles = context.UFRole.ToList();
+            ViewBag.roleCodes = roleCodes;
+            ViewBag.userCode = userCode;
+            return PartialView(allRoles);
+        }
+
+        public JsonResult AddUserToRole(string userCode, string roleCode)
+        {
+            var userGuid = Guid.Parse(userCode);
+            var roleGuid = Guid.Parse(roleCode);
+            var target = context.UFUserInRole.FirstOrDefault(u => u.RoleCode == roleGuid && u.UserCode == userGuid);
+            if (target != null)
+            {
+                return Json(new { State = true }, JsonRequestBehavior.AllowGet);
+            }
+            else {
+                var userInRole = new UFUserInRole() {
+                    RoleCode = roleGuid,
+                    UserCode = userGuid
+                };
+
+                context.UFUserInRole.Add(userInRole);
+                return Json(
+                    new
+                    {
+                        State = context.SaveChanges() > 0
+                    }, 
+                    JsonRequestBehavior.AllowGet
+                );
+            }
+        }
+
+        public JsonResult RemoveUserFromRole(string userCode, string roleCode)
+        {
+            var userGuid = Guid.Parse(userCode);
+            var roleGuid = Guid.Parse(roleCode);
+            var target = context.UFUserInRole.FirstOrDefault(u => u.RoleCode == roleGuid && u.UserCode == userGuid);
+            if (target == null)
+            {
+                return Json(new { State = false }, JsonRequestBehavior.AllowGet);
+            }
+            else {
+                context.UFUserInRole.Remove(target);
+                return Json(
+                    new
+                    {
+                        State = context.SaveChanges() > 0
+                    }, 
+                    JsonRequestBehavior.AllowGet
+                );
+            }
+        }
     }
 }

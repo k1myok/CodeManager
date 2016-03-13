@@ -78,6 +78,21 @@
             });
         }
     }
+
+    function usersOfRole(code) {
+        $('#loader').show();
+        $.ajax({
+            url: '../RoleManager/EditUsersOfRole?code=' + code,
+            success: function (data) {
+                $('#resourceWindow #titleContainer').html('编辑用户与角色信息');
+                $('#resourceWindow #customWindowContent').empty().html(data);
+                $('#resourceWindow').jqxWindow('open');
+            },
+            complete: function () {
+                $('#loader').hide();
+            }
+        });
+    }
 </script>
 <div class="NavWindow">
     <div class="NavHeader">

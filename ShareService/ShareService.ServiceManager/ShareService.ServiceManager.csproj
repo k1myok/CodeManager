@@ -39,6 +39,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -56,7 +57,6 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -64,8 +64,11 @@
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml" />
@@ -107,7 +110,6 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
@@ -183,8 +185,6 @@
     <Compile Include="Controllers\MetadataManagerController.cs" />
     <Compile Include="Controllers\RoleManagerController.cs" />
     <Compile Include="Controllers\SecurityManagerController.cs" />
-    <Compile Include="Controllers\ServiceDirectoryManagerController.cs" />
-    <Compile Include="Controllers\ServiceManageController.cs" />
     <Compile Include="Controllers\ServiceManagerController.cs" />
     <Compile Include="Controllers\UserManagerController.cs" />
     <Compile Include="DAL\ShareServiceContext.cs" />
@@ -1018,7 +1018,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -1044,24 +1046,8 @@
     <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
     <Content Include="Views\Account\SendCode.cshtml" />
     <Content Include="Views\Account\VerifyCode.cshtml" />
-    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
-    <Content Include="Views\Manage\ChangePassword.cshtml" />
-    <Content Include="Views\Manage\Index.cshtml" />
-    <Content Include="Views\Manage\ManageLogins.cshtml" />
-    <Content Include="Views\Manage\SetPassword.cshtml" />
-    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\ServiceManage\Index.cshtml" />
-    <Content Include="Views\ServiceManage\Farms.cshtml" />
-    <Content Include="Views\ServiceManage\CreateFarm.cshtml" />
-    <Content Include="Views\ServiceManage\ServerInstances.cshtml" />
-    <Content Include="Views\ServiceManage\CreateServerInstance.cshtml" />
-    <Content Include="Views\ServiceManage\Services.cshtml" />
-    <Content Include="Views\ServiceManage\CreateService.cshtml" />
-    <Content Include="Views\ServiceManage\EditFarm.cshtml" />
-    <Content Include="Views\ServiceManage\EditServerInstance.cshtml" />
-    <Content Include="Views\ServiceManage\EditService.cshtml" />
     <Content Include="Views\SecurityManager\Index.cshtml" />
     <Content Include="Views\SecurityManager\Users.cshtml" />
     <Content Include="Views\SecurityManager\Roles.cshtml" />
@@ -1075,7 +1061,6 @@
     <Content Include="Views\SecurityManager\EditRolesInGroup.cshtml" />
     <Content Include="Views\Shared\_Layout1.cshtml" />
     <Content Include="Views\Manage\Default.cshtml" />
-    <Content Include="Views\Manage\HostManager.cshtml" />
     <Content Include="Views\HostManager\FarmsList.cshtml" />
     <Content Include="Views\HostManager\Manager.cshtml" />
     <Content Include="Views\HostManager\HostsList.cshtml" />
@@ -1121,11 +1106,10 @@
     <Content Include="Views\GroupManager\DirectoryTreeItem.cshtml" />
     <Content Include="Views\HostManager\CreateServerInstance.cshtml" />
     <Content Include="Views\GroupManager\UsersOfGroup.cshtml" />
+    <Content Include="Views\UserManager\EditRolesOfUser.cshtml" />
+    <Content Include="Views\RoleManager\EditUsersOfRole.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\ARRManager\" />
-    <Folder Include="Views\ServiceDirectoryManager\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />

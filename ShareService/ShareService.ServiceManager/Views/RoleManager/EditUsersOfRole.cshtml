@@ -1,0 +1,55 @@
+﻿@model IEnumerable<ShareService.ServiceManager.Models.UFUser>
+<script>
+    function exitEditUsersOfRole() {
+        $('#resourceWindow').jqxWindow('close');
+    }
+    function change(e) {
+        //alert($(e).val());
+        var checkedUserCode = $(e).val();
+        $.ajax({
+            url: '../RoleManager/EditUsersOfRole?userCode=' + checkedUserCode + '&roleCode=' + $('#roleCode').val(),
+            type: 'post',
+            success: function (result) {
+                if (!result.State) {
+                    alert("与服务器发生通信故障，稍后再试！");
+                }
+            }
+        });
+    }
+</script>
+<div class="Content">
+    <table class="UFTable">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                是否选择
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                   @if (ViewBag.userCodes.Contains(item.Code))
+                   {
+                    <input type="checkbox" checked value="@item.Code" onchange="change(this)" />
+
+                   }
+                   else {
+                    <input type="checkbox" value="@item.Code" onchange="change(this)" />
+                   }
+                </td>
+
+            </tr>
+        }
+
+    </table>
+    <input value="@ViewBag.roleCode" hidden id="roleCode" />
+    <input onclick="exitEditUsersOfRole()" value="退  出" class="btn btn-default" style="position:absolute; left:50%;bottom:15px; margin-left:-40px;width:80px;" />
+
+</div>
