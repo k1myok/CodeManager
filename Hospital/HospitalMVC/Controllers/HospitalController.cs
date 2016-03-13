@@ -18,12 +18,11 @@ namespace HospitalMVC.Controllers
         }
         public ActionResult  GetHospitalList()
         {
-            //Hospital hos= new Hospital();
+            Hospital hos= new Hospital();
             ViewBag.List = new List<Hospital>();
             var context = new CityServiceEntities();
-            var result = context.Hospitals.OrderBy(p => p.HospName).Select(p => p.HospName).ToList();
-            var list = (List<Hospital>)ViewBag.list;
-            return ViewBag(list);
+            var result = context.Hospitals.OrderBy(p => p.HospName).Select(p => p.HospName);
+            return ViewBag(result);
         }
         /// <summary>
         ///专家科室挂号
@@ -74,9 +73,9 @@ namespace HospitalMVC.Controllers
         /// 获取普通科室号源
         /// </summary>
         /// <returns></returns>
-        public ActionResult GetExRegister()
-        {
-            return View();
-        }
+        //public ActionResult GetExRegister()
+        //{
+        //    return View();
+        //}
     }
 }
