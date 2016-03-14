@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+
+    
+    <script>
+        function onMenuClick(url)
+        {
+            if (url != "") {
+                $('#loader').show();
+                $.ajax({
+                    url: url,
+                    success: function (data) {
+                        alert(data);
+                        $('#MainContent').empty().html(data);
+                    },
+                    complete: function () {
+                        $('#loader').hide();
+                    }
+                });
+            }
+            else
+                $('#MainContent').empty();
+
+        }
+    </script>
+
+    <link href="~/Content/SimpleTheme.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="Header">
+        <div class="Title">
+            大数据分析建模系统
+        </div>
+        <div class="MenuLink">
+            <div onclick="onMenuClick('../HostManager/Manager')">
+                <img src="~/Images/server.png" />
+                <div>
+                    首页
+                </div>
+            </div>
+            <div onclick="onMenuClick('../ModelManager/DirectoryTree')">
+                <img src="~/Images/server.png" />
+                <div>
+                    模型管理
+                </div>
+            </div>
+            <div onclick="onMenuClick('../ModelBuilding/List')">
+                <img src="~/Images/server.png" />
+                <div>
+                    系统建模
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="MainContentContainer">
+        <div class="MainContent" id="MainContent">
+            @RenderBody()
+        </div>
+    </div>
+    <div id="resourceWindow" style="display:none;">
+        <div id="customWindowHeader">
+            <span id="titleContainer" style="float: left"></span>
+        </div>
+        <div id="customWindowContent" style="overflow: auto">
+        </div>
+    </div>
+
+    <div id="loader" class="Loading">
+        请 稍 后...
+    </div>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

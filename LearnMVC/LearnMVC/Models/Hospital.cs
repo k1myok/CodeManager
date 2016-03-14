@@ -10,11 +10,12 @@ namespace LearnMVC.Models
 {
     public class Hospital
     {
-         [Required]
-        
+
         public string HospName { get; set; }
+        public string Grade { get; set; }
         public string Kind { get; set; }
-        public string Location { get; set; }
-        public string Tel { get; set; }
+        public string Address { get; set; }
+        public string Phone { get; set; }
+        public string Intro { get; set; }
     }
 }

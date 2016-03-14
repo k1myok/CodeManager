@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CityServiceModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“CityService.dbo.Depart”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+  <EntityType Name="Depart">
+    <Key>
+      <PropertyRef Name="HospName" />
+      <PropertyRef Name="DepartName" />
+    </Key>
+    <Property Name="HospName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="DepartName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="DepartType" Type="nvarchar" MaxLength="100" />
+    <Property Name="DepartIntro" Type="nvarchar" MaxLength="2000" />
+    <Property Name="Limited" Type="nvarchar" MaxLength="20" />
+    <Property Name="RegistryFee" Type="nvarchar" MaxLength="20" />
+    <Property Name="ClinicFee" Type="nvarchar" MaxLength="20" />
+    <Property Name="DepartSex" Type="nvarchar" MaxLength="2" />
+    <Property Name="ChildAge" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“CityService.dbo.Doctor”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+  <EntityType Name="Doctor">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="HospName" />
+      <PropertyRef Name="DepartName" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HospName" Type="nchar" MaxLength="100" Nullable="false" />
+    <Property Name="DepartName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="DoctorName" Type="nvarchar" MaxLength="50" />
+    <Property Name="DocSex" Type="nvarchar" MaxLength="10" />
+    <Property Name="DocRank" Type="nvarchar" MaxLength="100" />
+    <Property Name="DoctorInro" Type="nvarchar" MaxLength="4000" />
+    <Property Name="DocMajor" Type="nvarchar" MaxLength="400" />
+    <Property Name="IsExpert" Type="nvarchar" MaxLength="100" />
+    <Property Name="RegistryFee" Type="nvarchar" MaxLength="20" />
+    <Property Name="ClinicFee" Type="nvarchar" MaxLength="20" />
+    <Property Name="DocPhotoURL" Type="nvarchar" MaxLength="400" />
+  </EntityType>
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“CityService.dbo.Hospital”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+  <EntityType Name="Hospital">
+    <Key>
+      <PropertyRef Name="HospName" />
+    </Key>
+    <Property Name="HospName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Grade" Type="nvarchar" MaxLength="50" />
+    <Property Name="Kind" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address" Type="nvarchar" MaxLength="200" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="20" />
+    <Property Name="Intro" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Member">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="IDCard" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Style" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="openID" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Register">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="IDCard" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="OPenId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="HospName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DepartName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DoctorName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="RegisteDate" Type="datetime" Nullable="false" />
+    <Property Name="ClinicDate" Type="datetime" Nullable="false" />
+    <Property Name="StartTime" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="EndTime" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="RegisterFee" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="SN" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DocRate" Type="nvarchar" MaxLength="20" />
+    <Property Name="Style" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="comment" Type="nvarchar" MaxLength="200" />
+    <Property Name="ClinicSerialNo" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“CityService.dbo.schedual”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+  <EntityType Name="schedual">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="HospName" />
+      <PropertyRef Name="DepartName" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HospName" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="DepartName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DoctorName" Type="nvarchar" MaxLength="20" />
+    <Property Name="WorkDate" Type="datetime" />
+    <Property Name="WorkType" Type="nvarchar" MaxLength="20" />
+    <Property Name="WorkStatus" Type="nvarchar" MaxLength="20" />
+    <Property Name="ExpertFee" Type="nvarchar" MaxLength="20" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityContainer Name="CityServiceModelStoreContainer">
+    <EntitySet Name="Member" EntityType="Self.Member" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Register" EntityType="Self.Register" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Depart" EntityType="Self.Depart" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[Depart].[HospName] AS [HospName], 
+[Depart].[DepartName] AS [DepartName], 
+[Depart].[DepartType] AS [DepartType], 
+[Depart].[DepartIntro] AS [DepartIntro], 
+[Depart].[Limited] AS [Limited], 
+[Depart].[RegistryFee] AS [RegistryFee], 
+[Depart].[ClinicFee] AS [ClinicFee], 
+[Depart].[DepartSex] AS [DepartSex], 
+[Depart].[ChildAge] AS [ChildAge]
+FROM [dbo].[Depart] AS [Depart]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Doctor" EntityType="Self.Doctor" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[Doctor].[ID] AS [ID], 
+[Doctor].[HospName] AS [HospName], 
+[Doctor].[DepartName] AS [DepartName], 
+[Doctor].[DoctorName] AS [DoctorName], 
+[Doctor].[DocSex] AS [DocSex], 
+[Doctor].[DocRank] AS [DocRank], 
+[Doctor].[DoctorInro] AS [DoctorInro], 
+[Doctor].[DocMajor] AS [DocMajor], 
+[Doctor].[IsExpert] AS [IsExpert], 
+[Doctor].[RegistryFee] AS [RegistryFee], 
+[Doctor].[ClinicFee] AS [ClinicFee], 
+[Doctor].[DocPhotoURL] AS [DocPhotoURL]
+FROM [dbo].[Doctor] AS [Doctor]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Hospital" EntityType="Self.Hospital" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[Hospital].[HospName] AS [HospName], 
+[Hospital].[Grade] AS [Grade], 
+[Hospital].[Kind] AS [Kind], 
+[Hospital].[Address] AS [Address], 
+[Hospital].[Phone] AS [Phone], 
+[Hospital].[Intro] AS [Intro]
+FROM [dbo].[Hospital] AS [Hospital]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="schedual" EntityType="Self.schedual" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[schedual].[ID] AS [ID], 
+[schedual].[HospName] AS [HospName], 
+[schedual].[DepartName] AS [DepartName], 
+[schedual].[DoctorName] AS [DoctorName], 
+[schedual].[WorkDate] AS [WorkDate], 
+[schedual].[WorkType] AS [WorkType], 
+[schedual].[WorkStatus] AS [WorkStatus], 
+[schedual].[ExpertFee] AS [ExpertFee], 
+[schedual].[Remark] AS [Remark]
+FROM [dbo].[schedual] AS [schedual]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

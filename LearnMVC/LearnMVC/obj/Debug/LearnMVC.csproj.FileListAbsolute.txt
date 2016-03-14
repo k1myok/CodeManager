@@ -2,6 +2,7 @@ F:\NET\MVCProject\LearnMVC\LearnMVC\bin\LearnMVC.dll.config
 F:\NET\MVCProject\LearnMVC\LearnMVC\bin\LearnMVC.dll
 F:\NET\MVCProject\LearnMVC\LearnMVC\bin\LearnMVC.pdb
 F:\NET\MVCProject\LearnMVC\LearnMVC\bin\Antlr3.Runtime.dll
+F:\NET\MVCProject\LearnMVC\LearnMVC\bin\DataBaseMVC.dll
 F:\NET\MVCProject\LearnMVC\LearnMVC\bin\EntityFramework.dll
 F:\NET\MVCProject\LearnMVC\LearnMVC\bin\Microsoft.Web.Infrastructure.dll
 F:\NET\MVCProject\LearnMVC\LearnMVC\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
@@ -16,6 +17,7 @@ F:\NET\MVCProject\LearnMVC\LearnMVC\bin\System.Web.WebPages.Deployment.dll
 F:\NET\MVCProject\LearnMVC\LearnMVC\bin\System.Web.WebPages.dll
 F:\NET\MVCProject\LearnMVC\LearnMVC\bin\System.Web.WebPages.Razor.dll
 F:\NET\MVCProject\LearnMVC\LearnMVC\bin\WebGrease.dll
+F:\NET\MVCProject\LearnMVC\LearnMVC\bin\DataBaseMVC.pdb
 F:\NET\MVCProject\LearnMVC\LearnMVC\bin\EntityFramework.xml
 F:\NET\MVCProject\LearnMVC\LearnMVC\bin\Newtonsoft.Json.xml
 F:\NET\MVCProject\LearnMVC\LearnMVC\bin\System.Net.Http.xml
@@ -35,5 +37,6 @@ F:\NET\MVCProject\LearnMVC\LearnMVC\bin\zh-Hans\System.Web.Razor.resources.dll
 F:\NET\MVCProject\LearnMVC\LearnMVC\bin\zh-Hans\System.Web.WebPages.resources.dll
 F:\NET\MVCProject\LearnMVC\LearnMVC\bin\zh-Hans\System.Web.WebPages.Deployment.resources.dll
 F:\NET\MVCProject\LearnMVC\LearnMVC\bin\zh-Hans\System.Web.WebPages.Razor.resources.dll
+F:\NET\MVCProject\LearnMVC\LearnMVC\obj\Debug\LearnMVC.csprojResolveAssemblyReference.cache
 F:\NET\MVCProject\LearnMVC\LearnMVC\obj\Debug\LearnMVC.dll
 F:\NET\MVCProject\LearnMVC\LearnMVC\obj\Debug\LearnMVC.pdb

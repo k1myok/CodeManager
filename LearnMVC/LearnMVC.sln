@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearnMVC", "LearnMVC\LearnMVC.csproj", "{272DA92D-8631-4EF7-A159-8BA7224B2FB1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBaseMVC", "DataBaseMVC\DataBaseMVC.csproj", "{D667C6EF-F9CF-48AF-A5E7-64558A1BD645}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{272DA92D-8631-4EF7-A159-8BA7224B2FB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{272DA92D-8631-4EF7-A159-8BA7224B2FB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{272DA92D-8631-4EF7-A159-8BA7224B2FB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D667C6EF-F9CF-48AF-A5E7-64558A1BD645}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D667C6EF-F9CF-48AF-A5E7-64558A1BD645}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D667C6EF-F9CF-48AF-A5E7-64558A1BD645}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D667C6EF-F9CF-48AF-A5E7-64558A1BD645}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

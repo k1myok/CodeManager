@@ -1,8 +1,18 @@
-﻿@model LearnMVC.Models.Hospital;
+﻿@model LearnMVC.Models.Hospital
 @{
     ViewBag.Title = "Add";
     Layout = "~/Views/Shared/_Layout.cshtml";
-}
-
+    }
 <h2>Add</h2>
-@for()
+<table>
+    <tr>
+        @foreach(var item in Model.HospName)
+        { 
+        <td>
+         item
+        </td>
+        }
+    </tr>
+
+
+</table>

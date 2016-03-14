@@ -4,11 +4,13 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using LearnMVC.Models;
+using DataBaseMVC;
 
 namespace LearnMVC.Controllers
 {
     public class LearnMVCController : Controller
     {
+        private CityServiceEntities content = new CityServiceEntities();
         //
         // GET: /LearnMVC/
 
@@ -108,10 +110,9 @@ namespace LearnMVC.Controllers
 
             return View();
         }
-        public PartialViewResult Add()
+        public ActionResult Add()
         {
-
-            return PartialView();
+          return View(content.Hospital.Distinct());
         }
     }
 }

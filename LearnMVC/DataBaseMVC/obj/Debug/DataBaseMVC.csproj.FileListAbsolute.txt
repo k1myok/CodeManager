@@ -1,0 +1,9 @@
+F:\NET\MVCProject\LearnMVC\DataBaseMVC\bin\Debug\DataBaseMVC.dll.config
+F:\NET\MVCProject\LearnMVC\DataBaseMVC\bin\Debug\DataBaseMVC.dll
+F:\NET\MVCProject\LearnMVC\DataBaseMVC\bin\Debug\DataBaseMVC.pdb
+F:\NET\MVCProject\LearnMVC\DataBaseMVC\bin\Debug\EntityFramework.dll
+F:\NET\MVCProject\LearnMVC\DataBaseMVC\bin\Debug\EntityFramework.xml
+F:\NET\MVCProject\LearnMVC\DataBaseMVC\bin\Debug\zh-Hans\EntityFramework.resources.dll
+F:\NET\MVCProject\LearnMVC\DataBaseMVC\obj\Debug\DataBaseMVC.csprojResolveAssemblyReference.cache
+F:\NET\MVCProject\LearnMVC\DataBaseMVC\obj\Debug\DataBaseMVC.dll
+F:\NET\MVCProject\LearnMVC\DataBaseMVC\obj\Debug\DataBaseMVC.pdb
