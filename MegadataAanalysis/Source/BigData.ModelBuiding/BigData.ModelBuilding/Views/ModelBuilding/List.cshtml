@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<BigData.ModelBuilding.Models.BaseField>
 @{
     ViewBag.Title = "List";
 }
@@ -18,31 +18,25 @@
                         <img src="~/Images/server.png" />
                         <a>系统建模</a>
                     </div>
-
                 </div>
-                <div class="Content" style="background-color:wheat">
+                <div class="Content"style="background-color:white">
                     <div id='groupTree'>
                         <ul>
                             <li>
+                                @foreach(var item in Model)
+                                {
                                 <ul>
-                                    @ViewBag.Message
+                                   @item.FieldName;
                                 </ul>
+                                }
                             </li>
                         </ul>
                     </div>
-                    @*<div id='contextMenu'>
-        <ul>
-            <li id="menuItemAdd" data-toggle="modal" data-target="#inputWindow">添加</li>
-            <li id="menuItemDelete">删除</li>
-        </ul>
-    </div>*@
-
-                  
                 </div>
             </div>
         </td>
         <td>
-            <div class="SimpleWindow
+            <div class="SimpleWindow">
                 <div class="TitleContainer" style="background-color:#32323A">
                     <div class="Title">
                         <img src="~/Images/server.png" />
@@ -60,4 +54,3 @@
         </td>
     </tr>
 </table>
-
