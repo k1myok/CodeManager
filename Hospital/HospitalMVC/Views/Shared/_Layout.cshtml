@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta  charset="utf-8"/>
+<title>@ViewBag.Title </title>
+ <meta name="viewport" content="width=device-width" />
+@*@Styles.Render("~/Content/css")*@
+ @Styles.Render("~/Content/themes/base/css")
+ @Styles.Render("~/Content/alipay/css")
+ @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+ </head>
+<body>
+    <div data-role="page">
+        <div data-role="content" style="background-color:#EFEFF4">
+            <div id="tab1Panel" class="am-list am-list-5lb" am-mode="flat chip form">
+                <div class="am-list-body" id="list"> 
+              @RenderSection("featured", required: false)
+
+                @RenderBody()
+             </div>
+            </div>
+        </div>
+        </div>
+        <footer style="text-align:center;margin-top:15px;font-size:14px;margin-bottom:10px;">
+            苏州市卫生与计划生育委员会<br />
+            苏州云联智慧技术信息有限公司
+        </footer>
+        @Scripts.Render("~/bundles/jquery")
+        @RenderSection("scripts", required: false)
+</body>
+</html>
