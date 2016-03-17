@@ -6,3 +6,11 @@ F:\NET\MVCProject\Hospital\HospitalData\bin\Debug\EntityFramework.xml
 F:\NET\MVCProject\Hospital\HospitalData\bin\Debug\zh-Hans\EntityFramework.resources.dll
 F:\NET\MVCProject\Hospital\HospitalData\obj\Debug\HospitalData.dll
 F:\NET\MVCProject\Hospital\HospitalData\obj\Debug\HospitalData.pdb
+E:\NET\MVCProject\Hospital\HospitalData\bin\Debug\HospitalData.dll.config
+E:\NET\MVCProject\Hospital\HospitalData\bin\Debug\HospitalData.dll
+E:\NET\MVCProject\Hospital\HospitalData\bin\Debug\HospitalData.pdb
+E:\NET\MVCProject\Hospital\HospitalData\bin\Debug\EntityFramework.dll
+E:\NET\MVCProject\Hospital\HospitalData\bin\Debug\EntityFramework.xml
+E:\NET\MVCProject\Hospital\HospitalData\bin\Debug\zh-Hans\EntityFramework.resources.dll
+E:\NET\MVCProject\Hospital\HospitalData\obj\Debug\HospitalData.dll
+E:\NET\MVCProject\Hospital\HospitalData\obj\Debug\HospitalData.pdb
