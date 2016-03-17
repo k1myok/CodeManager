@@ -111,6 +111,21 @@ namespace BigData.ModelBuilding.Controllers
         }
 
 
+        //jzmhang code
+        public PartialViewResult AnalysisModels(Guid code)
+        {
+            var model = context.AnalysisModel.Where(p => p.DirectoryCode == code).ToList();
+            return PartialView(model);
+         }
+
+
+        public PartialViewResult AnalysisModelsInformation(Guid code)
+        {
+            var bsaicInformation = context.AnalysisModel.Where(p => p.Code == code );
+            return PartialView(bsaicInformation);
+        }
+
+    /////
         //public PartialViewResult UsersOfGroup(Guid code)
         //{
         //    var models = from g in context.UFUserInGroup

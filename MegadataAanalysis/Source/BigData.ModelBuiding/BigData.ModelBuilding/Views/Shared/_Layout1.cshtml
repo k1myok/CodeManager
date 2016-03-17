@@ -24,7 +24,6 @@
                 $.ajax({
                     url: url,
                     success: function (data) {
-                        alert(data);
                         $('#MainContent').empty().html(data);
                     },
                     complete: function () {
@@ -82,6 +81,6 @@
     <div id="loader" class="Loading">
         请 稍 后...
     </div>
-    @RenderSection("scripts", required: false)
+    @RenderSection("scripts",required: false)
 </body>
 </html>

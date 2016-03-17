@@ -25,14 +25,10 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <SccProjectName>
-    </SccProjectName>
-    <SccLocalPath>
-    </SccLocalPath>
-    <SccAuxPath>
-    </SccAuxPath>
-    <SccProvider>
-    </SccProvider>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -191,6 +187,22 @@
     <Compile Include="Migrations\201603110732021_orgindb.cs" />
     <Compile Include="Migrations\201603110732021_orgindb.Designer.cs">
       <DependentUpon>201603110732021_orgindb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603150724298_modelfieldsinfo.cs" />
+    <Compile Include="Migrations\201603150724298_modelfieldsinfo.Designer.cs">
+      <DependentUpon>201603150724298_modelfieldsinfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603150731291_BuildingModel.cs" />
+    <Compile Include="Migrations\201603150731291_BuildingModel.Designer.cs">
+      <DependentUpon>201603150731291_BuildingModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603150733095_buildingmodel_1.cs" />
+    <Compile Include="Migrations\201603150733095_buildingmodel_1.Designer.cs">
+      <DependentUpon>201603150733095_buildingmodel_1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603150825451_directorycode.cs" />
+    <Compile Include="Migrations\201603150825451_directorycode.Designer.cs">
+      <DependentUpon>201603150825451_directorycode.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -1006,7 +1018,10 @@
     <Content Include="Views\Manager\Default.cshtml" />
     <Content Include="Views\ModelManager\DirectoryTree.cshtml" />
     <Content Include="Views\ModelManager\DirectoryTreeItem.cshtml" />
+    <Content Include="Views\ModelManager\AnalysisModels.cshtml" />
     <Content Include="Views\ModelBuilding\List.cshtml" />
+    <Content Include="Views\ModelBuilding\ListDetail.cshtml" />
+    <Content Include="Views\ModelBuilding\GetList.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -1019,6 +1034,18 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201603110732021_orgindb.resx">
       <DependentUpon>201603110732021_orgindb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603150724298_modelfieldsinfo.resx">
+      <DependentUpon>201603150724298_modelfieldsinfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603150731291_BuildingModel.resx">
+      <DependentUpon>201603150731291_BuildingModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603150733095_buildingmodel_1.resx">
+      <DependentUpon>201603150733095_buildingmodel_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603150825451_directorycode.resx">
+      <DependentUpon>201603150825451_directorycode.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

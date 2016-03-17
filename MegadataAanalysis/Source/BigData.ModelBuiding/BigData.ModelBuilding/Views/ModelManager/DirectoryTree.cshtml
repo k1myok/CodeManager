@@ -23,7 +23,7 @@
                 var code = $(selectedItem.element).data('directory');
                 if (code==null) {
                     $('#contextMenu ul #menuItemDelete').hide();
-                   
+
                 } else {
                     $('#contextMenu ul #menuItemDelete').show();
 
@@ -37,7 +37,7 @@
         $('#groupTree').on('select', function (event) {
             var code = $(event.args.element).data("directory"); //获取所选树节点的code
             if(code!=null)
-                showUsersListOfGroup(code);
+                showModelsOfGroup(code);
         });
 
         $("#contextMenu").on('itemclick', function (event) {
@@ -81,17 +81,49 @@
         return rightclick;
     }
 
-    function showUsersListOfGroup(code) {
+    function showModelsOfGroup(code) {
+      
+    function GetRequest() {
+    var url = location.search; //获取url中"?"符后的字串
+    var theRequest = new Object();
+    if (url.indexOf("?") != -1) {
+    var str = url.substr(1);
+    strs = str.split("&");
+    for(var i = 0; i < strs.length; i ++) {
+    theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);
+    }
+    }
+    return theRequest;
+    }
+
+
+
         $('#loader').show();
         $.ajax({
-            url: '../ModelManager/UsersOfGroup?code=' + code,
+            url: '../ModelManager/AnalysisModels?code=' + code,
             success: function (data) {
-                $('#usersListContainer').empty().html(data);
+                $('#modelListContainer').empty().html(data);
+                //$('#modelListContainer').empty().html(code);
             },
             complete: function () {
                 $('#loader').hide();
             }
         });
+     
+          
+    
+ 
+        //$('#loader').show();
+        //$.ajax({
+        //    url: '../ModelManager/UsersOfGroup?code=' + code,
+        //    success: function (data) {
+        //        $('#usersListContainer').empty().html(data);
+        //    },
+        //    complete: function () {
+        //        $('#loader').hide();
+        //    }
+        //});
+
     }
   
     function addTreeNode(newNodeName) {
@@ -231,11 +263,48 @@
                     </div>
                 </div>
                 <div class="Content" style="background-color:white; margin:1px;">
-                    <div id="usersListContainer"></div>
+                    <div id="modelListContainer"></div>
                 </div>
+                
             </div>
 
         </td>
     </tr>
 </table>
+
+
+<table class="security_group_table">
+    <tr>
+        <td>
+            <div class="SimpleWindow">
+                <div class="TitleContainer" style="background-color:#32323A">
+                    <div class="Title">
+                        <img src="~/Images/server.png" />
+                        <a>系统管理</a>
+                    </div>
+                </div> 
+                </div>
+            </div>
+        </td>
+        <td>
+            <div class="SimpleWindow">
+                <div class="TitleContainer" style="background-color:#32323A">
+                    <div class="Title">
+                        <img src="~/Images/server.png" />
+                        <a>模型成果</a>
+                    </div>
+                    <div class="HImgToolbar">
+                        <img onclick="addServer();" src="~/Images/server.png" title="添加" />
+                    </div>
+                </div>
+                <div class="Content" style="background-color:white; margin:1px;">
+                    <div id="modelSystemContainer"></div>
+                </div>
+
+            </div>
+
+        </td>
+    </tr>
+</table>
+
 

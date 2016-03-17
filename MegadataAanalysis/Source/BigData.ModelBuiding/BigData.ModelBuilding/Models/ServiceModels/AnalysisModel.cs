@@ -27,6 +27,8 @@ namespace BigData.ModelBuilding.Models
         [MaxLength(2000)]
         [Display(Name = "模型概要")]
         public string Description { get; set; }
+
+        public Guid DirectoryCode { get; set; }
     }
 
     public partial class BuildingModel

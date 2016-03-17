@@ -1,0 +1,270 @@
+﻿@*@model IEnumerable<BigData.ModelBuilding.Models.BuildingModel>*@
+@model BigData.ModelBuilding.Models.BuildingModel
+<script type="text/javascript">
+    $(document).ready(function () {
+        readModelName();
+    });
+
+    var code = '@(Model.ModelCode)';
+    function readModelName(){
+        var url = "../ModelBuilding/GetList?code=" + code;
+        $.ajax({
+            url: url,
+            success: function (data) {
+                $("#am").html(data);
+            },
+            complete:
+                {
+
+                }
+        });
+    }
+
+    function TurnPanel(type) {
+        switch (type) {
+            case 1:
+                $("#base").css("display", "");
+                $("#source").css("display", "none");
+                $("#am").css("display", "none")
+
+                break;
+            case 2:
+                $("#base").css("display", "none");
+                $("#source").css("display", "");
+                $("#am").css("display", "none")
+                this.className = "active"
+                break;
+            case 3:
+                $("#base").css("display", "none");
+                $("#source").css("display", "none");
+                $("#am").css("display", "")
+                break;
+        }
+    }
+</script>
+<ul class="nav nav-tabs">
+    <li role="presentation" class="active"><a onclick="TurnPanel(1)">基本信息</a></li>
+    <li role="presentation"><a onclick="TurnPanel(2)">模型信息</a></li>
+    <li role="presentation" ><a onclick="TurnPanel(3)">原型</a></li>
+</ul>
+
+ @using (Ajax.BeginForm("", "", new AjaxOptions { HttpMethod = "", OnSuccess = "" }))
+ {
+    <div class="form-horizontal" style="margin-top:15px;">
+        <div id="base" style="display:block">
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Name)
+            </div>
+        </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Description)
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.CreateDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.CreateDate)
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.UpdateDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.UpdateDate)
+                </div>
+            </div>
+      </div>
+        <div id="source" style="display:none">
+            <div class="form-group">
+                @Html.LabelFor(model => model.SourceName, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.SourceName)
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.SourceType, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.SourceType)
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.OutputName, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.OutputName)
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.OutputType, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.OutputType)
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.WhereCaluse, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.WhereCaluse)
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.OrderFields, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.OrderFields)
+                </div>
+            </div>
+        </div>
+        <div id="am" style="display:none;margin-left:10%">
+
+        </div>
+    </div>
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        @*<table class="UFTable">
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.Name)</th>
+                    <th>@Html.DisplayNameFor(model => model.Description)</th>
+                    <th>@Html.DisplayNameFor(model => model.CreateDate)</th>
+                    <th>@Html.DisplayNameFor(model => model.UpdateDate)</th>
+                    <th>@Html.DisplayNameFor(model => model.SourceName)</th>
+                    <th>@Html.DisplayNameFor(model => model.OutputName)</th>
+                    <th>@Html.DisplayNameFor(model => model.WhereCaluse)</th>
+                    <th>@Html.DisplayNameFor(model => model.OrderFields)</th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    @*<tr style="border:1px">
+                        <th>@item.Name</th>
+                        <th>@item.Description</th>
+                        <th>@item.CreateDate</th>
+                        <th>@item.UpdateDate</th>
+                        <th>@item.SourceName</th>
+                        <th>@item.OutputName</th>
+                        <th>@item.WhereCaluse</th>
+                        <th>@item.OrderFields</th>
+                    </tr>
+                  <tr>
+                      <th>@Html.DisplayFor(modelitem => item.Name)</th>
+                      <th>@Html.DisplayFor(modelitem => item.Description)</th>
+                      <th>@Html.DisplayFor(modelitem => item.CreateDate)</th>
+                      <th>@Html.DisplayFor(modelitem => item.UpdateDate)</th>
+                      <th>@Html.DisplayFor(modelitem => item.SourceName)</th>
+                      <th>@Html.DisplayFor(modelitem => item.OutputName)</th>
+                      <th>@Html.DisplayFor(modelitem => item.WhereCaluse)</th>
+                      <th>@Html.DisplayFor(modelitem => item.OrderFields)</th>
+                  </tr>
+                    <tr>
+                        <th>@Html.EditorFor(modelitem => item.Name)</th>
+                        <th>@Html.DisplayFor(modelitem => item.Description)</th>
+                        <th>@Html.EditorFor(model=>item.CreateDate)</th>
+                        <th>@Html.EditorFor(model => item.UpdateDate)</th>
+                        <th>@Html.EditorFor(model => item.SourceName)</th>
+                        <th>@Html.EditorFor(model => item.OutputName)</th>
+                        <th>@Html.EditorFor(model => item.WhereCaluse)</th>
+                        <th>@Html.EditorFor(model => item.OrderFields)</th>
+                    </tr>
+                }
+            </table>*@
+        @*<div class="UFTable">
+            @using (Ajax.BeginForm("", "", new AjaxOptions { }))
+            {
+                foreach (var item in Model)
+                {
+                    <div class="UFTable">
+                        <div class="form-group">
+                            @Html.DisplayNameFor(model => model.Name)
+                            @*<div class="col-md-10">
+                            @Html.EditorFor(modelitem => item.Name)
+                            @*</div>
+                        </div>
+                        <div class="form-group">
+                            @Html.DisplayNameFor(model => model.Description)
+                            @*<div class="col-md-10">
+                            @Html.EditorFor(modelitem => item.Description)
+                            @*</div>
+                        </div>
+                        <div class="form-group">
+                            @Html.DisplayNameFor(model => model.CreateDate)
+                            @*<div class="col-md-10">
+                            @Html.EditorFor(modelitem => item.CreateDate)
+                            @*</div>
+                        </div>
+                        <div class="form-group">
+                            @Html.DisplayNameFor(model => model.UpdateDate)
+                            @*<div class="col-md-10">
+                            @Html.EditorFor(modelitem => item.UpdateDate)
+                            @*</div>
+                        </div>
+                        <div class="form-group">
+                            @Html.DisplayNameFor(model => model.SourceName)
+                            @*<div class="col-md-10">
+                            @Html.EditorFor(modelitem => item.SourceName)
+                            @*</div>
+                        </div>
+                        <div class="form-group">
+                            @Html.DisplayNameFor(model => model.OutputName)
+                            @*<div class="col-md-10">
+                            @Html.EditorFor(modelitem => item.OutputName)
+                            @*</div>
+                        </div>
+                        <div class="form-group">
+                            @Html.DisplayNameFor(model => model.WhereCaluse)
+                            @*<div class="col-md-10">
+                            @Html.EditorFor(modelitem => item.WhereCaluse)
+                            @*</div>
+                        </div>
+                        <div class="form-group">
+                            @Html.DisplayNameFor(model => model.OrderFields)
+                            @*<div class="col-md-10">
+                            @Html.EditorFor(modelitem => item.OrderFields)
+                            @*</div>
+                        </div>
+                    </div>
+                <input type="submit" value="保  存" class="btn btn-default" style="position:absolute; left:50%;bottom:15px; margin-left:-40px;width:80px;" />
+                }
+            }
+            </div>*@
+
+
