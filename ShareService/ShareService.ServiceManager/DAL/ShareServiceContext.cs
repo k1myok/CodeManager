@@ -36,6 +36,7 @@ namespace ShareService.ServiceManager.DAL
         public DbSet<ShareService.ServiceManager.Models.UFServicesOfGroup> UFServicesOfGroup { get; set; }
         public DbSet<ShareService.ServiceManager.Models.UFGroupInRole> UFGroupInRole { get; set; }
         public DbSet<ShareService.ServiceManager.Models.UFServicesOfRole> UFServicesOfRole { get; set; }
+        public DbSet<ShareService.ServiceManager.Models.ServiceToken> ServiceToken { get; set; }
 
         [NotMapped]
         public DbSet<AspNetUsers> AspNetUsers { get; set; }

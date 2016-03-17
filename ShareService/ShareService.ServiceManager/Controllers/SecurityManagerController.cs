@@ -11,6 +11,7 @@ using System.Web.Mvc;
 
 namespace ShareService.ServiceManager.Controllers
 {
+    [UFAuthorize]
     public class SecurityManagerController : Controller
     {
         public PartialViewResult List()

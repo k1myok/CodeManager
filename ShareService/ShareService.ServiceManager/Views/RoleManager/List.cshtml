@@ -93,6 +93,21 @@
             }
         });
     }
+
+    function servicesOfRole(code) {
+        $('#loader').show();
+        $.ajax({
+            url: '../RoleManager/EditServicesOfRole?roleCode=' + code,
+            success: function (data) {
+                $('#resourceWindow #titleContainer').html('编辑角色权限');
+                $('#resourceWindow #customWindowContent').empty().html(data);
+                $('#resourceWindow').jqxWindow('open');
+            },
+            complete: function () {
+                $('#loader').hide();
+            }
+        });
+    }
 </script>
 <div class="NavWindow">
     <div class="NavHeader">

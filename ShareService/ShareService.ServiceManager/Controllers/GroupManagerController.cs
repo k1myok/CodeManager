@@ -8,6 +8,7 @@ using ShareService.ServiceManager.Models;
 
 namespace ShareService.ServiceManager.Controllers
 {
+    [UFAuthorize]
     public class GroupManagerController : Controller
     {
         private ShareServiceContext context = new ShareServiceContext();
@@ -139,12 +140,126 @@ namespace ShareService.ServiceManager.Controllers
 
         public PartialViewResult UsersOfGroup(Guid code)
         {
-            var models = from g in context.UFUserInGroup
+            var userCodes = from g in context.UFUserInGroup
                          join u in context.UFUser
                          on g.UserCode equals u.Code
                          where g.GroupCode == code
-                         select u;
+                         select u.Code;
+            var models = from u in context.UFUser select u;
+            ViewBag.groupCode = code;
+            ViewBag.userCodes = userCodes.ToList();
             return PartialView(models);                        
         }
+
+        public JsonResult AddUserToGroup(string userCode, string groupCode)
+        {
+            var userGuid = Guid.Parse(userCode);
+            var groupGuid = Guid.Parse(groupCode);
+            var target = context.UFUserInGroup.FirstOrDefault((System.Linq.Expressions.Expression<Func<UFUserInGroup, bool>>)(u => u.GroupCode == groupGuid && u.UserCode == userGuid));
+            if (target != null)
+            {
+                return Json(new { State = true }, JsonRequestBehavior.AllowGet);
+            }
+            else {
+                var ufuseringroup = new UFUserInGroup()
+                {
+                    GroupCode = groupGuid,
+                    UserCode = userGuid
+                };
+
+                context.UFUserInGroup.Add(ufuseringroup);
+                return Json(
+                    new
+                    {
+                        State = context.SaveChanges() > 0
+                    },
+                    JsonRequestBehavior.AllowGet
+                );
+            }
+        }
+
+        public JsonResult RemoveUserFromGroup(string userCode, string groupCode)
+        {
+            var userGuid = Guid.Parse(userCode);
+            var groupGuid = Guid.Parse(groupCode);
+            var target = context.UFUserInGroup.FirstOrDefault((System.Linq.Expressions.Expression<Func<UFUserInGroup, bool>>)(u => u.GroupCode == groupGuid && u.UserCode == userGuid));
+            if (target == null)
+            {
+                return Json(new { State = false }, JsonRequestBehavior.AllowGet);
+            }
+            else {
+                context.UFUserInGroup.Remove(target);
+                return Json(
+                    new
+                    {
+                        State = context.SaveChanges() > 0
+                    },
+                    JsonRequestBehavior.AllowGet
+                );
+            }
+        }
+
+        public PartialViewResult RolesOfGroup(Guid code)
+        {
+            var roleCodes = from g in context.UFGroupInRole
+                            join u in context.UFRole
+                            on g.RoleCode equals u.Code
+                            where g.GroupCode == code
+                            select u.Code;
+            var models = from u in context.UFRole select u;
+            ViewBag.groupCode = code;
+            ViewBag.roleCodes = roleCodes.ToList();
+            return PartialView(models);
+        }
+
+
+        public JsonResult AddRoleToGroup(string roleCode, string groupCode)
+        {
+            var roleGuid = Guid.Parse(roleCode);
+            var groupGuid = Guid.Parse(groupCode);
+            var target = context.UFGroupInRole.FirstOrDefault((System.Linq.Expressions.Expression<Func<UFGroupInRole, bool>>)(u => u.GroupCode == groupGuid && u.RoleCode == roleGuid));
+            if (target != null)
+            {
+                return Json(new { State = true }, JsonRequestBehavior.AllowGet);
+            }
+            else {
+                var ufgroupinrole = new UFGroupInRole()
+                {
+                    GroupCode = groupGuid,
+                    RoleCode = roleGuid
+                };
+
+                context.UFGroupInRole.Add(ufgroupinrole);
+                return Json(
+                    new
+                    {
+                        State = context.SaveChanges() > 0
+                    },
+                    JsonRequestBehavior.AllowGet
+                );
+            }
+        }
+
+        public JsonResult RemoveRoleFromGroup(string roleCode, string groupCode)
+        {
+            var roleGuid = Guid.Parse(roleCode);
+            var groupGuid = Guid.Parse(groupCode);
+            var target = context.UFGroupInRole.FirstOrDefault((System.Linq.Expressions.Expression<Func<UFGroupInRole, bool>>)(u => u.GroupCode == groupGuid && u.RoleCode == roleGuid));
+            if (target == null)
+            {
+                return Json(new { State = false }, JsonRequestBehavior.AllowGet);
+            }
+            else {
+                context.UFGroupInRole.Remove(target);
+                return Json(
+                    new
+                    {
+                        State = context.SaveChanges() > 0
+                    },
+                    JsonRequestBehavior.AllowGet
+                );
+            }
+        }
+
     }
 }

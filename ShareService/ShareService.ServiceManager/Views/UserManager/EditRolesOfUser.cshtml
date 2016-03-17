@@ -7,7 +7,7 @@
 
     function change(roleCode, selected)
     {
-        var url = selected ? "../UserManager/AddUserToRole" : "../UserManager/RemoveUserFromRole";
+        var url = selected ? "../UserManager/AddRoleToUser" : "../UserManager/RemoveRoleFromUser";
         $.ajax({
             url: url + '?userCode=' + userCode + '&roleCode=' + roleCode,
             success: function (result) {
@@ -37,9 +37,9 @@
                     @if (ViewBag.roleCodes.Contains(item.Code))
                     {
                         <input type="checkbox" checked onchange="change('@item.Code', this.checked)" />
-
                     }
-                    else {
+                    else 
+                    {
                         <input type="checkbox" onchange="change('@item.Code',  this.checked)" />
                     }
                 </td>
@@ -47,8 +47,35 @@
         }
 
     </table>
-    <input onclick="exitEditRoleOfUser()" value="退  出" class="btn btn-default" style="position:absolute; left:50%;bottom:15px; margin-left:-40px;width:80px;" />
+    @*<table class="">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>是否选择</th>
+        </tr>
+        @foreach (var item in Model)
+        { 
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem=>item.Name)
+            </td>
+            <td>
+                @if (ViewBag.roleCodes.Containes(item.Code))
+                {
+                    <input type="checkbox" checked onchange="change('@item.Code',this.checked)" />
+                }
+                else
+                { 
+                
+                <input type="checkbox" checked onchange="change('@item.Code',this.checked)" />
+                }
+            </td>
+        </tr>
+        }
+    </table>*@
 
+    <input onclick="exitEditRoleOfUser()" value="退  出" class="btn btn-default" style="position:absolute; left:50%;bottom:15px; margin-left:-40px;width:80px;" />
 </div>
 
 

@@ -8,6 +8,7 @@ using ShareService.ServiceManager.Models;
 
 namespace ShareService.ServiceManager.Controllers
 {
+    [UFAuthorize]
     public class HostManagerController : Controller
     {
         // GET: HostManager

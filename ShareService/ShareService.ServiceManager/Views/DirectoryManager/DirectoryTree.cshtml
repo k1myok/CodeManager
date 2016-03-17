@@ -167,6 +167,23 @@
             }
         });
     }
+
+    function resetServices() {
+        $('#loader').show();
+        $.ajax({
+            url: '../ARRManager/ResetServices',
+            success: function (data) {
+                if (data.Result) {
+                    alert("重置所有服务成功！");
+                } else {
+                    alert("发生异常，重置所有服务失败！");
+                }
+            },
+            complete:function(){
+                $('#loader').hide();
+            }
+        });
+    }
 </script>
 
 <style>
@@ -177,10 +194,12 @@
             <img src="~/Images/server.png" />
             <a>资源类别</a>
         </div>
-
+        @*<div class="HImgToolbar">
+            <label class="btn btn-default"onclick="resetServices()"title="重置所有服务">重置</label>
+        </div>*@
         <div class="HImgToolbar">
-            <img src="~/Images/server.png" title="添加" />
-            <img src="~/Images/server.png" title="删除" />
+            <img src="~/Images/server.png" title="重置"onclick="resetServices()"/>
+            @*<img src="~/Images/server.png" title="删除" />*@
         </div>
     </div>
     <div class="Content">

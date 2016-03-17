@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security.Claims;
+using System.Security.Principal;
 using System.Web;
+using System.Web.Mvc;
 using System.Web.Security;
 
 
@@ -65,4 +68,40 @@ public class WebAuthenticate : IHttpModule
     public void Dispose()
     {
     }
+}
+
+
+public class UFAuthorizeAttribute : AuthorizeAttribute
+{
+    protected override bool AuthorizeCore(HttpContextBase httpContext)
+    {
+        var result = httpContext.User.Identity != null && !string.IsNullOrEmpty(httpContext.User.Identity.Name);
+        return result;
+        return base.AuthorizeCore(httpContext);
+    }
+}
+
+public class CustomerIdentity : IIdentity
+{
+    public CustomerIdentity(string name)
+    {
+        this.Name = name;
+    }
+    public string AuthenticationType
+    {
+        get
+        {
+            return "Customer";
+        }
+    }
+
+    public bool IsAuthenticated
+    {
+        get
+        {
+            return true;
+        }
+    }
+
+    public string Name { get; private set; }
 }

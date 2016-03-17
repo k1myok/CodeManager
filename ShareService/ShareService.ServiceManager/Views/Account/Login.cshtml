@@ -1,8 +1,5 @@
 ﻿@using ShareService.ServiceManager.Models
 @model LoginViewModel
-@{
-    ViewBag.Title = "登录";
-}
 <style>
     .align-center {
         margin: 0 auto; /* 居中 这个是必须的，，其它的属性非必须 */
@@ -17,7 +14,7 @@
 </style>
 <div class="align-center" style="width:360px; padding-left:40px; padding-top:10px; padding-right:40px;padding-bottom:10px; margin-top:12%;">
     <h3 style="text-align:center;">用户登陆</h3>
-    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post))
+    @using (Html.BeginForm("Login", "Account", new { returnUrl = ViewBag.ReturnUrl }, FormMethod.Post))
             {
         @Html.AntiForgeryToken()
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -53,6 +50,3 @@
 
 </div>
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}

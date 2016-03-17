@@ -10,10 +10,9 @@ using ShareService.ServiceManager.Models;
 
 namespace ShareService.ServiceManager.Controllers
 {
-    [Authorize]
+    [UFAuthorize]
     public class ManageController : Controller
     {
-        [AllowAnonymous]
         public ActionResult Default()
         {
             return View();

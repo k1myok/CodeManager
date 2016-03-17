@@ -102,9 +102,20 @@
         });
     }
 
-    function servicesOfUser()
+    function servicesOfUser(code)
     {
-
+        $('#loader').show();
+        $.ajax({
+            url: '../UserManager/EditServicesOfUser?userCode=' + code,
+            success: function (data) {
+                $('#resourceWindow #titleContainer').html('编辑用户权限');
+                $('#resourceWindow #customWindowContent').empty().html(data);
+                $('#resourceWindow').jqxWindow('open');
+            },
+            complete: function () {
+                $('#loader').hide();
+            }
+        });
     }
 </script>
 <div class="NavWindow">

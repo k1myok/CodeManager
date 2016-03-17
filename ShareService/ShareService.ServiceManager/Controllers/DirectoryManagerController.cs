@@ -8,6 +8,7 @@ using ShareService.ServiceManager.Models;
 
 namespace ResoureManager.Content.Controllers
 {
+    [UFAuthorize]
     public class DirectoryManagerController : Controller
     {
         private ShareServiceContext context = new ShareServiceContext();
@@ -32,6 +33,7 @@ namespace ResoureManager.Content.Controllers
         {
             return PartialView(resourceItem);
         }
+
         private void Insert(List<ServiceDirectory> rootItems, List<ServiceDirectory> childsItems)
         {
             var count = childsItems.Count;

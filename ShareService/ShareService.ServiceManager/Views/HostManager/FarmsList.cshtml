@@ -40,6 +40,23 @@
                 }
             });
         }
+
+        function resetServerInstances() {
+            $('#loader').show();
+            $.ajax({
+                url: '../ARRManager/ResetFarms',
+                success: function (data) {
+                    if (data.Result) {
+                        alert("重置服务器成功！");
+                    } else {
+                        alert("发生异常，重置所有服务器失败！");
+                    }
+                },
+                complete: function () {
+                    $('#loader').hide();
+                }
+            });
+        }
 </script>
 <div class="SimpleWindow">
     <div class="TitleContainer">
@@ -48,8 +65,11 @@
             <a>集 群</a>
         </div>
         <div class="HImgToolbar">
-            <img onclick="addFarm();" src="~/Images/server.png" title="添加"/>
+            <img onclick="resetServerInstances();" src="~/Images/server.png" title="重置"/>
         </div>
+        @*<div class="HImgToolbar">
+            <label class="btn btn-default"onclick="resetServerInstances()">重置</label>
+        </div>*@
     </div>
     <div class="Content">
         <div class="SimpleListView">

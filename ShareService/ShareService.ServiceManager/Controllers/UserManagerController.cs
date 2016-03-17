@@ -8,6 +8,7 @@ using ShareService.ServiceManager.Models;
 
 namespace ShareService.ServiceManager.Controllers
 {
+    [UFAuthorize]
     public class UserManagerController : Controller
     {
         private ShareServiceContext context = new ShareServiceContext();
@@ -75,7 +76,7 @@ namespace ShareService.ServiceManager.Controllers
             return PartialView(allRoles);
         }
 
-        public JsonResult AddUserToRole(string userCode, string roleCode)
+        public JsonResult AddRoleToUser(string userCode, string roleCode)
         {
             var userGuid = Guid.Parse(userCode);
             var roleGuid = Guid.Parse(roleCode);
@@ -101,7 +102,7 @@ namespace ShareService.ServiceManager.Controllers
             }
         }
 
-        public JsonResult RemoveUserFromRole(string userCode, string roleCode)
+        public JsonResult RemoveRoleFromUser(string userCode, string roleCode)
         {
             var userGuid = Guid.Parse(userCode);
             var roleGuid = Guid.Parse(roleCode);
@@ -117,6 +118,62 @@ namespace ShareService.ServiceManager.Controllers
                     {
                         State = context.SaveChanges() > 0
                     }, 
+                    JsonRequestBehavior.AllowGet
+                );
+            }
+        }
+
+        public PartialViewResult EditServicesOfUser(Guid userCode) {
+            var serviceCodes = context.UFServicesOfUser.Where(su => su.UserCode == userCode).Select(e => e.ServiceCode).ToList();
+            var allServices = context.Service.ToList();
+            ViewBag.serviceCodes = serviceCodes;
+            ViewBag.userCode = userCode;
+            return PartialView(allServices);
+        }
+
+        public JsonResult AddServiceToUser(string userCode, string serviceCode)
+        {
+            var userGuid = Guid.Parse(userCode);
+            var serviceGuid = Guid.Parse(serviceCode);
+            var target = context.UFServicesOfUser.FirstOrDefault((System.Linq.Expressions.Expression<Func<UFServicesOfUser, bool>>)(u => u.ServiceCode == serviceGuid && u.UserCode == userGuid));
+            if (target != null)
+            {
+                return Json(new { State = true }, JsonRequestBehavior.AllowGet);
+            }
+            else {
+                var ufserviceofuser = new UFServicesOfUser()
+                {
+                    ServiceCode = serviceGuid,
+                    UserCode = userGuid
+                };
+
+                context.UFServicesOfUser.Add(ufserviceofuser);
+                return Json(
+                    new
+                    {
+                        State = context.SaveChanges() > 0
+                    },
+                    JsonRequestBehavior.AllowGet
+                );
+            }
+        }
+
+        public JsonResult RemoveServiceFromUser(string userCode, string serviceCode)
+        {
+            var userGuid = Guid.Parse(userCode);
+            var serviceGuid = Guid.Parse(serviceCode);
+            var target = context.UFServicesOfUser.FirstOrDefault((System.Linq.Expressions.Expression<Func<UFServicesOfUser, bool>>)(u => u.ServiceCode == serviceGuid && u.UserCode == userGuid));
+            if (target == null)
+            {
+                return Json(new { State = false }, JsonRequestBehavior.AllowGet);
+            }
+            else {
+                context.UFServicesOfUser.Remove(target);
+                return Json(
+                    new
+                    {
+                        State = context.SaveChanges() > 0
+                    },
                     JsonRequestBehavior.AllowGet
                 );
             }

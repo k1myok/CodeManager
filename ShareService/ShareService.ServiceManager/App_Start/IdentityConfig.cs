@@ -10,6 +10,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
+using ShareService.ServiceManager.DAL;
 using ShareService.ServiceManager.Models;
 
 namespace ShareService.ServiceManager
@@ -104,6 +105,21 @@ namespace ShareService.ServiceManager
         public static ApplicationSignInManager Create(IdentityFactoryOptions<ApplicationSignInManager> options, IOwinContext context)
         {
             return new ApplicationSignInManager(context.GetUserManager<ApplicationUserManager>(), context.Authentication);
+        }
+
+        public override Task<SignInStatus> PasswordSignInAsync(string userName, string password, bool isPersistent, bool shouldLockout)
+        {
+            return CheckUser(userName, password);
+            //return base.PasswordSignInAsync(userName, password, isPersistent, shouldLockout);
+        }
+
+        private async Task<SignInStatus> CheckUser(string userName, string password)
+        {
+            var result = new ShareServiceContext().UFUser.FirstOrDefault(p => p.Name == userName && p.Password == password) != null;
+            if (result)
+                return SignInStatus.Success;
+            else
+                return SignInStatus.Failure;
         }
     }
 }

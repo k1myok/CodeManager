@@ -8,6 +8,7 @@ using ShareService.ServiceManager.DAL;
 
 namespace ShareService.ServiceManager.Controllers
 {
+    [UFAuthorize]
     public class ARRManagerController : Controller
     {
         private ShareServiceContext context = new ShareServiceContext();

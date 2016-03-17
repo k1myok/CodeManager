@@ -239,6 +239,10 @@
     <Compile Include="Migrations\201603100745075_group1.Designer.cs">
       <DependentUpon>201603100745075_group1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201603160927014_servicetoken.cs" />
+    <Compile Include="Migrations\201603160927014_servicetoken.Designer.cs">
+      <DependentUpon>201603160927014_servicetoken.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -249,7 +253,9 @@
     <Compile Include="Models\ServiceModels\ServerFarm.cs" />
     <Compile Include="Models\ServiceModels\ServerInstance.cs" />
     <Compile Include="Models\ServiceModels\Service.cs" />
+    <Compile Include="Models\ServiceModels\ServiceToken.cs" />
     <Compile Include="Models\ServiceModels\UFUser.cs" />
+    <Compile Include="Models\UFToken.cs" />
     <Compile Include="Models\UserModels\AspNetRoles.cs" />
     <Compile Include="Models\UserModels\AspNetUserRoles.cs" />
     <Compile Include="Models\UserModels\AspNetUsers.cs" />
@@ -1108,8 +1114,14 @@
     <Content Include="Views\GroupManager\UsersOfGroup.cshtml" />
     <Content Include="Views\UserManager\EditRolesOfUser.cshtml" />
     <Content Include="Views\RoleManager\EditUsersOfRole.cshtml" />
+    <Content Include="Views\UserManager\EditServicesOfUser.cshtml" />
+    <Content Include="Views\RoleManager\EditServicesOfRole.cshtml" />
+    <Content Include="Views\GroupManager\RolesOfGroup.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\ARRManager\" />
+    <Folder Include="Views\ServiceDirectoryManager\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -1154,6 +1166,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201603100745075_group1.resx">
       <DependentUpon>201603100745075_group1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603160927014_servicetoken.resx">
+      <DependentUpon>201603160927014_servicetoken.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
