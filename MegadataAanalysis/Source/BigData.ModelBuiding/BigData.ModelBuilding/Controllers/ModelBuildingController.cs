@@ -20,11 +20,48 @@ namespace BigData.ModelBuilding.Controllers
             var result = context.BuildingModel.FirstOrDefault(p => p.Code == code);
             return PartialView(result);
         }
-        public PartialViewResult GetList(Guid code)
+        public PartialViewResult GetFieldsInfo(Guid code)
         {
-            var result = context.AnalysisModel.Where(p => p.Code == code).Select(am => new SelectListItem { Value=am.Name,Text=am.Name}).ToList();
+            var result = context.AnalysisModel.Where(p => p.Code == code).Select(am => new SelectListItem { Value = am.Name, Text = am.Name }).ToList();
             ViewBag.result = result;
             return PartialView();
         }
+
+        public PartialViewResult CreateBasicInfoModel()
+        {
+            return PartialView(new BuildingModel());
+        }
+         [HttpPost]
+        public JsonResult CreateBasicInfoModel(BuildingModel model)
+        {
+          model.Code = Guid.NewGuid();
+          model.ModelCode = Guid.NewGuid();
+          context.BuildingModel.Add(model);
+          var result=context.SaveChanges()>0;
+          return Json(new { Status=result });
+        }
+        [HttpPost]
+        public JsonResult EditBasicInfoModel(BuildingModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                context.Entry(model).State = System.Data.Entity.EntityState.Modified;
+                var result = context.SaveChanges() > 0;
+                return Json(new
+                {
+                    State = result
+                });
+            }
+            else
+            {
+                return Json(new
+                {
+                    State = false
+                });
+            }
+        }
     }
-}
+        
+        
+        
+    }

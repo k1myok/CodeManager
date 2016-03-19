@@ -1,33 +1,47 @@
 ﻿@model IEnumerable<BigData.ModelBuilding.Models.AnalysisModel>
 
-    <table class="UFTable">
+<script>
+    function showDetailOfModel(code)
+    {
+        $('#loader').show();
+        $.ajax({
+            url: "../ModelManager/ModelDetail?code=" + code,
+            success: function (result) {
+                $('#contentContianer').empty().html(result);
+                $('#detailWindow').modal('show');
+            },
+            complete: function () {
+                $('#loader').hide();
+            }
+        });
+    }
+</script>
+<table class="UFTable" style="table-layout:fixed;">
     <tr>
-        <th>@Html.DisplayNameFor(model => model.Code)</th>
+        @*<th>@Html.DisplayNameFor(model => model.Code)</th>*@
         <th>@Html.DisplayNameFor(model => model.Name)</th>
         <th>@Html.DisplayNameFor(model => model.OutTemplateFilePath)</th>
         <th>@Html.DisplayNameFor(model => model.Description)</th>
-        <th>@Html.DisplayNameFor(model => model.DirectoryCode)</th>
+        @*<th>@Html.DisplayNameFor(model => model.DirectoryCode)</th>*@
         <th>操作</th>
          
     </tr>
-        @foreach (var item in Model)
+    @foreach (var item in Model)
     {
-    <tr>
-        <td>@item.Code</td>
-        <td>@item.Name</td>
-        <td>@item.OutTemplateFilePath</td>
-        <td>@item.Description</td>
-        <td>@item.DirectoryCode</td>
-        <td data-toggle="modal" data-target="#modelDisplayWindow">详情</td>
-        @*<td><button type="button" data-toggle="modal" data-target="#modelDisplayWindow">详情</button></td>*@
-    </tr>
-        }
+        <tr>
+            @*<td>@item.Code</td>*@
+            <td>@item.Name</td>
+            <td>@item.OutTemplateFilePath</td>
+            <td>@item.Description</td>
+            @*<td>@item.DirectoryCode</td>*@
+            <td data-toggle="modal"><a style="cursor:pointer;" onclick="showDetailOfModel('@item.Code')">详情</a></td>
+        </tr>
+    }
 </table>
 
 
-<div style="clear:both;" class="modal fade" id="modelDisplayWindow" tabindex="-1" role="dialog"
- aria-hidden="true">
-    <div class="modal-dialog" style="width:auto;">
+<div id="detailWindow" style="clear:both;" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <label class="form">详细信息</label>  
@@ -35,60 +49,12 @@
                     &times;
                 </button>
             </div>
-            <div class="modal-body">
-                    <ul class="nav nav-tabs" id="myTab">
-                    <li class="active"><a href="#home">基本信息</a></li>
-                    <li><a href="#profile">Profile</a></li>
-                    <li><a href="#messages">Messages</a></li>
-                    <li><a href="#settings">Settings</a></li>
-                </ul>
-
-                <div class="tab-content">
-                    <div class="tab-pane active" id="home">
-             <table class="UFTable">
-
-            <tr>
-                <th>@Html.DisplayNameFor(model => model.Code)</th>
-                <th>@Html.DisplayNameFor(model => model.Name)</th>
-                <th>@Html.DisplayNameFor(model => model.OutTemplateFilePath)</th>
-                <th>@Html.DisplayNameFor(model => model.Description)</th>
-                <th>@Html.DisplayNameFor(model => model.DirectoryCode)</th>
-            </tr>
-            @foreach (var item in Model)
-
-            {
-                <tr>
-                    <td>@item.Code</td>
-                    <td>@item.Name</td>
-                    <td>@item.OutTemplateFilePath</td>
-                    <td>@item.Description</td>
-                    <td>@item.DirectoryCode</td>
-                </tr>
-            }
-        </table>
-                    </div>
-                    <div class="tab-pane" id="profile">...</div>
-                    <div class="tab-pane" id="messages">...</div>
-                    <div class="tab-pane" id="settings">...</div>
-                </div>
-
-                <script>
-
-      $(function () {
-        $('#myTab a:last').tab('show');//初始化显示哪个tab
-
-        $('#myTab a').click(function (e) {
-          e.preventDefault();//阻止a链接的跳转行为
-          $(this).tab('show');//显示当前选中的链接及关联的content
-        })
-      })
-                </script>
+            <div class="modal-body" style="height:350px;">
+                <div id="contentContianer"></div>
             </div>
-                <div class="modal-footer">
-                      <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                </div>
-            </div>
+        </div>
     </div>
+</div>
 
 
 

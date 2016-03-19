@@ -13,17 +13,16 @@
             var target = $(event.target).parents('li:first')[0];
             var rightClick = isRightClick(event);
             //客户端若是右键，显示菜单
-            if (rightClick)
-            {
+            if (rightClick) {
                 if (target != null)
                     $("#groupTree").jqxTree('selectItem', target);
                 var scrollTop = $(window).scrollTop();
                 var scrollLeft = $(window).scrollLeft();
                 var selectedItem = $("#groupTree").jqxTree("getSelectedItem");
                 var code = $(selectedItem.element).data('directory');
-                if (code==null) {
+                if (code == null) {
                     $('#contextMenu ul #menuItemDelete').hide();
-                   
+
                 } else {
                     $('#contextMenu ul #menuItemDelete').show();
 
@@ -36,7 +35,7 @@
 
         $('#groupTree').on('select', function (event) {
             var code = $(event.args.element).data("directory"); //获取所选树节点的code
-            if(code!=null)
+            if (code != null)
                 showUsersListOfGroup(code);
         });
 
@@ -93,7 +92,7 @@
             }
         });
     }
-  
+
     function addTreeNode(newNodeName) {
         $('#loader').show();
         var selectedItem = $('#groupTree').jqxTree('selectedItem');
@@ -101,8 +100,7 @@
         $.ajax({
             url: "../GroupManager/AddGroup?parent=" + code + "&child=" + newNodeName,
             success: function (result) {
-                if (result.State)
-                {
+                if (result.State) {
                     var selectedItem = $('#groupTree').jqxTree('selectedItem');
                     if (selectedItem) {
                         $('#groupTree').jqxTree('addTo', { label: newNodeName }, selectedItem.element);
@@ -113,8 +111,7 @@
                         $('#inputWindow').modal('hide')
                     }
                 }
-                else
-                {
+                else {
                     alert("添加失败！");
                 }
             },
@@ -125,21 +122,21 @@
         });
     }
 
-    function deleteTreeNode(code,selectedItem) {
+    function deleteTreeNode(code, selectedItem) {
         $('#loader').show();
         //todo:获得selectedItem元素所有子节点的guid,如果子节点存在的话
         var childCount = $(selectedItem.element).find('li').length;
-        //alert(childCount); 
-        var childCodes="";
+        //alert(childCount);
+        var childCodes = "";
         for (var i = 0; i < childCount; i++) {
             if (i == childCount - 1) {
                 childCodes += $($(selectedItem.element).find('li')[i]).data("directory");
                 continue;
             }
-            childCodes += $($(selectedItem.element).find('li')[i]).data("directory")+",";
-            
+            childCodes += $($(selectedItem.element).find('li')[i]).data("directory") + ",";
+
         }
-        
+
         $.ajax({
             url: "../GroupManager/DeleteGroup?code=" + code + "&childCodes=" + childCodes,
             success: function (result) {
@@ -155,7 +152,6 @@
         });
     }
 </script>
-
 
 <table class="security_group_table">
     <tr>
@@ -234,8 +230,6 @@
                     <div id="usersListContainer"></div>
                 </div>
             </div>
-
         </td>
     </tr>
 </table>
-

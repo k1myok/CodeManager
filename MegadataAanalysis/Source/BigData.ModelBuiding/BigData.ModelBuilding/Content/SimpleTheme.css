@@ -367,6 +367,7 @@ footer
 {
     width:100%;
     height:40px;
+    float:left;
 }
 .SimpleGroup > label:first-child
 {
@@ -388,6 +389,12 @@ footer
 {
     float:left;
     width:calc(100% - 110px);
+}
+.SimpleGroup textarea
+{
+    float:left;
+    width:calc(100% - 110px);
+    max-width:calc(100% - 110px);
 }
 
 .security_group_table
