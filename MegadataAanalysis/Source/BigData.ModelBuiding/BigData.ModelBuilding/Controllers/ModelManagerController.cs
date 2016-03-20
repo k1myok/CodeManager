@@ -125,6 +125,24 @@ namespace BigData.ModelBuilding.Controllers
             return PartialView(bsaicInformation);
         }
 
+        public PartialViewResult ModelDetail(Guid code)
+        {
+            var moel = context.AnalysisModel.FirstOrDefault(p => p.Code == code );
+            return PartialView(moel);
+        }
+
+        public PartialViewResult BasicInfoOfModel(Guid code)
+        {
+            var moel = context.AnalysisModel.FirstOrDefault(p => p.Code == code );
+            return PartialView(moel);
+        }
+
+        public PartialViewResult FieldsInfoOfModel(Guid code)
+        {
+            //var moel = context.AnalysisModelFieldsInfo.FirstOrDefault(p => p.ModelCode == code );
+            var moel = context.AnalysisModelFieldsInfo.ToList();
+            return PartialView(moel);
+        }
     /////
         //public PartialViewResult UsersOfGroup(Guid code)
         //{

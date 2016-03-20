@@ -1,63 +1,79 @@
-﻿@*@model IEnumerable<BigData.ModelBuilding.Models.BuildingModel>*@
-@model BigData.ModelBuilding.Models.BuildingModel
+﻿@model BigData.ModelBuilding.Models.BuildingModel
+
 <script type="text/javascript">
+    var code = '@(Model.ModelCode)';
+
     $(document).ready(function () {
         readModelName();
     });
-
-    var code = '@(Model.ModelCode)';
-    function readModelName(){
-        var url = "../ModelBuilding/GetList?code=" + code;
+  
+   
+    function success(result)
+    {
+ 
+            if (result.State)
+            {
+                alert("1");
+                readModelName();
+                $('#resourceWindow').jqxWindow('close');
+            }
+            else {
+                alert("资源保存失败，请检查您输入的数据有效性！");
+            }
+     }
+    function readModelName()
+    {
+        alert(code);
+        var url = "../ModelBuilding/GetFieldsInfo?code=" + code;
         $.ajax({
             url: url,
             success: function (data) {
-                $("#am").html(data);
+                $("#fieldsInfo").html(data);
             },
             complete:
-                {
+            {
 
-                }
+            }
         });
     }
-
-    function TurnPanel(type) {
+    function SwitchPanel(type) {
         switch (type) {
             case 1:
-                $("#base").css("display", "");
-                $("#source").css("display", "none");
-                $("#am").css("display", "none")
+                $("#baseInfo").css("display", "");
+                $("#modelInfo").css("display", "none");
+                $("#fieldsInfo").css("display", "none")
 
                 break;
             case 2:
-                $("#base").css("display", "none");
-                $("#source").css("display", "");
-                $("#am").css("display", "none")
+                $("#baseInfo").css("display", "none");
+                $("#modelInfo").css("display", "");
+                $("#fieldsInfo").css("display", "none")
                 this.className = "active"
                 break;
             case 3:
-                $("#base").css("display", "none");
-                $("#source").css("display", "none");
-                $("#am").css("display", "")
+                $("#baseInfo").css("display", "none");
+                $("#modelInfo").css("display", "none");
+                $("#fieldsInfo").css("display", "")
                 break;
         }
     }
 </script>
 <ul class="nav nav-tabs">
-    <li role="presentation" class="active"><a onclick="TurnPanel(1)">基本信息</a></li>
-    <li role="presentation"><a onclick="TurnPanel(2)">模型信息</a></li>
-    <li role="presentation" ><a onclick="TurnPanel(3)">原型</a></li>
+    <li role="presentation" class="active"><a onclick="SwitchPanel(1)">基本信息</a></li>
+    <li role="presentation"><a onclick="SwitchPanel(2)">模型信息</a></li>
+    <li role="presentation" ><a onclick="SwitchPanel(3)">原型</a></li>
 </ul>
 
- @using (Ajax.BeginForm("", "", new AjaxOptions { HttpMethod = "", OnSuccess = "" }))
- {
+@using (Ajax.BeginForm("EditBasicInfoModel", "ModelBuilding", new AjaxOptions { HttpMethod = "POST", OnSuccess = "success" }))
+{
     <div class="form-horizontal" style="margin-top:15px;">
-        <div id="base" style="display:block">
-        <div class="form-group">
-            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Name)
+        <div id="baseInfo" style="display:block">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Name)
+                </div>
             </div>
-        </div>
             <div class="form-group">
                 @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -76,8 +92,10 @@
                     @Html.EditorFor(model => model.UpdateDate)
                 </div>
             </div>
+            @Html.HiddenFor(model => model.Code)
+            @Html.HiddenFor(model => model.ModelCode)
       </div>
-        <div id="source" style="display:none">
+        <div id="modelInfo" style="display:none">
             <div class="form-group">
                 @Html.LabelFor(model => model.SourceName, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -115,11 +133,11 @@
                 </div>
             </div>
         </div>
-        <div id="am" style="display:none;margin-left:10%">
-
+        <input type="submit" value="保  存" class="btn btn-default" style="position:absolute; left:50%;bottom:15px; margin-left:-40px;width:80px;" />
+        <div id="fieldsInfo" style="display:none;margin-left:10%">
         </div>
     </div>
-  }
+}
 
 
 

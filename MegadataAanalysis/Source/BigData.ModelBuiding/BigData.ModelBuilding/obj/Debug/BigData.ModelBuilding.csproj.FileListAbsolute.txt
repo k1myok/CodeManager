@@ -64,6 +64,7 @@ E:\Projects\MegadataAanalysis\Source\BigData.ModelBuiding\BigData.ModelBuilding\
 E:\Projects\MegadataAanalysis\Source\BigData.ModelBuiding\BigData.ModelBuilding\bin\Microsoft.Owin.Security.Google.xml
 E:\Projects\MegadataAanalysis\Source\BigData.ModelBuiding\BigData.ModelBuilding\bin\Microsoft.Owin.Security.Twitter.xml
 E:\Projects\MegadataAanalysis\Source\BigData.ModelBuiding\BigData.ModelBuilding\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+E:\Projects\MegadataAanalysis\Source\BigData.ModelBuiding\BigData.ModelBuilding\obj\Debug\BigData.ModelBuilding.csprojResolveAssemblyReference.cache
 E:\Projects\MegadataAanalysis\Source\BigData.ModelBuiding\BigData.ModelBuilding\obj\Debug\BigData.ModelBuilding.Migrations.orgindb.resources
 E:\Projects\MegadataAanalysis\Source\BigData.ModelBuiding\BigData.ModelBuilding\obj\Debug\BigData.ModelBuilding.Migrations.modelfieldsinfo.resources
 E:\Projects\MegadataAanalysis\Source\BigData.ModelBuiding\BigData.ModelBuilding\obj\Debug\BigData.ModelBuilding.Migrations.BuildingModel.resources
@@ -73,4 +74,3 @@ E:\Projects\MegadataAanalysis\Source\BigData.ModelBuiding\BigData.ModelBuilding\
 E:\Projects\MegadataAanalysis\Source\BigData.ModelBuiding\BigData.ModelBuilding\obj\Debug\BigData.ModelBuilding.csproj.GenerateResource.Cache
 E:\Projects\MegadataAanalysis\Source\BigData.ModelBuiding\BigData.ModelBuilding\obj\Debug\BigData.ModelBuilding.dll
 E:\Projects\MegadataAanalysis\Source\BigData.ModelBuiding\BigData.ModelBuilding\obj\Debug\BigData.ModelBuilding.pdb
-E:\Projects\MegadataAanalysis\Source\BigData.ModelBuiding\BigData.ModelBuilding\obj\Debug\BigData.ModelBuilding.csprojResolveAssemblyReference.cache

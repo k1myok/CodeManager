@@ -1,0 +1,30 @@
+﻿@model IEnumerable<BigData.ModelBuilding.Models.AnalysisModelFieldsInfo>
+
+<table  class="UFTable">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ModelCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FieldCode)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ModelCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FieldCode)
+        </td>
+        @*<td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Code }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Code }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Code })
+        </td>*@
+    </tr>
+}
+
+</table>

@@ -15,10 +15,8 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
 
-    
     <script>
-        function onMenuClick(url)
-        {
+        function onMenuClick(url) {
             if (url != "") {
                 $('#loader').show();
                 $.ajax({
@@ -81,6 +79,6 @@
     <div id="loader" class="Loading">
         请 稍 后...
     </div>
-    @RenderSection("scripts",required: false)
+    @RenderSection("scripts", required: false)
 </body>
 </html>
