@@ -369,7 +369,7 @@ footer
     height:40px;
     float:left;
 }
-.SimpleGroup > label:first-child
+.SimpleGroup>label:first-child
 {
     width:auto;
     text-align:right;
@@ -377,18 +377,33 @@ footer
     max-width:100px;
     line-height:40px;
     margin-right:10px;
+    font-size:12px;
     float:left;
 }
-.SimpleGroup >div:first-child
+.SimpleGroup>div:first-child
 {
     float:left;
     width:100%;
+    height:30px;
     background-color:blue;
 }
-.SimpleGroup input
+.SimpleGroup>div:first-of-type>label
 {
     float:left;
     width:calc(100% - 110px);
+    height:27px;
+    line-height:40px;
+    color:black;
+    font-weight:normal;
+    margin-left:5px;
+    letter-spacing:1px;
+    font-family:微软雅黑;
+}
+.SimpleGroup>div:first-of-type>input
+{
+    float:left;
+    width:calc(100% - 110px);
+    height:27px;
 }
 .SimpleGroup textarea
 {

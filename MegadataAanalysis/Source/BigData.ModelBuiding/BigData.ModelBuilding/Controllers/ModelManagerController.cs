@@ -139,20 +139,14 @@ namespace BigData.ModelBuilding.Controllers
 
         public PartialViewResult FieldsInfoOfModel(Guid code)
         {
-            //var moel = context.AnalysisModelFieldsInfo.FirstOrDefault(p => p.ModelCode == code );
-            var moel = context.AnalysisModelFieldsInfo.ToList();
-            return PartialView(moel);
+            var models = from a in context.AnalysisModel
+                         join b in context.AnalysisModelFieldsInfo
+                         on a.Code equals b.ModelCode
+                         join c in context.BaseField
+                         on b.FieldCode equals c.Code
+                         select c;
+                         
+            return PartialView(models);
         }
-    /////
-        //public PartialViewResult UsersOfGroup(Guid code)
-        //{
-        //    var models = from g in context.UFUserInGroup
-        //                 join u in context.UFUser
-        //                 on g.UserCode equals u.Code
-        //                 where g.GroupCode == code
-        //                 select u;
-        //    return PartialView(models);
-        //}
-
     }
 }

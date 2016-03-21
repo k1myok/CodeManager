@@ -11,7 +11,6 @@
         var url = '../ModelBuilding/ListDetail?code=' + code;
         alert(code);
         $.ajax({
-            
             url: url,
             success: function (data) {
                 $("#usersListContainer").empty().html(data);
@@ -27,8 +26,8 @@
             url: url,
             success: function (data)
             {
-                alert(data);
                 $("#usersListContainer").empty().html(data);
+            
             },
             complete: function ()
             {
@@ -46,8 +45,8 @@
                         <img src="~/Images/server.png" />
                         <a>系统建模</a>
                     </div>
-                    <div onclick="CreateBasicInfoModel();" class="UFButton">
-                        添加
+                    <div class="HImgToolbar">
+                        <img onclick="CreateBasicInfoModel();" src="~/Images/server.png" title="创建" />
                     </div>
                 </div>
                 
