@@ -17,7 +17,7 @@
 
 <div style="width:360px; padding-left:40px; padding-top:10px; padding-right:40px;padding-bottom:10px; margin-top:10%;" class="align-center">
     <h3 style="text-align:center;">用户注册</h3>
-    @using (Html.BeginForm("Register", "Account", FormMethod.Post))
+    @using(Html.BeginForm("Register", "Account", FormMethod.Post))
     {
         @Html.AntiForgeryToken()
         @Html.ValidationSummary("", new { @class = "text-danger" })
