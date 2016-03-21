@@ -4,7 +4,7 @@
          {
              if (result.Status) {
                  alert("添加成功！");
-            
+                 onMenuClick('../ModelBuilding/List');
              }
              else
              {
@@ -12,74 +12,145 @@
              }
 
          }
+         function SwitchPanel(type) {
+             switch (type) {
+                 case 1:
+                     $("#baseInfo").css("display", "");
+                     $("#modelInfo").css("display", "none");
+                     $("#fieldsInfo").css("display", "none")
+
+                     break;
+                 case 2:
+                     $("#baseInfo").css("display", "none");
+                     $("#modelInfo").css("display", "");
+                     $("#fieldsInfo").css("display", "none")
+                     this.className = "active"
+                     break;
+                 case 3:
+                     $("#baseInfo").css("display", "none");
+                     $("#modelInfo").css("display", "none");
+                     $("#fieldsInfo").css("display", "")
+                     break;
+             }
+         }
     </script>
-      
-@using (Ajax.BeginForm("CreateBasicInfoModel", "ModelBuilding", new AjaxOptions { HttpMethod = "POST", OnSuccess = "success" }))
-{   
-    <div class="form-horizontal" style="margin-top:15px;">
-        <div class="form-group">
-            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Name)
+
+<div class="NavWindow">
+    <div class="NavHeader">
+        <img src="~/Images/home.png" />
+        <span>您当前的位置：系统建模 &gt; 创建模型</span>
+    </div>
+    <div class="NavContent">
+        @*<div class="Title">
+            <div style="float:left;margin-left:10px;font-weight:bold;">系统建模</div>
+            <div class="UFButton">
+                返回
             </div>
+        </div>*@
+        <div class="Content">
+    <ul id="infoTabs" class="nav nav-tabs">
+        <li class="active">
+            <a onclick="SwitchPanel(1)" data-toggle="tab">
+                基本信息
+            </a>
+        </li>
+        <li>
+            <a onclick="SwitchPanel(2)" data-toggle="tab">模型信息</a>
+        </li>
+        <li>
+            <a onclick="SwitchPanel(3)" data-toggle="tab">字段信息</a>
+        </li>
+    </ul>
+    <div class="tab-content">
+        <div style="padding:10px;overflow-x:hidden;" id="basicInfo" class="tab-pane fade in active">
+            @using (Ajax.BeginForm("CreateBasicInfoModel", "ModelBuilding", new AjaxOptions { HttpMethod = "POST", OnSuccess = "success" }))
+            {
+                <div class="form-horizontal" style="margin-top:15px;">
+                    <div id="baseInfo" style="display:block">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Name)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Description)
+                            </div>
+                        </div>
+                        @*<div class="form-group">
+                            @Html.LabelFor(model => model.CreateDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.CreateDate)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.UpdateDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.UpdateDate)
+                            </div>
+                        </div>*@
+                    </div>
+                    <div id="modelInfo" style="display:none">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.SourceName, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.SourceName)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.SourceType, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.SourceType)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.OutputName, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.OutputName)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.OutputType, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.OutputType)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.WhereCaluse, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.WhereCaluse)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.OrderFields, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.OrderFields)
+                            </div>
+                        </div>
+                    </div>
+                    <input type="submit" value="保  存" class="btn btn-default" style="left:50%;bottom:15px; margin-left:40px;width:80px;position:absolute;" />
+                </div>
+            }
         </div>
-        <div class="form-group">
-            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Description)
-            </div>
+        <div style="padding:10px;overflow-x:hidden;" id="modelInfo" class="tab-pane fade">
+            model info
         </div>
-        <div class="form-group">
-            @Html.LabelFor(model => model.CreateDate, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.CreateDate)
-            </div>
+        <div style="padding:10px;overflow-x:hidden;" id="fieldsInfo" class="tab-pane fade">
+            fields info
         </div>
-        <div class="form-group">
-            @Html.LabelFor(model => model.UpdateDate, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.UpdateDate)
-            </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(model => model.SourceName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.SourceName)
-            </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(model => model.SourceType, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.SourceType)
-            </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(model => model.OutputName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.OutputName)
-            </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(model => model.OutputType, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.OutputType)
-            </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(model => model.WhereCaluse, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.WhereCaluse)
-            </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(model => model.OrderFields, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.OrderFields)
-            </div>
-        </div>
+<<<<<<< HEAD
         <input type="submit" value="保  存" class="btn btn-default" style="left:50%;bottom:15px; margin-left:40px;width:80px;position:absolute;" />
         </div>
         <input type="submit" value="保  存" class="btn btn-default" style="left:50%;bottom:15px; margin-left:40px;width:80px;position:absolute;" />
         </div>
     
         }
+=======
+    </div>
+</div>
+    </div>
+</div>
+      
+>>>>>>> d86caa147fb4767899b29475daaed42db9cab822

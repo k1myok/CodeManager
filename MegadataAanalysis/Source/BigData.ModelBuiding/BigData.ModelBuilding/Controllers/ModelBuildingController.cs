@@ -34,6 +34,8 @@ namespace BigData.ModelBuilding.Controllers
          [HttpPost]
         public JsonResult CreateBasicInfoModel(BuildingModel model)
         {
+            model.CreateDate =Convert.ToDateTime(DateTime.Now.ToShortDateString());
+            model.UpdateDate = Convert.ToDateTime(DateTime.Now.ToShortDateString());
           model.Code = Guid.NewGuid();
           model.ModelCode = Guid.NewGuid();
           context.BuildingModel.Add(model);
@@ -59,6 +61,24 @@ namespace BigData.ModelBuilding.Controllers
                     State = false
                 });
             }
+        }
+
+        public JsonResult DeleteBasicInfoModel(Guid code)
+        {
+            var model = context.BuildingModel.Find(code);
+            if (model != null)
+            {
+                context.BuildingModel.Remove(model);
+                context.SaveChanges();
+                return Json(new
+                {
+                    State = true
+                }, JsonRequestBehavior.AllowGet);
+            }
+            return Json(new
+            {
+                State = false
+            },JsonRequestBehavior.AllowGet);
         }
     }
         
