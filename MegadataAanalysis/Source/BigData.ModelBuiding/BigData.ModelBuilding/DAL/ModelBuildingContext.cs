@@ -21,5 +21,6 @@ namespace BigData.ModelBuilding.DAL
         public DbSet<BigData.ModelBuilding.Models.AnalysisModelDirectory> AnalysisModelDirectory { get; set; }
         public DbSet<BigData.ModelBuilding.Models.BaseField> BaseField { get; set; }
         public DbSet<BigData.ModelBuilding.Models.BuildingModel> BuildingModel { get; set; }
+        public DbSet<BigData.ModelBuilding.Models.BuildingModelDirectory> BuildingModelDirectory { get; set; }
     }
 }

@@ -36,6 +36,9 @@ namespace BigData.ModelBuilding.Models
         [Key]
         public Guid Code { get; set; }
 
+        [Required]
+        public Guid DirectoryCode { get; set; }
+
         public Guid? ModelCode { get; set; }
 
         [MaxLength(100)]

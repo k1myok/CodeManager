@@ -204,6 +204,14 @@
     <Compile Include="Migrations\201603150825451_directorycode.Designer.cs">
       <DependentUpon>201603150825451_directorycode.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201603220345158_buildingmodeldirectory.cs" />
+    <Compile Include="Migrations\201603220345158_buildingmodeldirectory.Designer.cs">
+      <DependentUpon>201603220345158_buildingmodeldirectory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603220347576_buildingmodeldirectory1.cs" />
+    <Compile Include="Migrations\201603220347576_buildingmodeldirectory1.Designer.cs">
+      <DependentUpon>201603220347576_buildingmodeldirectory1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -1026,6 +1034,8 @@
     <Content Include="Views\ModelManager\ModelDetail.cshtml" />
     <Content Include="Views\ModelManager\FieldsInfoOfModel.cshtml" />
     <Content Include="Views\ModelBuilding\CreateBasicInfoModel.cshtml" />
+    <Content Include="Views\ModelBuilding\GetAnalysisModel.cshtml" />
+    <Content Include="Views\ModelBuilding\FilesInfo.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -1050,6 +1060,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201603150825451_directorycode.resx">
       <DependentUpon>201603150825451_directorycode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603220345158_buildingmodeldirectory.resx">
+      <DependentUpon>201603220345158_buildingmodeldirectory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603220347576_buildingmodeldirectory1.resx">
+      <DependentUpon>201603220347576_buildingmodeldirectory1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

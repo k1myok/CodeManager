@@ -17,6 +17,8 @@ namespace BigData.ModelBuilding.Controllers
         }
         public PartialViewResult ListDetail(Guid code)
         {
+            ViewBag.SystemModelSource = context.AnalysisModel.Select(p => new SelectListItem() { Text = p.Name, Value = p.Code.ToString() });
+
             var result = context.BuildingModel.FirstOrDefault(p => p.Code == code);
             return PartialView(result);
         }
@@ -37,7 +39,6 @@ namespace BigData.ModelBuilding.Controllers
             model.CreateDate =Convert.ToDateTime(DateTime.Now.ToShortDateString());
             model.UpdateDate = Convert.ToDateTime(DateTime.Now.ToShortDateString());
           model.Code = Guid.NewGuid();
-          model.ModelCode = Guid.NewGuid();
           context.BuildingModel.Add(model);
           var result=context.SaveChanges()>0;
           return Json(new { Status=result });
@@ -62,7 +63,12 @@ namespace BigData.ModelBuilding.Controllers
                 });
             }
         }
-
+        public PartialViewResult GetAnalysisModel()
+        {
+            var result = context.AnalysisModel.Select(am => new SelectListItem { Value =am.Code.ToString(), Text = am.Name }).ToList();
+            ViewBag.result = result;
+            return PartialView();
+        }
         public JsonResult DeleteBasicInfoModel(Guid code)
         {
             var model = context.BuildingModel.Find(code);
@@ -80,8 +86,28 @@ namespace BigData.ModelBuilding.Controllers
                 State = false
             },JsonRequestBehavior.AllowGet);
         }
-    }
-        
-        
-        
+        public PartialViewResult FilesInfo(Guid code)
+        {
+            //var result =  from a in context.BaseField
+            //              join d in context.AnalysisModelFieldsInfo 
+            //              on a.Code equals d.FieldCode
+            //              join e in context.AnalysisModel on
+            //var result = from a in context.BaseField
+            //var FiledCode =(from a in context.AnalysisModel
+            //                join d in context.AnalysisModelFieldsInfo
+            //                on a.Code equals d.ModelCode
+            //                where(a.Code == code)
+            //                select d.FieldCode).ToString();
+
+            var baseFields =(from a in context.AnalysisModel
+                             join b in context.AnalysisModelFieldsInfo
+                             on a.Code equals b.ModelCode
+                             join c in context.BaseField
+                             on b.FieldCode equals c.Code
+                             where a.Code == code
+                             select c).ToList();
+
+            return PartialView(baseFields);
+        }
+    }  
     }

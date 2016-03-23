@@ -1,5 +1,6 @@
 ﻿@model BigData.ModelBuilding.Models.BuildingModel
      <script type="text/javascript">
+         $(function () { GetAnalysisModel()});
          function success(result)
          {
              if (result.Status) {
@@ -11,6 +12,17 @@
                  alert("添加失败！");
              }
 
+         }
+         function GetAnalysisModel() {
+             var url = "../ModelBuilding/GetAnalysisModel"
+             $.ajax({
+                 url: url,
+                 success: function (data) {
+                     $("#AnalysisModel").empty().html(data);
+                 },
+                 error: function ()
+                 { },
+             });
          }
          function SwitchPanel(type) {
              switch (type) {
@@ -41,12 +53,6 @@
         <span>您当前的位置：系统建模 &gt; 创建模型</span>
     </div>
     <div class="NavContent">
-        @*<div class="Title">
-            <div style="float:left;margin-left:10px;font-weight:bold;">系统建模</div>
-            <div class="UFButton">
-                返回
-            </div>
-        </div>*@
         <div class="Content">
     <ul id="infoTabs" class="nav nav-tabs">
         <li class="active">
@@ -79,20 +85,16 @@
                                 @Html.EditorFor(model => model.Description)
                             </div>
                         </div>
-                        @*<div class="form-group">
-                            @Html.LabelFor(model => model.CreateDate, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
-                                @Html.EditorFor(model => model.CreateDate)
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.UpdateDate, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
-                                @Html.EditorFor(model => model.UpdateDate)
-                            </div>
-                        </div>*@
                     </div>
                     <div id="modelInfo" style="display:none">
+                        <div class="form-group">
+                            <div class="control-label col-md-2">
+                                <lable>分析模型</lable>
+                                </div>
+                                <div id="AnalysisModel">
+
+                                </div>
+                            </div>
                         <div class="form-group">
                             @Html.LabelFor(model => model.SourceName, htmlAttributes: new { @class = "control-label col-md-2" })
                             <div class="col-md-10">
@@ -130,8 +132,12 @@
                             </div>
                         </div>
                     </div>
-                    <input type="submit" value="保  存" class="btn btn-default" style="left:50%;bottom:15px; margin-left:40px;width:80px;position:absolute;" />
-                </div>
+  
+                        <input type="submit" value="保  存" class="btn btn-default" style="left:50%;bottom:15px; margin-left:40px;width:80px;position:absolute;" />
+                        <div id="fieldsInfo">
+
+                        </div>
+                    </div>
             }
         </div>
         <div style="padding:10px;overflow-x:hidden;" id="modelInfo" class="tab-pane fade">

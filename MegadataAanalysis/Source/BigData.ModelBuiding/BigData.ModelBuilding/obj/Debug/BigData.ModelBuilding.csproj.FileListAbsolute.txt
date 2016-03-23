@@ -69,7 +69,10 @@ E:\Projects\MegadataAanalysis\Source\BigData.ModelBuiding\BigData.ModelBuilding\
 E:\Projects\MegadataAanalysis\Source\BigData.ModelBuiding\BigData.ModelBuilding\obj\Debug\BigData.ModelBuilding.Migrations.BuildingModel.resources
 E:\Projects\MegadataAanalysis\Source\BigData.ModelBuiding\BigData.ModelBuilding\obj\Debug\BigData.ModelBuilding.Migrations.buildingmodel_1.resources
 E:\Projects\MegadataAanalysis\Source\BigData.ModelBuiding\BigData.ModelBuilding\obj\Debug\BigData.ModelBuilding.Migrations.directorycode.resources
+E:\Projects\MegadataAanalysis\Source\BigData.ModelBuiding\BigData.ModelBuilding\obj\Debug\BigData.ModelBuilding.Migrations.buildingmodeldirectory.resources
+E:\Projects\MegadataAanalysis\Source\BigData.ModelBuiding\BigData.ModelBuilding\obj\Debug\BigData.ModelBuilding.Migrations.buildingmodeldirectory1.resources
 E:\Projects\MegadataAanalysis\Source\BigData.ModelBuiding\BigData.ModelBuilding\obj\Debug\BigData.ModelBuilding.Properties.Resources.resources
 E:\Projects\MegadataAanalysis\Source\BigData.ModelBuiding\BigData.ModelBuilding\obj\Debug\BigData.ModelBuilding.csproj.GenerateResource.Cache
 E:\Projects\MegadataAanalysis\Source\BigData.ModelBuiding\BigData.ModelBuilding\obj\Debug\BigData.ModelBuilding.dll
 E:\Projects\MegadataAanalysis\Source\BigData.ModelBuiding\BigData.ModelBuilding\obj\Debug\BigData.ModelBuilding.pdb
+E:\Projects\MegadataAanalysis\Source\BigData.ModelBuiding\BigData.ModelBuilding\obj\Debug\BigData.ModelBuilding.csprojResolveAssemblyReference.cache

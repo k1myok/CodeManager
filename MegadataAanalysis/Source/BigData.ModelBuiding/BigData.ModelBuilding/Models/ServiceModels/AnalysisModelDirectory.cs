@@ -23,4 +23,21 @@ namespace BigData.ModelBuilding.Models
         [NotMapped]
         public List<AnalysisModelDirectory> Children { get; set; }
     }
+
+    public partial class BuildingModelDirectory
+    {
+        [Key]
+        public Guid Code { get; set; }
+
+        [Required]
+        [MaxLength(300)]
+        [Display(Name = "名称")]
+        public string Name { get; set; }
+
+        public Guid? Parent { get; set; }
+
+        [NotMapped]
+        public List<BuildingModelDirectory> Children { get; set; }
+    }
+
 }
