@@ -1,0 +1,27 @@
+﻿@model IEnumerable<BigData.ModelBuilding.Models.AnalysisModel>
+<script type="text/javascript">
+  $("#ModelCode").change(function()
+   {
+    var code = $("#ModelCode").val();
+    FilesInfo(code);
+   });
+ function FilesInfo(code)
+ {
+       $("#load").show();
+        var url = "../ModelBuilding/FilesInfo?code=" + code;
+       $.ajax({
+              url: url,
+              success: function (data)
+              {
+                $("#fieldsInfo").empty().html(data);
+              },
+              complete: function ()
+              {
+               $("#load").hide();
+              }
+     });
+ }
+    </script>
+  <div class="col-md-2">
+    @Html.DropDownList("ModelCode", ViewBag.result as IEnumerable<SelectListItem>)
+  </div>
