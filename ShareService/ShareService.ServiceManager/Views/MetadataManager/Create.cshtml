@@ -1,9 +1,12 @@
-﻿@model ResoureManager.Content.Models.BaseMetadata
+﻿@model ShareService.ServiceManager.Models.BaseMetadata
 
 <div style="width:100%; height:100%;">
     <script>
         function onSuccess(result) {
-            $('#resourceWindow').jqxWindow('close');
+            if(result.State){
+                $('#resourceWindow').jqxWindow('close');
+                showList();
+            }
         }
     </script>
     @using (Ajax.BeginForm("Create", "MetadataManager", new AjaxOptions { HttpMethod = "Post", OnSuccess = "onSuccess" }))
@@ -20,7 +23,6 @@
             <div style="padding:10px;overflow-x:hidden;" id="baseDetails" class="tab-pane fade in active">
                 @Html.AntiForgeryToken()
                 @Html.HiddenFor(model=>model.Code)
-                @Html.HiddenFor(model=>model.ResouceType)
                 <div class="form-horizontal">
                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                     <div class="form-group">
@@ -37,7 +39,7 @@
                                 @Html.LabelFor(model => model.FieldType, htmlAttributes: new { @class = "control-label col-md-2" })
                             </span>                            
                             <span>
-                                @Html.DropDownList("fieldType", ViewBag.FieldTypes as IEnumerable<SelectListItem>, htmlAttributes: new { @class = "btn btn-default" })
+                                @Html.DropDownList("fieldType", ViewBag.FieldTypes as IEnumerable<SelectListItem>, htmlAttributes: new { @class = "btn btn-default col-md-offset-1" })
                             </span>
                         </div>  
                     </div>

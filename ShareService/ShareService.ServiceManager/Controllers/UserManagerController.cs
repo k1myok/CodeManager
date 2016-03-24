@@ -59,7 +59,7 @@ namespace ShareService.ServiceManager.Controllers
         public JsonResult Delete(Guid code)
         {
             var model = context.UFUser.Find(code);
-            if(model == null)
+            if (model == null)
                 return Json(new { State = false });
 
             context.UFUser.Remove(model);
@@ -96,7 +96,7 @@ namespace ShareService.ServiceManager.Controllers
                     new
                     {
                         State = context.SaveChanges() > 0
-                    }, 
+                    },
                     JsonRequestBehavior.AllowGet
                 );
             }
@@ -117,7 +117,7 @@ namespace ShareService.ServiceManager.Controllers
                     new
                     {
                         State = context.SaveChanges() > 0
-                    }, 
+                    },
                     JsonRequestBehavior.AllowGet
                 );
             }
@@ -126,8 +126,11 @@ namespace ShareService.ServiceManager.Controllers
         public PartialViewResult EditServicesOfUser(Guid userCode) {
             var serviceCodes = context.UFServicesOfUser.Where(su => su.UserCode == userCode).Select(e => e.ServiceCode).ToList();
             var allServices = context.Service.ToList();
-            ViewBag.serviceCodes = serviceCodes;
-            ViewBag.userCode = userCode;
+            ViewBag.ServiceCodes = serviceCodes;
+            ViewBag.UserName = context.UFUser.Find(userCode).Name;
+            ViewBag.UserCode = userCode;
+            ViewBag.ServiceTokens = context.ServiceToken.Where(p => p.UserCode == userCode).ToList();
+            //ViewBag.serviceTokens = context.ServiceToken.Where(st => st.UserCode==userCode).ToList();
             return PartialView(allServices);
         }
 
@@ -177,6 +180,97 @@ namespace ShareService.ServiceManager.Controllers
                     JsonRequestBehavior.AllowGet
                 );
             }
+        }
+
+        public JsonResult SaveEditToken(Guid serviceCode, Guid userCode, DateTime begin, DateTime end) {
+            var context = new ShareServiceContext();
+            var temp = context.ServiceToken.Where(st => st.UserCode == userCode && st.ServiceCode == serviceCode).FirstOrDefault();
+            if (temp == null)
+            {
+                ServiceToken st = new ServiceToken();
+                st.Code = Guid.NewGuid();
+                st.ServiceCode = serviceCode;
+                st.UserCode = userCode;
+                st.StartDate = begin;
+                st.ExpiredDate = end;
+                st.SingleService = true;
+                st.IsPaused = false;
+                context.ServiceToken.Add(st);
+                return Json(new { State = context.SaveChanges() > 0, Code = st.Code }, JsonRequestBehavior.AllowGet);
+            }
+            else {
+                temp.StartDate = begin;
+                temp.ExpiredDate = end;
+                return Json(new { State = context.SaveChanges() > 0, Code = temp.Code }, JsonRequestBehavior.AllowGet);
+            }
+        }
+
+        public JsonResult DeleteServiceToken(Guid userCode, Guid serviceCode) {
+            var context = new ShareServiceContext();
+            var target = context.ServiceToken.FirstOrDefault(st => st.UserCode == userCode && st.ServiceCode == serviceCode);
+            //if (null != target)
+            //{
+            //    context.ServiceToken.Remove(target);
+            //    return Json(new { State = context.SaveChanges() > 0}, JsonRequestBehavior.AllowGet);
+            //}
+            //else {
+            //    return Json(new { State =true}, JsonRequestBehavior.AllowGet);
+            //}
+            context.ServiceToken.Remove(target);
+            return Json(new { State = context.SaveChanges() > 0 }, JsonRequestBehavior.AllowGet);
+
+        }
+
+        public PartialViewResult EditGlobalTokenOfUser(Guid userCode)
+        {
+            var model = context.ServiceToken.FirstOrDefault(p => p.UserCode == userCode && p.ServiceCode == null);
+            if (model == null)
+                model = new ServiceToken() { UserCode = userCode, StartDate = DateTime.Now, ExpiredDate = DateTime.Now.AddMonths(1) };
+
+            return PartialView(model);
+        }
+
+        [HttpPost]
+        public JsonResult EditGlobalTokenOfUser(ServiceToken tokenModel)
+        {
+            if (tokenModel.Code == Guid.Empty)
+            {
+                tokenModel.Code = Guid.NewGuid();
+                context.ServiceToken.Add(tokenModel);
+            }
+            else
+            {
+                context.Entry(tokenModel).State = System.Data.Entity.EntityState.Modified;
+            }
+            tokenModel.ServiceCode = null;
+            tokenModel.SingleService = false;
+            var result = context.SaveChanges() > 0;
+
+            return Json(new {
+                State = result
+            });
+        }
+
+        public JsonResult ResetGlobalTokenOfUser(Guid token)
+        {
+            var model = context.ServiceToken.Find(token);
+            context.ServiceToken.Remove(model);
+            var newToken = new ServiceToken()
+            {
+                Code = Guid.NewGuid(),
+                ExpiredDate = model.ExpiredDate,
+                StartDate = model.StartDate,
+                IsPaused = model.IsPaused,
+                ServiceCode = model.ServiceCode,
+                SingleService = model.SingleService,
+                UserCode = model.UserCode
+            };
+            context.ServiceToken.Add(newToken);
+            var result = context.SaveChanges();
+            return Json(new
+            {
+                State = result
+            }, JsonRequestBehavior.AllowGet);
         }
     }
 }

@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Configuration;
 
 namespace ShareService.ServiceManager.Models
 {
@@ -33,9 +34,11 @@ namespace ShareService.ServiceManager.Models
         public Guid Directory { get; set; }
 
         [Display(Name = "创建时间")]
+        [DisplayFormat(DataFormatString ="yyyy-MM-dd")]
         public DateTime CreateDate { get; set; }
 
         [Display(Name = "更新时间")]
+        [DisplayFormat(DataFormatString = "yyyy-MM-dd")]
         public DateTime UpdateDate { get; set; }
 
         [MaxLength(100)]
@@ -50,5 +53,17 @@ namespace ShareService.ServiceManager.Models
 
         [NotMapped]
         public List<ServiceMetadata> MetadataDetails { get; set; }
+
+
+        [NotMapped]
+        public string ProxyURL
+        {
+            get
+            {
+                var url = new Uri(this.URL);
+                var proxyURL = string.Format("http://{0}:{1}/{2}", ConfigurationManager.AppSettings["Host"], ConfigurationManager.AppSettings["Port"], url.PathAndQuery);
+                return proxyURL;
+            }
+        }
     }
 }

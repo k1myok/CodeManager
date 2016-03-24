@@ -100,8 +100,10 @@
     <Compile Include="ARRRule.cs" />
     <Compile Include="ARRServer.cs" />
     <Compile Include="ARRFarmManager.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Extensions\XElementExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UFToken.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Templates\APPServer.xml" />
