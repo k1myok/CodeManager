@@ -2,12 +2,12 @@
 
 <script type="text/javascript">
     var code = '@(Model.ModelCode)';
-
     $(document).ready(function () {
-       
+        var code = $("#systemModelList").val();
+        ShowFilesInfo(code);
         $("#systemModelList").change(function () {
             var code = $("#systemModelList").val();
-
+            alert(code);
             ShowFilesInfo(code);
         });
     });
@@ -20,6 +20,7 @@
             url: url,
             success: function (data)
             {
+                alert(data);
                 $("#fieldsInfo").empty().html(data);
             },
             complete: function ()
@@ -81,11 +82,6 @@
         }
     }
 </script>
-@*<ul class="nav nav-tabs">
-        <li role="presentation" class="active"><a onclick="SwitchPanel(1)">基本信息</a></li>
-        <li role="presentation"><a onclick="SwitchPanel(2)">模型信息</a></li>
-        <li role="presentation"><a onclick="SwitchPanel(3)">字段信息</a></li>
-    </ul>*@
 <div class="NavWindow">
     <div class="NavHeader">
         <img src="~/Images/home.png" />

@@ -1,0 +1,47 @@
+﻿@model BigData.ModelBuilding.Models.AnalysisModel
+
+<script>
+    function onSuccess(result) {
+        if (result.State) {
+            //showGroupsList();
+            $('#resourceWindow').jqxWindow('close');
+        }
+        else
+        {
+            alert("资源保存失败，请检查您输入的数据有效性！");
+        }
+    }
+</script>
+@using (Ajax.BeginForm("CreateAddModelView", "ModelManager", new AjaxOptions { HttpMethod = "Post", OnSuccess = "onSuccess" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.DirectoryCode)
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.OutTemplateFilePath, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.OutTemplateFilePath, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.OutTemplateFilePath, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <input type="submit" value="保  存" class="btn btn-default" style="position:absolute; left:50%;bottom:15px; margin-left:-40px;width:80px;" />
+    </div>
+}

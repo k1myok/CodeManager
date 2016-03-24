@@ -1,8 +1,14 @@
 ﻿@model IEnumerable<BigData.ModelBuilding.Models.AnalysisModelDirectory>
-
 <script>
     $(document).ready(function () {
         $('#groupTree').jqxTree({ width: '100%', height: '100%' });
+        $('#resourceWindow').jqxWindow({
+            width: '400px',
+            height: '340px',
+            resizable: true,
+            initContent: function () {
+            }
+        });
         attachEvents();
     });
 
@@ -84,22 +90,8 @@
     }
 
     function showModelsOfGroup(code) {
-      
-    function GetRequest() {
-    var url = location.search; //获取url中"?"符后的字串
-    var theRequest = new Object();
-    if (url.indexOf("?") != -1) {
-    var str = url.substr(1);
-    strs = str.split("&");
-    for(var i = 0; i < strs.length; i ++) {
-    theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);
-    }
-    }
-    return theRequest;
-    }
-
-
-
+        alert(code);
+        currentGroupCode = code;
         $('#loader').show();
         $.ajax({
             url: '../ModelManager/AnalysisModels?code=' + code,
@@ -110,42 +102,37 @@
                 $('#loader').hide();
             }
         });
-     
-          
-    
- 
-        //$('#loader').show();
-        //$.ajax({
-        //    url: '../ModelManager/UsersOfGroup?code=' + code,
-        //    success: function (data) {
-        //        $('#usersListContainer').empty().html(data);
-        //    },
-        //    complete: function () {
-        //        $('#loader').hide();
-        //    }
-        //});
+    }
+
+    function createAddModelView() {
+        alert("OK");
+        alert(currentGroupCode);
+        $('#loader').show();
+        $.ajax({
+            url: '../ModelManager/CreateAddModelView?directoryCode=' + currentGroupCode,
+            //url: '../ModelManager/CreateAddModelView',
+            
+            success: function (data) {
+                alert(data);
+               
+                $('#resourceWindow #titleContainer').html('添加模型');
+                $('#resourceWindow #customWindowContent').empty().html(data);
+                $('#resourceWindow').jqxWindow('open');
+
+            },
+            complete: function () {
+                $('#loader').hide();
+            }
+        });
+
 
     }
 
+    var currentGroupCode = null;
+
     //jmzhang code
- function showModelsOfGroupInformation(code) {
-
-        function GetRequest() {
-            var url = location.search; //获取url中"?"符后的字串
-            var theRequest = new Object();
-            if (url.indexOf("?") != -1) {
-                var str = url.substr(1);
-                strs = str.split("&");
-                for (var i = 0; i < strs.length; i++) {
-                    theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
-                }
-            }
-            return theRequest;
-        }
-
-
-
-        $('#loader').show();
+    function showModelsOfGroupInformation(code) {
+       $('#loader').show();
         $.ajax({
             url: '../ModelManager/AnalysisModelsInformation?code=' + code,
             success: function (data) {
@@ -293,52 +280,16 @@
                         <a>模型详情</a>
                     </div>
                     <div class="HImgToolbar">
-                        <img onclick="addServer();" src="~/Images/server.png" title="添加" />
+                        <img onclick="createAddModelView();" src="~/Images/server.png" title="添加" />  
                     </div>
                 </div>
                 <div class="Content" style="background-color:white; margin:1px;">
                     <div id="modelListContainer"></div>
                 </div>
+                <div id="contentAddContianer"></div>
                 
             </div>
 
         </td>
     </tr>
 </table>
-
-
-<table class="security_group_table">
-    <tr>
-        <td>
-            <div class="SimpleWindow">
-                <div class="TitleContainer" style="background-color:#32323A">
-                    <div class="Title">
-                        <img src="~/Images/server.png" />
-                        <a>系统管理</a>
-                    </div>
-                </div> 
-                </div>
-            </div>
-        </td>
-        <td>
-            <div class="SimpleWindow">
-                <div class="TitleContainer" style="background-color:#32323A">
-                    <div class="Title">
-                        <img src="~/Images/server.png" />
-                        <a>模型成果</a>
-                    </div>
-                    <div class="HImgToolbar">
-                        <img onclick="addServer();" src="~/Images/server.png" title="添加" />
-                    </div>
-                </div>
-                <div class="Content" style="background-color:white; margin:1px;">
-                    <div id="modelSystemContainer"></div>
-                </div>
-
-            </div>
-
-        </td>
-    </tr>
-</table>
-
-

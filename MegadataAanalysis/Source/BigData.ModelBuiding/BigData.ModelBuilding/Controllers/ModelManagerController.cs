@@ -1,10 +1,9 @@
-﻿using System;
+﻿using BigData.ModelBuilding.DAL;
+using BigData.ModelBuilding.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using BigData.ModelBuilding.DAL;
-using BigData.ModelBuilding.Models;
 
 namespace BigData.ModelBuilding.Controllers
 {
@@ -80,7 +79,6 @@ namespace BigData.ModelBuilding.Controllers
                 context.AnalysisModelDirectory.Add(newNode);
                 var result = context.SaveChanges() > 0;
                 return Json(new { State = result, Code = newNode.Code }, JsonRequestBehavior.AllowGet);
-
             }
             catch (Exception)
             {
@@ -102,14 +100,12 @@ namespace BigData.ModelBuilding.Controllers
                 }
                 var result = context.SaveChanges() > 0;
                 return Json(new { State = result }, JsonRequestBehavior.AllowGet);
-
             }
             catch (Exception)
             {
                 return Json(new { State = false }, JsonRequestBehavior.AllowGet);
             }
         }
-
 
         //jzmhang code
         public PartialViewResult AnalysisModels(Guid code)
@@ -118,35 +114,101 @@ namespace BigData.ModelBuilding.Controllers
             return PartialView(model);
          }
 
-
-        public PartialViewResult AnalysisModelsInformation(Guid code)
-        {
-            var bsaicInformation = context.AnalysisModel.Where(p => p.Code == code );
-            return PartialView(bsaicInformation);
-        }
-
         public PartialViewResult ModelDetail(Guid code)
         {
-            var moel = context.AnalysisModel.FirstOrDefault(p => p.Code == code );
+            var moel = context.AnalysisModel.FirstOrDefault(p => p.Code == code);
             return PartialView(moel);
         }
 
-        public PartialViewResult BasicInfoOfModel(Guid code)
+       public PartialViewResult CreateAddModelView(Guid directoryCode)
         {
-            var moel = context.AnalysisModel.FirstOrDefault(p => p.Code == code );
-            return PartialView(moel);
+            var model = new AnalysisModel();
+            model.DirectoryCode = directoryCode;
+            return PartialView(model);
+        }
+
+        [HttpPost]
+        public JsonResult CreateAddModelView(AnalysisModel model)
+        {
+            model.Code = Guid.NewGuid();
+            context.AnalysisModel.Add(model);
+            var result = context.SaveChanges() > 0;
+            return Json(new
+            {
+                State = result
+            });
+        }
+
+        public PartialViewResult CreateModifyModelView(Guid code)
+        {
+            var model = context.AnalysisModel.FirstOrDefault(p => p.Code == code);
+            return PartialView(model);
+        }
+
+
+        public PartialViewResult CreateDeleteModelView()
+        {
+            return PartialView();
+        }
+        public JsonResult ModifyModelDetail(BuildingModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                context.Entry(model).State = System.Data.Entity.EntityState.Modified;
+                var result = context.SaveChanges() > 0;
+                return Json(new
+                {
+                    State = result
+                });
+            }
+            else
+            {
+                return Json(new
+                {
+                    State = false
+                });
+            }
+        }
+
+        public JsonResult DeleteModelDetail(Guid code)
+        {
+            var model = context.AnalysisModel.FirstOrDefault(p => p.Code == code);
+            context.AnalysisModel.Remove(model);
+            var result = context.SaveChanges() > 0;
+            return Json(new
+            {
+                State = result
+            });
         }
 
         public PartialViewResult FieldsInfoOfModel(Guid code)
         {
-            var models = from a in context.AnalysisModel
-                         join b in context.AnalysisModelFieldsInfo
-                         on a.Code equals b.ModelCode
-                         join c in context.BaseField
-                         on b.FieldCode equals c.Code
-                         select c;
-                         
-            return PartialView(models);
+            var model = from a in context.AnalysisModelFieldsInfo
+                       join b in context.BaseField
+                       on a.FieldCode equals b.Code
+                        where a.ModelCode == code
+                       select b;
+
+            //var model = context.AnalysisModelFieldsInfo.Join<AnalysisModelFieldsInfo, BaseField, Guid, BaseField>
+            //    (context.BaseField, p => p.FieldCode, a => a.Code, (c, d) => d).ToList();
+            return PartialView(model);
         }
+
+        public PartialViewResult BasicInfoOfModel(Guid code)
+        {
+            var moel = context.AnalysisModel.FirstOrDefault(p => p.Code == code);
+            return PartialView(moel);
+        }
+
+        /////
+        //public PartialViewResult UsersOfGroup(Guid code)
+        //{
+        //    var models = from g in context.UFUserInGroup
+        //                 join u in context.UFUser
+        //                 on g.UserCode equals u.Code
+        //                 where g.GroupCode == code
+        //                 select u;
+        //    return PartialView(models);
+        //}
     }
 }

@@ -1,5 +1,10 @@
 ﻿@model IEnumerable<BigData.ModelBuilding.Models.AnalysisModel>
 <script type="text/javascript">
+    $(function () {
+
+        var code = $("#ModelCode").val();
+        FilesInfo(code);
+    });
   $("#ModelCode").change(function()
    {
     var code = $("#ModelCode").val();

@@ -1,6 +1,10 @@
 ﻿@model BigData.ModelBuilding.Models.BuildingModel
      <script type="text/javascript">
-         $(function () { GetAnalysisModel()});
+         $(function () {
+             GetAnalysisModel();
+            
+         });
+         //表单提交后调用
          function success(result)
          {
              if (result.Status) {
@@ -13,6 +17,7 @@
              }
 
          }
+         //获取dropdown中数据
          function GetAnalysisModel() {
              var url = "../ModelBuilding/GetAnalysisModel"
              $.ajax({
@@ -24,6 +29,7 @@
                  { },
              });
          }
+         //切换table
          function SwitchPanel(type) {
              switch (type) {
                  case 1:
@@ -45,8 +51,7 @@
                      break;
              }
          }
-    </script>
-
+ </script>
 <div class="NavWindow">
     <div class="NavHeader">
         <img src="~/Images/home.png" />
@@ -146,17 +151,8 @@
         <div style="padding:10px;overflow-x:hidden;" id="fieldsInfo" class="tab-pane fade">
             fields info
         </div>
-<<<<<<< HEAD
-        <input type="submit" value="保  存" class="btn btn-default" style="left:50%;bottom:15px; margin-left:40px;width:80px;position:absolute;" />
-        </div>
-        <input type="submit" value="保  存" class="btn btn-default" style="left:50%;bottom:15px; margin-left:40px;width:80px;position:absolute;" />
-        </div>
-    
-        }
-=======
     </div>
 </div>
     </div>
 </div>
       
->>>>>>> d86caa147fb4767899b29475daaed42db9cab822

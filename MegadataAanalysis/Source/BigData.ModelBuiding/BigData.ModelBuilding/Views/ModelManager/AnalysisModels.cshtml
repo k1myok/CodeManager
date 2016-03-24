@@ -1,60 +1,125 @@
 ﻿@model IEnumerable<BigData.ModelBuilding.Models.AnalysisModel>
 
+
 <script>
-    function showDetailOfModel(code)
-    {
+        function showDetailOfModel(code) {
+            $('#loader').show();
+            $.ajax({
+                url: "../ModelManager/ModelDetail?code=" + code,
+                success: function (result) {
+                    $('#contentContianer').empty().html(result);
+                    $('#detailWindow').modal('show');
+                //    $('#resourceWindow #titleContainer').html('修改模型');
+                //    $('#resourceWindow #customWindowContent').empty().html(data);
+                //    $('#resourceWindow').jqxWindow('open');
+                },
+                complete: function () {
+                    $('#loader').hide();
+                }
+            });
+        }
+    function showModifyModelView(code) {
         $('#loader').show();
         $.ajax({
-            url: "../ModelManager/ModelDetail?code=" + code,
+            url: "../ModelManager/CreateModifyModelView?code=" + code,
             success: function (result) {
+                alert(result);
                 $('#contentContianer').empty().html(result);
-                $('#detailWindow').modal('show');
+                $('#detailWindows').modal('show');
             },
             complete: function () {
                 $('#loader').hide();
+
+            }
+        });
+
+    }
+    function showDeleteModelView(code) {
+        $('#loader').show();
+        $.ajax({
+            url: "../ModelManager/CreateDeleteModelView?code=" + code,
+            success: function (result) {
+                $('#contentContianer').empty().html(result);
+                $('#detailWindows').modal('show');
+            },
+            complete: function () {
+                $('#loader'.hide());
             }
         });
     }
-</script>
-<table class="UFTable" style="table-layout:fixed;">
-    <tr>
-        @*<th>@Html.DisplayNameFor(model => model.Code)</th>*@
-        <th>@Html.DisplayNameFor(model => model.Name)</th>
-        <th>@Html.DisplayNameFor(model => model.OutTemplateFilePath)</th>
-        <th>@Html.DisplayNameFor(model => model.Description)</th>
-        @*<th>@Html.DisplayNameFor(model => model.DirectoryCode)</th>*@
-        <th>操作</th>
-         
-    </tr>
-    @foreach (var item in Model)
-    {
-        <tr>
-            @*<td>@item.Code</td>*@
-            <td>@item.Name</td>
-            <td>@item.OutTemplateFilePath</td>
-            <td>@item.Description</td>
-            @*<td>@item.DirectoryCode</td>*@
-            <td data-toggle="modal"><a style="cursor:pointer;" onclick="showDetailOfModel('@item.Code')">详情</a></td>
-        </tr>
+
+    
+    //var code = '';
+    function onSuccess(result) {
+
+        if (result.State) {
+            //showModelsOfGroup(code);
+            $('#resourceWindow').jqxWindow('close');
+        }
+        else
+        {
+            alert("资源保存失败，请检查您输入的数据有效性！");
+        }
     }
-</table>
 
 
-<div id="detailWindow" style="clear:both;" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <label class="form">详细信息</label>  
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                    &times;
-                </button>
-            </div>
-            <div class="modal-body" style="height:350px;">
-                <div id="contentContianer"></div>
+
+ //function success(result) {
+ //       if (result.State) {
+ //           alert("更新成功");
+ //           readModelName();
+ //           $('#resourceWindow').jqxWindow('close');
+ //       }
+ //       else {
+ //           alert("资源保存失败，请检查您输入的数据有效性！");
+ //       }
+ //}
+</script>
+
+    <table class="UFTable" style="table-layout:fixed;">
+        <tr>
+            @*<th>@Html.DisplayNameFor(model => model.Code)</th>*@
+            <th>@Html.DisplayNameFor(model => model.Name)</th>
+            <th>@Html.DisplayNameFor(model => model.OutTemplateFilePath)</th>
+            <th>@Html.DisplayNameFor(model => model.Description)</th>
+            @*<th>@Html.DisplayNameFor(model => model.DirectoryCode)</th>*@
+            <th>操作</th>
+
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                @*<td>@item.Code</td>*@
+                <td>@item.Name</td>
+                <td>@item.OutTemplateFilePath</td>
+                <td>@item.Description</td>
+                @*<td>@item.DirectoryCode</td>*@
+             
+                <td data-toggle="modal">
+                <a style="cursor:pointer;" onclick="showDetailOfModel('@item.Code')">详情</a>
+                <a style="cursor:pointer;" onclick="showModifyModelView('@item.Code')">修改</a>
+                <a style="cursor:pointer;"  onclick=" ">删除</a>
+                </td>
+           
+            </tr>
+        }
+    </table>
+    <div id="detailWindow" style="clear:both;" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <label class="form">详细信息</label>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                </div>
+                <div class="modal-body" style="height:350px;">
+                    <div id="contentContianer"></div>
+                </div>
+              
             </div>
         </div>
     </div>
-</div>
 
 
 

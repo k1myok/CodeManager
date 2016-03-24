@@ -8,6 +8,7 @@ using BigData.ModelBuilding.Models;
 
 namespace BigData.ModelBuilding.Controllers
 {
+  
     public class ModelBuildingController : Controller
     {
         private ModelBuildingContext context = new ModelBuildingContext();
@@ -22,12 +23,12 @@ namespace BigData.ModelBuilding.Controllers
             var result = context.BuildingModel.FirstOrDefault(p => p.Code == code);
             return PartialView(result);
         }
-        public PartialViewResult GetFieldsInfo(Guid code)
-        {
-            var result = context.AnalysisModel.Where(p => p.Code == code).Select(am => new SelectListItem { Value = am.Name, Text = am.Name }).ToList();
-            ViewBag.result = result;
-            return PartialView();
-        }
+        //public PartialViewResult GetFieldsInfo(Guid code)
+        //{
+        //    var result = context.AnalysisModel.Where(p => p.Code == code).Select(am => new SelectListItem { Value = am.Name, Text = am.Name }).ToList();
+        //    ViewBag.result = result;
+        //    return PartialView();
+        //}
 
         public PartialViewResult CreateBasicInfoModel()
         {
@@ -88,17 +89,6 @@ namespace BigData.ModelBuilding.Controllers
         }
         public PartialViewResult FilesInfo(Guid code)
         {
-            //var result =  from a in context.BaseField
-            //              join d in context.AnalysisModelFieldsInfo 
-            //              on a.Code equals d.FieldCode
-            //              join e in context.AnalysisModel on
-            //var result = from a in context.BaseField
-            //var FiledCode =(from a in context.AnalysisModel
-            //                join d in context.AnalysisModelFieldsInfo
-            //                on a.Code equals d.ModelCode
-            //                where(a.Code == code)
-            //                select d.FieldCode).ToString();
-
             var baseFields =(from a in context.AnalysisModel
                              join b in context.AnalysisModelFieldsInfo
                              on a.Code equals b.ModelCode
@@ -106,7 +96,6 @@ namespace BigData.ModelBuilding.Controllers
                              on b.FieldCode equals c.Code
                              where a.Code == code
                              select c).ToList();
-
             return PartialView(baseFields);
         }
     }  
