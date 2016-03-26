@@ -1,9 +1,10 @@
-﻿using BigData.ModelBuilding.DAL;
-using BigData.ModelBuilding.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web;
 using System.Web.Mvc;
+using BigData.ModelBuilding.DAL;
+using BigData.ModelBuilding.Models;
 
 namespace BigData.ModelBuilding.Controllers
 {
@@ -79,6 +80,7 @@ namespace BigData.ModelBuilding.Controllers
                 context.AnalysisModelDirectory.Add(newNode);
                 var result = context.SaveChanges() > 0;
                 return Json(new { State = result, Code = newNode.Code }, JsonRequestBehavior.AllowGet);
+
             }
             catch (Exception)
             {
@@ -100,12 +102,14 @@ namespace BigData.ModelBuilding.Controllers
                 }
                 var result = context.SaveChanges() > 0;
                 return Json(new { State = result }, JsonRequestBehavior.AllowGet);
+
             }
             catch (Exception)
             {
                 return Json(new { State = false }, JsonRequestBehavior.AllowGet);
             }
         }
+
 
         //jzmhang code
         public PartialViewResult AnalysisModels(Guid code)
@@ -141,16 +145,12 @@ namespace BigData.ModelBuilding.Controllers
 
         public PartialViewResult CreateModifyModelView(Guid code)
         {
+           
             var model = context.AnalysisModel.FirstOrDefault(p => p.Code == code);
             return PartialView(model);
         }
-
-
-        public PartialViewResult CreateDeleteModelView()
-        {
-            return PartialView();
-        }
-        public JsonResult ModifyModelDetail(BuildingModel model)
+        [HttpPost]
+        public JsonResult CreateModifyModelView(AnalysisModel model)
         {
             if (ModelState.IsValid)
             {
@@ -170,13 +170,13 @@ namespace BigData.ModelBuilding.Controllers
             }
         }
 
+
         public JsonResult DeleteModelDetail(Guid code)
         {
             var model = context.AnalysisModel.FirstOrDefault(p => p.Code == code);
             context.AnalysisModel.Remove(model);
             var result = context.SaveChanges() > 0;
-            return Json(new
-            {
+            return Json(new {
                 State = result
             });
         }
@@ -184,15 +184,13 @@ namespace BigData.ModelBuilding.Controllers
         public PartialViewResult FieldsInfoOfModel(Guid code)
         {
             var model = from a in context.AnalysisModelFieldsInfo
-                       join b in context.BaseField
-                       on a.FieldCode equals b.Code
+                        join b in context.BaseField
+                        on a.FieldCode equals b.Code
                         where a.ModelCode == code
-                       select b;
-
-            //var model = context.AnalysisModelFieldsInfo.Join<AnalysisModelFieldsInfo, BaseField, Guid, BaseField>
-            //    (context.BaseField, p => p.FieldCode, a => a.Code, (c, d) => d).ToList();
+                        select b;
             return PartialView(model);
         }
+
 
         public PartialViewResult BasicInfoOfModel(Guid code)
         {
@@ -200,15 +198,5 @@ namespace BigData.ModelBuilding.Controllers
             return PartialView(moel);
         }
 
-        /////
-        //public PartialViewResult UsersOfGroup(Guid code)
-        //{
-        //    var models = from g in context.UFUserInGroup
-        //                 join u in context.UFUser
-        //                 on g.UserCode equals u.Code
-        //                 where g.GroupCode == code
-        //                 select u;
-        //    return PartialView(models);
-        //}
     }
 }

@@ -1,109 +1,113 @@
 ﻿@model IEnumerable<BigData.ModelBuilding.Models.AnalysisModel>
-
-
 <script>
-        function showDetailOfModel(code) {
+    function showDetailOfModel(code)
+    {
             $('#loader').show();
             $.ajax({
                 url: "../ModelManager/ModelDetail?code=" + code,
                 success: function (result) {
                     $('#contentContianer').empty().html(result);
                     $('#detailWindow').modal('show');
-                //    $('#resourceWindow #titleContainer').html('修改模型');
-                //    $('#resourceWindow #customWindowContent').empty().html(data);
-                //    $('#resourceWindow').jqxWindow('open');
+              
+                },
+                complete: function () {
+                    $('#loader').hide();
+                }
+            });
+     }
+    function showModifyModelView(code) {
+        $('#loader').show();
+        $.ajax({
+            url: "../ModelManager/CreateModifyModelView?code=" + code,
+            success: function (result)
+            {
+                    $('#resourceWindow #titleContainer').html('修改模型');
+                    $('#resourceWindow #customWindowContent').empty().html(result);
+                    $('#resourceWindow').jqxWindow('open');
+            },
+            complete: function ()
+            {
+                $('#loader').hide();
+
+            }
+        });
+    }
+
+    function showModelsOfGroupForDelete(code)
+    {
+        currentGroupCode = code;
+        $('#loader').show();
+        $.ajax({
+            url: '../ModelManager/AnalysisModels?code=' + code,
+            success: function (data) {
+                $('#modelListContainer').empty().html(data);
+            },
+            complete: function () {
+                $('#loader').hide();
+            }
+        });
+    }
+
+    function showDeleteModelView(code)
+    {
+        if (confirm('您确定删除该模型吗？')) {
+            $('#loader').show();
+            alert(code);
+            $.ajax({
+                url: "../ModelManager/DeleteModelDetail?code=" + code,
+                success: function (result) {               
+                    if (result.State) {
+                        showModelsOfGroup(code);
+                   }
+                  else {
+                       alert("删除时发生错误，删除失败！");
+                    }
                 },
                 complete: function () {
                     $('#loader').hide();
                 }
             });
         }
-    function showModifyModelView(code) {
-        $('#loader').show();
-        $.ajax({
-            url: "../ModelManager/CreateModifyModelView?code=" + code,
-            success: function (result) {
-                alert(result);
-                $('#contentContianer').empty().html(result);
-                $('#detailWindows').modal('show');
-            },
-            complete: function () {
-                $('#loader').hide();
-
-            }
-        });
-
-    }
-    function showDeleteModelView(code) {
-        $('#loader').show();
-        $.ajax({
-            url: "../ModelManager/CreateDeleteModelView?code=" + code,
-            success: function (result) {
-                $('#contentContianer').empty().html(result);
-                $('#detailWindows').modal('show');
-            },
-            complete: function () {
-                $('#loader'.hide());
-            }
-        });
     }
 
-    
-    //var code = '';
-    function onSuccess(result) {
 
+ function success(result) {
         if (result.State) {
-            //showModelsOfGroup(code);
+            alert("更新成功");
+            readModelName();
             $('#resourceWindow').jqxWindow('close');
         }
-        else
-        {
+        else {
             alert("资源保存失败，请检查您输入的数据有效性！");
         }
-    }
-
-
-
- //function success(result) {
- //       if (result.State) {
- //           alert("更新成功");
- //           readModelName();
- //           $('#resourceWindow').jqxWindow('close');
- //       }
- //       else {
- //           alert("资源保存失败，请检查您输入的数据有效性！");
- //       }
- //}
+ }
 </script>
 
     <table class="UFTable" style="table-layout:fixed;">
         <tr>
-            @*<th>@Html.DisplayNameFor(model => model.Code)</th>*@
             <th>@Html.DisplayNameFor(model => model.Name)</th>
             <th>@Html.DisplayNameFor(model => model.OutTemplateFilePath)</th>
             <th>@Html.DisplayNameFor(model => model.Description)</th>
-            @*<th>@Html.DisplayNameFor(model => model.DirectoryCode)</th>*@
             <th>操作</th>
 
         </tr>
         @foreach (var item in Model)
         {
             <tr>
-                @*<td>@item.Code</td>*@
                 <td>@item.Name</td>
                 <td>@item.OutTemplateFilePath</td>
                 <td>@item.Description</td>
-                @*<td>@item.DirectoryCode</td>*@
-             
                 <td data-toggle="modal">
                 <a style="cursor:pointer;" onclick="showDetailOfModel('@item.Code')">详情</a>
                 <a style="cursor:pointer;" onclick="showModifyModelView('@item.Code')">修改</a>
-                <a style="cursor:pointer;"  onclick=" ">删除</a>
+                <a style="cursor:pointer;"  onclick="showDeleteModelView('@item.Code')">删除</a>
                 </td>
            
             </tr>
         }
     </table>
+
+
     <div id="detailWindow" style="clear:both;" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">

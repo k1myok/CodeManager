@@ -1,8 +1,4 @@
 ﻿@model BigData.ModelBuilding.Models.AnalysisModel
-
-
-
-
 <script>
     var code = '@Model.DirectoryCode';
     function onSuccess(result) {
@@ -19,10 +15,9 @@
 </script>
 
 
-@using (Html.BeginForm("CreateModifyModelView", "ModelManager", new AjaxOptions { HttpMethod = "Post", OnSuccess = "onSuccess" }))
+@using(Ajax.BeginForm("CreateModifyModelView", "ModelManager", new AjaxOptions { HttpMethod = "Post", OnSuccess = "onSuccess" }))
 {
   
-    
     <div id="contentContianerone"  class="form-horizontal">
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.Code)

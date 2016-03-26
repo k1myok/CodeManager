@@ -23,12 +23,6 @@ namespace BigData.ModelBuilding.Controllers
             var result = context.BuildingModel.FirstOrDefault(p => p.Code == code);
             return PartialView(result);
         }
-        //public PartialViewResult GetFieldsInfo(Guid code)
-        //{
-        //    var result = context.AnalysisModel.Where(p => p.Code == code).Select(am => new SelectListItem { Value = am.Name, Text = am.Name }).ToList();
-        //    ViewBag.result = result;
-        //    return PartialView();
-        //}
 
         public PartialViewResult CreateBasicInfoModel()
         {

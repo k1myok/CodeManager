@@ -45,9 +45,6 @@
             if(code!=null)
                 showModelsOfGroup(code);
         });
-
-
-
         $("#contextMenu").on('itemclick', function (event) {
             var itemId = $.trim($(event.args).attr('id')).toString();
             switch (itemId) {
@@ -90,7 +87,6 @@
     }
 
     function showModelsOfGroup(code) {
-        alert(code);
         currentGroupCode = code;
         $('#loader').show();
         $.ajax({
@@ -105,20 +101,14 @@
     }
 
     function createAddModelView() {
-        alert("OK");
-        alert(currentGroupCode);
         $('#loader').show();
         $.ajax({
             url: '../ModelManager/CreateAddModelView?directoryCode=' + currentGroupCode,
-            //url: '../ModelManager/CreateAddModelView',
             
             success: function (data) {
-                alert(data);
-               
                 $('#resourceWindow #titleContainer').html('添加模型');
                 $('#resourceWindow #customWindowContent').empty().html(data);
                 $('#resourceWindow').jqxWindow('open');
-
             },
             complete: function () {
                 $('#loader').hide();

@@ -1,9 +1,10 @@
 ﻿@model BigData.ModelBuilding.Models.AnalysisModel
-
 <script>
+    var code = '@Model.DirectoryCode';
     function onSuccess(result) {
+
         if (result.State) {
-            //showGroupsList();
+            showModelsOfGroup(code);
             $('#resourceWindow').jqxWindow('close');
         }
         else
