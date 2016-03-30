@@ -75,4 +75,3 @@ E:\Projects\MegadataAanalysis\Source\BigData.ModelBuiding\BigData.ModelBuilding\
 E:\Projects\MegadataAanalysis\Source\BigData.ModelBuiding\BigData.ModelBuilding\obj\Debug\BigData.ModelBuilding.csproj.GenerateResource.Cache
 E:\Projects\MegadataAanalysis\Source\BigData.ModelBuiding\BigData.ModelBuilding\obj\Debug\BigData.ModelBuilding.dll
 E:\Projects\MegadataAanalysis\Source\BigData.ModelBuiding\BigData.ModelBuilding\obj\Debug\BigData.ModelBuilding.pdb
-E:\Projects\MegadataAanalysis\Source\BigData.ModelBuiding\BigData.ModelBuilding\obj\Debug\BigData.ModelBuilding.csprojResolveAssemblyReference.cache

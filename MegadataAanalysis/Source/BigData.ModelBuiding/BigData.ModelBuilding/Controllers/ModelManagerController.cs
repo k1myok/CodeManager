@@ -110,13 +110,13 @@ namespace BigData.ModelBuilding.Controllers
             }
         }
 
-
         //jzmhang code
         public PartialViewResult AnalysisModels(Guid code)
         {
+            ViewBag.DirectoryCode = code;
             var model = context.AnalysisModel.Where(p => p.DirectoryCode == code).ToList();
             return PartialView(model);
-         }
+        }
 
         public PartialViewResult ModelDetail(Guid code)
         {
@@ -170,7 +170,6 @@ namespace BigData.ModelBuilding.Controllers
             }
         }
 
-
         public JsonResult DeleteModelDetail(Guid code)
         {
             var model = context.AnalysisModel.FirstOrDefault(p => p.Code == code);
@@ -178,7 +177,7 @@ namespace BigData.ModelBuilding.Controllers
             var result = context.SaveChanges() > 0;
             return Json(new {
                 State = result
-            });
+            }, JsonRequestBehavior.AllowGet);
         }
 
         public PartialViewResult FieldsInfoOfModel(Guid code)

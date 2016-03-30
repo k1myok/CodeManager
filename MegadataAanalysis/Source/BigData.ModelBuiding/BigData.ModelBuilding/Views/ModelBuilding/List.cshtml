@@ -50,14 +50,17 @@
                 </div>
               
                 <div class="Content">
-                    <div class="SimpleListView">
+                    @*<div class="SimpleListView">
                         @foreach (var item in Model)
                         {
                             <div class="ListItem">
                                 <div onclick="modelDetail('@item.Code')"> @item.Name</div>
                             </div>
                         }
-                    </div>
+                    </div>*@
+                    @{ 
+                        Html.RenderAction("DirectoryTree");
+                    }
                 </div>
             </div>
         </td>
@@ -72,7 +75,7 @@
                     </div>
                 </div>
                 <div class="Content" style="background-color:white; margin:1px;">
-                    <div id="usersListContainer">
+                    <div id="buildModelsListContainer">
                     </div>
                 </div>
             </div>

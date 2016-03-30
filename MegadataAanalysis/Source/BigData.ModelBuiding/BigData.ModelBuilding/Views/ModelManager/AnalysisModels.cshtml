@@ -1,7 +1,8 @@
 ﻿@model IEnumerable<BigData.ModelBuilding.Models.AnalysisModel>
 <script>
-    function showDetailOfModel(code)
-    {
+    var directoryCode = '@ViewBag.DirectoryCode';
+
+    function showDetailOfModel(code) {
             $('#loader').show();
             $.ajax({
                 url: "../ModelManager/ModelDetail?code=" + code,
@@ -14,7 +15,7 @@
                     $('#loader').hide();
                 }
             });
-     }
+        }
     function showModifyModelView(code) {
         $('#loader').show();
         $.ajax({
@@ -33,34 +34,22 @@
         });
     }
 
-    function showModelsOfGroupForDelete(code)
-    {
-        currentGroupCode = code;
-        $('#loader').show();
-        $.ajax({
-            url: '../ModelManager/AnalysisModels?code=' + code,
-            success: function (data) {
-                $('#modelListContainer').empty().html(data);
-            },
-            complete: function () {
-                $('#loader').hide();
-            }
-        });
-    }
+
+
 
     function showDeleteModelView(code)
     {
         if (confirm('您确定删除该模型吗？')) {
+
             $('#loader').show();
-            alert(code);
             $.ajax({
                 url: "../ModelManager/DeleteModelDetail?code=" + code,
                 success: function (result) {               
                     if (result.State) {
-                        showModelsOfGroup(code);
-                   }
-                  else {
-                       alert("删除时发生错误，删除失败！");
+                        showModelsOfGroup(directoryCode);
+                    }
+                    else {
+                        alert("删除时发生错误，删除失败！");
                     }
                 },
                 complete: function () {

@@ -86,8 +86,8 @@
         return rightclick;
     }
 
+
     function showModelsOfGroup(code) {
-        currentGroupCode = code;
         $('#loader').show();
         $.ajax({
             url: '../ModelManager/AnalysisModels?code=' + code,
@@ -100,49 +100,12 @@
         });
     }
 
-    function createAddModelView() {
-        $('#loader').show();
-        $.ajax({
-            url: '../ModelManager/CreateAddModelView?directoryCode=' + currentGroupCode,
-            
-            success: function (data) {
-                $('#resourceWindow #titleContainer').html('添加模型');
-                $('#resourceWindow #customWindowContent').empty().html(data);
-                $('#resourceWindow').jqxWindow('open');
-            },
-            complete: function () {
-                $('#loader').hide();
-            }
-        });
-
-
-    }
-
-    var currentGroupCode = null;
-
-    //jmzhang code
-    function showModelsOfGroupInformation(code) {
-       $('#loader').show();
-        $.ajax({
-            url: '../ModelManager/AnalysisModelsInformation?code=' + code,
-            success: function (data) {
-                $('#modelListContainer').empty().html(data);
-                //$('#modelListContainer').empty().html(code);
-            },
-            complete: function () {
-                $('#loader').hide();
-            }
-        });
-
-    }
-
-  
     function addTreeNode(newNodeName) {
         $('#loader').show();
         var selectedItem = $('#groupTree').jqxTree('selectedItem');
         var code = selectedItem ? $(selectedItem.element).data("directory") : "";
         $.ajax({
-            url: "../ModelManager/AddTreeNode?parent=" + code + "&child=" + newNodeName,
+            url: "../ModelBuilding/AddTreeNode?parent=" + code + "&child=" + newNodeName,
             success: function (result) {
                 if (result.State)
                 {
@@ -184,7 +147,7 @@
         }
         
         $.ajax({
-            url: "../ModelManager/DeleteTreeNode?code=" + code + "&childCodes=" + childCodes,
+            url: "../ModelBuilding/DeleteTreeNode?code=" + code + "&childCodes=" + childCodes,
             success: function (result) {
                 if (result.State) {
                     $('#groupTree').jqxTree('removeItem', selectedItem.element);
@@ -277,7 +240,7 @@
                     <div id="modelListContainer"></div>
                 </div>
                 <div id="contentAddContianer"></div>
-                
+
             </div>
 
         </td>
