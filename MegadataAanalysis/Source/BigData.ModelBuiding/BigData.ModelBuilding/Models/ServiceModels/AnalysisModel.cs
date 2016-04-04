@@ -76,6 +76,19 @@ namespace BigData.ModelBuilding.Models
         [MaxLength(1000)]
         [Display(Name = "排序字段")]
         public string OrderFields { get; set; }
+
+        [NotMapped]
+        public string SourceTypeText
+        {
+            get
+            {
+                return this.SourceType.ToString();
+            }
+            set
+            {
+                this.SourceType = int.Parse(value);
+            }
+        }
     }
 
     public partial class AnalysisModelFieldsInfo

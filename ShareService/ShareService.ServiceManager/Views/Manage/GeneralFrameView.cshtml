@@ -1,0 +1,101 @@
+﻿<style>
+   
+</style>
+<script>
+    $('#clusterGeneralView').ready(function () {
+        //加载集群概况视图
+        //alert('加载集群概况视图');
+        $('#loader').show();
+        $.ajax({
+            url: '../Manage/ClusterGeneralView',
+            success: function (data) {
+                $('#clusterGeneralView').empty().html(data);
+            },
+            complete: function () {
+                $('#loader').hide();
+            }
+        });
+    });
+
+    $('#serviceGeneralView').ready(function () {
+        //加载服务概况视图
+        //alert('加载服务概况视图');
+        $('#loader').show();
+        $.ajax({
+            url: '../Manage/ServiceGeneralView',
+            success: function (data) {
+                $('#serviceGeneralView').empty().html(data);
+            },
+            complete: function () {
+                $('#loader').hide();
+            }
+        });
+    });
+
+    $('#hotGeneralView').ready(function () {
+        //加载热度概况视图
+        //alert('加载热度概况视图');
+        $('#loader').show();
+        $.ajax({
+            url: '../Manage/HotGeneralView',
+            success: function (data) {
+                $('#hotGeneralView').empty().html(data);
+            },
+            complete: function () {
+                $('#loader').hide();
+            }
+        });
+    });
+
+    $('#imageGeneralView').ready(function () {
+        //加载影像概况视图
+        //alert('加载影像概况视图');
+        $('#loader').show();
+        $.ajax({
+            url: '../Manage/ImageGeneralView',
+            success: function (data) {
+                $('#imageGeneralView').empty().html(data);
+            },
+            complete: function () {
+                $('#loader').hide();
+            }
+        });
+    });
+</script>
+
+<div class="NavWindow" style="height:100%;width:100%;margin:0px;padding:0px;">
+    <div class="NavHeader">
+        <img src="~/Images/home.png" />
+        <span>您当前的位置：首页</span>
+        <div style="float:right;margin-right:10px;">
+            @*日期*@
+            @DateTime.Now
+        </div>
+    </div>
+    <div class="Content" style="height:90%;width:100%;overflow-y:hidden">
+        <table class="UFTable" border="1" style="height:100%;width:100%;">
+            <tr style="height:20%">
+                <td width="50%">
+                    <div id="clusterGeneralView"></div>
+                </td>
+                <td>
+                    <div id="serviceGeneralView"></div>
+                </td>
+            </tr>
+            <tr style="height:50%">
+                <td colspan="2">
+                    <div id="hotGeneralView">
+                    </div>
+                </td>
+
+            </tr>
+            <tr style="height:20%">
+                <td colspan="2">
+                    <div id="imageGeneralView"></div>
+                </td>
+            </tr>
+
+        </table>
+    </div>
+</div>
+

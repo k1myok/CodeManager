@@ -14,13 +14,18 @@ namespace ShareService.ServiceManager.Controllers
     [UFAuthorize]
     public class SecurityManagerController : Controller
     {
+        private ShareServiceContext context = new ShareServiceContext();
         public PartialViewResult List()
         {
             return PartialView();
         }
         public PartialViewResult UserInfo()
         {
-            return PartialView();
+            var isExisted = HttpContext.User.Identity != null && !string.IsNullOrEmpty(HttpContext.User.Identity.Name);
+            var model = isExisted ? 
+                context.UFUser.FirstOrDefault(p => p.Name == HttpContext.User.Identity.Name) : 
+                new UFUser() { Name = "游客" };
+            return PartialView(model);
         }
     }
 }

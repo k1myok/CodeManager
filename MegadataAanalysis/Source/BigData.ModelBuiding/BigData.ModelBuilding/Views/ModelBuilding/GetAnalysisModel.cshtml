@@ -1,27 +1,27 @@
 ﻿@model IEnumerable<BigData.ModelBuilding.Models.AnalysisModel>
-<script type="text/javascript">
-  $("#ModelCode").change(function()
-   {
-    var code = $("#ModelCode").val();
-    FilesInfo(code);
-   });
- function FilesInfo(code)
- {
-       $("#load").show();
-        var url = "../ModelBuilding/FilesInfo?code=" + code;
-       $.ajax({
-              url: url,
-              success: function (data)
-              {
-                $("#fieldsInfo").empty().html(data);
-              },
-              complete: function ()
-              {
-               $("#load").hide();
-              }
-     });
- }
-    </script>
+           <script type="text/javascript">
+               $(function (){
+                   var code = $("#ModelCode").val();
+                   FilesInfo(code);
+               });
+               $("#ModelCode").change(function () {
+                   var code = $("#ModelCode").val();
+                   FilesInfo(code);
+               });
+               function FilesInfo(code) {
+                   $("#load").show();
+                   var url = "../ModelBuilding/FilesInfo?code=" + code;
+                   $.ajax({
+                       url: url,
+                       success: function (data) {
+                           $("#fieldsInfo").empty().html(data);
+                       },
+                       complete: function () {
+                           $("#load").hide();
+                       }
+                   });
+               }
+           </script>
   <div class="col-md-2">
-    @Html.DropDownList("ModelCode", ViewBag.result as IEnumerable<SelectListItem>)
+    @Html.DropDownList("ModelCode", ViewBag.result as IEnumerable<SelectListItem>, htmlAttributes: new { @style = "width:300px;height:32px;" })
   </div>

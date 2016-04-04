@@ -8,32 +8,39 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="Cache" content="no-cache">
+
     <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-  <script>
-        function onMenuClick(url)
-        {
+
+
+    <script>
+        function onMenuClick(url) {
             if (url != "") {
-                $('#loader').show();
-                $.ajax({
-                    url: url,
-                    success: function (data) {
-                        $('#MainContent').empty().html(data);
-                    },
-                    complete: function () {
-                        $('#loader').hide();
-                    }
-                });
+                if (url == "../Manage/Default") {
+                    window.location.href = "../Manage/Default";
+                } else {
+                    $('#loader').show();
+                    $.ajax({
+                        url: url,
+                        success: function (data) {
+                            $('#MainContent').empty().html(data);
+                        },
+                        complete: function () {
+                            $('#loader').hide();
+                        }
+                    });
+                }               
             }
             else
                 $('#MainContent').empty();
 
         }
     </script>
-<link href="~/Content/SimpleTheme.css" rel="stylesheet"/>
+
+    <link href="~/Content/SimpleTheme.css" rel="stylesheet" />
 </head>
 <body>
     <div class="Header">
@@ -41,34 +48,52 @@
             地理信息共享服务平台
         </div>
         <div class="MenuLink">
+            <div onclick="onMenuClick('../Manage/Default')">
+                @*<img src="~/Images/server.png"*@
+                <img src="~/Images/首页.png" />
+                <div>
+                    首页
+                </div>
+            </div>
             <div onclick="onMenuClick('../HostManager/Manager')">
-                <img src="~/Images/server.png" />
+                @*<img src="~/Images/server.png"*@
+                <img src="~/Images/server_manage.png" />
                 <div>
                     服务器管理
                 </div>
             </div>
             <div onclick="onMenuClick('../DirectoryManager/List')">
-                <img src="~/Images/server.png" />
+                @*<img src="~/Images/server.png" />*@
+                <img src="~/Images/server_resource_manage.png" />
                 <div>
                     服务管理
                 </div>
             </div>
+            <div onclick="onMenuClick('../MetadataManager/List')">
+                @*<img src="~/Images/server.png" />*@
+                <img src="~/Images/metadata_manager.png" />
+                <div>
+                    元数据管理
+                </div>
+            </div>
             <div onclick="onMenuClick('../SecurityManager/List')">
-                <img src="~/Images/server.png" />
+                @*<img src="~/Images/server.png" />*@
+                <img src="~/Images/security_manage.png" />
                 <div>
                     安全管理
                 </div>
             </div>
+
             @*<ul>
-                <li>
-                </li>
-                <li><a onclick="onMenuClick('../DirectoryManager/List')">服务管理</a></li>
-                <li><a onclick="onMenuClick('../SecurityManager/Index')">安全管理</a></li>
-                <li>@Html.ActionLink("资源查询", "About", "Home")</li>
-                <li>@Html.ActionLink("资源统计", "Contact", "Home")</li>
-                <li>@Html.ActionLink("元数据管理", "List", "MetadataManager")</li>
-                <li>@Html.ActionLink("系统帮助", "Contact", "Home")</li>
-            </ul>*@
+                    <li>
+                    </li>
+                    <li><a onclick="onMenuClick('../DirectoryManager/List')">服务管理</a></li>
+                    <li><a onclick="onMenuClick('../SecurityManager/Index')">安全管理</a></li>
+                    <li>@Html.ActionLink("资源查询", "About", "Home")</li>
+                    <li>@Html.ActionLink("资源统计", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("元数据管理", "List", "MetadataManager")</li>
+                    <li>@Html.ActionLink("系统帮助", "Contact", "Home")</li>
+                </ul>*@
         </div>
     </div>
     <div class="MainContentContainer">
@@ -77,18 +102,18 @@
         </div>
     </div>
     @*<footer>
-        <div>
             <div>
-                <a href="http://www.china-ccw.com">&copy; @DateTime.Now.Year - 苏州云联智慧信息技术应用有限公司</a>
+                <div>
+                    <a href="http://www.china-ccw.com">&copy; @DateTime.Now.Year - 苏州云联智慧信息技术应用有限公司</a>
+                </div>
             </div>
-        </div>
-    </footer>*@
+        </footer>*@
 
     <div id="resourceWindow" style="display:none;">
         <div id="customWindowHeader">
             <span id="titleContainer" style="float: left"></span>
         </div>
-        <div id="customWindowContent" style="overflow: auto">
+        <div id="customWindowContent" style="overflow:auto">
         </div>
     </div>
 

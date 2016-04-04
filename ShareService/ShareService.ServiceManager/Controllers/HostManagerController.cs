@@ -36,7 +36,7 @@ namespace ShareService.ServiceManager.Controllers
 
         public PartialViewResult CreateFarm()
         {
-            return PartialView(new ServerFarm());
+            return PartialView();
         }
         public PartialViewResult CreateServerInstance(Guid farmCode)
         {
@@ -56,7 +56,7 @@ namespace ShareService.ServiceManager.Controllers
                 State = result
             });
         }
-       
+       [HttpPost]
         public JsonResult CreateFarm(ServerFarm farm)
         {
             farm.Code = Guid.NewGuid();
@@ -64,7 +64,9 @@ namespace ShareService.ServiceManager.Controllers
             var result = context.SaveChanges() > 0;
 
             return Json(new {
-                State = result
+                State = result,
+                Name=farm.Name,
+                Code=farm.Code
             });
         }
         public JsonResult DeleteServerInstance(Guid code)

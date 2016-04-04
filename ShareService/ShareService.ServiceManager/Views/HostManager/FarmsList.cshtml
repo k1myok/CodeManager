@@ -29,6 +29,7 @@
         {
             $('#loader').show();
             $.ajax({
+                type:'get',
                 url: '../HostManager/CreateFarm',
                 success: function (data) {
                     $('#resourceWindow #titleContainer').html('添加集群');
@@ -61,15 +62,17 @@
 <div class="SimpleWindow">
     <div class="TitleContainer">
         <div class="Title">
-            <img src="~/Images/server.png"/>
+            @*<img src="~/Images/server.png"/>*@
+            <img src="~/Images/cluster_list.png" />
             <a>集 群</a>
         </div>
         <div class="HImgToolbar">
-            <img onclick="resetServerInstances();" src="~/Images/server.png" title="重置"/>
+            <img onclick="addFarm();" src="~/Images/add.png" title="添加" />
         </div>
-        @*<div class="HImgToolbar">
-            <label class="btn btn-default"onclick="resetServerInstances()">重置</label>
-        </div>*@
+        <div class="HImgToolbar">
+            <img onclick="resetServerInstances();" src="~/Images/refresh.png" title="重置"/>
+        </div>
+       
     </div>
     <div class="Content">
         <div class="SimpleListView">

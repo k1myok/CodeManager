@@ -11,14 +11,13 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ShareService.ServiceManager.Tests</RootNamespace>
     <AssemblyName>ShareService.ServiceManager.Tests</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <SccProjectName>SAK</SccProjectName>
     <SccLocalPath>SAK</SccLocalPath>
     <SccAuxPath>SAK</SccAuxPath>
     <SccProvider>SAK</SccProvider>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -91,10 +90,6 @@
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <Private>False</Private>
     </Reference>
-    <Reference Include="ShareService.ServiceManager, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\ShareService.ServiceManager\bin\ShareService.ServiceManager.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
@@ -156,6 +151,10 @@
     <ProjectReference Include="..\ShareService.Service.ARR\ShareService.Service.ARR.csproj">
       <Project>{f267f0e8-7a18-49f5-b4a3-c9e4514ccb1d}</Project>
       <Name>ShareService.Service.ARR</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ShareService.ServiceManager\ShareService.ServiceManager.csproj">
+      <Project>{46431EAD-23D5-4FF6-91C1-2F73F5C81AF4}</Project>
+      <Name>ShareService.ServiceManager</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

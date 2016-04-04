@@ -3,20 +3,13 @@
 <script>
     $(document).ready(function () {
         $('#resourceWindow').jqxWindow({
-            width: '400px',
+            width: '745px',
             height: '340px',
             resizable: true,
             initContent: function () {
             }
         });
     });
-
-
-    @*('@item.Code'
-            ('@item.Code'
-    ('@item.Cod
-    ('@item.Co    showUsersList
-    ('@item*@
 
     function createUser() {
         $('#loader').show();
@@ -108,9 +101,7 @@
         $.ajax({
             url: '../UserManager/EditServicesOfUser?userCode=' + code,
             success: function (data) {
-                $('#resourceWindow #titleContainer').html('编辑用户权限');
-                $('#resourceWindow #customWindowContent').empty().html(data);
-                $('#resourceWindow').jqxWindow('open');
+                $('#securityContentContainer').empty().html(data);
             },
             complete: function () {
                 $('#loader').hide();
@@ -170,6 +161,3 @@
         </div>
     </div>
 </div>
-
-
-

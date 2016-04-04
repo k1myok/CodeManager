@@ -219,6 +219,7 @@
     <Compile Include="Models\ServiceModels\BaseField.cs" />
     <Compile Include="Models\ServiceModels\AnalysisModelDirectory.cs" />
     <Compile Include="Models\ServiceModels\AnalysisModel.cs" />
+    <Compile Include="Models\ServiceModels\DataSourceType.cs" />
     <Compile Include="Models\UserModels\AspNetRoles.cs" />
     <Compile Include="Models\UserModels\AspNetUserRoles.cs" />
     <Compile Include="Models\UserModels\AspNetUsers.cs" />
@@ -1034,8 +1035,11 @@
     <Content Include="Views\ModelManager\ModelDetail.cshtml" />
     <Content Include="Views\ModelManager\FieldsInfoOfModel.cshtml" />
     <Content Include="Views\ModelBuilding\CreateBasicInfoModel.cshtml" />
+    <Content Include="Views\ModelManager\ModifyModelDetail.cshtml" />
+    <Content Include="Views\ModelManager\CreateAddModelView.cshtml" />
     <Content Include="Views\ModelBuilding\GetAnalysisModel.cshtml" />
     <Content Include="Views\ModelBuilding\FilesInfo.cshtml" />
+    <Content Include="Views\ModelBuilding\BMList.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

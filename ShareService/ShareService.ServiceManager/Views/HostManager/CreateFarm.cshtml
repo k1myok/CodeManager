@@ -1,10 +1,18 @@
 ﻿@model ShareService.ServiceManager.Models.ServerFarm
-
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
 <div style="width:100%; height:100%;">
+    @*<div class="SimpleListView">
+        @foreach (var item in Model)
+            {
+            <div onclick="showServerInstances('@item.Code')" class="ListItem"><span>@item.Name</span></div>
+        }
+    </div>*@
+
     <script>
-        function onSuccess(result) {
+        function createFarmSuccess(result) {
             if (result.State) {
-                showFarmsList();
+                //updateFarmList(result.Code,result.Name);
                 $('#resourceWindow').jqxWindow('close');
             }
             else
@@ -12,14 +20,18 @@
                 alert("保存失败，请检查您输入的数据有效性！");
             }
         }
+
+        function updateFarmList(code, name) {
+            alert(code+name);
+        }
     </script>
-    @using (Ajax.BeginForm("CreateFarm", "HostManager", new AjaxOptions { HttpMethod = "Post", OnSuccess = "onSuccess" }))
+    @using (Ajax.BeginForm("CreateFarm", "HostManager", new AjaxOptions { HttpMethod = "Post", OnSuccess = "createFarmSuccess" }))
     {
         <div class="form-horizontal">
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <div class="form-group">
                 @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
+                <div class="col-md-9">
                     @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
                 </div>

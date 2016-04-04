@@ -1,10 +1,27 @@
-﻿@model IEnumerable<ShareService.ServiceManager.Models.Service>
-<script>
-    var userCode = '@(ViewBag.userCode)';
+﻿@using ShareService.ServiceManager.Models
+@model IEnumerable<Service>
 
-    function exitServicesOfUser() {
-        $('#resourceWindow').jqxWindow('close');
+<script>
+    var userCode = '@(ViewBag.UserCode)';
+
+    $(document).ready(function () {
+        showUserGlobalToken(userCode);
+    });
+
+    function showUserGlobalToken(userCode)
+    {
+        $('#loader').show();
+        $.ajax({
+            url: '../UserManager/EditGlobalTokenOfUser?userCode=' + userCode,
+            success: function (data) {
+                $('#globalPermission').empty().html(data);
+            },
+            complete: function () {
+                $('#loader').hide();
+            }
+        });
     }
+
     function change(serviceCode, selected) {
         var url = selected ? "../UserManager/AddServiceToUser" : "../UserManager/RemoveServiceFromUser";
         $.ajax({
@@ -16,42 +33,163 @@
             }
         });
     }
-</script>
-<div class="Content">
-    <table class="UFTable">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                是否选择
-            </th>
-          
-        </tr>
 
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    @if (ViewBag.serviceCodes.Contains(item.Code))
-                    {
-                        <input type="checkbox" checked value="@item.Code" onchange="change('@item.Code', this.checked)" />
+    function saveEdit(itemCode) {
+        var serviceCode = itemCode;
+        var startDateCode = '#StartDate_' + itemCode;
+        var endDateCode = '#EndDate_' + itemCode;
 
+        var startDate = $(startDateCode).val();
+        var endDate = $(endDateCode).val();
+        if (endDate <= startDate) {
+            alert("过期时间必须在开始时间之后！");
+        } else {
+            $.ajax({
+                url: '../UserManager/SaveEditToken?serviceCode=' + itemCode + "&userCode=" + userCode + "&begin=" + startDate + "&end=" + endDate,
+                success: function (result) {
+                    if (result.State) {
+                        alert("保存Token成功！"+result.Code);
+                        //window.location.reload();
+                        $(endDateCode).parent('td').next('td').html(result.Code);
+                    } else {
+                        alert("与服务器通信发生异常，请稍后再试！");
                     }
-                    else {
-                        <input type="checkbox" value="@item.Code" onchange="change('@item.Code',  this.checked)" />
-
-                    }
-                </td>
-               
-            </tr>
+                },
+            });
         }
+        
+    }
 
-    </table>
-    <input onclick="exitServicesOfUser()" value="退  出" class="btn btn-default" style="position:absolute; left:50%;bottom:15px; margin-left:-40px;width:80px;" />
+    function deleteEdit(code) {
+        var beginDateId = '#StartDate_' + code;
+        var endDateId = '#EndDate_' + code;
+        $(beginDateId).val("");
+        $(endDateId).val("");
 
+        var serviceCode = code;
+        if ('' == $(endDateId).parent('td').next('td').html()) {
+            $('#btnDelete').disabled = true;
+        } else {
+            $('#btnDelete').disabled = false;
+            $.ajax({
+                url: '../UserManager/DeleteServiceToken?userCode=' + userCode + "&serviceCode=" + serviceCode,
+                success: function (result) {
+                    if (result.State) {
+                        $(endDateId).parent('td').next('td').empty();
+                        alert("删除Token成功！");
+                    } else {
+                        alert("与服务器通信发生异常，请稍后再试！");
+                    }
+                }
+            });
+        }
+       
+    }
+</script>
+
+<div class="NavWindow">
+    <div class="NavHeader">
+        <img src="~/Images/home.png" />
+        <span>您当前的位置：安全管理 &gt; 用户管理 &gt; 用户权限管理</span>
+    </div>
+    <div class="NavContent">
+        <div class="Title">
+            <div style="float:left;margin-left:10px;font-weight:bold;">用户权限（@ViewBag.UserName）</div>
+            <div onclick="showUsersList();" class="UFButton">
+                返回
+            </div>
+        </div>
+        <div class="Content">
+            <ul id="infoTabs" class="nav nav-tabs">
+                <li class="active">
+                    <a href="#servicesPermission" data-toggle="tab">
+                        服务权限
+                    </a>
+                </li>
+                <li>
+                    <a href="#globalPermission" data-toggle="tab">全局权限</a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div style="padding:10px;overflow-x:hidden;" id="servicesPermission" class="tab-pane fade in active">
+                    <table class="UFTable">
+                        <tr>
+                            <th style="width:20%;">
+                                @Html.DisplayNameFor(model => model.Name)
+                            </th>
+                            <th style="width:50px;">
+                                权限
+                            </th>
+                            <th style="width:180px;">生效日期</th>
+                            <th style="width:180px;">过期日期</th>
+                            <th>Token</th>
+                            <th style="width:80px;">Token操作</th>
+                        </tr>
+                        @{
+                            var serviceTokens = ViewBag.ServiceTokens as List<ServiceToken>;
+                            ServiceToken serviceToken = null;
+                        }
+                        @foreach (var item in Model)
+                        {
+                            {
+                                serviceToken = serviceTokens.FirstOrDefault(p => p.ServiceCode == item.Code);
+                            }
+
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Name)
+                                </td>
+                                <td>
+                                    @if (ViewBag.ServiceCodes.Contains(item.Code))
+                                    {
+                                        <input type="checkbox" checked value="@item.Code" onchange="change('@item.Code', this.checked)" />
+                                    }
+                                    else
+                                    {
+                                        <input type="checkbox" value="@item.Code" onchange="change('@item.Code',  this.checked)" />
+                                    }
+                                </td>
+                                <td>
+                                    @if (serviceToken != null)
+                                    {
+                                        <input id="StartDate_@item.Code" type="date" class="UFDate" value='@serviceToken.StartDate.ToString("yyyy-MM-dd")' />
+                                    }
+                                    else
+                                    {
+                                        <input id="StartDate_@item.Code" type="date" class="UFDate" />
+                                    }
+                                </td>
+                                <td>
+                                    @if (serviceToken != null)
+                                    {
+                                        <input id="EndDate_@item.Code" type="date" class="UFDate" value='@serviceToken.ExpiredDate.ToString("yyyy-MM-dd")' />
+                                    }
+                                    else
+                                    {
+                                        <input id="EndDate_@item.Code" type="date" class="UFDate" />
+                                    }
+                                </td>
+                                <td>
+                                    @if (serviceToken != null)
+                                    {
+                                        <label style="font-size:9px;">@serviceToken.Code</label>
+                                    }
+                                </td>
+                                <td>
+                                    <a onclick="saveEdit('@item.Code')" style="cursor:pointer">保存</a>
+                                    <a onclick="deleteEdit('@item.Code')" style="cursor:pointer">删除</a>
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+                </div>
+                <div style="padding:10px;overflow-x:hidden;" id="globalPermission" class="tab-pane fade">
+                    @{ 
+                        Html.RenderAction("EditGlobalTokenOfUser", (object)(ViewBag.UserCode));
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-
