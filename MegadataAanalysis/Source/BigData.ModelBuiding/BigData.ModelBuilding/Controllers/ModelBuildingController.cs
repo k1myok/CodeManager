@@ -8,7 +8,6 @@ using BigData.ModelBuilding.Models;
 
 namespace BigData.ModelBuilding.Controllers
 {
-  
     public class ModelBuildingController : Controller
     {
         private ModelBuildingContext context = new ModelBuildingContext();
@@ -126,22 +125,81 @@ namespace BigData.ModelBuilding.Controllers
             return PartialView(model);
         }
 
+        public PartialViewResult ModelDetail(Guid code)
+        {
+            var moel = context.BuildingModel.FirstOrDefault(p => p.Code == code);
+            return PartialView(moel);
+        }
+
+        public PartialViewResult BasicInfoOfModel(Guid code)
+        {
+            var moel = context.BuildingModel.FirstOrDefault(p => p.Code == code);
+            return PartialView(moel);
+        }
+
+        public PartialViewResult FieldsInfoOfModel(Guid code)
+        {
+            //var model = from a in context.BuildingModelFieldsInfo
+            //            join b in context.BaseField
+            //            on a.FieldCode equals b.Code
+            //            where a.ModelCode == code
+            //            select b;
+            var model = context.BaseField;
+
+            //var model = context.AnalysisModelFieldsInfo.Join<AnalysisModelFieldsInfo, BaseField, Guid, BaseField>
+            //    (context.BaseField, p => p.FieldCode, a => a.Code, (c, d) => d).ToList();
+            return PartialView(model);
+        }
+
+        public PartialViewResult CreateModifyModelView(Guid code)
+        {
+
+            var model = context.BuildingModel.FirstOrDefault(p => p.Code == code);
+            return PartialView(model);
+        }
+        [HttpPost]
+        public JsonResult CreateModifyModelView(AnalysisModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                context.Entry(model).State = System.Data.Entity.EntityState.Modified;
+                var result = context.SaveChanges() > 0;
+                return Json(new
+                {
+                    State = result
+                });
+            }
+            else
+            {
+                return Json(new
+                {
+                    State = false
+                });
+            }
+        }
+
         public PartialViewResult ListDetail(Guid code)
         {
             var result = context.BuildingModel.FirstOrDefault(p => p.Code == code);
-            ViewBag.SystemModelSource = context.AnalysisModel.Select(p=>new SelectListItem() { Text = p.Name, Value = p.Code.ToString() });
+            ViewBag.SystemModelSource = context.AnalysisModel.Select(p => new SelectListItem() { Text = p.Name, Value = p.Code.ToString() });
             ViewBag.SourceType = new List<SelectListItem>() { 
                 new SelectListItem(){ Text = "表", Value = "0"},
                 new SelectListItem(){ Text = "视图", Value = "1"}
             };
+            var sql = "";
+            if (result.SourceType == 1)
+                 sql = "select Name,'1'as SourceType from sys.all_views WHERE SCHEMA_ID='1'";
+            else
+                sql = "select Name,'0' as SourceType from sys.all_objects where type='U'";
 
-            ViewBag.OutputType = new List<SelectListItem>() { 
+            ViewBag.SourceNameList = context.Database.SqlQuery<Table>(sql).Select(p => new SelectListItem() {
+                Text = p.Name,
+                 Value = p.Name
+            });
+            ViewBag.OutputTypeList = new List<SelectListItem>() { 
                 new SelectListItem(){ Text = "表", Value = "0"},
                 new SelectListItem(){ Text = "视图", Value = "1"}
             };
-
-            //ViewBag.SourceType = context.BuildingModel.Select(p => new SelectListItem() { Value = p.SourceType.ToString(), Text = p.SourceType == 1 ? "表" : "视图" }).Distinct();
-            //ViewBag.OutputType = context.BuildingModel.Select(p => new SelectListItem() { Value = p.OutputType.ToString(), Text = p.OutputType == 1 ? "表" : "视图" }).Distinct();
             return PartialView(result);
         }
 
@@ -154,28 +212,30 @@ namespace BigData.ModelBuilding.Controllers
 
         public PartialViewResult CreateBasicInfoModel()
         {
-            List<SelectListItem> SourceType= new List<SelectListItem>{
-            new SelectListItem{Text="表",Value="1"},
-            new SelectListItem{Text="视图",Value="0"}
+            var result = context.Database.SqlQuery<Table>("select Name,'0'as SourceType from sys.all_objects where type='U'").ToList();
+            ViewBag.resul = result.Select(am => new SelectListItem { Value = am.Name, Text = am.Name }).ToList();
+            List<SelectListItem> SourceType = new List<SelectListItem>{
+            new SelectListItem{Text="表",Value="0"},
+            new SelectListItem{Text="视图",Value="1"}
             };
             List<SelectListItem> OutputType = new List<SelectListItem>{
-            new SelectListItem{Text="表",Value="1"},
-            new SelectListItem{Text="视图",Value="0"}
+            new SelectListItem{Text="表",Value="0"},
+            new SelectListItem{Text="视图",Value="1"}
             };
             ViewBag.SourceType = new SelectList(SourceType, "Value", "Text");
             ViewBag.OutputType = new SelectList(OutputType, "Value", "Text");
             return PartialView(new BuildingModel());
         }
-         [HttpPost]
+        [HttpPost]
 
         public JsonResult CreateBasicInfoModel(BuildingModel model)
         {
-           model.CreateDate =Convert.ToDateTime(DateTime.Now.ToShortDateString());
-          model.UpdateDate = Convert.ToDateTime(DateTime.Now.ToShortDateString());
-          model.Code = Guid.NewGuid();
-          context.BuildingModel.Add(model);
-          var result=context.SaveChanges()>0;
-          return Json(new { Status=result });
+            model.CreateDate = Convert.ToDateTime(DateTime.Now.ToShortDateString());
+            model.UpdateDate = Convert.ToDateTime(DateTime.Now.ToShortDateString());
+            model.Code = Guid.NewGuid();
+            context.BuildingModel.Add(model);
+            var result = context.SaveChanges() > 0;
+            return Json(new { Status = result });
         }
         [HttpPost]
 
@@ -200,7 +260,7 @@ namespace BigData.ModelBuilding.Controllers
         }
         public PartialViewResult GetAnalysisModel()
         {
-            var result = context.AnalysisModel.Select(am => new SelectListItem { Value =am.Code.ToString(), Text = am.Name }).ToList();
+            var result = context.AnalysisModel.Select(am => new SelectListItem { Value = am.Code.ToString(), Text = am.Name }).ToList();
             ViewBag.result = result;
             return PartialView();
         }
@@ -219,19 +279,45 @@ namespace BigData.ModelBuilding.Controllers
             return Json(new
             {
                 State = false
-            },JsonRequestBehavior.AllowGet);
+            }, JsonRequestBehavior.AllowGet);
         }
-        public PartialViewResult FilesInfo(Guid code)
+        public PartialViewResult FieldsInfo(Guid code)
         {
-            var baseFields =(from a in context.AnalysisModel
-                             join b in context.AnalysisModelFieldsInfo
-                             on a.Code equals b.ModelCode
-                             join c in context.BaseField
-                             on b.FieldCode equals c.Code
-                             where a.Code == code
-                             select c).ToList();
+            var baseFields = (from a in context.AnalysisModel
+                              join b in context.AnalysisModelFieldsInfo
+                              on a.Code equals b.ModelCode
+                              join c in context.BaseField
+                              on b.FieldCode equals c.Code
+                              where a.Code == code
+                              select c).ToList();
             return PartialView(baseFields);
         }
-    }
-                       
+        public PartialViewResult GetTableName(string sourceType,Guid code)
+        {
+            var sql = "";
+            var SName=context.BuildingModel.Where(p=>p.Code==code).Select(p=>p.SourceName).ToList();
+            var SourceName=SName[0].ToString();
+            switch (sourceType)
+            {
+                case "0":
+                case null:
+                    sql = "select Name,'0' as SourceType from sys.all_objects where type='U'";
+                    break;
+                case "1":
+                    sql = "select Name,'1'as SourceType from sys.all_views WHERE SCHEMA_ID='1'";
+                    break;
+            }
+            var result = context.Database.SqlQuery<Table>(sql).ToList();
+            List<SelectListItem> list = new List<SelectListItem>();
+            foreach (var item in result)
+            {
+               if (item.Name == SourceName)
+                    list.Add(new SelectListItem { Text = item.Name, Value = item.Name, Selected = true });
+              else
+                    list.Add(new SelectListItem { Text = item.Name, Value = item.Name });
+            }
+            ViewBag.resul = list;
+            return PartialView();
+        }
+    }         
     }

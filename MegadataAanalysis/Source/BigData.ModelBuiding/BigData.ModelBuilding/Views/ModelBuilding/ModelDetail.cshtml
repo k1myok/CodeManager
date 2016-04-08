@@ -1,0 +1,29 @@
+﻿@model BigData.ModelBuilding.Models.BuildingModel
+
+<script>
+        $(function () {
+            $('#myTab a:first').tab('show');//初始化显示哪个tab
+            $('#myTab a').click(function (e) {
+                e.preventDefault();//阻止a链接的跳转行为
+                $(this).tab('show');//显示当前选中的链接及关联的content
+            })
+        })
+</script>
+<ul class="nav nav-tabs" id="myTab">
+    <li class="active"><a href="#basicInfo">基本信息</a></li>
+    <li><a href="#fieldsInfo">字段详情</a></li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane active" id="basicInfo">
+        @Html.Partial("BasicInfoOfModel", Model)
+    </div>
+    <div class="tab-pane" id="fieldsInfo">
+        @{
+            Html.RenderAction("FieldsInfoOfModel", Model.Code);
+        }
+    </div>
+</div>
+
+
+

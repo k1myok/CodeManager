@@ -1,0 +1,15 @@
+﻿@model IEnumerable<BigData.ModelBuilding.Models.BaseField>
+           <table class="UFTable">
+             <tr>
+                 <th>模型字段</th>
+                 <th>模型字段类型</th>
+                 <th>源数据原型</th>
+             </tr>
+          @foreach (var item in Model)
+            { 
+               <tr>
+                   <td>@item.FieldName</td>
+                   <td>@item.FieldType</td>
+               </tr>
+            }
+           </table>

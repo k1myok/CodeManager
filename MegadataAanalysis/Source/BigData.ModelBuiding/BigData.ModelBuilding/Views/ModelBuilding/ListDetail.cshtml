@@ -2,6 +2,7 @@
 
 <script type="text/javascript">
     var code = '@(Model.ModelCode)';
+    var codeKey='@(Model.Code)'
     $(document).ready(function () {
         var code = $("#ModelCode").val();
         ShowFilesInfo(code);
@@ -10,18 +11,15 @@
             ShowFilesInfo(code);
         });
     });
-    function ShowFilesInfo(code)
-    {
+    function ShowFilesInfo(code) {
         $("#load").show();
-        var url = "../ModelBuilding/FilesInfo?code=" + code;
+        var url = "../ModelBuilding/FieldsInfo?code=" + code;
         $.ajax({
             url: url,
-            success: function (data)
-            {
+            success: function (data) {
                 $("#fieldsInfo").empty().html(data);
             },
-            complete: function ()
-            {
+            complete: function () {
                 $("#load").hide();
             }
         });
@@ -35,6 +33,19 @@
             alert("资源保存失败，请检查您输入的数据有效性！");
         }
     }
+    $("#SourceTypeText").change(function() {
+        var SourceType = $("#SourceTypeText").val();
+        var url = "../ModelBuilding/GetTableName?SourceType=" + SourceType + "&code=" + codeKey;
+        $.ajax({
+            url: url,
+            success: function (data) {
+                alert(data);
+                $("#SourceName").empty().html(data);
+            },
+            error: function ()
+            { },
+        });
+    });
     function DeleteBasicInfoModel(code) {
         var url = "../ModelBuilding/DeleteBasicInfoModel?code=" + code;
         $.ajax({
@@ -141,15 +152,9 @@
                             </div>
                             <div id="modelInfo" style="display:none;height:400px;">
                                 <div class="form-group">
-                                    <lable class="control-label col-md-2">分析模型</lable>
+                                    <label class="control-label col-md-2">分析模型</label>
                                     <div class="col-md-10">
                                         @Html.DropDownListFor(model => model.ModelCode, ViewBag.SystemModelSource as IEnumerable<SelectListItem>, htmlAttributes: new { @style = "width:300px;height:32px;" })
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    @Html.LabelFor(model => model.SourceName, htmlAttributes: new { @class = "control-label col-md-2" })
-                                    <div class="col-md-10">
-                                        @Html.EditorFor(model => model.SourceName)
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -159,15 +164,21 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    @Html.LabelFor(model => model.OutputName, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    @Html.LabelFor(model => model.SourceName, htmlAttributes: new { @class = "control-label col-md-2" })
                                     <div class="col-md-10">
-                                        @Html.EditorFor(model => model.OutputName)
+                                        @Html.DropDownListFor(model => model.SourceName, ViewBag.SourceNameList as IEnumerable<SelectListItem>, htmlAttributes: new { @style = "width:300px;height:32px;" })
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     @Html.LabelFor(model => model.OutputType, htmlAttributes: new { @class = "control-label col-md-2" })
                                     <div class="col-md-10">
-                                       @Html.DropDownListFor(model => model.OutputType, ViewBag.OutputType as IEnumerable<SelectListItem>, htmlAttributes: new { @style = "width:300px;height:32px;" })
+                                        @Html.DropDownListFor(model => model.OutputType, ViewBag.OutputTypeList as IEnumerable<SelectListItem>, htmlAttributes: new { @style = "width:300px;height:32px;" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.OutputName, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.OutputName)
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -186,7 +197,7 @@
                             </div>
                            
                         </div>
-                      <input type="submit" value="更新" class="btn btn-default" style="position:absolute;float:left;margin-left:65%;width:80px;top:105px;" />
+                      <input type="submit" value="保存" class="btn btn-default" style="position:absolute;float:left;margin-left:65%;width:80px;top:105px;" />
                     }
                     <div id="fieldsInfo" style="display:none;">
                     </div>
@@ -194,7 +205,6 @@
             </div>
         </div>
     </div>
-</div>
     
 
 

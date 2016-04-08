@@ -1,56 +1,55 @@
 ﻿
 @model IEnumerable<BigData.ModelBuilding.Models.BuildingModel>
-           <script type="text/javascript">
-               function Del(code)
-               {
-                   if (confirm("确定删除")) {
-
-                       var url = "../ModelBuilding/DeleteBasicInfoModel?code=" + code;
-                       $.ajax({
-                           url: url,
-                           success: function (data) {
-                               alert(data.State);
-                               if (data.State) {
-                                   alert("删除成功");
-                                   onMenuClick('../ModelBuilding/BMList')
-                               }
-                               else {
-                                   alert("数据删除失败，请稍后重试！");
-                               }
-                           },
-                           error: function () {
-
-                               alert("删除失败")
-                           },
-                           complete: function () {
-                           }
-                       });
-                   }
+ <script type="text/javascript">
+function Del(code)
+ {
+    if (confirm("确定删除"))
+    {
+       var url = "../ModelBuilding/DeleteBasicInfoModel?code=" + code;
+       $.ajax({
+           url: url,
+           success: function (data) {
+               alert(data.State);
+               if (data.State) {
+                   alert("删除成功");
+                   onMenuClick('../ModelBuilding/BMList')
                }
-               function Edit(code) {
-                   alert(code);
-                   var url = '../ModelBuilding/ListDetail?code=' + code;
-                   $.ajax({
-                       url: url,
-                       success: function (data) {
-                           $("#usersListContainer").empty().html(data);
-                       },
-                       complete: function ()
-                       { }
-                   });
+               else {
+                   alert("数据删除失败，请稍后重试！");
                }
-               function CreateBasicInfoModel() {
-                   var url = '../ModelBuilding/CreateBasicInfoModel'
-                   $.ajax({
-                       url: url,
-                       success: function (data) {
-                           $("#usersListContainer").empty().html(data);
-                       },
-                       complete: function () {
+           },
+           error: function () {
 
-                       }
-                   });
-               }
+               alert("删除失败")
+           },
+           complete: function () {
+           }
+       });
+   }
+}
+function Edit(code) {
+    var url = '../ModelBuilding/ListDetail?code=' + code;
+    $.ajax({
+        url: url,
+        success: function (data) {
+            $("#usersListContainer").empty().html(data);
+        },
+        complete: function ()
+        { }
+    });
+}
+function CreateBasicInfoModel() {
+    var url = '../ModelBuilding/CreateBasicInfoModel'
+    $.ajax({
+        url: url,
+        success: function (data) {
+            $("#usersListContainer").empty().html(data);
+        },
+        complete: function () {
+
+        }
+    });
+}
       
 </script>
 <table class="security_group_table">

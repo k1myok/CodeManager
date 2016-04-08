@@ -1,21 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BigData.ModelBuilding", "BigData.ModelBuilding\BigData.ModelBuilding.csproj", "{46431EAD-23D5-4FF6-91C1-2F73F5C81AF4}"
 EndProject
 Global
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 1
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = http://tfs.china-ccw.com:58080/tfs/defaultcollection
-		SccProjectUniqueName0 = BigData.ModelBuilding\\BigData.ModelBuilding.csproj
-		SccProjectName0 = BigData.ModelBuilding
-		SccAuxPath0 = http://tfs.china-ccw.com:58080/tfs/defaultcollection
-		SccLocalPath0 = BigData.ModelBuilding
-		SccProvider0 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		86|Any CPU = 86|Any CPU
 		86|x64 = 86|x64
@@ -49,5 +39,15 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 1
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://tfs.china-ccw.com:58080/tfs/defaultcollection
+		SccProjectUniqueName0 = BigData.ModelBuilding\\BigData.ModelBuilding.csproj
+		SccProjectName0 = BigData.ModelBuilding
+		SccAuxPath0 = http://tfs.china-ccw.com:58080/tfs/defaultcollection
+		SccLocalPath0 = BigData.ModelBuilding
+		SccProvider0 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 	EndGlobalSection
 EndGlobal

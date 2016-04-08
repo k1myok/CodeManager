@@ -183,10 +183,10 @@ namespace BigData.ModelBuilding.Controllers
         public PartialViewResult FieldsInfoOfModel(Guid code)
         {
             var model = from a in context.AnalysisModelFieldsInfo
-                        join b in context.BaseField
-                        on a.FieldCode equals b.Code
+                       join b in context.BaseField
+                       on a.FieldCode equals b.Code
                         where a.ModelCode == code
-                        select b;
+                       select b;
             return PartialView(model);
         }
 
