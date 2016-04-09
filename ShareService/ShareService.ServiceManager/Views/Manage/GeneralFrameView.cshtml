@@ -1,6 +1,4 @@
-﻿<style>
-   
-</style>
+﻿
 <script>
     $('#clusterGeneralView').ready(function () {
         //加载集群概况视图
@@ -68,33 +66,42 @@
         <img src="~/Images/home.png" />
         <span>您当前的位置：首页</span>
         <div style="float:right;margin-right:10px;">
-            @*日期*@
             @DateTime.Now
         </div>
     </div>
     <div class="Content" style="height:90%;width:100%;overflow-y:hidden">
-        <table class="UFTable" border="1" style="height:100%;width:100%;">
+        <table border="1" style="height:100%;width:100%;">
             <tr style="height:20%">
-                <td width="50%">
-                    <div id="clusterGeneralView"></div>
+                <td width="50%"style="text-align:center;">
+                    <div style="background-color:#ffffff;margin:10px;height:120px;">
+                        <img src="~/Images/cluster_general.png" style="float:left;margin-left:10%;margin-top:10px;width:100px;height:100px;" />
+                        <div id="clusterGeneralView"style="text-align:left;padding-left:50%;"></div>
+                        <img src="~/Images/triangle.png" style="float:right;width:100px;height:70px;" />
+                    </div>                 
                 </td>
-                <td>
-                    <div id="serviceGeneralView"></div>
+                <td style="text-align:center;">
+                    <div style="background-color:#ffffff;margin:10px;height:120px;">
+                        <img src="~/Images/cluster_general.png" style="float:left;margin-left:10%;margin-top:10px;width:100px;height:100px;" />
+                        <div id="serviceGeneralView"style="text-align:left;padding-left:50%;"></div>
+                        <img src="~/Images/triangle.png" style="float:right;width:100px;height:70px;" />
+                    </div>                   
                 </td>
             </tr>
             <tr style="height:50%">
-                <td colspan="2">
-                    <div id="hotGeneralView">
+                <td colspan="2" >
+                    <div id="hotGeneralView" style="background-color:#ffffff;margin:0 10px 10px 10px;height:240px;">
                     </div>
                 </td>
-
             </tr>
-            <tr style="height:20%">
+            <tr style="height:20%" >
                 <td colspan="2">
-                    <div id="imageGeneralView"></div>
+                    <div style="background-color:#ffffff;margin:0 10px 10px 10px;height:120px;">
+                        <img src="~/Images/cluster_general.png" style="float:left;margin-left:5%;margin-top:10px; width:100px;height:100px;" />
+                        <div id="imageGeneralView"></div>
+                        <img src="~/Images/triangle.png" style="float:right;width:100px;height:70px;margin-bottom:5px;padding-bottom:5px;" />
+                    </div>                  
                 </td>
             </tr>
-
         </table>
     </div>
 </div>

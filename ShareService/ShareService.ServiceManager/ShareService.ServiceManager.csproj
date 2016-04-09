@@ -306,21 +306,27 @@
     <Content Include="Images\add.png" />
     <Content Include="Images\bg.png" />
     <Content Include="Images\cluster_general.png" />
+    <Content Include="Images\cluster_general32.png" />
     <Content Include="Images\cluster_list.png" />
     <Content Include="Images\delete.png" />
     <Content Include="Images\dynamic.png" />
+    <Content Include="Images\dynamic32.png" />
     <Content Include="Images\edit.png" />
+    <Content Include="Images\exit32.png" />
     <Content Include="Images\home.png" />
+    <Content Include="Images\hot_map.PNG" />
     <Content Include="Images\lbg.png" />
     <Content Include="Images\login2.jpg" />
     <Content Include="Images\loginBtn.png" />
     <Content Include="Images\metadata_manager.png" />
     <Content Include="Images\refresh.png" />
     <Content Include="Images\resource_hot.png" />
+    <Content Include="Images\resource_hot32.png" />
     <Content Include="Images\resource_show.png" />
     <Content Include="Images\security_manage.png" />
     <Content Include="Images\server.png" />
     <Content Include="Images\service_resource_generel.png" />
+    <Content Include="Images\service_resource_generel32.png" />
     <Content Include="Images\triangle.png" />
     <Content Include="Images\下拉按钮.png" />
     <Content Include="Images\metadata_manager.png" />
@@ -343,6 +349,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="WebServices\OpenService.svc" />
+    <Content Include="ClassDiagram1.cd" />
     <None Include="Properties\PublishProfiles\Localhost.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -849,6 +856,7 @@
     <Content Include="Views\Manage\ServiceGeneralView.cshtml" />
     <Content Include="Views\Manage\HotGeneralView.cshtml" />
     <Content Include="Views\Manage\ImageGeneralView.cshtml" />
+    <Content Include="Views\UserManager\EditGlobalTokenOfUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ShareService.Service.ARR\ShareService.Service.ARR.csproj">

@@ -1,54 +1,27 @@
 ﻿
-<style>
-    tr, td {
-        border: none;
-        font: bolder;
-    }
-</style>
-
-<div>
-    <img src="~/Images/cluster_general.png" style="float:left;margin-left:10%;padding:0;" />
-    @*<label style="position:absolute;top:80%;left:30%;">地名地址服务&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;新增&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@DateTime.Now</label>
-        <label style="position:absolute;top:85%;left:30%;">全市影像&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;更新&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@DateTime.Now</label>*@
-    <table style="margin-left:30%;" width="450" border="0">
+<div style="font-family:'Microsoft YaHei';font-size:16px;">
+    <table style="margin-left:30%;width:500px;text-align:left;">
         @if (ViewBag.updateServices != null && ViewBag.updateServices.Count > 0)
         {
             foreach (var item in ViewBag.updateServices)
             {
                 <tr>
-                    <td>@item.Name</td>
+                    <td width="40%">@item.Name</td>
                     <td>更新</td>
-                    <td>@item.UpdateDate</td>
-
+                    <td width="40%">@item.UpdateDate</td>
                 </tr>
             }
         }
-      
         @if (ViewBag.addServices != null && ViewBag.addServices.Count > 0)
         {
             foreach (var a in ViewBag.addServices)
             {
                 <tr>
-                    <td>@a.Name</td>
+                    <td width="40%">@a.Name</td>
                     <td>新增</td>
-                    <td>@a.CreateDate</td>
-
+                    <td width="40%">@a.CreateDate</td>
                 </tr>
             }
         }
-
-        @*<tr>
-                <td>地名地址服务</td>
-                <td>新增</td>
-                <td>@DateTime.Now</td>
-
-            </tr>
-            <tr>
-                <td>全市影像</td>
-                <td>更新</td>
-                <td>@DateTime.Now</td>
-            </tr>*@
     </table>
-
-    <img src="~/Images/triangle.png" style="float:right;position:absolute;top:80%;right:2%" />
 </div>
