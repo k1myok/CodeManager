@@ -86,8 +86,9 @@
         return rightclick;
     }
 
-
+   
     function showModelsOfGroup(code) {
+        currentGroupCode = code;
         $('#loader').show();
         $.ajax({
             url: '../ModelManager/AnalysisModels?code=' + code,
@@ -99,6 +100,41 @@
             }
         });
     }
+
+    function createAddModelView() {
+        $('#loader').show();
+        $.ajax({
+            url: '../ModelManager/CreateAddModelView?directoryCode=' + currentGroupCode,
+
+            success: function (data) {
+                $('#resourceWindow #titleContainer').html('添加模型');
+                $('#resourceWindow #customWindowContent').empty().html(data);
+                $('#resourceWindow').jqxWindow('open');
+            },
+            complete: function () {
+                $('#loader').hide();
+            }
+        });
+
+
+    }
+
+    var currentGroupCode = null;
+
+    function showModelsOfGroupInformation(code) {
+        $('#loader').show();
+        $.ajax({
+            url: '../ModelManager/AnalysisModelsInformation?code=' + code,
+            success: function (data) {
+                $('#modelListContainer').empty().html(data);
+            },
+            complete: function () {
+                $('#loader').hide();
+            }
+        });
+
+    }
+
 
     function addTreeNode(newNodeName) {
         $('#loader').show();
@@ -160,6 +196,8 @@
             }
         });
     }
+
+   
 </script>
 
 

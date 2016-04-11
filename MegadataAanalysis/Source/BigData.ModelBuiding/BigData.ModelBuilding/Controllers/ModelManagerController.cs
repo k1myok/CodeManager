@@ -124,7 +124,7 @@ namespace BigData.ModelBuilding.Controllers
             return PartialView(moel);
         }
 
-       public PartialViewResult CreateAddModelView(Guid directoryCode)
+        public PartialViewResult CreateAddModelView(Guid directoryCode)
         {
             var model = new AnalysisModel();
             model.DirectoryCode = directoryCode;
@@ -145,7 +145,7 @@ namespace BigData.ModelBuilding.Controllers
 
         public PartialViewResult CreateModifyModelView(Guid code)
         {
-           
+
             var model = context.AnalysisModel.FirstOrDefault(p => p.Code == code);
             return PartialView(model);
         }
@@ -197,5 +197,13 @@ namespace BigData.ModelBuilding.Controllers
             return PartialView(moel);
         }
 
+
+        public ActionResult test() {
+            //ViewBag.tableName = 
+           var model = context.Database.SqlQuery<Table>("SELECT  TABLE_CATALOG AS [Database], TABLE_NAME AS TableName,  COLUMN_NAME AS ColumnName,  DATA_TYPE AS DataType FROM INFORMATION_SCHEMA.COLUMNS WHERE(TABLE_NAME = 'AnalysisModels')").ToList();
+            return View(model);
+        }
+
+    
     }
 }

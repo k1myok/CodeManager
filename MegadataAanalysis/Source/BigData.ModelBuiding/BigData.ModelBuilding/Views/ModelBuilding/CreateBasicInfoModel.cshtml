@@ -21,7 +21,7 @@
          //jmzhang code
          $("#SourceName").change(function () {
              var SourceName = $("#SourceName").val();
-             var url = "../ModelBuilding/GetTableInformation?SourceName=" + SourceName;
+             var url = "../ModelBuilding/GetFieldInformation?SourceName=" + SourceName;
              $.ajax({
                  url: url,
                  success: function (data) {

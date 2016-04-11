@@ -19,7 +19,7 @@
             url: url,
             success: function (data) {
                 $("#fieldsInfo").empty().html(data);
-                ShowTableInfo();
+                ShowTableFieldInfo();
             },
             complete: function () {
                 $("#load").hide();
@@ -27,14 +27,12 @@
         });
     }
 
-    function ShowTableInfo() {
+    function ShowTableFieldInfo() {
         var SourceName = $("#SourceName").val();
-        alert(SourceName);
         var url = "../ModelBuilding/GetFieldInformation?SourceName=" + SourceName;
         $.ajax({
             url: url,
             success: function (data) {
-                alert(data);
                 $("#tableInformation").empty().html(data);
             },
             error: function ()
@@ -69,7 +67,7 @@
             success: function (data) {
                 if (data.State) {
                     alert("删除成功");
-                    onMenuClick('../ModelBuilding/List')
+                    onMenuClick('../ModelBuilding/BMList')
                 }
                 else {
                     alert("数据删除失败，请稍后重试！");
@@ -112,7 +110,6 @@
         $.ajax({
             url: url,
             success: function (data) {
-                alert(data);
                 $("#tableInformation").empty().html(data);
             },
             error: function ()
@@ -125,13 +122,12 @@
     <div class="NavHeader">
         <img src="~/Images/home.png" />
         <span>您当前的位置：系统建模 &gt; 模型编辑</span>
-        <div class="HImgToolbar">
-            
+        <div class="HImgToolbar">  
         </div>
         <div style="float:right;">
             @*<div class="UFButton" onclick="onMenuClick('../ModelBuilding/List')">返回</div>*@
             <button class="btn btn-default" style="width:80px;top:95px;" type="submit" onclick="">保存</button>
-            <button class="btn btn-default" style="width:80px;top:95px;" onclick="onMenuClick('../ModelBuilding/BMList')">返回</button> 
+            <button class="btn btn-default" style="width:80px;top:95px;" onclick="onMenuClick('../ModelBuilding/List')">返回</button> 
     </div>
     </div>
     <div class="NavContent" style="height:100%">
