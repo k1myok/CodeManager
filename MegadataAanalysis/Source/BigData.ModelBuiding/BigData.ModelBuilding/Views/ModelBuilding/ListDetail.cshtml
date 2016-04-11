@@ -11,18 +11,35 @@
             ShowFilesInfo(code);
         });
     });
-    function ShowFilesInfo(code) {
+    function ShowFilesInfo(code)
+    {
         $("#load").show();
-        var url = "../ModelBuilding/FieldsInfo?code=" + code;
+        var url = "../ModelBuilding/FilesInfo?code=" + code;
         $.ajax({
             url: url,
             success: function (data) {
                 $("#fieldsInfo").empty().html(data);
+                ShowTableInfo();
             },
             complete: function () {
                 $("#load").hide();
             }
         });
+    }
+
+    function ShowTableInfo() {
+        var SourceName = $("#SourceName").val();
+        alert(SourceName);
+        var url = "../ModelBuilding/GetFieldInformation?SourceName=" + SourceName;
+        $.ajax({
+            url: url,
+            success: function (data) {
+                alert(data);
+                $("#tableInformation").empty().html(data);
+            },
+            error: function ()
+            { },
+        })
     }
     function success(result) {
         if (result.State) {
@@ -39,7 +56,6 @@
         $.ajax({
             url: url,
             success: function (data) {
-                alert(data);
                 $("#SourceName").empty().html(data);
             },
             error: function ()
@@ -88,6 +104,22 @@
                 break;
         }
     }
+
+    //jmzhang code 
+    $("#SourceName").change(function () {
+        var SourceName = $("#SourceName").val();
+        var url = "../ModelBuilding/GetFieldInformation?SourceName=" + SourceName;
+        $.ajax({
+            url: url,
+            success: function (data) {
+                alert(data);
+                $("#tableInformation").empty().html(data);
+            },
+            error: function ()
+            { },
+        })
+    });
+
 </script>
 <div class="NavWindow">
     <div class="NavHeader">
@@ -97,10 +129,9 @@
             
         </div>
         <div style="float:right;">
-            <div class="UFButton" onclick="onMenuClick('../ModelBuilding/BMList')">返回</div>
-
-            @*<button onclick="">返回</button>*@
-      </div>
+            @*<div class="UFButton" onclick="onMenuClick('../ModelBuilding/List')">返回</div>*@
+            <button class="btn btn-default" style="width:80px;top:95px;" type="submit" onclick="">保存</button>
+            <button class="btn btn-default" style="width:80px;top:95px;" onclick="onMenuClick('../ModelBuilding/BMList')">返回</button> 
     </div>
     </div>
     <div class="NavContent" style="height:100%">
@@ -197,11 +228,12 @@
                             </div>
                            
                         </div>
-                      <input type="submit" value="保存" class="btn btn-default" style="position:absolute;float:left;margin-left:65%;width:80px;top:105px;" />
+                      @*<input type="submit" value="保存" class="btn btn-default" style="position:absolute;float:left;margin-left:65%;width:80px;top:105px;" />*@
                     }
                     <div id="fieldsInfo" style="display:none;">
                     </div>
                 </div>
+                @*<input type="button" value="返回" class="btn btn-default" onclick="onMenuClick('../ModelBuilding/List')" style="position:absolute;float:left;margin-left:73%;width:80px;top:105px;" />*@
             </div>
         </div>
     </div>

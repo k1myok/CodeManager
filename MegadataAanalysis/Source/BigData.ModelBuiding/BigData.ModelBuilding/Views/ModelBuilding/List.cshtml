@@ -20,13 +20,14 @@
     }
     function CreateBasicInfoModel()
     {
+        alert("OK");
         var url = '../ModelBuilding/CreateBasicInfoModel'
         $.ajax({
             url: url,
             success: function (data)
             {
-                $("#usersListContainer").empty().html(data);
-            
+                alert(data);
+                $("#buildModelsListContainer").empty().html(data);
             },
             complete: function ()
             {

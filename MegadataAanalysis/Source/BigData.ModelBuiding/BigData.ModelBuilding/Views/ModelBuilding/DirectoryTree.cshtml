@@ -33,15 +33,11 @@
                 return false;
             }
         });
-
         $('#groupTree').on('select', function (event) {
             var code = $(event.args.element).data("directory"); //获取所选树节点的code
             if(code!=null)
                 showModelsOfGroup(code);
         });
-
-
-
         $("#contextMenu").on('itemclick', function (event) {
             var itemId = $.trim($(event.args).attr('id')).toString();
             switch (itemId) {

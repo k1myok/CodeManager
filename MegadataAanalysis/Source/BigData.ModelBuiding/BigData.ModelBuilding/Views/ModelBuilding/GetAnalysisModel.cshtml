@@ -4,7 +4,7 @@
                    var code = $("#ModelCode").val();
                    FilesInfo(code);
                });
-               $("#ModelCode").change(function () {
+               $("#ModelCode").change(function() {
                    var code = $("#ModelCode").val();
                    FilesInfo(code);
                });
@@ -15,6 +15,7 @@
                        url: url,
                        success: function (data) {
                            $("#fieldsInfo").empty().html(data);
+                           GetFieldInfo();
                        },
                        complete: function () {
                            $("#load").hide();

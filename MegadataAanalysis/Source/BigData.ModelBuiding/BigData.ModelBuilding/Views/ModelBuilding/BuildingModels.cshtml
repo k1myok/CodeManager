@@ -1,135 +1,85 @@
 ﻿@model IEnumerable<BigData.ModelBuilding.Models.BuildingModel>
 
-<script>
-    function showDetailOfModel(code)
-    {
-        $('#loader').show();
-        $.ajax({
-            url: "../ModelBuilding/ModelDetail?code=" + code,
-            success: function (result) {
-                $('#titleContainer').html('详细情况');
-                $('#contentContianer').empty().html(result);
-                $('#detailWindow').modal('show');
-            },
-            complete: function () {
-                $('#loader').hide();
-            }
-        });
-    }
+ <script type="text/javascript">
+               function Del(code)
+               {
+                   if (confirm("确定删除")) {
 
-    function showModifyModelView(code) {
-        $('#loader').show();
-        $.ajax({
-            url: "../ModelBuilding/CreateModifyModelView?code=" + code,
-            success: function (result) {
-                $('#titleContainer').html('修改模型');
-                $('#contentContianer').empty().html(result);
-                $('#detailWindow').modal('show');
-            },
-            complete: function () {
-                $('#loader').hide();
+                       var url = "../ModelBuilding/DeleteBasicInfoModel?code=" + code;
+                       $.ajax({
+                           url: url,
+                           success: function (data) {
+                               alert(data.State);
+                               if (data.State) {
+                                   alert("删除成功");
+                                   onMenuClick('../ModelBuilding/BMList')
+                               }
+                               else {
+                                   alert("数据删除失败，请稍后重试！");
+                               }
+                           },
+                           error: function () {
 
-            }
-        });
-    }
+                               alert("删除失败")
+                           },
+                           complete: function () {
+                           }
+                       });
+                   }
+               }
+               function Edit(code) {
+                   alert(code);
+                   var url = '../ModelBuilding/ListDetail?code=' + code;
+                   $.ajax({
+                       url: url,
+                       success: function (data) {
+                           $("#usersListContainer").empty().html(data);
+                       },
+                       complete: function ()
+                       { }
+                   });
+               }
+               function CreateBasicInfoModel() {
+                   var url = '../ModelBuilding/CreateBasicInfoModel'
+                   $.ajax({
+                       url: url,
+                       success: function (data) {
+                           $("#usersListContainer").empty().html(data);
+                       },
+                       complete: function () {
 
-    function showModelsOfGroupForDelete(code) {
-        currentGroupCode = code;
-        $('#loader').show();
-        $.ajax({
-            url: '../ModelBuilding/BuildingModels?code=' + code,
-            success: function (data) {
-                $('#modelListContainer').empty().html(data);
-            },
-            complete: function () {
-                $('#loader').hide();
-            }
-        });
-    }
-
-    function showDeleteModelView(code) {
-        if (confirm('您确定删除该模型吗？')) {
-            $('#loader').show();
-            alert(code);
-            $.ajax({
-                url: "../ModelBuilding/DeleteModelDetail?code=" + code,
-                success: function (result) {
-                    if (result.State) {
-                        showModelsOfGroupForDelete(code);
-                    }
-                    else {
-                        alert("删除时发生错误，删除失败！");
-                    }
-                },
-                complete: function () {
-                    $('#loader').hide();
-                }
-            });
-        }
-    }
-
-    function success(result) {
-        if (result.State) {
-            alert("更新成功");
-            readModelName();
-            $('#resourceWindow').jqxWindow('close');
-        }
-        else {
-            alert("资源保存失败，请检查您输入的数据有效性！");
-        }
-    }
+                       }
+                   });
+               }
 </script>
 
-<table class="UFTable" style="table-layout:fixed;">
-    <tr>
-        <th>@Html.DisplayNameFor(model => model.Name)</th>
-        <th>@Html.DisplayNameFor(model => model.Description)</th>
-        <th>@Html.DisplayNameFor(model => model.CreateDate)</th>
-        <th>@Html.DisplayNameFor(model => model.UpdateDate)</th>
-        <th>@Html.DisplayNameFor(model => model.SourceName)</th>
-        <th>@Html.DisplayNameFor(model => model.SourceType)</th>
-        <th>@Html.DisplayNameFor(model => model.OutputName)</th>
-        <th>@Html.DisplayNameFor(model => model.OutputType)</th>
-        <th>@Html.DisplayNameFor(model => model.WhereCaluse)</th>
-        <th>@Html.DisplayNameFor(model => model.OrderFields)</th>
-        <th>操 作</th>
-    </tr>
-    @foreach (var item in Model)
-    {
+
+<div id="usersListContainer">
+    <table class="UFTable" style="table-layout:fixed;">
         <tr>
-            <td>@item.Name</td>
-            <td>@item.Description</td>
-            <td>@item.CreateDate</td>
-            <td>@item.UpdateDate</td>
-            <td>@item.SourceName</td>
-            <td>@item.SourceType</td>
-            <td>@item.OutputName</td>
-            <td>@item.OutputType</td>
-            <td>@item.WhereCaluse</td>
-            <td>@item.OrderFields</td>
-            <td data-toggle="modal">
-               <a style="cursor:pointer;" onclick="showDetailOfModel('@item.Code')">详情</a>
-               <a style="cursor:pointer;" onclick="showModifyModelView('@item.Code')">修改</a>
-               <a style="cursor:pointer;" onclick="showDeleteModelView('@item.Code')">删除</a>
-            </td>
+            <td>名称</td>
+            <td>输出模板</td>
+            <td>创建日期</td>
+            <td>更新日期</td>
+            <td>源名称</td>
+            <td>操作</td>
         </tr>
-    }
-</table>
-
-
-<div id="detailWindow" style="clear:both;" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                    <center><div id="titleContainer"></div></center>     
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                        &times;
-                    </button>
-            </div>
-            <div class="modal-body" style="height:650px;">
-                <div id="contentContianer"></div>
-            </div>
-        </div>
-    </div>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.OutputName</td>
+                <td>@item.CreateDate</td>
+                <td>@item.UpdateDate</td>
+                <td>@item.SourceName</td>
+                <td><a style="cursor:pointer;" onclick="Edit('@item.Code')">编辑</a><a style="cursor:pointer;" onclick="Del('@item.Code')">删除</a></td>
+            </tr>
+        }
+    </table>
 </div>
+
+
+
+
+
 

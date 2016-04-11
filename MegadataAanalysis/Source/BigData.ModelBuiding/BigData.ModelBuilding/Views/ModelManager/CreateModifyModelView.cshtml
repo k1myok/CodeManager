@@ -1,8 +1,9 @@
 ﻿@model BigData.ModelBuilding.Models.AnalysisModel
+
+
 <script>
     var code = '@Model.DirectoryCode';
-    function onSuccess(result) {
-
+    function onSuccessModify(result) {
         if (result.State) {
             showModelsOfGroup(code);
             $('#resourceWindow').jqxWindow('close');
@@ -14,13 +15,14 @@
     }
 </script>
 
-
-@using(Ajax.BeginForm("CreateModifyModelView", "ModelManager", new AjaxOptions { HttpMethod = "Post", OnSuccess = "onSuccess" }))
+@using (Ajax.BeginForm("CreateModifyModelView", "ModelManager", new AjaxOptions { HttpMethod = "Post", OnSuccess = "onSuccessModify" }))
 {
   
     <div id="contentContianerone"  class="form-horizontal">
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.Code)
+        @Html.HiddenFor(model => model.DirectoryCode)
+
 
         <div class="form-group">
             @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -45,12 +47,9 @@
                 @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
             </div>
         </div>
-
-
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                @*<input type="submit" value="Save" class="btn btn-default" />*@
-              <input type="submit" value="保  存" class="btn btn-default" style="position:absolute; left:50%;bottom:15px; margin-left:-40px;width:80px;" />
+                <input type="submit" value="保  存" class="btn btn-default" />
             </div>
         </div>
     </div>

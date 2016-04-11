@@ -281,7 +281,7 @@ namespace BigData.ModelBuilding.Controllers
                 State = false
             }, JsonRequestBehavior.AllowGet);
         }
-        public PartialViewResult FieldsInfo(Guid code)
+        public PartialViewResult FilesInfo(Guid code)
         {
             var baseFields = (from a in context.AnalysisModel
                               join b in context.AnalysisModelFieldsInfo
@@ -294,9 +294,14 @@ namespace BigData.ModelBuilding.Controllers
         }
         public PartialViewResult GetTableName(string sourceType,Guid code)
         {
+                   
             var sql = "";
             var SName=context.BuildingModel.Where(p=>p.Code==code).Select(p=>p.SourceName).ToList();
-            var SourceName=SName[0].ToString();
+            var SourceName = "";
+            if (SName.Count() > 0)
+            {
+                SourceName = SName[0].ToString();
+            }
             switch (sourceType)
             {
                 case "0":
@@ -317,6 +322,16 @@ namespace BigData.ModelBuilding.Controllers
                     list.Add(new SelectListItem { Text = item.Name, Value = item.Name });
             }
             ViewBag.resul = list;
+            return PartialView();
+        }
+
+
+        public PartialViewResult GetFieldInformation(string SourceName)
+        {
+         
+            var sql = "SELECT TABLE_CATALOG AS[Database],TABLE_NAME AS TableName, COLUMN_NAME AS ColumnName,DATA_TYPE AS DataType FROM INFORMATION_SCHEMA.COLUMNS  WHERE TABLE_NAME ="+"'"+SourceName+"'"; 
+            var result = context.Database.SqlQuery<Table>(sql).ToList();
+            ViewBag.result = result.Select(am => new SelectListItem { Value = am.ColumnName +"  "+ "(" + am.DataType + ")", Text = am.ColumnName + "  " + "(" +am.DataType+")" }).ToList();
             return PartialView();
         }
     }         

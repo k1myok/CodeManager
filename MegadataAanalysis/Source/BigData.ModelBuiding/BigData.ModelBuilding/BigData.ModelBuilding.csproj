@@ -549,6 +549,7 @@
     <Content Include="Content\jqWidgets\jqx.blackberry.css" />
     <Content Include="Content\jqWidgets\jqx.bootstrap.css" />
     <Content Include="Content\jqWidgets\jqx.classic.css" />
+    <Content Include="Content\jqWidgets\jqx.custom.css" />
     <Content Include="Content\jqWidgets\jqx.darkblue.css" />
     <Content Include="Content\jqWidgets\jqx.energyblue.css" />
     <Content Include="Content\jqWidgets\jqx.fresh.css" />
@@ -561,6 +562,7 @@
     <Content Include="Content\jqWidgets\jqx.orange.css" />
     <Content Include="Content\jqWidgets\jqx.shinyblack.css" />
     <Content Include="Content\jqWidgets\jqx.summer.css" />
+    <Content Include="Content\jqWidgets\jqx.uf.bg_transparent.css" />
     <Content Include="Content\jqWidgets\jqx.ui-darkness.css" />
     <Content Include="Content\jqWidgets\jqx.ui-le-frog.css" />
     <Content Include="Content\jqWidgets\jqx.ui-lightness.css" />
@@ -1042,15 +1044,15 @@
     <Content Include="Views\ModelBuilding\DirectoryTree.cshtml" />
     <Content Include="Views\ModelBuilding\DirectoryTreeItem.cshtml" />
     <Content Include="Views\ModelBuilding\BuildingModels.cshtml" />
-    <Content Include="Views\ModelBuilding\FieldsInfo.cshtml" />
     <Content Include="Views\ModelBuilding\GetAnalysisModel.cshtml" />
     <Content Include="Views\ModelBuilding\ModelDetail.cshtml" />
     <Content Include="Views\ModelBuilding\BasicInfoOfModel.cshtml" />
     <Content Include="Views\ModelBuilding\FieldsInfoOfModel.cshtml" />
     <Content Include="Views\ModelBuilding\CreateModifyModelView.cshtml" />
-    <Content Include="Views\ModelBuilding\GetAnalysisModel.cshtml" />
     <Content Include="Views\ModelBuilding\BMList.cshtml" />
     <Content Include="Views\ModelBuilding\GetTableName.cshtml" />
+    <Content Include="Views\ModelBuilding\FilesInfo.cshtml" />
+    <Content Include="Views\ModelBuilding\GetFieldInformation.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
