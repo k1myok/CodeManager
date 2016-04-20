@@ -6,7 +6,9 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Web;
-using System.Configuration;
+using System.Xml;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 
 /// <summary>
@@ -115,4 +117,27 @@ public class HttpHelper
 
         }
     }
+    public string SendMessage(string temp)
+    {
+        var appId = "wx33cfa168b97bde1b";
+        var secret = "88626508ef000750214526005b12cb7c";
+        var url = string.Format("https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid={0}&secret={1}", appId, secret);
+        string access = HttpHelper.GetHtmlEx(url, Encoding.UTF8);
+
+
+        JObject model = Newtonsoft.Json.JsonConvert.DeserializeObject<JObject>(access);
+
+        var access_token = model.GetValue("access_token");
+
+
+        // var jsonItems = (Newtonsoft.Json.JsonConvert.DeserializeObject(access_token) as Newtonsoft.Json.Linq.JObject).Children().OfType<Newtonsoft.Json.Linq.JProperty>();
+        //var tokenItem = jsonItems.FirstOrDefault(p => p.Name == "access_token").Value as Newtonsoft.Json.Linq.JValue;
+        //var tokenValue = tokenItem.Value.ToString();
+        var openID = "oMpRLuIAGvDMAjObxiU1s8ESdrmU";
+        var json = "{\"touser\":\"" + openID + "\",\"template_id\":\"ClhlbsSTn4rvojun9RaMr9Bep_X9GhRKgbg7oEU9rq4\",\"url\":\"http://app.china-ccw.com:8011/CityService/Cityservice.weixin/Health/getHospitallist.html\",\"data\":{\"first\":{\"value\":\"你已经挂号成功，详细信息如下:\",\"color\":\"#173177\" },\"keyword1\":{\"value\":\"测试数据\",\"color\":\"#173177\" },\"keyword2\":{\"value\":\"苏州第一人民医院\",\"color\":\"#173177\"},\"keyword3\":{\"value\":\"测试科\",\"color\":\"#173177\" },\"keyword4\":{\"value\":\"测试人员\",\"color\":\"#173177\" },\"remark\":{\"value\":\"请按时就诊\" }}}";
+        var ur = string.Format("https://api.weixin.qq.com/cgi-bin/message/template/send?access_token={0}", access_token);
+        var result = HttpHelper.GetHtmlExByByPost(ur, json, Encoding.UTF8);
+        return result;
+    }
+
 }
