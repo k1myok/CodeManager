@@ -30,15 +30,19 @@ public class ShebaoService
     [WebGet]
     [OperationContract]
     public string GetResult(string ID, string IDCard)
-   { 
+   {
+        ID = "0500708293";
+       IDCard = "441381198208204752";
      var client = new Shebao.ShbServClient();
      var result = client.si010201(ID,IDCard,8,1);
-     XElement xml = XElement.Load(result);
-     var query = xml.Descendants("row");
-     foreach (var item in query)
-     {
-       var aab004=item.Attribute("aab004").Value;
-     }
+    // XElement xml = new XElement();
+     XElement xe = XElement.Parse(result);
+    // XDocument xdoc = XDocument.Load(xe);
+     var node = xe.Descendants("row").ToList();
+    foreach (var item in node)
+    {
+     var aab004=item.Attribute("aab004").Value;
+    }
      
      return result;
    }
