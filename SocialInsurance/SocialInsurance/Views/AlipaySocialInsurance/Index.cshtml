@@ -21,7 +21,9 @@
         </div>
         <div class="am-list-clear"><i class="am-icon-clear am-icon" am-mode="clear"></i></div>
     </div>
-    <button type="button" class="am-button" id="search" am-mode="blue disabled">蓝色42px按钮</button>
+    <div>
+        <button type="button" class="am-button" id="search" am-mode="blue disabled">蓝色42px按钮</button>
+    </div>
  </div>
 <script type="text/javascript">
     window.setInterval("checkButtonState()",200);
@@ -32,19 +34,14 @@
         else
             $("#search").attr("am-mode", "blue disabled");
     }
-    $("#search").click(function () {
+    $("#search").click(function ()
+    {
         var ID=$("#ID").val();
         var IDCard=$("#IDCard").val();
         if (checkID(ID) && checkIDCard(IDCard))
         {
-            alert("OK");
+            var url = "../AlipaySocialInsurance/";
         }
     });
-
-
-
-
-
-
 </script>
 

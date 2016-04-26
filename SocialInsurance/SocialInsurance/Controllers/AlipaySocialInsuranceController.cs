@@ -13,7 +13,10 @@ namespace SocialInsurance.Controllers
         {
             return View();
         }
-
-
+        [HttpPost]
+        public PartialViewResult Default()
+        {
+            return PartialView();
+        }
     }
 }
