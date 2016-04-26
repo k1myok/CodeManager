@@ -71,8 +71,40 @@ namespace SocialInsurance.Controllers
             ID = "0500708293";
             IDCard ="441381198208204752";
             var client = new SocialInsuranceService.ShbServClient();
-            var result = client.si120101(ID,IDCard,8,1);
-            return PartialView(result);
+            var temp = client.si120101(ID, IDCard, 8, 1);
+            XElement xoc = XElement.Parse(temp);
+            PInsuranceStatu p = new PInsuranceStatu();
+            List<PInsuranceStatuDetail> data = new List<PInsuranceStatuDetail>();
+            var faultcode = xoc.Descendants("faultcode").ToList();
+            if (faultcode.Count() > 0)
+            {
+                p.status = "200";
+                return PartialView(p);
+            }
+            else
+            {
+                var resu = xoc.Descendants("result").ToList();
+                var re = xoc.Descendants("row").ToList();
+                p.status = "100";
+                p.pages = resu[0].Attribute("pages").Value.ToString();
+                p.cpages = resu[1].Attribute("cpage").Value.ToString();
+                p.rowcount = resu[2].Attribute("rowcount").Value.ToString();
+                foreach (var item in re)
+                {
+                    PInsuranceStatuDetail Insurance = new PInsuranceStatuDetail();
+                    Insurance.aab001 = item.Attribute("aab001").Value;
+                    Insurance.aab002 = item.Attribute("aab002").Value;
+                    Insurance.aab004 = item.Attribute("aab004").Value;
+                    Insurance.aac001 = item.Attribute("aac001").Value;
+                    Insurance.aac008 = item.Attribute("aac008").Value;
+                    Insurance.aac031 = item.Attribute("aac031").Value;
+                    Insurance.akf066 = item.Attribute("akf066").Value;
+                    Insurance.akf067 = item.Attribute("akf067").Value;
+                    data.Add(Insurance);
+                }
+            }
+            p.data = data;
+            return PartialView(p);
         }
     }
 }

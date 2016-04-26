@@ -35,6 +35,6 @@ F:\NET\MVCProject\SocialInsurance\SocialInsurance\bin\zh-Hans\System.Web.Razor.r
 F:\NET\MVCProject\SocialInsurance\SocialInsurance\bin\zh-Hans\System.Web.WebPages.resources.dll
 F:\NET\MVCProject\SocialInsurance\SocialInsurance\bin\zh-Hans\System.Web.WebPages.Deployment.resources.dll
 F:\NET\MVCProject\SocialInsurance\SocialInsurance\bin\zh-Hans\System.Web.WebPages.Razor.resources.dll
+F:\NET\MVCProject\SocialInsurance\SocialInsurance\obj\Debug\SocialInsurance.csprojResolveAssemblyReference.cache
 F:\NET\MVCProject\SocialInsurance\SocialInsurance\obj\Debug\SocialInsurance.dll
 F:\NET\MVCProject\SocialInsurance\SocialInsurance\obj\Debug\SocialInsurance.pdb
-F:\NET\MVCProject\SocialInsurance\SocialInsurance\obj\Debug\SocialInsurance.csprojResolveAssemblyReference.cache

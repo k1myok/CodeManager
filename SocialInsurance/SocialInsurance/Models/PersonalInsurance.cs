@@ -6,6 +6,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 namespace SocialInsurance.Models
 {
+    //个人参保情况情况查询
     public class PersonalInsurance
     {
         public string status { get; set; }

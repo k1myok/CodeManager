@@ -7,6 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SocialInsurance.Models
 {
+    //查询条件
     public class condition
     {   
         [MaxLength(10)]

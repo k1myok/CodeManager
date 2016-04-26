@@ -132,6 +132,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AlipaySocialInsuranceController.cs" />
+    <Compile Include="Models\PInsuranceStatu.cs" />
     <Compile Include="Models\InsuranceDetail.cs" />
     <Compile Include="Models\PersonalInsurance.cs" />
     <Compile Include="Controllers\SocialInsuranceController.cs" />
@@ -139,6 +141,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\condition.cs" />
+    <Compile Include="Models\PInsuranceStatuDetail.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\SocialInsuranceService\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -148,6 +151,38 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\alipay.css" />
+    <Content Include="Content\alipay\alipay.css" />
+    <Content Include="Content\alipay\amui-demo.html" />
+    <Content Include="Content\alipay\amui-demo_files\1mx2r0hiYX.png" />
+    <Content Include="Content\alipay\amui-demo_files\1mx2r1D6Rh.png" />
+    <Content Include="Content\alipay\amui-demo_files\1mx2r21KOD.png" />
+    <Content Include="Content\alipay\amui-demo_files\30NvQ6bZHj.png" />
+    <Content Include="Content\alipay\amui-demo_files\30NvQVuHAd.png" />
+    <Content Include="Content\alipay\amui-demo_files\agreement.css" />
+    <Content Include="Content\alipay\amui-demo_files\amui.css" />
+    <Content Include="Content\alipay\amui-demo_files\amui.js" />
+    <Content Include="Content\alipay\amui-demo_files\article.css" />
+    <Content Include="Content\alipay\amui-demo_files\button-group.css" />
+    <Content Include="Content\alipay\amui-demo_files\card.css" />
+    <Content Include="Content\alipay\amui-demo_files\city-select.css" />
+    <Content Include="Content\alipay\amui-demo_files\demo.css" />
+    <Content Include="Content\alipay\amui-demo_files\dialog.css" />
+    <Content Include="Content\alipay\amui-demo_files\form.css" />
+    <Content Include="Content\alipay\amui-demo_files\header.css" />
+    <Content Include="Content\alipay\amui-demo_files\iconfont.css" />
+    <Content Include="Content\alipay\amui-demo_files\message%281%29.css" />
+    <Content Include="Content\alipay\amui-demo_files\message.css" />
+    <Content Include="Content\alipay\amui-demo_files\page-result.css" />
+    <Content Include="Content\alipay\amui-demo_files\search.css" />
+    <Content Include="Content\alipay\amui-demo_files\simple-password.css" />
+    <Content Include="Content\alipay\amui-demo_files\switch.css" />
+    <Content Include="Content\alipay\amui-demo_files\timeline.css" />
+    <Content Include="Content\alipay\amui-demo_files\toast.css" />
+    <Content Include="Content\alipay\amui-demo_files\top-notice.css" />
+    <Content Include="Content\alipay\amui-demo_files\ximeng2.jpg" />
+    <Content Include="Content\alipay\amui-demo_files\zepto.js" />
+    <Content Include="Content\alipay\button.css" />
+    <Content Include="Content\alipay\mobiscroll.custom-2.6.2.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\dist\example\example.css" />
     <Content Include="Content\dist\example\example.js" />
@@ -239,6 +274,8 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\alipay\amui-demo_files\fff" />
+    <Content Include="Content\alipay\amui-demo_files\saved_resource" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\extensions\base.js" />
     <Content Include="Scripts\extensions\validate.js" />
@@ -279,6 +316,10 @@
     <Content Include="Views\SocialInsurance\Default.cshtml" />
     <None Include="Service References\SocialInsuranceService\ShbServ.wsdl" />
     <Content Include="Views\SocialInsurance\PersonalInsurance.cshtml" />
+    <Content Include="Views\SocialInsurance\PersonInsuranceStatus.cshtml" />
+    <Content Include="Views\SocialInsurance\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutAlipay.cshtml" />
+    <Content Include="Views\AlipaySocialInsurance\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
