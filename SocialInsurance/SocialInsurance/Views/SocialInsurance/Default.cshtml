@@ -27,14 +27,34 @@
                 </div>
             </div>
         </div>
-                    <div style="margin-top:30px;padding-left:10px;padding-right:15px;">
+            <div style="margin-top:30px;padding-left:10px;padding-right:15px;">
                 <input type="submit" class="weui_btn weui_btn weui_btn_primary" id="search" value="查询" />
             </div>
+    <div style="margin-top:30px;padding-left:10px;padding-right:15px;">
+        <input type="button" class="weui_btn weui_btn weui_btn_primary" id="test" value="查询" />
+    </div>
     }
             <div class="am-list-footer" style="padding-top:10px;padding:15px 10px 10px 15px;">
                 温馨提示：<br />
                 1:社保编号长度为10位<br />
                 2:身份证号码，最后一位是"X"的，应为大写字母。
             </div>
-        </div>
+   <script type="text/javascript">
+       $("#test").click(function ()
+       {
+           var url = '../SocialInsurance/PersonInsuranceStatus';
+           $.ajax({
+               type: 'Post',
+               dataType:'text/xml',
+               url: url,
+               success: function (data) {
+                   alert(data);
+               },
+               complete: function (){}
+           });
+       });
+
+
+
+   </script>
    
