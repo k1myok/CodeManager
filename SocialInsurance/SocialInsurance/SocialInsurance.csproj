@@ -277,6 +277,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\SocialInsurance\Default.cshtml" />
     <None Include="Service References\SocialInsuranceService\ShbServ.wsdl" />
+    <Content Include="Views\SocialInsurance\PersonalInsurance.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

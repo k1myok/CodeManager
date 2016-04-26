@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SocialInsurance.Models
 {
-    class InsuranceDetail
+  public class InsuranceDetail
     {
         public string aab004 { get; set; }
         public string aac003 { get; set; }
