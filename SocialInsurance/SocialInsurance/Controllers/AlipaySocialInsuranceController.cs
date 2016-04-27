@@ -157,9 +157,32 @@ namespace SocialInsurance.Controllers
          var client= new SocialInsuranceService.ShbServClient();
          var temp=client.si070201(ID,IDCard,8,1);
          XElement xoc = XElement.Parse(temp);
-
-
-         return View();
+         IdustrialInsurance Idustrial = new IdustrialInsurance();
+         List<IdustrialInsuranceDetail> data = new List<IdustrialInsuranceDetail>();
+        var faultcode = xoc.Descendants("faultcode").ToList();
+        if (faultcode.Count() > 0)
+        {
+            Idustrial.status = "200";
+            return PartialView(Idustrial);
         }
-    }
+        else
+        {
+            var resut = xoc.Descendants("result").ToList();
+            var rows = xoc.Descendants("row").ToList();
+            Idustrial.status = "100";
+            Idustrial.pages = resut[0].Attribute("pages").Value.ToString();
+            Idustrial.cpages = resut[1].Attribute("cpage").Value.ToString();
+            Idustrial.rowcount = resut[2].Attribute("rowcount").Value.ToString();
+            foreach (var item in rows)
+            {
+                IdustrialInsuranceDetail list = new IdustrialInsuranceDetail();
+                list.aac001 = item.Attribute("aac001").Value;
+             
+
+            }
+            return View();
+        }
+        }
+   }
 }
+  

@@ -135,6 +135,8 @@
     <Compile Include="Controllers\AlipaySocialInsuranceController.cs" />
     <Compile Include="Models\BirthInsurance.cs" />
     <Compile Include="Models\BirthInsuranceDetail.cs" />
+    <Compile Include="Models\IdustrialInsurance.cs" />
+    <Compile Include="Models\IdustrialInsuranceDetail.cs" />
     <Compile Include="Models\PInsuranceStatu.cs" />
     <Compile Include="Models\InsuranceDetail.cs" />
     <Compile Include="Models\PersonalInsurance.cs" />
