@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using SocialInsurance.Models;
 
-namespace SocialInsurance.Controllers
+namespace SocialInsurance.Models
 {
     public class PInsuranceStatu
     {

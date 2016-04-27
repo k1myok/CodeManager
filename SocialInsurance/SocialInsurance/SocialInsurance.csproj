@@ -133,6 +133,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AlipaySocialInsuranceController.cs" />
+    <Compile Include="Models\BirthInsurance.cs" />
+    <Compile Include="Models\BirthInsuranceDetail.cs" />
     <Compile Include="Models\PInsuranceStatu.cs" />
     <Compile Include="Models\InsuranceDetail.cs" />
     <Compile Include="Models\PersonalInsurance.cs" />
@@ -320,6 +322,9 @@
     <Content Include="Views\SocialInsurance\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutAlipay.cshtml" />
     <Content Include="Views\AlipaySocialInsurance\Index.cshtml" />
+    <Content Include="Views\AlipaySocialInsurance\List.cshtml" />
+    <Content Include="Views\AlipaySocialInsurance\PersonInsuranceStatus.cshtml" />
+    <Content Include="Views\AlipaySocialInsurance\BirthInsurance.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,49 @@
+﻿@model SocialInsurance.Models.BirthInsurance
+
+@{
+    ViewBag.Title = "BirthInsurance";
+    Layout = "~/Views/Shared/_LayoutAlipay.cshtml";
+}
+
+<script>
+    $("#toast").hide();
+</script>
+<style>
+    .name {
+        width:15%;
+        float:left;
+    }
+    tr {
+        min-height:32px;
+    }
+
+
+</style>
+<div class="am-list" am-mode="flat chip">
+    <div class="am-list-body">
+        <div class="am-list-item">
+            <div class="am-flexbox">
+                <div class="am-flexbox-item">结算期</div>
+                <div class="am-flexbox-item am-ft-center" style="width:16%">缴费基数</div>
+                <div class="am-flexbox-item" >缴费月数</div>
+                <div class="am-flexbox-item">缴费金额</div>
+                <div class="am-flexbox-item">到账标记</div>
+                <div class="am-flexbox-item">缴费类别</div>
+            </div>
+         </div>
+        @foreach (var item in Model.data)
+        {
+            
+                <div class="am-flexbox">
+                    <div class="am-list-item">
+                        <div class="am-flexbox-item" style="width:16%">@item.akf088</div>
+                        <div class="am-flexbox-item am-ft-center" style="width:16%">@item.aif004</div>
+                        <div class="am-flexbox-item" style="width:16%">@item.aif005</div>
+                        <div class="am-flexbox-item" style="width:16%;float:right">@item.aif006</div>
+                        <div class="am-flexbox-item" style="width:16%;float:right">@item.akf084</div>
+                        <div class="am-flexbox-item" style="width:16%;float:right">@item.akf081</div>
+                    </div>
+            </div>
+        }
+        </div>
+</div>
