@@ -10,8 +10,8 @@ namespace SocialInsurance.Models
   public  class BirthInsurance
     {
       public string status { get; set; }
-      public string cpage  { get; set; }
-      public string pages { get; set; }
+      public long  cpage  { get; set; }
+      public long  pages { get; set; }
       public string rowcount { get; set; }
       public List<BirthInsuranceDetail> data   { get; set; }
 

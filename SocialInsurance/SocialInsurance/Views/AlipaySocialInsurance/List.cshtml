@@ -3,40 +3,45 @@
     Layout = "~/Views/Shared/_LayoutAlipay.cshtml";
 }
 <script type="text/javascript">
-    $("#toast").hide();
+   
 </script>
+<div class="am-toast" id="toast">
+    <div class="am-toast-text">
+        <span class="am-toast-icon am-icon" am-mode="toast-loading"></span> 正在加载...
+    </div>
+</div>
 <div id="list">
     <div class="am-list" am-mode="flat chip">
         <div class="am-list-header">综合查询</div>
         <div class="am-list-body">
-            <a onclick="result(1)" class="am-list-item">
+            <a onclick="result(2)" class="am-list-item">
                 <div class="am-list-content">个人参保情况查询</div>
                 <div class="am-list-arrow"><span class="am-icon" am-mode="arrow-horizontal"></span></div>
             </a>
-            <a  onclick="result(2)" class="am-list-item">
+            @*<a  onclick="result(2)" class="am-list-item">
                 <div class="am-list-content">个人权益记录单查询</div>
                 <div class="am-list-arrow"><span class="am-icon" am-mode="arrow-horizontal"></span></div>
             </a>
             <a href="PersonInsuranceStatus" class="am-list-item">
                 <div class="am-list-content">企业养老保险个人账户查询</div>
                 <div class="am-list-arrow"><span class="am-icon" am-mode="arrow-horizontal"></span></div>
-            </a>
+            </a>*@
         </div>
         <div class="am-list-header">缴费信息查询</div>
         <div class="am-list-body">
-            <a href="PensionInsurance" class="am-list-item">
+            <a onclick="result(1)" class="am-list-item">
                 <div class="am-list-content">企业养老缴费信息查询</div>
                 <div class="am-list-arrow"><span class="am-icon" am-mode="arrow-horizontal"></span></div>
             </a>
-            <a href="BirthInsurance" class="am-list-item">
+            <a onclick="result(3)" class="am-list-item">
                 <div class="am-list-content">生育缴费信息查询</div>
                 <div class="am-list-arrow"><span class="am-icon" am-mode="arrow-horizontal"></span></div>
             </a>
-            <a href="IdustrialInsurance" class="am-list-item">
+            <a onclick="result(4)" class="am-list-item">
                 <div class="am-list-content">工伤缴费信息查询</div>
                 <div class="am-list-arrow"><span class="am-icon" am-mode="arrow-horizontal"></span></div>
             </a>
-            <a href="UnemploymentInsurance" class="am-list-item">
+            <a onclick="result(5)" class="am-list-item">
                 <div class="am-list-content">失业缴费信息查询</div>
                 <div class="am-list-arrow"><span class="am-icon" am-mode="arrow-horizontal"></span></div>
             </a>
@@ -56,35 +61,33 @@
     </div>
 </div>
 <div id="result">
-
-
-
-
-
 </div>
 <script>
+    $("#toast").hide();
     function result(type) {
+        $("#toast").show();
         var url = "";
+        var cpage = 1;
         switch (type) {
             //企业养老金缴费信息查询
             case 1:
-                url = "../AlipaySocialInsurance/PensionInsurance?cpage="+1;
+                url = "../AlipaySocialInsurance/PensionInsurance?cpage="+cpage;
                 break;
                 //个人参保情况查询
             case 2:
-                url = "../AlipaySocialInsurance/PersonInsuranceStatus";
+                url = "../AlipaySocialInsurance/PersonInsuranceStatus?cpage="+cpage;
                 break;
                 //生育缴费查询
             case 3:
-                url = "../AlipaySocialInsurance/BirthInsurance";
+                url = "../AlipaySocialInsurance/BirthInsurance?cpage="+cpage;
                 break;
                 //工伤缴费查询
             case 4:
-                url = "../AlipaySocialInsurance/IdustrialInsurance";
+                url = "../AlipaySocialInsurance/IdustrialInsurance?cpage="+cpage;
                 break;
                 //失业缴费信息查询
             case 5:
-                url = "../AlipaySocialInsurance/UnemploymentInsurance";
+                url = "../AlipaySocialInsurance/UnemploymentInsurance?cpage="+cpage;
                 break;
             case 6:
                 url = "../AlipaySocialInsurance/";
@@ -101,14 +104,16 @@
         $.ajax({
             url: url,
             success: function (msg) {
-                alert(msg)
                 $("#list").hide();
-                $("#toast").hide();
+                $("#result").show();
                 $("#result").empty().html(msg);
-
             },
-            complete: function () { },
-            error: function () { }
+            complete: function () {
+                $("#toast").hide();
+            },
+            error: function () {
+                alert("网络错误,请稍后重试！");
+            }
         });
     }
 </script>

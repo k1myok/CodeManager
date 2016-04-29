@@ -1,26 +1,28 @@
 ﻿@model SocialInsurance.Models.BirthInsurance
-
 @{
     ViewBag.Title = "BirthInsurance";
     Layout = "~/Views/Shared/_LayoutAlipay.cshtml";
 }
-
-<script>
-    $("#toast").hide();
-</script>
 <style>
-    .name {
+    .name
+     {
         width:16.666666%;
         text-align:center;
     }
 
 </style>
-<div class="am-list" am-mode="flat chip">
-    <div class="am-list-body">
+@if (Model.status =="200")
+{
+
+}
+else
+{
+     if (Model.status == "100")
+     {
+      <div class="am-list" am-mode="flat chip">
         <div class="am-list-item">
-            
                 <div class="name">结算期</div>
-                <div class="name am-ft-center" style="width:16%">缴费基数</div>
+                <div class="name am-ft-center">缴费基数</div>
                 <div class="name" >缴费月数</div>
                 <div class="name">缴费金额</div>
                 <div class="name">到账标记</div>
@@ -30,12 +32,58 @@
         {
             <div class="am-list-item">
                         <div class="name">@item.akf088</div>
-                        <div class="name">@item.aif004</div>
                         <div class="name">@item.aif005</div>
+                        <div class="name">@item.aif004</div>
                         <div class="name">@item.aif006</div>
                         <div class="name">@item.akf084</div>
                         <div class="name">@item.akf081</div>
             </div>
         }
      </div>
-</div>
+       if (Model.cpage < Model.pages)
+       {
+            <div class="am-flexbox" am-mode="average" style="margin-top:15px;">
+                <div class="am-flexbox-item">
+                    <button type="button" id="more" class="am-button am-button-blue">下一页</button>
+                </div>
+            </div>
+            <div class="am-flexbox" am-mode="average" style="margin-top:15px;">
+            <div class="am-flexbox-item">
+                <button type="button" id="back" class="am-button am-button-blue">返回</button>
+            </div>
+            </div>
+       }
+       else
+        {
+           <div class="am-flexbox" am-mode="average" style="margin-top:15px;">
+            <div class="am-flexbox-item">
+                <button type="button" id="back" class="am-button am-button-blue">返回</button>
+            </div>
+           </div>
+        }
+      }
+ }
+
+    <script>
+        $("#more").click(function ()
+        {
+            $("#toast").show();
+            var cpage =@(Model.cpage)+1;
+            var url = "../AlipaySocialInsurance/BirthInsurance?cpage=" + cpage;
+            $.ajax({
+                url: url,
+                success: function (msg) {
+                    alert(msg);
+                    $("#result").empty().html(msg);
+                },
+                error: function () { },
+                complete: function () {
+                    $("#toast").hide();
+                }
+            });
+        });
+        $("#back").click(function () {
+            $("#result").hide();
+            $("#list").show();
+        });
+    </script>

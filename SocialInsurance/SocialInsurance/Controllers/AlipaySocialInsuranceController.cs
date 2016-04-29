@@ -33,7 +33,7 @@ namespace SocialInsurance.Controllers
             ID = "0500708293";
             IDCard = "441381198208204752";
             var client = new SocialInsuranceService.ShbServClient();
-            var temp = client.si010201(ID,IDCard, 8, cpage);
+            var temp = client.si010201(ID,IDCard, 8,cpage);
             XElement xoc = XElement.Parse(temp);
             PensionInsurance p = new PensionInsurance();
             List<PensionInsuranceDetail> data = new List<PensionInsuranceDetail>();
@@ -138,8 +138,8 @@ namespace SocialInsurance.Controllers
                 var resut = xoc.Descendants("result").ToList();
                 var rows = xoc.Descendants("row").ToList();
                 birthIn.status = "100";
-                birthIn.pages = resut[0].Attribute("pages").Value.ToString();
-                birthIn.cpage = resut[1].Attribute("cpage").Value.ToString();
+                birthIn.pages =Convert.ToInt32(resut[0].Attribute("pages").Value);
+                birthIn.cpage = Convert.ToInt32(resut[1].Attribute("cpage").Value);
                 birthIn.rowcount=resut[2].Attribute("rowcount").Value.ToString();
                foreach (var item in rows)
 	           {
@@ -159,7 +159,7 @@ namespace SocialInsurance.Controllers
             return PartialView(birthIn);
             //return PartialView();
         }
-        //public PartialViewResult IdustrialInsurance(string ID,string IDCard,long row,long cpage )
+      
         /// <summary>
         /// 工伤缴费查询
         /// </summary>
@@ -171,7 +171,7 @@ namespace SocialInsurance.Controllers
              ID = "0500708293";
              IDCard = "441381198208204752";
          var client= new SocialInsuranceService.ShbServClient();
-         var temp=client.si070201(ID,IDCard,8,1);
+         var temp=client.si070201(ID,IDCard,8,cpage);
          XElement xoc = XElement.Parse(temp);
          IdustrialInsurance Idustrial = new IdustrialInsurance();
          List<IdustrialInsuranceDetail> data = new List<IdustrialInsuranceDetail>();
@@ -186,8 +186,8 @@ namespace SocialInsurance.Controllers
             var resut = xoc.Descendants("result").ToList();
             var rows = xoc.Descendants("row").ToList();
             Idustrial.status = "100";
-            Idustrial.pages = resut[0].Attribute("pages").Value.ToString();
-            Idustrial.cpages = resut[1].Attribute("cpage").Value.ToString();
+            Idustrial.pages =Convert.ToInt32(resut[0].Attribute("pages").Value);
+            Idustrial.cpage =Convert.ToInt32( resut[1].Attribute("cpage").Value);
             Idustrial.rowcount = resut[2].Attribute("rowcount").Value.ToString();
             foreach (var item in rows)
             {
@@ -216,7 +216,7 @@ namespace SocialInsurance.Controllers
             ID = "0500708293";
             IDCard ="441381198208204752";
             var client = new SocialInsuranceService.ShbServClient();
-            var temp = client.si080201(ID, IDCard, 8, 1);
+            var temp = client.si080201(ID, IDCard, 8, cpage);
             XElement xoc = XElement.Parse(temp);
             UnemploymentInsurance p = new UnemploymentInsurance();
             List<UnemploymentInsuranceDetail> data = new List<UnemploymentInsuranceDetail>();
@@ -231,8 +231,8 @@ namespace SocialInsurance.Controllers
                 var rows = xoc.Descendants("row").ToList();
                 var result = xoc.Descendants("result").ToList();
                 p.status = "100";
-                p.pages=result[0].Attribute("pages").Value.ToString();
-                p.cpage = result[1].Attribute("cpage").Value.ToString();
+                p.pages =Convert.ToInt32(result[0].Attribute("pages").Value);
+                p.cpage =Convert.ToInt32( result[1].Attribute("cpage").Value);
                 p.rowcount = result[2].Attribute("rowcount").Value.ToString();
                 foreach (var item in rows)
                 {
@@ -251,6 +251,22 @@ namespace SocialInsurance.Controllers
                 return PartialView(p);
             }
         }
+
+        public PartialViewResult CompanyInsurance(string ID,string IDCard,long cpage)
+        {
+            ID = "0500708293";
+            IDCard ="441381198208204752";
+            var client = new SocialInsuranceService.ShbServClient();
+            var temp = client.si030601(ID,IDCard,8,cpage);
+
+
+
+            return PartialView();
+        }
+
+
+
+
    }
 }
   

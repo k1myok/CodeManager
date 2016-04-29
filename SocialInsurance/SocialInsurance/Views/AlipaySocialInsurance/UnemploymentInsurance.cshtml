@@ -4,10 +4,6 @@
     ViewBag.Title = "UnemploymentInsurance";
     Layout = "~/Views/Shared/_LayoutAlipay.cshtml";
 }
-
-<script>
-    $("#toast").hide();
-</script>
 <style>
     .name {
         width:16.6666666%;
@@ -17,7 +13,9 @@
 @if (Model.status == "200")
 {
 
-
+<div class="am-list-footer">
+   没有查到相关信息
+</div>
 
 
 }
@@ -46,11 +44,49 @@ else
                 </div>
             }
         </div>
-    }
-    <div class="am-list-footer">
-        总共@(Model.pages)页，当前第@(Model.cpage)页,
-    </div>
+        if (Model.cpage < Model.pages)
+        {
+            <div class="am-flexbox" am-mode="average" style="margin-top:15px;">
+                <div class="am-flexbox-item">
+                    <button type="button" id="more" class="am-button am-button-blue">下一页</button>
+                </div>
+            </div>
+            <div class="am-flexbox" am-mode="average" style="margin-top:15px;">
+                <div class="am-flexbox-item">
+                    <button type="button" id="back" class="am-button am-button-blue">返回</button>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="am-flexbox" am-mode="average" style="margin-top:15px;">
+                <div class="am-flexbox-item">
+                    <button type="button" id="back" class="am-button am-button-blue">返回</button>
+                </div>
+            </div>
+        }
 
+    }
 }
-        
+ <script>
+     $("#more").click(function () {
+         $("#toast").show();
+         var cpage =@(Model.cpage) +1;
+         var url = "../AlipaySocialInsurance/UnemploymentInsurance?cpage=" + cpage;
+         $.ajax({
+             url: url,
+             success: function (msg) {
+                 $("#result").empty().html(msg);
+             },
+             error: function () { },
+             complete: function () {
+                 $("#toast").hide();
+             }
+         });
+     });
+     $("#back").click(function () {
+         $("#result").hide();
+         $("#list").show();
+     });
+</script>   
        

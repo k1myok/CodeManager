@@ -15,16 +15,13 @@
 @if (Model.status == "200")
 {
 
-
-
-
 }
 else
 {
      if (Model.status == "100")
         {
 
-    <div class="am-list" am-mode="flat chip">
+        <div class="am-list" am-mode="flat chip">
         <div class="am-list-item">
             <div class="name am-ft-center">人员编号</div>
             <div class="name am-ft-center">缴费年度</div>
@@ -44,14 +41,31 @@ else
      </div>
             if (Model.cpage < Model.pages)
             {
-                <div class="am-flexbox" am-mode="average">
+                <div class="am-flexbox" am-mode="average" style="margin-top:15px;">
                     <div class="am-flexbox-item">
-                        <button type="button"  id="more" class="am-button am-button-blue">下一页</button>
+                        <button type="button" id="more" class="am-button am-button-blue">下一页</button>
+                    </div>
+                </div>
+                <div class="am-flexbox" am-mode="average" style="margin-top:15px;">
+                    <div class="am-flexbox-item">
+                        <button type="button" id="back" class="am-button am-button-blue">返回</button>
                     </div>
                 </div>
             }
+            else
+            {
+                <div class="am-flexbox" am-mode="average" style="margin-top:15px;">
+                    <div class="am-flexbox-item">
+                        <button type="button" id="back" class="am-button am-button-blue">返回</button>
+                    </div>
+                </div>
+            }
+
+
+
         }
 }
+
 <script>
     $("#more").click(function () {
         var cpage =@(Model.cpage) +1;
@@ -65,5 +79,9 @@ else
             error: function () { },
             complete: function () { }
         });
-     });
+    });
+    $("#back").click(function () {
+        $("#result").hide();
+        $("#list").show();
+    });
 </script>
