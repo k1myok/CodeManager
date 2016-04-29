@@ -29,8 +29,8 @@ namespace SocialInsurance.Controllers
            var client = new SocialInsuranceService.ShbServClient();
             var temp = client.si010201(con.ID.Trim(), con.IDCard.Trim(), 8, 1);
             XElement xoc = XElement.Parse(temp);
-            PersonalInsurance p = new PersonalInsurance();
-            List<InsuranceDetail> data = new List<InsuranceDetail>();
+            PensionInsurance p = new PensionInsurance();
+            List<PensionInsuranceDetail> data = new List<PensionInsuranceDetail>();
             var faultcode = xoc.Descendants("faultcode").ToList();
             if (faultcode.Count() > 0)
             {
@@ -42,12 +42,12 @@ namespace SocialInsurance.Controllers
                 var resu = xoc.Descendants("result").ToList();
                 var re = xoc.Descendants("row").ToList();
                 p.status = "100";
-                p.pages = resu[0].Attribute("pages").Value.ToString();
-                p.cpage = resu[1].Attribute("cpage").Value.ToString();
-                p.rowcount = resu[2].Attribute("rowcount").Value.ToString();
+                p.pages = Convert.ToInt32(resu[0].Attribute("pages").Value);
+                p.cpage =Convert.ToInt32(resu[1].Attribute("cpage").Value);
+                p.rowcount =Convert.ToInt32(resu[2].Attribute("rowcount").Value);
                 foreach (var item in re)
                 {
-                    InsuranceDetail Insurance = new InsuranceDetail();
+                    PensionInsuranceDetail Insurance = new PensionInsuranceDetail();
                     Insurance.aab004 = item.Attribute("aab004").Value;
                     Insurance.aac001 = item.Attribute("aac001").Value;
                     Insurance.aac003 = item.Attribute("aac003").Value;

@@ -10,40 +10,32 @@
 </script>
 <style>
     .name {
-        width:15%;
-        float:left;
+        width:16.666666%;
+        text-align:center;
     }
-    tr {
-        min-height:32px;
-    }
-
 
 </style>
 <div class="am-list" am-mode="flat chip">
     <div class="am-list-body">
         <div class="am-list-item">
-            <div class="am-flexbox">
-                <div class="am-flexbox-item">结算期</div>
-                <div class="am-flexbox-item am-ft-center" style="width:16%">缴费基数</div>
-                <div class="am-flexbox-item" >缴费月数</div>
-                <div class="am-flexbox-item">缴费金额</div>
-                <div class="am-flexbox-item">到账标记</div>
-                <div class="am-flexbox-item">缴费类别</div>
-            </div>
+            
+                <div class="name">结算期</div>
+                <div class="name am-ft-center" style="width:16%">缴费基数</div>
+                <div class="name" >缴费月数</div>
+                <div class="name">缴费金额</div>
+                <div class="name">到账标记</div>
+                <div class="name">缴费类别</div>
          </div>
         @foreach (var item in Model.data)
         {
-            
-                <div class="am-flexbox">
-                    <div class="am-list-item">
-                        <div class="am-flexbox-item" style="width:16%">@item.akf088</div>
-                        <div class="am-flexbox-item am-ft-center" style="width:16%">@item.aif004</div>
-                        <div class="am-flexbox-item" style="width:16%">@item.aif005</div>
-                        <div class="am-flexbox-item" style="width:16%;float:right">@item.aif006</div>
-                        <div class="am-flexbox-item" style="width:16%;float:right">@item.akf084</div>
-                        <div class="am-flexbox-item" style="width:16%;float:right">@item.akf081</div>
-                    </div>
+            <div class="am-list-item">
+                        <div class="name">@item.akf088</div>
+                        <div class="name">@item.aif004</div>
+                        <div class="name">@item.aif005</div>
+                        <div class="name">@item.aif006</div>
+                        <div class="name">@item.akf084</div>
+                        <div class="name">@item.akf081</div>
             </div>
         }
-        </div>
+     </div>
 </div>

@@ -5,47 +5,110 @@
 <script type="text/javascript">
     $("#toast").hide();
 </script>
-<div class="am-list" am-mode="flat chip">
-    <div class="am-list-header">综合查询</div>
-    <div class="am-list-body">
-        <a href="PersonInsuranceStatus" class="am-list-item">
-            <div class="am-list-content">个人参保情况查询</div>
-            <div class="am-list-arrow"><span class="am-icon" am-mode="arrow-horizontal"></span></div>
-        </a>
-        <a href="PersonInsuranceStatus" class="am-list-item">
-            <div class="am-list-content">个人权益记录单查询</div>
-            <div class="am-list-arrow"><span class="am-icon" am-mode="arrow-horizontal"></span></div>
-        </a>
-        <a href="PersonInsuranceStatus" class="am-list-item">
-            <div class="am-list-content">企业养老保险个人账户查询</div>
-            <div class="am-list-arrow"><span class="am-icon" am-mode="arrow-horizontal"></span></div>
-        </a>
-    </div>
-    <div class="am-list-header">缴费信息查询</div>
-    <div class="am-list-body">
-        <a href="BirthInsurance" class="am-list-item">
-            <div class="am-list-content">生育缴费信息查询</div>
-            <div class="am-list-arrow"><span class="am-icon" am-mode="arrow-horizontal"></span></div>
-        </a>
-        <a href="" class="am-list-item">
-            <div class="am-list-content">工伤缴费信息查询</div>
-            <div class="am-list-arrow"><span class="am-icon" am-mode="arrow-horizontal"></span></div>
-        </a>
-        <a href="" class="am-list-item">
-            <div class="am-list-content">失业缴费信息查询</div>
-            <div class="am-list-arrow"><span class="am-icon" am-mode="arrow-horizontal"></span></div>
-        </a>
-        <a href="" class="am-list-item">
-            <div class="am-list-content">企业养老缴费信息月度查询</div>
-            <div class="am-list-arrow"><span class="am-icon" am-mode="arrow-horizontal"></span></div>
-        </a>
-        <a href="" class="am-list-item">
-            <div class="am-list-content">机关养老缴费信息月度查询</div>
-            <div class="am-list-arrow"><span class="am-icon" am-mode="arrow-horizontal"></span></div>
-        </a>
-        <a href="" class="am-list-item">
-            <div class="am-list-content">职工医保缴费信息月度查询</div>
-            <div class="am-list-arrow"><span class="am-icon" am-mode="arrow-horizontal"></span></div>
-        </a>
+<div id="list">
+    <div class="am-list" am-mode="flat chip">
+        <div class="am-list-header">综合查询</div>
+        <div class="am-list-body">
+            <a onclick="result(1)" class="am-list-item">
+                <div class="am-list-content">个人参保情况查询</div>
+                <div class="am-list-arrow"><span class="am-icon" am-mode="arrow-horizontal"></span></div>
+            </a>
+            <a  onclick="result(2)" class="am-list-item">
+                <div class="am-list-content">个人权益记录单查询</div>
+                <div class="am-list-arrow"><span class="am-icon" am-mode="arrow-horizontal"></span></div>
+            </a>
+            <a href="PersonInsuranceStatus" class="am-list-item">
+                <div class="am-list-content">企业养老保险个人账户查询</div>
+                <div class="am-list-arrow"><span class="am-icon" am-mode="arrow-horizontal"></span></div>
+            </a>
+        </div>
+        <div class="am-list-header">缴费信息查询</div>
+        <div class="am-list-body">
+            <a href="PensionInsurance" class="am-list-item">
+                <div class="am-list-content">企业养老缴费信息查询</div>
+                <div class="am-list-arrow"><span class="am-icon" am-mode="arrow-horizontal"></span></div>
+            </a>
+            <a href="BirthInsurance" class="am-list-item">
+                <div class="am-list-content">生育缴费信息查询</div>
+                <div class="am-list-arrow"><span class="am-icon" am-mode="arrow-horizontal"></span></div>
+            </a>
+            <a href="IdustrialInsurance" class="am-list-item">
+                <div class="am-list-content">工伤缴费信息查询</div>
+                <div class="am-list-arrow"><span class="am-icon" am-mode="arrow-horizontal"></span></div>
+            </a>
+            <a href="UnemploymentInsurance" class="am-list-item">
+                <div class="am-list-content">失业缴费信息查询</div>
+                <div class="am-list-arrow"><span class="am-icon" am-mode="arrow-horizontal"></span></div>
+            </a>
+            <a href="" class="am-list-item">
+                <div class="am-list-content">企业养老缴费信息月度查询</div>
+                <div class="am-list-arrow"><span class="am-icon" am-mode="arrow-horizontal"></span></div>
+            </a>
+            <a href="" class="am-list-item">
+                <div class="am-list-content">机关养老缴费信息月度查询</div>
+                <div class="am-list-arrow"><span class="am-icon" am-mode="arrow-horizontal"></span></div>
+            </a>
+            <a href="" class="am-list-item">
+                <div class="am-list-content">职工医保缴费信息月度查询</div>
+                <div class="am-list-arrow"><span class="am-icon" am-mode="arrow-horizontal"></span></div>
+            </a>
+        </div>
     </div>
 </div>
+<div id="result">
+
+
+
+
+
+</div>
+<script>
+    function result(type) {
+        var url = "";
+        switch (type) {
+            //企业养老金缴费信息查询
+            case 1:
+                url = "../AlipaySocialInsurance/PensionInsurance?cpage="+1;
+                break;
+                //个人参保情况查询
+            case 2:
+                url = "../AlipaySocialInsurance/PersonInsuranceStatus";
+                break;
+                //生育缴费查询
+            case 3:
+                url = "../AlipaySocialInsurance/BirthInsurance";
+                break;
+                //工伤缴费查询
+            case 4:
+                url = "../AlipaySocialInsurance/IdustrialInsurance";
+                break;
+                //失业缴费信息查询
+            case 5:
+                url = "../AlipaySocialInsurance/UnemploymentInsurance";
+                break;
+            case 6:
+                url = "../AlipaySocialInsurance/";
+                break;
+
+            case 7:
+                url = "../AlipaySocialInsurance/";
+                break;
+            case 8:
+                url = "../AlipaySocialInsurance/";
+                break;
+                return url;
+        }
+        $.ajax({
+            url: url,
+            success: function (msg) {
+                alert(msg)
+                $("#list").hide();
+                $("#toast").hide();
+                $("#result").empty().html(msg);
+
+            },
+            complete: function () { },
+            error: function () { }
+        });
+    }
+</script>

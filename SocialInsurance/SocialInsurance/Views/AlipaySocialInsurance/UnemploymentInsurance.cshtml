@@ -1,0 +1,56 @@
+﻿@model SocialInsurance.Models.UnemploymentInsurance
+
+@{
+    ViewBag.Title = "UnemploymentInsurance";
+    Layout = "~/Views/Shared/_LayoutAlipay.cshtml";
+}
+
+<script>
+    $("#toast").hide();
+</script>
+<style>
+    .name {
+        width:16.6666666%;
+        text-align: center;
+    }
+</style>
+@if (Model.status == "200")
+{
+
+
+
+
+}
+else
+{
+    if (Model.status == "100")
+    {
+        <div class="am-list" am-mode="flat chip">
+            <div class="am-list-item">
+                <div class="name am-ft-center">结算期</div>
+                <div class="name am-ft-center">缴费基数</div>
+                <div class="name am-ft-center">缴费月数</div>
+                <div class="name am-ft-center">缴费金额</div>
+                <div class="name am-ft-center">到账标记</div>
+                <div class="name am-ft-center">缴费类别</div>
+            </div>
+            @foreach (var item in Model.data)
+            {
+                <div class="am-list-item">
+                    <div class="name am-ft-center">@item.akf088</div>
+                    <div class="name am-ft-center">@item.aif005</div>
+                    <div class="name am-ft-center">@item.aif004</div>
+                    <div class="name am-ft-center">@item.aif006</div>
+                    <div class="name am-ft-center">@item.akf084</div>
+                    <div class="name am-ft-center">@item.akf081</div>
+                </div>
+            }
+        </div>
+    }
+    <div class="am-list-footer">
+        总共@(Model.pages)页，当前第@(Model.cpage)页,
+    </div>
+
+}
+        
+       

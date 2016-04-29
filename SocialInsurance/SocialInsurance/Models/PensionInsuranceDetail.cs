@@ -6,7 +6,7 @@ using System.Text;
 namespace SocialInsurance.Models
 {
     //企业养老缴费详细信息
-  public class InsuranceDetail
+  public class PensionInsuranceDetail
     {
         public string aab004 { get; set; }
         public string aac003 { get; set; }

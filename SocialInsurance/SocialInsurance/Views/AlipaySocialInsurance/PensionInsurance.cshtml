@@ -1,0 +1,69 @@
+﻿@model SocialInsurance.Models.PensionInsurance
+@{
+    ViewBag.Title = "PensionInsurance";
+    Layout = "~/Views/Shared/_LayoutAlipay.cshtml";
+}
+<script>
+    $("#toast").hide();
+</script>
+<style>
+ .name {
+        width: 25%;
+        text-align: center;
+      }
+</style>
+@if (Model.status == "200")
+{
+
+
+
+
+}
+else
+{
+     if (Model.status == "100")
+        {
+
+    <div class="am-list" am-mode="flat chip">
+        <div class="am-list-item">
+            <div class="name am-ft-center">人员编号</div>
+            <div class="name am-ft-center">缴费年度</div>
+            <div class="name am-ft-center">缴费月数</div>
+            <div class="name am-ft-center">缴费基数</div>
+        </div>
+        @foreach (var item in Model.msg)
+        {
+            <div class="am-list-item">
+                <div class="name am-ft-center">@item.aac001</div>
+                <div class="name am-ft-center">@item.aae001</div>
+                <div class="name am-ft-center">@item.aif004</div>
+                <div class="name am-ft-center">@item.aif005</div>
+            </div>
+
+        }
+     </div>
+            if (Model.cpage < Model.pages)
+            {
+                <div class="am-flexbox" am-mode="average">
+                    <div class="am-flexbox-item">
+                        <button type="button"  id="more" class="am-button am-button-blue">下一页</button>
+                    </div>
+                </div>
+            }
+        }
+}
+<script>
+    $("#more").click(function () {
+        var cpage =@(Model.cpage) +1;
+        var url = "../AlipaySocialInsurance/PensionInsurance?cpage=" + cpage;
+        $.ajax({
+            url: url,
+            success: function (msg)
+            {
+                $("#result").empty().html(msg);
+            },
+            error: function () { },
+            complete: function () { }
+        });
+     });
+</script>

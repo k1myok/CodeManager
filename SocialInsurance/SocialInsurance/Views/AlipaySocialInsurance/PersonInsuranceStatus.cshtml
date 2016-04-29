@@ -1,4 +1,4 @@
-﻿@model SocialInsurance.Controllers.PInsuranceStatu
+﻿@model SocialInsurance.Models.PInsuranceStatu
 @{
     ViewBag.Title = "PersonInsuranceStatus";
     Layout = "~/Views/Shared/_LayoutAlipay.cshtml";
@@ -6,6 +6,12 @@
 <script type="text/javascript">
     $("#toast").hide();
 </script>
+<style>
+    .name {
+        width: 25%;
+        text-align: center;
+    }
+</style>
 @if (Model.status == "200")
 {
 
@@ -15,26 +21,53 @@
 }
 else
 {
-    if (Model.status == "100")
-    {
-        <div class="weui_cell_hd">
-            总页：@Model.pages,第@Model.cpages,每页@Model.rowcount行
-        </div>
-        <table>
-            @foreach (var item in Model.data)
-            {
-                <tr>
-                    <td>@item.aab001</td>
-                    <td>@item.aab002</td>
-                    <td>@item.aab004</td>
-                    <td>@item.aac001</td>
-                    <td>@item.aac008</td>
-                    <td>@item.aac031</td>
-                    <td>@item.akf066</td>
-                    <td>@item.akf067</td>
+    <div class="am-list" am-mode="flat chip">
+        <div class="am-list-body">
+            @if (Model.status == "100")
+              {
+                <div class="am-list-item">
+                    <div class="name am-ft-center">参加险种</div>
+                    <div class="name am-ft-center">参保状态</div>
+                    @*<div class="name am-ft-center">所在单位编号</div>
+                    <div class="name am-ft-center">所在单位名称</div>*@
+                    <div class="name am-ft-center">缴费状态</div>
+                    <div class="name am-ft-center">待遇状态</div>
+                    @*<div class="name am-ft-center">人员编号</div>*@
+                </div>
+                foreach (var item in Model.data)
+             {
+                    <div class="am-list-item">
+                        <div class="name">
+                            <div class="">@item.akf066</div>
+                        </div>
+                        <div class="name">
+                            <div class="am-ft-center">@item.aac008</div>
+                        </div>
+                        @*<div class="name">
+                            <div class="am-ft-center">@item.aab001</div>
+                        </div>
+                        <div class="name">
+                            <div class="am-ft-center">@item.aab004</div>
+                        </div>*@
+                        <div class="name">
+                            <div class="am-ft-center">@item.aac031</div>
+                        </div>
+                        <div class="name">
+                            <div class="am-ft-center">@item.akf067</div>
+                        </div>
+                        @*<div class="name">
+                            <div class="am-ft-center">@item.aac001</div>
+                        </div>*@
+                    </div>
+             }
+        }
 
-                </tr>
+       </div>
+
+
+            <div class="am-list-footer">
+                总页：@Model.pages,第@(Model.cpages),每页@(Model.rowcount)行
+            </div>
+        </div>
+
             }
-        </table>
-    }
-}
