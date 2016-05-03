@@ -9,8 +9,8 @@ namespace SocialInsurance.Models
     public class PInsuranceStatu
     {
         public string status { get; set; }
-        public string pages { get; set; }
-        public string cpages { get; set; }
+        public long  pages { get; set; }
+        public long  cpages { get; set; }
         public string rowcount { get; set; }
         public List<PInsuranceStatuDetail> data{get;set;}
 

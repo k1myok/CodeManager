@@ -24,6 +24,9 @@ else
     if (Model.status == "100")
     {
         <div class="am-list" am-mode="flat chip">
+            if(Model.cpage==1)
+            {
+
             <div class="am-list-item">
                 <div class="name am-ft-center">结算期</div>
                 <div class="name am-ft-center">缴费基数</div>
@@ -32,6 +35,7 @@ else
                 <div class="name am-ft-center">到账标记</div>
                 <div class="name am-ft-center">缴费类别</div>
             </div>
+            }
             @foreach (var item in Model.data)
             {
                 <div class="am-list-item">
@@ -48,7 +52,7 @@ else
         {
             <div class="am-flexbox" am-mode="average" style="margin-top:15px;">
                 <div class="am-flexbox-item">
-                    <button type="button" id="more" class="am-button am-button-blue">下一页</button>
+                    <button type="button" id="more" class="am-button am-button-blue">更多</button>
                 </div>
             </div>
             <div class="am-flexbox" am-mode="average" style="margin-top:15px;">

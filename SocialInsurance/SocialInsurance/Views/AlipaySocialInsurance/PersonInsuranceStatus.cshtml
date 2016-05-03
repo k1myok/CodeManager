@@ -29,6 +29,8 @@ else
         <div class="am-list-body">
             @if (Model.status == "100")
               {
+                if(Model.cpages==1)
+                { 
                 <div class="am-list-item">
                     <div class="name am-ft-center">参加险种</div>
                     <div class="name am-ft-center">参保状态</div>
@@ -38,6 +40,7 @@ else
                     <div class="name am-ft-center">待遇状态</div>
                     @*<div class="name am-ft-center">人员编号</div>*@
                 </div>
+            }
                 foreach (var item in Model.data)
              {
                     <div class="am-list-item">
@@ -73,5 +76,10 @@ else
             </div>
         </div>
         </div>
-
             }
+<script>
+    $("#back").click(function () {
+        $("#result").hide();
+        $("#list").show();
+    });
+</script>

@@ -106,8 +106,8 @@ namespace SocialInsurance.Controllers
                 var resu = xoc.Descendants("result").ToList();
                 var re = xoc.Descendants("row").ToList();
                 p.status = "100";
-                p.pages = resu[0].Attribute("pages").Value.ToString();
-                p.cpages = resu[1].Attribute("cpage").Value.ToString();
+                p.pages =Convert.ToInt32(resu[0].Attribute("pages").Value);
+                p.cpages =Convert.ToInt32(resu[1].Attribute("cpage").Value);
                 p.rowcount = resu[2].Attribute("rowcount").Value.ToString();
                 foreach (var item in re)
                 {
