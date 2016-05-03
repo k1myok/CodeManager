@@ -48,8 +48,6 @@ namespace SocialInsurance.Controllers
         /// <returns></returns>
         public PartialViewResult PensionInsurance(string ID,string IDCard,long cpage)
         {
-            ID = "0500708293";
-            IDCard = "441381198208204752";
             var client = new SocialInsuranceService.ShbServClient();
             var temp = client.si010201(ID,IDCard, 8,cpage);
             XElement xoc = XElement.Parse(temp);
@@ -91,8 +89,7 @@ namespace SocialInsurance.Controllers
         /// <param name="IDCard"></param>
         public PartialViewResult PersonInsuranceStatus(string ID, string IDCard, long cpage)
         {
-            ID = "0500708293";
-            IDCard = "441381198208204752";
+
             var client = new SocialInsuranceService.ShbServClient();
             var temp = client.si120101(ID, IDCard, 8, cpage);
             XElement xoc = XElement.Parse(temp);
@@ -138,8 +135,6 @@ namespace SocialInsurance.Controllers
         /// <returns></returns>
         public PartialViewResult BirthInsurance(string ID, string IDCard,long cpage)
         {
-            ID = "0500708293";
-            IDCard = "441381198208204752";
             var client = new SocialInsuranceService.ShbServClient();
             var temp = client.si090401(ID, IDCard, 8, cpage);
             XElement xoc = XElement.Parse(temp);
@@ -272,8 +267,6 @@ namespace SocialInsurance.Controllers
 
         public PartialViewResult CompanyMonthInsurance(string ID, string IDCard,long cpage)
         {
-            ID = "0500708293";
-            IDCard = "441381198208204752";
             CompanyMonthInsurance Cm = new CompanyMonthInsurance();
             List<CompanyMonthInsuranceDetail> data = new List<CompanyMonthInsuranceDetail>();
             var client = new SocialInsuranceService.ShbServClient();
@@ -310,11 +303,6 @@ namespace SocialInsurance.Controllers
                 return PartialView(Cm);
             }
         }
-        
-
-
-
-
    }
 }
   
