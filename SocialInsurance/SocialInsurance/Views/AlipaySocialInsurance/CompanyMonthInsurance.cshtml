@@ -1,34 +1,35 @@
-﻿@model SocialInsurance.Models.UnemploymentInsurance
+﻿@model SocialInsurance.Models.CompanyMonthInsurance
 
 @{
-    ViewBag.Title = "UnemploymentInsurance";
+    ViewBag.Title = "CompanyMonthInsurance";
     Layout = "~/Views/Shared/_LayoutAlipay.cshtml";
 }
+
+<script>
+    $("#toast").hide();
+</script>
 <style>
     .name {
-        width:16.6666666%;
+        width: 14.2857%;
         text-align: center;
     }
 </style>
 @if (Model.status == "200")
 {
 
-<div class="am-list-footer">
-   没有查到相关信息
-</div>
-
-
 }
 else
 {
     if (Model.status == "100")
     {
+
         <div class="am-list" am-mode="flat chip">
             <div class="am-list-item">
                 <div class="name am-ft-center">结算期</div>
-                <div class="name am-ft-center">缴费基数</div>
+                <div class="name am-ft-center">账户本金</div>
+                <div class="name am-ft-center">其中个人缴纳</div>
+                <div class="name am-ft-center">月缴费基数</div>
                 <div class="name am-ft-center">缴费月数</div>
-                <div class="name am-ft-center">缴费金额</div>
                 <div class="name am-ft-center">到账标记</div>
                 <div class="name am-ft-center">缴费类别</div>
             </div>
@@ -36,12 +37,14 @@ else
             {
                 <div class="am-list-item">
                     <div class="name am-ft-center">@item.akf088</div>
-                    <div class="name am-ft-center">@item.aif005</div>
+                    <div class="name am-ft-center">@item.aif034</div>
+                    <div class="name am-ft-center">@item.aae082</div>
+                    <div class="name am-ft-center">@item.aae180</div>
                     <div class="name am-ft-center">@item.aif004</div>
-                    <div class="name am-ft-center">@item.aif006</div>
                     <div class="name am-ft-center">@item.akf084</div>
                     <div class="name am-ft-center">@item.akf081</div>
                 </div>
+
             }
         </div>
         if (Model.cpage < Model.pages)
@@ -66,27 +69,27 @@ else
             </div>
         }
 
+
+
     }
 }
- <script>
-     $("#more").click(function () {
-         $("#toast").show();
-         var cpage =@(Model.cpage) +1;
-         var url = "../AlipaySocialInsurance/UnemploymentInsurance?cpage=" + cpage;
-         $.ajax({
-             url: url,
-             success: function (msg) {
-                 $("#result").append(msg);
-             },
-             error: function () { },
-             complete: function () {
-                 $("#toast").hide();
-             }
-         });
-     });
-     $("#back").click(function () {
-         $("#result").hide();
-         $("#list").show();
-     });
-</script>   
-       
+
+<script>
+    $("#more").click(function () {
+        var cpage =@(Model.cpage) +1;
+        var url = "../AlipaySocialInsurance/CompanyMonthInsurance?cpage=" + cpage;
+        $.ajax({
+            url: url,
+            success: function (msg)
+            {
+                $("#result").append(msg);
+            },
+            error: function () { },
+            complete: function () { }
+        });
+    });
+    $("#back").click(function () {
+        $("#result").hide();
+        $("#list").show();
+    });
+</script>

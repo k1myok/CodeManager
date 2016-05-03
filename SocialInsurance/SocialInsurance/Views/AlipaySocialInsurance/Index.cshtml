@@ -21,8 +21,13 @@
         </div>
         <div class="am-list-clear"><i class="am-icon-clear am-icon" am-mode="clear"></i></div>
     </div>
-    <div>
-        <button type="button" class="am-button" id="search" am-mode="blue disabled">蓝色42px按钮</button>
+    <div style="padding-top:30px;padding-left:15px;padding-right:15px;">
+        <button type="button" class="am-button" id="search" am-mode="blue disabled">登录</button>
+    </div>
+    <div class="am-list-footer">
+  说明：<br />
+        1.社保编号长度为10位<br />
+        2.身份证号码，最后一位是"X"的，应为大写字母。
     </div>
  </div>
 <script type="text/javascript">
@@ -40,7 +45,20 @@
         var IDCard=$("#IDCard").val();
         if (checkID(ID) && checkIDCard(IDCard))
         {
-            var url = "../AlipaySocialInsurance/";
+            location.href = "list?ID=" + ID + "&IDCard=" + IDCard;
+            //var url = "../AlipaySocialInsurance/Login?ID=" + ID + "&IDCard=" + IDCard;
+            //$.ajax({
+            //    url: url,
+            //    datatype:'xml',
+            //    success: function (msg)
+            //    {
+            //        alert(msg);
+            //    },
+            //    error:function()
+            //    {
+            //        alert("网络错误，请稍后重试！");
+            //    }
+            //});
         }
     });
 </script>
