@@ -35,6 +35,8 @@
             <div class="am-list-clear">
                 <i class="am-icon-clear am-icon" am-mode="clear"></i>
             </div>
+            <input type="hidden" class="cpage" />
+            <input type="hidden" class="pages" />
         </div>
     </div>
     <div id="list">
@@ -96,77 +98,73 @@ else
         </div>
     </Div>
 }
-<div id="result">
-    <div id="resultlist">
+<div class="am-list" am-mode="flat chip">
+    <div id="result">
     </div>
-    <div class="am-flexbox" am-mode="average" style="margin-top:15px;">
-        <div class="am-flexbox-item">
-            <button type="button" id="more" class="am-button am-button-blue">更多</button>
-        </div>
-    </div>
-    <div class="am-flexbox" am-mode="average" style="margin-top:15px;margin-left:15px;margin-right:15px;">
-        <div class="am-flexbox-item">
-            <button type="button" id="back" class="am-button am-button-blue">返回</button>
-        </div>
-    </div>
-</div>
-<script>
-    $("#toast").hide();
-    $("#result").hide();
-    function result(type) {
-        $("#toast").show();
-        var url = "";
-        var cpage = 1;
-        switch (type) {
-            //企业养老金缴费信息查询
-            case 1:
-                url = "../AlipaySocialInsurance/PensionInsurance?cpage="+cpage;
-                break;
-                //个人参保情况查询
-            case 2:
-                url = "../AlipaySocialInsurance/PersonInsuranceStatus?cpage="+cpage;
-                break;
-                //生育缴费查询
-            case 3:
-                url = "../AlipaySocialInsurance/BirthInsurance?cpage="+cpage;
-                break;
-                //工伤缴费查询
-            case 4:
-                url = "../AlipaySocialInsurance/IdustrialInsurance?cpage="+cpage;
-                break;
-                //失业缴费信息查询
-            case 5:
-                url = "../AlipaySocialInsurance/UnemploymentInsurance?cpage="+cpage;
-                break;
-            case 6:
-                url = "../AlipaySocialInsurance/CompanyMonthInsurance?cpage="+cpage ;
-                break;
+ </div>
+    <script>
+        $("#toast").hide();
+        $("#result").hide();
+        function result(type) {
+            $("#toast").show();
+            var url = "";
+            var cpage = 1;
+            switch (type) {
+                //企业养老金缴费信息查询
+                case 1:
+                    url = "../AlipaySocialInsurance/PensionInsurance?cpage=" + cpage;
+                    break;
+                    //个人参保情况查询
+                case 2:
+                    url = "../AlipaySocialInsurance/PersonInsuranceStatus?cpage=" + cpage;
+                    break;
+                    //生育缴费查询
+                case 3:
+                    url = "../AlipaySocialInsurance/BirthInsurance?cpage=" + cpage;
+                    break;
+                    //工伤缴费查询
+                case 4:
+                    url = "../AlipaySocialInsurance/IdustrialInsurance?cpage=" + cpage;
+                    break;
+                    //失业缴费信息查询
+                case 5:
+                    url = "../AlipaySocialInsurance/UnemploymentInsurance?cpage=" + cpage;
+                    break;
+                case 6:
+                    url = "../AlipaySocialInsurance/CompanyMonthInsurance?cpage=" + cpage;
+                    break;
 
-            case 7:
-                url = "../AlipaySocialInsurance/";
-                break;
-            case 8:
-                url = "../AlipaySocialInsurance/";
-                break;
-                return url;
-        }
-        $.ajax({
-            url: url,
-            data: {
-                ID: $("#ID").val(),
-                IDCard:$("#IDCard").val()
-            },
-            success: function (msg) {
-                $("#list").hide();
-                $("#result").show();
-                $("#result").empty().html(msg);
-            },
-            complete: function () {
-                $("#toast").hide();
-            },
-            error: function () {
-                alert("网络错误,请稍后重试！");
+                case 7:
+                    url = "../AlipaySocialInsurance/";
+                    break;
+                case 8:
+                    url = "../AlipaySocialInsurance/";
+                    break;
+                    return url;
             }
-        });
-    }
-</script>
+            $.ajax({
+                url: url,
+                data: {
+                    ID: $("#ID").val(),
+                    IDCard: $("#IDCard").val()
+                },
+                success: function (msg) {
+                    $("#list").hide();
+                    $("#result").show();
+                    $("#result").empty().html(msg);
+                },
+                complete: function () {
+                    $("#toast").hide();
+                },
+                error: function () {
+                    alert("网络错误,请稍后重试！");
+                }
+            });
+        }
+        function more()
+        {
+            var url = "";
+
+
+        }
+    </script>

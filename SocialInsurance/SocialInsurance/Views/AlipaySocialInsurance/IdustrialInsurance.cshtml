@@ -2,14 +2,14 @@
 
 @{
     ViewBag.Title = "IdustrialInsurance";
-    Layout = "~/Views/Shared/_LayoutAlipay.cshtml";
+    Layout = null;
 }
 
 <script>
     $("#toast").hide();
 </script>
 <style>
-   .name {
+    .name {
         width: 16.666666%;
     }
 </style>
@@ -19,7 +19,7 @@
 }
 else
 {
-    if (Model.status=="100")
+    if (Model.status == "100")
     {
         <div class="am-list" am-mode="flat chip">
             <div class="am-list-item">
@@ -55,28 +55,28 @@ else
                 </div>
             }
         </div>
- if (Model.cpage < Model.pages)
-       {
-    <div class="am-flexbox" am-mode="average" style="margin-top:15px;">
-        <div class="am-flexbox-item">
-            <button type="button" id="more" class="am-button am-button-blue">更多</button>
-        </div>
-    </div>
-    <div class="am-flexbox" am-mode="average" style="margin-top:15px;">
-        <div class="am-flexbox-item">
-            <button type="button" id="back" class="am-button am-button-blue">返回</button>
-        </div>
-    </div>
-       }
-       else
+        if (Model.cpage < Model.pages && Model.cpage == 1)
         {
-    <div class="am-flexbox" am-mode="average" style="margin-top:15px;">
-        <div class="am-flexbox-item">
-            <button type="button" id="back" class="am-button am-button-blue">返回</button>
-        </div>
-    </div>
+            <div class="am-flexbox" am-mode="average" style="margin-top:15px;">
+                <div class="am-flexbox-item">
+                    <button type="button" id="more" class="am-button am-button-blue">更多</button>
+                </div>
+            </div>
+            <div class="am-flexbox" am-mode="average" style="margin-top:15px;">
+                <div class="am-flexbox-item">
+                    <button type="button" id="back" class="am-button am-button-blue">返回</button>
+                </div>
+            </div>
         }
-      }
+        else
+        {
+            <div class="am-flexbox" am-mode="average" style="margin-top:15px;">
+                <div class="am-flexbox-item">
+                    <button type="button" id="back" class="am-button am-button-blue">返回</button>
+                </div>
+            </div>
+        }
+    }
 }
 <script type="text/javascript">
     $("#more").click(function () {
@@ -92,7 +92,7 @@ else
                 IDCard: IDCard
             },
             success: function (msg) {
-                $("#result").appendTo(msg);
+                $("#result").append(msg);
             },
             error: function ()
             { },

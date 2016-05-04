@@ -22,30 +22,27 @@
 else
 {
     if (Model.status == "100")
-    {  
-        <div class="am-list" am-mode="flat chip">
-           @if(Model.cpage==1)
-           {
-             <div class="am-list-item">
+    {
+        <div id="resultmore">
+            @if (Model.cpage == 1)
+            {
+            <div class="am-list-item">
                 <div class="name am-ft-center">人员编号</div>
                 <div class="name am-ft-center">缴费年度</div>
                 <div class="name am-ft-center">缴费月数</div>
                 <div class="name am-ft-center">缴费基数</div>
-             </div>
+            </div>
             }
-            <div id="resultmore">
-                @foreach (var item in Model.msg)
-                {
-                    <div class="am-list-item">
-                        <div class="name am-ft-center">@item.aac001</div>
-                        <div class="name am-ft-center">@item.aae001</div>
-                        <div class="name am-ft-center">@item.aif004</div>
-                        <div class="name am-ft-center">@item.aif005</div>
-                    </div>
-                }
+            @foreach (var item in Model.msg)
+            {
+            <div class="am-list-item">
+                <div class="name am-ft-center">@item.aac001</div>
+                <div class="name am-ft-center">@item.aae001</div>
+                <div class="name am-ft-center">@item.aif004</div>
+                <div class="name am-ft-center">@item.aif005</div>
             </div>
-            </div>
-
+            }
+        </div>
         if (Model.cpage < Model.pages && Model.cpage == 1)
         {
             <div id="morebutton">
@@ -61,7 +58,7 @@ else
                     </div>
                 </div>
         }
-        }
+     }
 }
 
 <script>
