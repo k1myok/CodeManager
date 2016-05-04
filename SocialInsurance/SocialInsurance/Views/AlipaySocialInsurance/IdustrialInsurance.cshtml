@@ -79,28 +79,31 @@ else
       }
 }
 <script type="text/javascript">
-        $("#more").click(function ()
-        {
-            $("#toast").show();
-             var cpage =@(Model.cpage)+1;
-            var url = "../AlipaySocialInsurance/IdustrialInsurance?cpage=" + cpage;
-            $.ajax({
+    $("#more").click(function () {
+        $("#toast").show();
+        var cpage =@(Model.cpage) +1;
+        var ID = $("#ID").val();
+        var IDCard = $("#IDCard").val();
+        var url = "../AlipaySocialInsurance/IdustrialInsurance?cpage=" + cpage;
+        $.ajax({
             url: url,
-            success: function (msg)
-            {
-               $("#result").append(msg);
+            data: {
+                ID: ID,
+                IDCard: IDCard
+            },
+            success: function (msg) {
+                $("#result").appendTo(msg);
             },
             error: function ()
             { },
-            complete: function ()
-            {
-            $("#toast").hide();
+            complete: function () {
+                $("#toast").hide();
             }
-            });
-            });
-            $("#back").click(function () {
-            $("#result").hide();
-            $("#list").show();
-            });
+        });
+    });
+    $("#back").click(function () {
+        $("#result").hide();
+        $("#list").show();
+    });
 </script>
 

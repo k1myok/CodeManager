@@ -77,12 +77,18 @@ else
 <script>
     $("#more").click(function () {
         var cpage =@(Model.cpage) +1;
+        var ID = $("#ID").val();
+        var IDCard = $("#IDCard").val();
         var url = "../AlipaySocialInsurance/CompanyMonthInsurance?cpage=" + cpage;
         $.ajax({
             url: url,
+            data: {
+                ID: ID,
+                IDCard: IDCard
+            },
             success: function (msg)
             {
-                $("#result").append(msg);
+                $("#result").appendTo(msg);
             },
             error: function () { },
             complete: function () { }

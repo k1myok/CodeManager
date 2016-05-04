@@ -13,11 +13,9 @@
 @if (Model.status == "200")
 {
 
-<div class="am-list-footer">
-   没有查到相关信息
-</div>
-
-
+    <div class="am-list-footer">
+       没有查到相关信息
+    </div>
 }
 else
 {
@@ -76,11 +74,17 @@ else
      $("#more").click(function () {
          $("#toast").show();
          var cpage =@(Model.cpage) +1;
+         var ID = $("#ID").val();
+         var IDCard = $("#IDCard").val();
          var url = "../AlipaySocialInsurance/UnemploymentInsurance?cpage=" + cpage;
          $.ajax({
              url: url,
+             data: {
+                 ID: ID,
+                 IDCard: IDCard
+             },
              success: function (msg) {
-                 $("#result").append(msg);
+                 $("#result").appendTo(msg);
              },
              error: function () { },
              complete: function () {

@@ -12,7 +12,7 @@ namespace SocialInsurance.Models
         public string status { get; set; }
         public long  pages { get; set; }
         public long  cpage { get; set; }
-        public int rowcount { get; set; }
+        public string rowcount { get; set; }
         public List<PensionInsuranceDetail>msg {get;set;}
     }
 }

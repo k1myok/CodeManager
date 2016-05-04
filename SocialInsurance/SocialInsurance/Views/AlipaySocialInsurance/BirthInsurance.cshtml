@@ -68,13 +68,19 @@ else
         $("#more").click(function ()
         {
             $("#toast").show();
-            var cpage =@(Model.cpage)+1;
+            var cpage =@(Model.cpage) +1;
+            var ID = $("#ID").val();
+            var IDCard = $("#IDCard").val();
             var url = "../AlipaySocialInsurance/BirthInsurance?cpage=" + cpage;
             $.ajax({
                 url: url,
+                data: {
+                    ID: ID,
+                    IDCard: IDCard
+                },
                 success: function (msg) {
                     alert(msg);
-                    $("#result").append(msg);
+                    $("#result").appendTo(msg);
                 },
                 error: function () { },
                 complete: function () {
@@ -82,7 +88,7 @@ else
                 }
             });
         });
-        $("#back").click(function () {
+        $("#back").click(function() {
             $("#result").hide();
             $("#list").show();
         });

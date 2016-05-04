@@ -1,7 +1,8 @@
 ﻿@model SocialInsurance.Models.PInsuranceStatu
 @{
-    ViewBag.Title = "PersonInsuranceStatus";
-    Layout = "~/Views/Shared/_LayoutAlipay.cshtml";
+    ViewBag.Title = "个人参保情况查询";
+    //Layout = "~/Views/Shared/_LayoutAlipay.cshtml";
+    Layout = null;
 }
 <script type="text/javascript">
     $("#toast").hide();
@@ -39,8 +40,8 @@ else
                     <div class="name am-ft-center">缴费状态</div>
                     <div class="name am-ft-center">待遇状态</div>
                     @*<div class="name am-ft-center">人员编号</div>*@
-                </div>
-            }
+                 </div>
+               }
                 foreach (var item in Model.data)
              {
                     <div class="am-list-item">

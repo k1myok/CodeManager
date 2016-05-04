@@ -66,7 +66,7 @@ namespace SocialInsurance.Controllers
                 p.status = "100";
                 p.pages =Convert.ToInt32(resu[0].Attribute("pages").Value);
                 p.cpage = Convert.ToInt32(resu[1].Attribute("cpage").Value);
-                p.rowcount =Convert.ToInt32(resu[2].Attribute("rowcount").Value);
+                p.rowcount = resu[2].Attribute("rowcount").Value.ToString();
                 foreach (var item in re)
                 {
                     PensionInsuranceDetail Insurance = new PensionInsuranceDetail();
