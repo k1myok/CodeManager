@@ -59,7 +59,7 @@ else
        {
     <div class="am-flexbox" am-mode="average" style="margin-top:15px;">
         <div class="am-flexbox-item">
-            <button type="button" id="more" class="am-button am-button-blue">更多</button>
+            <button type="button" id="more" class="am-button am-button-blue">下一页</button>
         </div>
     </div>
     <div class="am-flexbox" am-mode="average" style="margin-top:15px;">
@@ -79,31 +79,28 @@ else
       }
 }
 <script type="text/javascript">
-    $("#more").click(function () {
-        $("#toast").show();
-        var cpage =@(Model.cpage) +1;
-        var ID = $("#ID").val();
-        var IDCard = $("#IDCard").val();
-        var url = "../AlipaySocialInsurance/IdustrialInsurance?cpage=" + cpage;
-        $.ajax({
+        $("#more").click(function ()
+        {
+            $("#toast").show();
+             var cpage =@(Model.cpage)+1;
+            var url = "../AlipaySocialInsurance/IdustrialInsurance?cpage=" + cpage;
+            $.ajax({
             url: url,
-            data: {
-                ID: ID,
-                IDCard: IDCard
-            },
-            success: function (msg) {
-                $("#result").appendTo(msg);
+            success: function (msg)
+            {
+               $("#result").empty().html(msg);
             },
             error: function ()
             { },
-            complete: function () {
-                $("#toast").hide();
+            complete: function ()
+            {
+            $("#toast").hide();
             }
-        });
-    });
-    $("#back").click(function () {
-        $("#result").hide();
-        $("#list").show();
-    });
+            });
+            });
+            $("#back").click(function () {
+            $("#result").hide();
+            $("#list").show();
+            });
 </script>
 

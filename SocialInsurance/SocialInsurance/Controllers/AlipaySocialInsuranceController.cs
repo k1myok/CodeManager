@@ -14,27 +14,9 @@ namespace SocialInsurance.Controllers
         {
             return PartialView();
         }
-        public PartialViewResult List(string ID,string IDCard)
+        public PartialViewResult List()
         {
-            var client = new SocialInsuranceService.ShbServClient();
-            var temp = client.si010201(ID, IDCard, 8,1);
-            XElement xoc = XElement.Parse(temp);
-            Login log = new Login();
-            var faultcode = xoc.Descendants("faultcode").ToList();
-            var row = xoc.Descendants("row").ToList();
-            if (faultcode.Count() > 0)
-            {
-                log.satus = "200";
-                return PartialView(log);
-            }
-            else 
-            {
-                log.satus = "100";
-                log.Name = row[1].Attribute("aac003").Value;
-                log.ID = ID;
-                log.IDCard = IDCard;
-                return PartialView(log);
-            }
+            return PartialView();
         }
 
         public PartialViewResult Default()
@@ -48,6 +30,8 @@ namespace SocialInsurance.Controllers
         /// <returns></returns>
         public PartialViewResult PensionInsurance(string ID,string IDCard,long cpage)
         {
+            ID = "0500708293";
+            IDCard = "441381198208204752";
             var client = new SocialInsuranceService.ShbServClient();
             var temp = client.si010201(ID,IDCard, 8,cpage);
             XElement xoc = XElement.Parse(temp);
@@ -66,7 +50,7 @@ namespace SocialInsurance.Controllers
                 p.status = "100";
                 p.pages =Convert.ToInt32(resu[0].Attribute("pages").Value);
                 p.cpage = Convert.ToInt32(resu[1].Attribute("cpage").Value);
-                p.rowcount = resu[2].Attribute("rowcount").Value.ToString();
+                p.rowcount =Convert.ToInt32(resu[2].Attribute("rowcount").Value);
                 foreach (var item in re)
                 {
                     PensionInsuranceDetail Insurance = new PensionInsuranceDetail();
@@ -89,7 +73,8 @@ namespace SocialInsurance.Controllers
         /// <param name="IDCard"></param>
         public PartialViewResult PersonInsuranceStatus(string ID, string IDCard, long cpage)
         {
-
+            ID = "0500708293";
+            IDCard = "441381198208204752";
             var client = new SocialInsuranceService.ShbServClient();
             var temp = client.si120101(ID, IDCard, 8, cpage);
             XElement xoc = XElement.Parse(temp);
@@ -106,8 +91,8 @@ namespace SocialInsurance.Controllers
                 var resu = xoc.Descendants("result").ToList();
                 var re = xoc.Descendants("row").ToList();
                 p.status = "100";
-                p.pages =Convert.ToInt32(resu[0].Attribute("pages").Value);
-                p.cpages =Convert.ToInt32(resu[1].Attribute("cpage").Value);
+                p.pages = resu[0].Attribute("pages").Value.ToString();
+                p.cpages = resu[1].Attribute("cpage").Value.ToString();
                 p.rowcount = resu[2].Attribute("rowcount").Value.ToString();
                 foreach (var item in re)
                 {
@@ -135,6 +120,8 @@ namespace SocialInsurance.Controllers
         /// <returns></returns>
         public PartialViewResult BirthInsurance(string ID, string IDCard,long cpage)
         {
+            ID = "0500708293";
+            IDCard = "441381198208204752";
             var client = new SocialInsuranceService.ShbServClient();
             var temp = client.si090401(ID, IDCard, 8, cpage);
             XElement xoc = XElement.Parse(temp);
@@ -265,44 +252,21 @@ namespace SocialInsurance.Controllers
             }
         }
 
-        public PartialViewResult CompanyMonthInsurance(string ID, string IDCard,long cpage)
+        public PartialViewResult CompanyInsurance(string ID,string IDCard,long cpage)
         {
-            CompanyMonthInsurance Cm = new CompanyMonthInsurance();
-            List<CompanyMonthInsuranceDetail> data = new List<CompanyMonthInsuranceDetail>();
+            ID = "0500708293";
+            IDCard ="441381198208204752";
             var client = new SocialInsuranceService.ShbServClient();
-            var temp = client.si030601(ID, IDCard,"110",2015,12,cpage);
-            XElement xoc = XElement.Parse(temp);
-            var faultcode = xoc.Descendants("faultcode").ToList();
-            if (faultcode.Count > 0)
-            {
-                Cm.status = "200";
-                return PartialView(Cm);
-            }
-            else
-            {
-                var rows = xoc.Descendants("row").ToList();
-                var result = xoc.Descendants("result").ToList();
-                Cm.status = "100";
-                Cm.pages = Convert.ToInt32(result[0].Attribute("pages").Value);
-                Cm.cpage = Convert.ToInt32(result[1].Attribute("cpage").Value);
-                Cm.rowcount = result[2].Attribute("rowcount").Value.ToString();
-                foreach (var item in rows)
-                {
-                    CompanyMonthInsuranceDetail list = new CompanyMonthInsuranceDetail();
-                    list.aac001 = item.Attribute("aac001").Value;
-                    list.akf088 = item.Attribute("akf088").Value;
-                    list.aif034 = item.Attribute("aif034").Value;
-                    list.aae082 = item.Attribute("aae082").Value;
-                    list.aae180 = item.Attribute("aae180").Value;
-                    list.aif004 = item.Attribute("aif004").Value;
-                    list.akf084 = item.Attribute("akf084").Value;
-                    list.akf081 = item.Attribute("akf081").Value;
-                    data.Add(list);
-                }
-                Cm.data = data;
-                return PartialView(Cm);
-            }
+            var temp = client.si030601(ID,IDCard,8,cpage);
+
+
+
+            return PartialView();
         }
+
+
+
+
    }
 }
   
