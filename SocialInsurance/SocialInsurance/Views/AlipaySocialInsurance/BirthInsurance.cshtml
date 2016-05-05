@@ -65,9 +65,9 @@ else
     }
 }
 <script type="text/javascript">
+    var cpage=parseInt('@(Model.cpage)');
+    var pages=parseInt('@(Model.pages)');
     $(function () {
-        var cpage=@(Model.cpage);
-        var pages=@(Model.pages);
         $(".cpage").val(cpage);
         $(".pages").val(pages);
         if(cpage==pages)
@@ -77,10 +77,12 @@ else
     });
     $("#more").click(function () {
         $("#toast").show();
-        var cpage =@Model.cpage +1;
         var ID = $("#ID").val();
         var IDCard = $("#IDCard").val();
-        var url = "../AlipaySocialInsurance/BirthInsurance?cpage=" + cpage;
+        var page = cpage + 1;
+        alert(cpage);
+        alert(page);
+        var url = "../AlipaySocialInsurance/BirthInsurance?cpage=" + page;
         $.ajax({
             url: url,
             data: {
