@@ -2,11 +2,7 @@
 
 @{
     ViewBag.Title = "UnemploymentInsurance";
-<<<<<<< HEAD
     Layout =null;
-=======
-    Layout = "~/Views/Shared/_LayoutAlipay.cshtml";
->>>>>>> 5719f5242f567bc6cb6500383dcae5a2bd72c57d
 }
 <style>
     .name {
@@ -17,23 +13,14 @@
 @if (Model.status == "200")
 {
 
-<<<<<<< HEAD
     <div class="am-list-footer">
        没有查到相关信息
     </div>
-=======
-<div class="am-list-footer">
-   没有查到相关信息
-</div>
-
-
->>>>>>> 5719f5242f567bc6cb6500383dcae5a2bd72c57d
 }
 else
 {
     if (Model.status == "100")
     {
-<<<<<<< HEAD
         <div id="resultmore">
             @if (Model.cpage == 1)
             {
@@ -63,72 +50,4 @@ else
         </div>
     }
 }   
-=======
-        <div class="am-list" am-mode="flat chip">
-            <div class="am-list-item">
-                <div class="name am-ft-center">结算期</div>
-                <div class="name am-ft-center">缴费基数</div>
-                <div class="name am-ft-center">缴费月数</div>
-                <div class="name am-ft-center">缴费金额</div>
-                <div class="name am-ft-center">到账标记</div>
-                <div class="name am-ft-center">缴费类别</div>
-            </div>
-            @foreach (var item in Model.data)
-            {
-                <div class="am-list-item">
-                    <div class="name am-ft-center">@item.akf088</div>
-                    <div class="name am-ft-center">@item.aif005</div>
-                    <div class="name am-ft-center">@item.aif004</div>
-                    <div class="name am-ft-center">@item.aif006</div>
-                    <div class="name am-ft-center">@item.akf084</div>
-                    <div class="name am-ft-center">@item.akf081</div>
-                </div>
-            }
-        </div>
-        if (Model.cpage < Model.pages)
-        {
-            <div class="am-flexbox" am-mode="average" style="margin-top:15px;">
-                <div class="am-flexbox-item">
-                    <button type="button" id="more" class="am-button am-button-blue">下一页</button>
-                </div>
-            </div>
-            <div class="am-flexbox" am-mode="average" style="margin-top:15px;">
-                <div class="am-flexbox-item">
-                    <button type="button" id="back" class="am-button am-button-blue">返回</button>
-                </div>
-            </div>
-        }
-        else
-        {
-            <div class="am-flexbox" am-mode="average" style="margin-top:15px;">
-                <div class="am-flexbox-item">
-                    <button type="button" id="back" class="am-button am-button-blue">返回</button>
-                </div>
-            </div>
-        }
-
-    }
-}
- <script>
-     $("#more").click(function () {
-         $("#toast").show();
-         var cpage =@(Model.cpage) +1;
-         var url = "../AlipaySocialInsurance/UnemploymentInsurance?cpage=" + cpage;
-         $.ajax({
-             url: url,
-             success: function (msg) {
-                 $("#result").empty().html(msg);
-             },
-             error: function () { },
-             complete: function () {
-                 $("#toast").hide();
-             }
-         });
-     });
-     $("#back").click(function () {
-         $("#result").hide();
-         $("#list").show();
-     });
-</script>   
->>>>>>> 5719f5242f567bc6cb6500383dcae5a2bd72c57d
        

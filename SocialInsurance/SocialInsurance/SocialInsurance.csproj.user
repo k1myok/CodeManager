@@ -3,7 +3,6 @@
   <PropertyGroup>
     <ProjectView>ShowAllFiles</ProjectView>
   </PropertyGroup>
-<<<<<<< HEAD
   <ProjectExtensions>
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
@@ -28,7 +27,4 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
-=======
-  <ProjectExtensions />
->>>>>>> 5719f5242f567bc6cb6500383dcae5a2bd72c57d
 </Project>

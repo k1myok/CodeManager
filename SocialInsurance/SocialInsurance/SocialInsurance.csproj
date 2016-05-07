@@ -133,7 +133,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AlipaySocialInsuranceController.cs" />
-<<<<<<< HEAD
     <Compile Include="Models\EmployeehealthInsurance.cs" />
     <Compile Include="Models\EmployeehealthInsuranceDetail.cs" />
     <Compile Include="Models\OfficeMonthInsurance.cs" />
@@ -145,12 +144,6 @@
     <Compile Include="Models\IdustrialInsuranceDetail.cs" />
     <Compile Include="Models\Login.cs" />
     <Compile Include="Models\OfficeMonthInsuranceDetail.cs" />
-=======
-    <Compile Include="Models\BirthInsurance.cs" />
-    <Compile Include="Models\BirthInsuranceDetail.cs" />
-    <Compile Include="Models\IdustrialInsurance.cs" />
-    <Compile Include="Models\IdustrialInsuranceDetail.cs" />
->>>>>>> 5719f5242f567bc6cb6500383dcae5a2bd72c57d
     <Compile Include="Models\PInsuranceStatu.cs" />
     <Compile Include="Models\PensionInsuranceDetail.cs" />
     <Compile Include="Models\PensionInsurance.cs" />
@@ -346,12 +339,9 @@
     <Content Include="Views\AlipaySocialInsurance\IdustrialInsurance.cshtml" />
     <Content Include="Views\AlipaySocialInsurance\PensionInsurance.cshtml" />
     <Content Include="Views\AlipaySocialInsurance\UnemploymentInsurance.cshtml" />
-<<<<<<< HEAD
     <Content Include="Views\AlipaySocialInsurance\CompanyMonthInsurance.cshtml" />
     <Content Include="Views\AlipaySocialInsurance\OfficeMonthInsurance.cshtml" />
     <Content Include="Views\AlipaySocialInsurance\EmployeehealthInsurance.cshtml" />
-=======
->>>>>>> 5719f5242f567bc6cb6500383dcae5a2bd72c57d
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
