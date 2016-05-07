@@ -21,6 +21,7 @@
         </div>
         <div class="am-list-clear"><i class="am-icon-clear am-icon" am-mode="clear"></i></div>
     </div>
+<<<<<<< HEAD
     <div style="padding-top:30px;padding-left:15px;padding-right:15px;">
         <button type="button" class="am-button" id="search" am-mode="blue disabled">登录</button>
     </div>
@@ -28,6 +29,10 @@
   说明：<br />
         1.社保编号长度为10位<br />
         2.身份证号码，最后一位是"X"的，应为大写字母。
+=======
+    <div>
+        <button type="button" class="am-button" id="search" am-mode="blue disabled">蓝色42px按钮</button>
+>>>>>>> 5719f5242f567bc6cb6500383dcae5a2bd72c57d
     </div>
  </div>
 <script type="text/javascript">
@@ -45,7 +50,11 @@
         var IDCard=$("#IDCard").val();
         if (checkID(ID) && checkIDCard(IDCard))
         {
+<<<<<<< HEAD
             location.href = "list?ID=" + ID + "&IDCard=" + IDCard;
+=======
+            var url = "../AlipaySocialInsurance/";
+>>>>>>> 5719f5242f567bc6cb6500383dcae5a2bd72c57d
         }
     });
 </script>

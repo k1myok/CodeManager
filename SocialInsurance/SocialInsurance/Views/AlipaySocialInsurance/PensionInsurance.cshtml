@@ -1,7 +1,12 @@
 ﻿@model SocialInsurance.Models.PensionInsurance
 @{
+<<<<<<< HEAD
     ViewBag.Title = "企业养老缴费信息查询";
     Layout =null;
+=======
+    ViewBag.Title = "PensionInsurance";
+    Layout = "~/Views/Shared/_LayoutAlipay.cshtml";
+>>>>>>> 5719f5242f567bc6cb6500383dcae5a2bd72c57d
 }
 <script>
     $("#toast").hide();
@@ -14,13 +19,17 @@
 </style>
 @if (Model.status == "200")
 {
+<<<<<<< HEAD
     <div class="am-list-footer" style="padding-top:10px;padding:15px 10px 10px 15px;">
         未查到你相关信息
     </div>
+=======
+>>>>>>> 5719f5242f567bc6cb6500383dcae5a2bd72c57d
 
 }
 else
 {
+<<<<<<< HEAD
     if (Model.status == "100")
     {
         <div id="resultmore">
@@ -40,13 +49,79 @@ else
             }
             @foreach (var item in Model.msg)
             {
+=======
+     if (Model.status == "100")
+        {
+
+        <div class="am-list" am-mode="flat chip">
+        <div class="am-list-item">
+            <div class="name am-ft-center">人员编号</div>
+            <div class="name am-ft-center">缴费年度</div>
+            <div class="name am-ft-center">缴费月数</div>
+            <div class="name am-ft-center">缴费基数</div>
+        </div>
+        @foreach (var item in Model.msg)
+        {
+>>>>>>> 5719f5242f567bc6cb6500383dcae5a2bd72c57d
             <div class="am-list-item">
                 <div class="name am-ft-center">@item.aac001</div>
                 <div class="name am-ft-center">@item.aae001</div>
                 <div class="name am-ft-center">@item.aif004</div>
                 <div class="name am-ft-center">@item.aif005</div>
             </div>
+<<<<<<< HEAD
             }
         </div>
      }
 }
+=======
+
+        }
+     </div>
+            if (Model.cpage < Model.pages)
+            {
+                <div class="am-flexbox" am-mode="average" style="margin-top:15px;">
+                    <div class="am-flexbox-item">
+                        <button type="button" id="more" class="am-button am-button-blue">下一页</button>
+                    </div>
+                </div>
+                <div class="am-flexbox" am-mode="average" style="margin-top:15px;">
+                    <div class="am-flexbox-item">
+                        <button type="button" id="back" class="am-button am-button-blue">返回</button>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="am-flexbox" am-mode="average" style="margin-top:15px;">
+                    <div class="am-flexbox-item">
+                        <button type="button" id="back" class="am-button am-button-blue">返回</button>
+                    </div>
+                </div>
+            }
+
+
+
+        }
+}
+
+<script>
+    $("#more").click(function () {
+        var cpage =@(Model.cpage) +1;
+        var url = "../AlipaySocialInsurance/PensionInsurance?cpage=" + cpage;
+        $.ajax({
+            url: url,
+            success: function (msg)
+            {
+                $("#result").empty().html(msg);
+            },
+            error: function () { },
+            complete: function () { }
+        });
+    });
+    $("#back").click(function () {
+        $("#result").hide();
+        $("#list").show();
+    });
+</script>
+>>>>>>> 5719f5242f567bc6cb6500383dcae5a2bd72c57d

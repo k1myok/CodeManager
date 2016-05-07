@@ -14,6 +14,7 @@ namespace SocialInsurance.Controllers
         {
             return PartialView();
         }
+<<<<<<< HEAD
         public PartialViewResult List(string ID,string IDCard)
         {
             var client = new SocialInsuranceService.ShbServClient();
@@ -42,6 +43,11 @@ namespace SocialInsurance.Controllers
                 log.IDCard = IDCard;
                 return PartialView(log);
             }
+=======
+        public PartialViewResult List()
+        {
+            return PartialView();
+>>>>>>> 5719f5242f567bc6cb6500383dcae5a2bd72c57d
         }
 
         public PartialViewResult Default()
@@ -55,6 +61,11 @@ namespace SocialInsurance.Controllers
         /// <returns></returns>
         public PartialViewResult PensionInsurance(string ID,string IDCard,long cpage)
         {
+<<<<<<< HEAD
+=======
+            ID = "0500708293";
+            IDCard = "441381198208204752";
+>>>>>>> 5719f5242f567bc6cb6500383dcae5a2bd72c57d
             var client = new SocialInsuranceService.ShbServClient();
             var temp = client.si010201(ID,IDCard, 8,cpage);
             XElement xoc = XElement.Parse(temp);
@@ -73,7 +84,11 @@ namespace SocialInsurance.Controllers
                 p.status = "100";
                 p.pages =Convert.ToInt32(resu[0].Attribute("pages").Value);
                 p.cpage = Convert.ToInt32(resu[1].Attribute("cpage").Value);
+<<<<<<< HEAD
                 p.rowcount = resu[2].Attribute("rowcount").Value.ToString();
+=======
+                p.rowcount =Convert.ToInt32(resu[2].Attribute("rowcount").Value);
+>>>>>>> 5719f5242f567bc6cb6500383dcae5a2bd72c57d
                 foreach (var item in re)
                 {
                     PensionInsuranceDetail Insurance = new PensionInsuranceDetail();
@@ -96,7 +111,12 @@ namespace SocialInsurance.Controllers
         /// <param name="IDCard"></param>
         public PartialViewResult PersonInsuranceStatus(string ID, string IDCard, long cpage)
         {
+<<<<<<< HEAD
 
+=======
+            ID = "0500708293";
+            IDCard = "441381198208204752";
+>>>>>>> 5719f5242f567bc6cb6500383dcae5a2bd72c57d
             var client = new SocialInsuranceService.ShbServClient();
             var temp = client.si120101(ID, IDCard, 8, cpage);
             XElement xoc = XElement.Parse(temp);
@@ -113,8 +133,13 @@ namespace SocialInsurance.Controllers
                 var resu = xoc.Descendants("result").ToList();
                 var re = xoc.Descendants("row").ToList();
                 p.status = "100";
+<<<<<<< HEAD
                 p.pages =Convert.ToInt32(resu[0].Attribute("pages").Value);
                 p.cpages =Convert.ToInt32(resu[1].Attribute("cpage").Value);
+=======
+                p.pages = resu[0].Attribute("pages").Value.ToString();
+                p.cpages = resu[1].Attribute("cpage").Value.ToString();
+>>>>>>> 5719f5242f567bc6cb6500383dcae5a2bd72c57d
                 p.rowcount = resu[2].Attribute("rowcount").Value.ToString();
                 foreach (var item in re)
                 {
@@ -142,6 +167,11 @@ namespace SocialInsurance.Controllers
         /// <returns></returns>
         public PartialViewResult BirthInsurance(string ID, string IDCard,long cpage)
         {
+<<<<<<< HEAD
+=======
+            ID = "0500708293";
+            IDCard = "441381198208204752";
+>>>>>>> 5719f5242f567bc6cb6500383dcae5a2bd72c57d
             var client = new SocialInsuranceService.ShbServClient();
             var temp = client.si090401(ID, IDCard, 8, cpage);
             XElement xoc = XElement.Parse(temp);
@@ -271,6 +301,7 @@ namespace SocialInsurance.Controllers
                 return PartialView(p);
             }
         }
+<<<<<<< HEAD
        /// <summary>
        /// 企业养老缴费信息月度查询
        /// </summary>
@@ -410,6 +441,24 @@ namespace SocialInsurance.Controllers
             }
         }
 
+=======
+
+        public PartialViewResult CompanyInsurance(string ID,string IDCard,long cpage)
+        {
+            ID = "0500708293";
+            IDCard ="441381198208204752";
+            var client = new SocialInsuranceService.ShbServClient();
+            var temp = client.si030601(ID,IDCard,8,cpage);
+
+
+
+            return PartialView();
+        }
+
+
+
+
+>>>>>>> 5719f5242f567bc6cb6500383dcae5a2bd72c57d
    }
 }
   
