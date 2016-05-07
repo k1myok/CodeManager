@@ -11,5 +11,6 @@ namespace SocialInsurance.Models
         public string ID { get; set; }
         public string IDCard { get; set; }
         public string Name { get; set; }
+        public  List<int> year { get; set; }
     }
 }

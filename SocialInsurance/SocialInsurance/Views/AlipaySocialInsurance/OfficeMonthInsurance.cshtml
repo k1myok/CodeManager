@@ -1,12 +1,12 @@
-﻿@model SocialInsurance.Models.CompanyMonthInsurance
+﻿@model SocialInsurance.Models.OfficeMonthInsurance
 
 @{
-    ViewBag.Title = "CompanyMonthInsurance";
     Layout = null;
 }
+
 <style>
     .name {
-        width: 14.2857%;
+        width: 16.666666%;
         text-align: center;
     }
 </style>
@@ -23,10 +23,9 @@ else
         <div id="resultmore">
             @if (Model.cpage == 1)
             {
-                <input type="hidden" id="style" value="companymonth" />
+                <input type="hidden" id="style" value="office" />
                 <div class="am-list-item">
                     <div class="name am-ft-center">结算期</div>
-                    <div class="name am-ft-center">账户本金</div>
                     <div class="name am-ft-center">其中个人缴纳</div>
                     <div class="name am-ft-center">月缴费基数</div>
                     <div class="name am-ft-center">缴费月数</div>
@@ -38,7 +37,6 @@ else
             {
                 <div class="am-list-item">
                     <div class="name am-ft-center">@item.akf088</div>
-                    <div class="name am-ft-center">@item.aif034</div>
                     <div class="name am-ft-center">@item.aae082</div>
                     <div class="name am-ft-center">@item.aae180</div>
                     <div class="name am-ft-center">@item.aif004</div>

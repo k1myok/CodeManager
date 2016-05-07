@@ -28,9 +28,16 @@ namespace SocialInsurance.Controllers
                 return PartialView(log);
             }
             else 
-            {
+            { 
                 log.satus = "100";
                 log.Name = row[1].Attribute("aac003").Value;
+                List<int> year = new List<int>();
+                foreach (var item in row)
+                {
+                  var tem=Convert.ToInt32(item.Attribute("aae001").Value);
+                    year.Add(tem);
+                }
+                log.year = year;
                 log.ID = ID;
                 log.IDCard = IDCard;
                 return PartialView(log);
@@ -264,13 +271,19 @@ namespace SocialInsurance.Controllers
                 return PartialView(p);
             }
         }
-
-        public PartialViewResult CompanyMonthInsurance(string ID, string IDCard,long cpage)
+       /// <summary>
+       /// 企业养老缴费信息月度查询
+       /// </summary>
+       /// <param name="ID"></param>
+       /// <param name="IDCard"></param>
+       /// <param name="cpage"></param>
+       /// <returns></returns>
+        public PartialViewResult CompanyMonthInsurance(string ID, string IDCard,long cpage,long year)
         {
             CompanyMonthInsurance Cm = new CompanyMonthInsurance();
             List<CompanyMonthInsuranceDetail> data = new List<CompanyMonthInsuranceDetail>();
             var client = new SocialInsuranceService.ShbServClient();
-            var temp = client.si030601(ID, IDCard,"110",2015,12,cpage);
+            var temp = client.si030601(ID, IDCard,"110",year,12,1);
             XElement xoc = XElement.Parse(temp);
             var faultcode = xoc.Descendants("faultcode").ToList();
             if (faultcode.Count > 0)
@@ -303,6 +316,100 @@ namespace SocialInsurance.Controllers
                 return PartialView(Cm);
             }
         }
+        /// <summary>
+        /// 机关养老缴费信息查询
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <param name="IDCard"></param>
+        /// <param name="cpage"></param>
+        /// <param name="year"></param>
+        /// <returns></returns>
+        public PartialViewResult OfficeMonthInsurance(string ID, string IDCard, long cpage, long year)
+        {
+            OfficeMonthInsurance OffIn = new OfficeMonthInsurance();
+            List<OfficeMonthInsuranceDetail> data = new List<OfficeMonthInsuranceDetail>();
+            var client = new SocialInsuranceService.ShbServClient();
+            var temp = client.si030602(ID, IDCard, "110", year, 20, 1);
+          
+            XElement xoc = XElement.Parse(temp);
+            var faultcode = xoc.Descendants("faultcode").ToList();
+            if (faultcode.Count > 0)
+            {
+             OffIn.status = "200";
+               return PartialView(OffIn);
+            }
+            else
+            {
+                var rows = xoc.Descendants("row").ToList();
+                var result = xoc.Descendants("result").ToList();
+                OffIn.status = "100";
+                OffIn.pages = Convert.ToInt32(result[0].Attribute("pages").Value);
+                OffIn.cpage = Convert.ToInt32(result[1].Attribute("cpage").Value);
+                OffIn.rowcount = result[2].Attribute("rowcount").Value.ToString();
+                foreach (var item in rows)
+                {
+                    OfficeMonthInsuranceDetail list = new OfficeMonthInsuranceDetail();
+                    list.aac001 = item.Attribute("aac001").Value;
+                    list.akf088 = item.Attribute("akf088").Value;
+                    list.aae082 = item.Attribute("aae082").Value;
+                    list.aae180 = item.Attribute("aae180").Value;
+                    list.aif004 = item.Attribute("aif004").Value;
+                    list.akf084 = item.Attribute("akf084").Value;
+                    list.akf081 = item.Attribute("akf081").Value;
+                    data.Add(list);
+                }
+                OffIn.data = data;
+                return PartialView(OffIn);
+            }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <param name="IDCard"></param>
+        /// <param name="cpage"></param>
+        /// <param name="year"></param>
+        /// <returns></returns>
+        public PartialViewResult EmployeehealthInsurance(string ID, string IDCard, long cpage, long year)
+        {
+            EmployeehealthInsurance OffIn = new EmployeehealthInsurance();
+            List<EmployeehealthInsuranceDetail> data = new List<EmployeehealthInsuranceDetail>();
+            var client = new SocialInsuranceService.ShbServClient();
+            var temp = client.si040401(ID, IDCard, "110", year, 20, 1);
+            XElement xoc = XElement.Parse(temp);
+            var faultcode = xoc.Descendants("faultcode").ToList();
+            if (faultcode.Count > 0)
+            {
+                OffIn.status = "200";
+                return PartialView(OffIn);
+            }
+            else
+            {
+                var rows = xoc.Descendants("row").ToList();
+                var result = xoc.Descendants("result").ToList();
+                OffIn.status = "100";
+                OffIn.pages = Convert.ToInt32(result[0].Attribute("pages").Value);
+                OffIn.cpage = Convert.ToInt32(result[1].Attribute("cpage").Value);
+                OffIn.rowcount = result[2].Attribute("rowcount").Value.ToString();
+                foreach (var item in rows)
+                {
+                    EmployeehealthInsuranceDetail list = new EmployeehealthInsuranceDetail();
+                    list.aac001 = item.Attribute("aac001").Value;
+                    list.akf088 = item.Attribute("akf088").Value;
+                    list.aae180 = item.Attribute("aae180").Value;
+                    list.aae082 = item.Attribute("aae082").Value;
+                    list.aae080 = item.Attribute("aae080").Value;
+                    list.aif004 = item.Attribute("aif004").Value;
+                    list.aif057 = item.Attribute("aif057").Value;
+                    list.akf084 = item.Attribute("akf084").Value;
+                    list.akf081 = item.Attribute("akf081").Value;
+                    data.Add(list);
+                }
+                OffIn.data = data;
+                return PartialView(OffIn);
+            }
+        }
+
    }
 }
   
