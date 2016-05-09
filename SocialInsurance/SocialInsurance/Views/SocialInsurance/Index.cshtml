@@ -2,5 +2,51 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<script type="text/javascript">
+    $("#toast").hide();
+</script>
+<div class="am-list" am-mode="flat chip form">
+    <div class="am-list-item am-input-autoclear">
+        <div class="am-list-label">社保编号:</div>
+        <div class="am-list-content">
+            <input type="text" id="ID" placeholder="请输入社保编号" value="">
+            <input type="hidden" placeholder="" value="">
+        </div>
+        <div class="am-list-clear"><i class="am-icon-clear am-icon" am-mode="clear"></i></div>
+    </div>
+    <div class="am-list-item am-input-autoclear">
+        <div class="am-list-label">身份证号:</div>
+        <div class="am-list-content">
+            <input type="text" id="IDCard" placeholder="请输入身份证号" value="">
+        </div>
+        <div class="am-list-clear"><i class="am-icon-clear am-icon" am-mode="clear"></i></div>
+    </div>
+    <div style="padding-top:30px;padding-left:15px;padding-right:15px;">
+        <button type="button" class="weui_btn weui_btn_disabled weui_btn_primary" id="search" am-mode="blue disabled">登录</button>
+    </div>
+    <div class="am-list-footer">
+  说明：<br />
+        1.社保编号长度为10位<br />
+        2.身份证号码，最后一位是"X"的，应为大写字母。
+    </div>
+ </div>
+<script type="text/javascript">
+    window.setInterval("checkButtonState()",200);
+    function checkButtonState()
+    {
+        if ($("#IDCard").val()&&$("#ID").val())
+            $("#search").attr("am-mode", "blue");
+        else
+            $("#search").attr("am-mode", "blue disabled");
+    }
+    $("#search").click(function ()
+    {
+        var ID=$("#ID").val();
+        var IDCard=$("#IDCard").val();
+        if (checkID(ID) && checkIDCard(IDCard))
+        {
+            location.href = "list?ID=" + ID + "&IDCard=" + IDCard;
+        }
+    });
+</script>
 
-<h2>Index</h2>

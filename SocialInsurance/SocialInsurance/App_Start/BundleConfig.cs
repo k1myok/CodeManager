@@ -38,7 +38,7 @@ namespace SocialInsurance
                         "~/Content/themes/base/jquery.ui.datepicker.css",
                         "~/Content/themes/base/jquery.ui.progressbar.css",
                         "~/Content/themes/base/jquery.ui.theme.css"));
-            bundles.Add(new StyleBundle("~/Content/dist/style/css").Include("~/Content/dist/style/weui.css", "~/Content/dist/style/weui.min.css", "~/Content/dist/style/alipay.css","~/Content/dist/style/bootstrap.css","~/Content/dist/style/more.css"));
+            bundles.Add(new StyleBundle("~/Content/dist/style/css").Include("~/Content/dist/style/alipay.css", "~/Content/dist/style/weui.css", "~/Content/dist/style/weui.min.css", "~/Content/dist/style/more.css"));
 
 
         }

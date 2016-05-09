@@ -342,6 +342,14 @@
     <Content Include="Views\AlipaySocialInsurance\CompanyMonthInsurance.cshtml" />
     <Content Include="Views\AlipaySocialInsurance\OfficeMonthInsurance.cshtml" />
     <Content Include="Views\AlipaySocialInsurance\EmployeehealthInsurance.cshtml" />
+    <Content Include="Views\SocialInsurance\BirthInsurance.cshtml" />
+    <Content Include="Views\SocialInsurance\CompanyMonthInsurance.cshtml" />
+    <Content Include="Views\SocialInsurance\EmployeehealthInsurance.cshtml" />
+    <Content Include="Views\SocialInsurance\IdustrialInsurance.cshtml" />
+    <Content Include="Views\SocialInsurance\List.cshtml" />
+    <Content Include="Views\SocialInsurance\OfficeMonthInsurance.cshtml" />
+    <Content Include="Views\SocialInsurance\PensionInsurance.cshtml" />
+    <Content Include="Views\SocialInsurance\UnemploymentInsurance.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
