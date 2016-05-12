@@ -1,0 +1,622 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+您 Web 项目的发布/打包进程将使用此文件。您可以通过编辑此 MSBuild 文件
+来自定义该进程的行为。若要了解与此相关的详细信息，请访问 http://go.microsoft.com/fwlink/?LinkID=208121。
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>F:\新建文件夹</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/Antlr3.Runtime.dll">
+      <publishTime>04/25/2016 10:09:50</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.dll">
+      <publishTime>04/25/2016 10:09:30</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>04/25/2016 10:09:42</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Mvc.FixedDisplayModes.dll">
+      <publishTime>04/25/2016 10:09:48</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>04/25/2016 10:09:42</publishTime>
+    </File>
+    <File Include="bin/SocialInsurance.dll">
+      <publishTime>05/10/2016 16:57:20</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.dll">
+      <publishTime>07/10/2012 12:07:38</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.Formatting.dll">
+      <publishTime>04/25/2016 10:09:48</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.WebRequest.dll">
+      <publishTime>07/10/2012 12:07:38</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.dll">
+      <publishTime>04/25/2016 10:09:48</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.dll">
+      <publishTime>04/25/2016 10:09:47</publishTime>
+    </File>
+    <File Include="bin/System.Web.Optimization.dll">
+      <publishTime>04/25/2016 10:09:50</publishTime>
+    </File>
+    <File Include="bin/System.Web.Providers.dll">
+      <publishTime>04/25/2016 10:09:49</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>04/25/2016 10:09:46</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Deployment.dll">
+      <publishTime>04/25/2016 10:09:47</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.dll">
+      <publishTime>04/25/2016 10:09:47</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Razor.dll">
+      <publishTime>04/25/2016 10:09:47</publishTime>
+    </File>
+    <File Include="bin/WebGrease.dll">
+      <publishTime>04/25/2016 10:09:50</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/EntityFramework.resources.dll">
+      <publishTime>04/25/2016 10:09:56</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Net.Http.Formatting.resources.dll">
+      <publishTime>04/25/2016 10:09:55</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Net.Http.resources.dll">
+      <publishTime>07/09/2013 11:34:42</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Net.Http.WebRequest.resources.dll">
+      <publishTime>07/09/2013 11:34:40</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Http.resources.dll">
+      <publishTime>04/25/2016 10:09:54</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Mvc.resources.dll">
+      <publishTime>04/25/2016 10:09:54</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Optimization.resources.dll">
+      <publishTime>04/25/2016 10:09:55</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Providers.resources.dll">
+      <publishTime>04/25/2016 10:09:56</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Razor.resources.dll">
+      <publishTime>04/25/2016 10:09:53</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.WebPages.Deployment.resources.dll">
+      <publishTime>04/25/2016 10:09:53</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.WebPages.Razor.resources.dll">
+      <publishTime>04/25/2016 10:09:53</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.WebPages.resources.dll">
+      <publishTime>04/25/2016 10:09:53</publishTime>
+    </File>
+    <File Include="Content/alipay.css">
+      <publishTime>03/11/2016 14:42:45</publishTime>
+    </File>
+    <File Include="Content/alipay/alipay.css">
+      <publishTime>12/18/2015 17:40:08</publishTime>
+    </File>
+    <File Include="Content/alipay/amui-demo.html">
+      <publishTime>11/19/2015 13:52:24</publishTime>
+    </File>
+    <File Include="Content/alipay/amui-demo_files/1mx2r0hiYX.png">
+      <publishTime>11/19/2015 13:52:25</publishTime>
+    </File>
+    <File Include="Content/alipay/amui-demo_files/1mx2r1D6Rh.png">
+      <publishTime>11/19/2015 13:52:26</publishTime>
+    </File>
+    <File Include="Content/alipay/amui-demo_files/1mx2r21KOD.png">
+      <publishTime>11/19/2015 13:52:26</publishTime>
+    </File>
+    <File Include="Content/alipay/amui-demo_files/30NvQ6bZHj.png">
+      <publishTime>11/19/2015 13:52:27</publishTime>
+    </File>
+    <File Include="Content/alipay/amui-demo_files/30NvQVuHAd.png">
+      <publishTime>11/19/2015 13:52:28</publishTime>
+    </File>
+    <File Include="Content/alipay/amui-demo_files/agreement.css">
+      <publishTime>11/19/2015 13:52:28</publishTime>
+    </File>
+    <File Include="Content/alipay/amui-demo_files/amui.css">
+      <publishTime>03/11/2016 14:42:38</publishTime>
+    </File>
+    <File Include="Content/alipay/amui-demo_files/amui.js">
+      <publishTime>11/19/2015 13:52:29</publishTime>
+    </File>
+    <File Include="Content/alipay/amui-demo_files/article.css">
+      <publishTime>11/19/2015 13:52:30</publishTime>
+    </File>
+    <File Include="Content/alipay/amui-demo_files/button-group.css">
+      <publishTime>11/19/2015 13:52:30</publishTime>
+    </File>
+    <File Include="Content/alipay/amui-demo_files/card.css">
+      <publishTime>11/19/2015 13:52:31</publishTime>
+    </File>
+    <File Include="Content/alipay/amui-demo_files/city-select.css">
+      <publishTime>11/19/2015 13:52:31</publishTime>
+    </File>
+    <File Include="Content/alipay/amui-demo_files/demo.css">
+      <publishTime>11/19/2015 13:52:32</publishTime>
+    </File>
+    <File Include="Content/alipay/amui-demo_files/dialog.css">
+      <publishTime>11/19/2015 13:52:32</publishTime>
+    </File>
+    <File Include="Content/alipay/amui-demo_files/fff">
+      <publishTime>11/19/2015 13:52:32</publishTime>
+    </File>
+    <File Include="Content/alipay/amui-demo_files/form.css">
+      <publishTime>11/19/2015 13:52:33</publishTime>
+    </File>
+    <File Include="Content/alipay/amui-demo_files/header.css">
+      <publishTime>11/19/2015 13:52:33</publishTime>
+    </File>
+    <File Include="Content/alipay/amui-demo_files/iconfont.css">
+      <publishTime>11/19/2015 13:52:34</publishTime>
+    </File>
+    <File Include="Content/alipay/amui-demo_files/message%281%29.css">
+      <publishTime>11/19/2015 13:52:34</publishTime>
+    </File>
+    <File Include="Content/alipay/amui-demo_files/message.css">
+      <publishTime>11/19/2015 13:52:34</publishTime>
+    </File>
+    <File Include="Content/alipay/amui-demo_files/page-result.css">
+      <publishTime>11/19/2015 13:52:35</publishTime>
+    </File>
+    <File Include="Content/alipay/amui-demo_files/saved_resource">
+      <publishTime>11/19/2015 13:52:35</publishTime>
+    </File>
+    <File Include="Content/alipay/amui-demo_files/search.css">
+      <publishTime>11/19/2015 13:52:36</publishTime>
+    </File>
+    <File Include="Content/alipay/amui-demo_files/simple-password.css">
+      <publishTime>11/19/2015 13:52:36</publishTime>
+    </File>
+    <File Include="Content/alipay/amui-demo_files/switch.css">
+      <publishTime>11/19/2015 13:52:37</publishTime>
+    </File>
+    <File Include="Content/alipay/amui-demo_files/timeline.css">
+      <publishTime>11/19/2015 13:52:37</publishTime>
+    </File>
+    <File Include="Content/alipay/amui-demo_files/toast.css">
+      <publishTime>11/19/2015 13:52:38</publishTime>
+    </File>
+    <File Include="Content/alipay/amui-demo_files/top-notice.css">
+      <publishTime>11/19/2015 13:52:38</publishTime>
+    </File>
+    <File Include="Content/alipay/amui-demo_files/ximeng2.jpg">
+      <publishTime>11/19/2015 13:52:38</publishTime>
+    </File>
+    <File Include="Content/alipay/amui-demo_files/zepto.js">
+      <publishTime>11/19/2015 13:52:39</publishTime>
+    </File>
+    <File Include="Content/alipay/button.css">
+      <publishTime>11/19/2015 13:52:25</publishTime>
+    </File>
+    <File Include="Content/alipay/mobiscroll.custom-2.6.2.min.css">
+      <publishTime>12/18/2015 17:39:49</publishTime>
+    </File>
+    <File Include="Content/bootstrap.css">
+      <publishTime>11/19/2015 13:52:18</publishTime>
+    </File>
+    <File Include="Content/dist/example/example.css">
+      <publishTime>02/19/2016 04:38:32</publishTime>
+    </File>
+    <File Include="Content/dist/example/example.js">
+      <publishTime>02/19/2016 04:38:32</publishTime>
+    </File>
+    <File Include="Content/dist/example/images/icon_nav_actionSheet.png">
+      <publishTime>02/19/2016 04:38:32</publishTime>
+    </File>
+    <File Include="Content/dist/example/images/icon_nav_article.png">
+      <publishTime>02/19/2016 04:38:32</publishTime>
+    </File>
+    <File Include="Content/dist/example/images/icon_nav_button.png">
+      <publishTime>02/19/2016 04:38:32</publishTime>
+    </File>
+    <File Include="Content/dist/example/images/icon_nav_cell.png">
+      <publishTime>02/19/2016 04:38:32</publishTime>
+    </File>
+    <File Include="Content/dist/example/images/icon_nav_dialog.png">
+      <publishTime>02/19/2016 04:38:32</publishTime>
+    </File>
+    <File Include="Content/dist/example/images/icon_nav_icons.png">
+      <publishTime>02/19/2016 04:38:32</publishTime>
+    </File>
+    <File Include="Content/dist/example/images/icon_nav_msg.png">
+      <publishTime>02/19/2016 04:38:32</publishTime>
+    </File>
+    <File Include="Content/dist/example/images/icon_nav_toast.png">
+      <publishTime>02/19/2016 04:38:32</publishTime>
+    </File>
+    <File Include="Content/dist/example/images/vcode.jpg">
+      <publishTime>02/19/2016 04:38:32</publishTime>
+    </File>
+    <File Include="Content/dist/example/index.html">
+      <publishTime>02/19/2016 04:38:32</publishTime>
+    </File>
+    <File Include="Content/dist/example/snapshot/actionSheet.png">
+      <publishTime>02/19/2016 04:38:32</publishTime>
+    </File>
+    <File Include="Content/dist/example/snapshot/button.png">
+      <publishTime>02/19/2016 04:38:32</publishTime>
+    </File>
+    <File Include="Content/dist/example/snapshot/cell.png">
+      <publishTime>02/19/2016 04:38:32</publishTime>
+    </File>
+    <File Include="Content/dist/example/snapshot/dialog1.png">
+      <publishTime>02/19/2016 04:38:32</publishTime>
+    </File>
+    <File Include="Content/dist/example/snapshot/dialog2.png">
+      <publishTime>02/19/2016 04:38:32</publishTime>
+    </File>
+    <File Include="Content/dist/example/snapshot/grid.png">
+      <publishTime>02/19/2016 04:38:32</publishTime>
+    </File>
+    <File Include="Content/dist/example/snapshot/icons.png">
+      <publishTime>02/19/2016 04:38:32</publishTime>
+    </File>
+    <File Include="Content/dist/example/snapshot/progress.png">
+      <publishTime>02/19/2016 04:38:32</publishTime>
+    </File>
+    <File Include="Content/dist/example/snapshot/qrcode.png">
+      <publishTime>02/19/2016 04:38:32</publishTime>
+    </File>
+    <File Include="Content/dist/example/snapshot/result.png">
+      <publishTime>02/19/2016 04:38:32</publishTime>
+    </File>
+    <File Include="Content/dist/example/snapshot/text.png">
+      <publishTime>02/19/2016 04:38:32</publishTime>
+    </File>
+    <File Include="Content/dist/example/snapshot/toast1.png">
+      <publishTime>02/19/2016 04:38:32</publishTime>
+    </File>
+    <File Include="Content/dist/example/snapshot/toast2.png">
+      <publishTime>02/19/2016 04:38:32</publishTime>
+    </File>
+    <File Include="Content/dist/example/zepto.min.js">
+      <publishTime>02/19/2016 04:38:32</publishTime>
+    </File>
+    <File Include="Content/dist/style/alipay.css">
+      <publishTime>03/11/2016 14:42:45</publishTime>
+    </File>
+    <File Include="Content/dist/style/bootstrap.css">
+      <publishTime>11/19/2015 13:52:18</publishTime>
+    </File>
+    <File Include="Content/dist/style/more.css">
+      <publishTime>04/23/2016 13:47:30</publishTime>
+    </File>
+    <File Include="Content/dist/style/style-sample.css">
+      <publishTime>02/23/2016 13:38:51</publishTime>
+    </File>
+    <File Include="Content/dist/style/style-tmt.css">
+      <publishTime>02/23/2016 13:38:43</publishTime>
+    </File>
+    <File Include="Content/dist/style/weui.css">
+      <publishTime>02/19/2016 04:38:32</publishTime>
+    </File>
+    <File Include="Content/dist/style/weui.min.css">
+      <publishTime>02/19/2016 04:38:32</publishTime>
+    </File>
+    <File Include="Content/more.css">
+      <publishTime>04/23/2016 13:47:30</publishTime>
+    </File>
+    <File Include="Content/Site.css">
+      <publishTime>04/25/2016 10:09:23</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_flat_0_aaaaaa_40x100.png">
+      <publishTime>04/25/2016 10:09:40</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_flat_75_ffffff_40x100.png">
+      <publishTime>04/25/2016 10:09:40</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_55_fbf9ee_1x400.png">
+      <publishTime>04/25/2016 10:09:40</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_65_ffffff_1x400.png">
+      <publishTime>04/25/2016 10:09:40</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_75_dadada_1x400.png">
+      <publishTime>04/25/2016 10:09:40</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_75_e6e6e6_1x400.png">
+      <publishTime>04/25/2016 10:09:40</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_95_fef1ec_1x400.png">
+      <publishTime>04/25/2016 10:09:40</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_highlight-soft_75_cccccc_1x100.png">
+      <publishTime>04/25/2016 10:09:40</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_222222_256x240.png">
+      <publishTime>04/25/2016 10:09:40</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_2e83ff_256x240.png">
+      <publishTime>04/25/2016 10:09:40</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_454545_256x240.png">
+      <publishTime>04/25/2016 10:09:40</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_888888_256x240.png">
+      <publishTime>04/25/2016 10:09:40</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_cd0a0a_256x240.png">
+      <publishTime>04/25/2016 10:09:40</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery-ui.css">
+      <publishTime>04/25/2016 10:09:40</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.accordion.css">
+      <publishTime>04/25/2016 10:09:40</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.all.css">
+      <publishTime>04/25/2016 10:09:40</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.autocomplete.css">
+      <publishTime>04/25/2016 10:09:40</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.base.css">
+      <publishTime>04/25/2016 10:09:40</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.button.css">
+      <publishTime>04/25/2016 10:09:40</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.core.css">
+      <publishTime>04/25/2016 10:09:40</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.datepicker.css">
+      <publishTime>04/25/2016 10:09:40</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.dialog.css">
+      <publishTime>04/25/2016 10:09:40</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.progressbar.css">
+      <publishTime>04/25/2016 10:09:40</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.resizable.css">
+      <publishTime>04/25/2016 10:09:40</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.selectable.css">
+      <publishTime>04/25/2016 10:09:40</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.slider.css">
+      <publishTime>04/25/2016 10:09:40</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.tabs.css">
+      <publishTime>04/25/2016 10:09:40</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.theme.css">
+      <publishTime>04/25/2016 10:09:40</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-bg_flat_0_aaaaaa_40x100.png">
+      <publishTime>04/25/2016 10:09:40</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-bg_flat_75_ffffff_40x100.png">
+      <publishTime>04/25/2016 10:09:40</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-bg_glass_55_fbf9ee_1x400.png">
+      <publishTime>04/25/2016 10:09:40</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-bg_glass_65_ffffff_1x400.png">
+      <publishTime>04/25/2016 10:09:40</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-bg_glass_75_dadada_1x400.png">
+      <publishTime>04/25/2016 10:09:40</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-bg_glass_75_e6e6e6_1x400.png">
+      <publishTime>04/25/2016 10:09:40</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-bg_glass_95_fef1ec_1x400.png">
+      <publishTime>04/25/2016 10:09:40</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-bg_highlight-soft_75_cccccc_1x100.png">
+      <publishTime>04/25/2016 10:09:40</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-icons_222222_256x240.png">
+      <publishTime>04/25/2016 10:09:40</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-icons_2e83ff_256x240.png">
+      <publishTime>04/25/2016 10:09:40</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-icons_454545_256x240.png">
+      <publishTime>04/25/2016 10:09:40</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-icons_888888_256x240.png">
+      <publishTime>04/25/2016 10:09:40</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-icons_cd0a0a_256x240.png">
+      <publishTime>04/25/2016 10:09:40</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery-ui.min.css">
+      <publishTime>04/25/2016 10:09:40</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.accordion.min.css">
+      <publishTime>04/25/2016 10:09:40</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.autocomplete.min.css">
+      <publishTime>04/25/2016 10:09:40</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.button.min.css">
+      <publishTime>04/25/2016 10:09:40</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.core.min.css">
+      <publishTime>04/25/2016 10:09:40</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.datepicker.min.css">
+      <publishTime>04/25/2016 10:09:40</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.dialog.min.css">
+      <publishTime>04/25/2016 10:09:40</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.progressbar.min.css">
+      <publishTime>04/25/2016 10:09:40</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.resizable.min.css">
+      <publishTime>04/25/2016 10:09:40</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.selectable.min.css">
+      <publishTime>04/25/2016 10:09:40</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.slider.min.css">
+      <publishTime>04/25/2016 10:09:40</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.tabs.min.css">
+      <publishTime>04/25/2016 10:09:40</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.theme.min.css">
+      <publishTime>04/25/2016 10:09:40</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>04/25/2016 10:09:23</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>04/25/2016 10:09:58</publishTime>
+    </File>
+    <File Include="Scripts/extensions/base.js">
+      <publishTime>02/26/2016 10:30:42</publishTime>
+    </File>
+    <File Include="Scripts/extensions/validate.js">
+      <publishTime>04/25/2016 13:19:40</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.10.2.js">
+      <publishTime>11/08/2015 14:31:42</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.8.2.js">
+      <publishTime>04/25/2016 10:09:37</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.8.2.min.js">
+      <publishTime>04/25/2016 10:09:37</publishTime>
+    </File>
+    <File Include="Scripts/jquery-ui-1.8.24.js">
+      <publishTime>04/25/2016 10:09:40</publishTime>
+    </File>
+    <File Include="Scripts/jquery-ui-1.8.24.min.js">
+      <publishTime>04/25/2016 10:09:40</publishTime>
+    </File>
+    <File Include="Scripts/jquery.unobtrusive-ajax.js">
+      <publishTime>04/25/2016 10:09:41</publishTime>
+    </File>
+    <File Include="Scripts/jquery.unobtrusive-ajax.min.js">
+      <publishTime>04/25/2016 10:09:41</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.js">
+      <publishTime>04/25/2016 10:09:38</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.min.js">
+      <publishTime>04/25/2016 10:09:38</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.unobtrusive.js">
+      <publishTime>04/25/2016 10:09:41</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.unobtrusive.min.js">
+      <publishTime>04/25/2016 10:09:41</publishTime>
+    </File>
+    <File Include="Scripts/knockout-2.2.0.debug.js">
+      <publishTime>04/25/2016 10:09:52</publishTime>
+    </File>
+    <File Include="Scripts/knockout-2.2.0.js">
+      <publishTime>04/25/2016 10:09:52</publishTime>
+    </File>
+    <File Include="Scripts/modernizr-2.6.2.js">
+      <publishTime>04/25/2016 10:09:41</publishTime>
+    </File>
+    <File Include="Scripts/_references.js">
+      <publishTime>04/25/2016 10:09:41</publishTime>
+    </File>
+    <File Include="Views/AlipaySocialInsurance/BirthInsurance.cshtml">
+      <publishTime>05/06/2016 17:16:33</publishTime>
+    </File>
+    <File Include="Views/AlipaySocialInsurance/CompanyMonthInsurance.cshtml">
+      <publishTime>05/07/2016 14:13:03</publishTime>
+    </File>
+    <File Include="Views/AlipaySocialInsurance/EmployeehealthInsurance.cshtml">
+      <publishTime>05/07/2016 16:33:56</publishTime>
+    </File>
+    <File Include="Views/AlipaySocialInsurance/IdustrialInsurance.cshtml">
+      <publishTime>05/06/2016 15:58:30</publishTime>
+    </File>
+    <File Include="Views/AlipaySocialInsurance/Index.cshtml">
+      <publishTime>05/04/2016 09:34:15</publishTime>
+    </File>
+    <File Include="Views/AlipaySocialInsurance/List.cshtml">
+      <publishTime>05/07/2016 16:34:17</publishTime>
+    </File>
+    <File Include="Views/AlipaySocialInsurance/OfficeMonthInsurance.cshtml">
+      <publishTime>05/07/2016 16:31:45</publishTime>
+    </File>
+    <File Include="Views/AlipaySocialInsurance/PensionInsurance.cshtml">
+      <publishTime>05/06/2016 14:52:00</publishTime>
+    </File>
+    <File Include="Views/AlipaySocialInsurance/PersonInsuranceStatus.cshtml">
+      <publishTime>05/06/2016 14:40:04</publishTime>
+    </File>
+    <File Include="Views/AlipaySocialInsurance/UnemploymentInsurance.cshtml">
+      <publishTime>05/06/2016 15:19:54</publishTime>
+    </File>
+    <File Include="Views/Shared/Error.cshtml">
+      <publishTime>04/25/2016 10:09:23</publishTime>
+    </File>
+    <File Include="Views/Shared/_Layout.cshtml">
+      <publishTime>05/09/2016 09:58:40</publishTime>
+    </File>
+    <File Include="Views/Shared/_LayoutAlipay.cshtml">
+      <publishTime>05/04/2016 09:33:16</publishTime>
+    </File>
+    <File Include="Views/SocialInsurance/BirthInsurance.cshtml">
+      <publishTime>05/09/2016 09:36:39</publishTime>
+    </File>
+    <File Include="Views/SocialInsurance/CompanyMonthInsurance.cshtml">
+      <publishTime>05/09/2016 09:36:39</publishTime>
+    </File>
+    <File Include="Views/SocialInsurance/Default.cshtml">
+      <publishTime>04/26/2016 16:02:12</publishTime>
+    </File>
+    <File Include="Views/SocialInsurance/EmployeehealthInsurance.cshtml">
+      <publishTime>05/09/2016 09:36:39</publishTime>
+    </File>
+    <File Include="Views/SocialInsurance/IdustrialInsurance.cshtml">
+      <publishTime>05/09/2016 09:36:39</publishTime>
+    </File>
+    <File Include="Views/SocialInsurance/Index.cshtml">
+      <publishTime>05/09/2016 09:45:48</publishTime>
+    </File>
+    <File Include="Views/SocialInsurance/List.cshtml">
+      <publishTime>05/09/2016 10:10:01</publishTime>
+    </File>
+    <File Include="Views/SocialInsurance/OfficeMonthInsurance.cshtml">
+      <publishTime>05/09/2016 09:36:43</publishTime>
+    </File>
+    <File Include="Views/SocialInsurance/PensionInsurance.cshtml">
+      <publishTime>05/09/2016 09:36:43</publishTime>
+    </File>
+    <File Include="Views/SocialInsurance/PersonalInsurance.cshtml">
+      <publishTime>04/26/2016 10:29:55</publishTime>
+    </File>
+    <File Include="Views/SocialInsurance/PersonInsuranceStatus.cshtml">
+      <publishTime>05/09/2016 09:36:45</publishTime>
+    </File>
+    <File Include="Views/SocialInsurance/Test.html">
+      <publishTime>04/26/2016 13:46:24</publishTime>
+    </File>
+    <File Include="Views/SocialInsurance/UnemploymentInsurance.cshtml">
+      <publishTime>05/09/2016 09:36:45</publishTime>
+    </File>
+    <File Include="Views/Web.config">
+      <publishTime>04/25/2016 10:09:23</publishTime>
+    </File>
+    <File Include="Views/_ViewStart.cshtml">
+      <publishTime>04/25/2016 10:09:23</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>05/10/2016 14:26:41</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

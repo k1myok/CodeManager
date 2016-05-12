@@ -1,0 +1,1735 @@
+<!DOCTYPE html>
+<!-- saved from url=(0074)http://gitlab.alibaba-inc.com/animajs/animaui/raw/master/examples/8.4.html -->
+<html class="hb-loaded"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>amui-demo</title>
+    <meta charset="utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" type="text/css" href="./amui-demo_files/amui.css" media="all">
+    <link rel="stylesheet" type="text/css" href="./amui-demo_files/agreement.css" media="all">
+    <link rel="stylesheet" type="text/css" href="./amui-demo_files/article.css" media="all">
+    <link rel="stylesheet" type="text/css" href="./amui-demo_files/city-select.css" media="all">
+    <link rel="stylesheet" type="text/css" href="./amui-demo_files/timeline.css" media="all">
+    <link rel="stylesheet" type="text/css" href="./amui-demo_files/page-result.css" media="all">
+    <link rel="stylesheet" type="text/css" href="./amui-demo_files/iconfont.css" media="all">
+    <link rel="stylesheet" type="text/css" href="./amui-demo_files/button-group.css" media="all">
+    <link rel="stylesheet" type="text/css" href="./amui-demo_files/search.css" media="all">
+    <link rel="stylesheet" type="text/css" href="./amui-demo_files/top-notice.css" media="all">
+    <link rel="stylesheet" type="text/css" href="./amui-demo_files/toast.css" media="all">
+    <link rel="stylesheet" type="text/css" href="./amui-demo_files/message.css" media="all">
+    <link rel="stylesheet" type="text/css" href="./amui-demo_files/dialog.css" media="all">
+    <link rel="stylesheet" type="text/css" href="./amui-demo_files/card.css" media="all">
+    <link rel="stylesheet" type="text/css" href="./amui-demo_files/header.css" media="all">
+    <link rel="stylesheet" type="text/css" href="./amui-demo_files/switch.css" media="all">
+    <link rel="stylesheet" type="text/css" href="./amui-demo_files/simple-password.css" media="all">
+
+    <link rel="stylesheet" type="text/css" href="./amui-demo_files/form.css" media="all">
+    <link rel="stylesheet" type="text/css" href="./amui-demo_files/message(1).css" media="all">
+    <link rel="stylesheet" type="text/css" href="./amui-demo_files/demo.css" media="all">
+    <script charset="utf-8" src="./amui-demo_files/zepto.js"></script>
+    <script charset="utf-8" src="./amui-demo_files/amui.js"></script>
+<style type="text/css">#yddContainer{display:block;font-family:Microsoft YaHei;position:relative;width:100%;height:100%;top:-4px;left:-4px;font-size:12px;border:1px solid}#yddTop{display:block;height:22px}#yddTopBorderlr{display:block;position:static;height:17px;padding:2px 28px;line-height:17px;font-size:12px;color:#5079bb;font-weight:bold;border-style:none solid;border-width:1px}#yddTopBorderlr .ydd-sp{position:absolute;top:2px;height:0;overflow:hidden}.ydd-icon{left:5px;width:17px;padding:0px 0px 0px 0px;padding-top:17px;background-position:-16px -44px}.ydd-close{right:5px;width:16px;padding-top:16px;background-position:left -44px}#yddKeyTitle{float:left;text-decoration:none}#yddMiddle{display:block;margin-bottom:10px}.ydd-tabs{display:block;margin:5px 0;padding:0 5px;height:18px;border-bottom:1px solid}.ydd-tab{display:block;float:left;height:18px;margin:0 5px -1px 0;padding:0 4px;line-height:18px;border:1px solid;border-bottom:none}.ydd-trans-container{display:block;line-height:160%}.ydd-trans-container a{text-decoration:none;}#yddBottom{position:absolute;bottom:0;left:0;width:100%;height:22px;line-height:22px;overflow:hidden;background-position:left -22px}.ydd-padding010{padding:0 10px}#yddWrapper{color:#252525;z-index:10001;background:url(chrome-extension://eopjamdnofihpioajgfdikhhbobonhbb/ab20.png);}#yddContainer{background:#fff;border-color:#4b7598}#yddTopBorderlr{border-color:#f0f8fc}#yddWrapper .ydd-sp{background-image:url(chrome-extension://eopjamdnofihpioajgfdikhhbobonhbb/ydd-sprite.png)}#yddWrapper a,#yddWrapper a:hover,#yddWrapper a:visited{color:#50799b}#yddWrapper .ydd-tabs{color:#959595}.ydd-tabs,.ydd-tab{background:#fff;border-color:#d5e7f3}#yddBottom{color:#363636}#yddWrapper{min-width:250px;max-width:400px;}</style></head>
+<body ontouchstart="" huaban_collector_injected="true" data-feedly-mini="yes" ryt12560="1">
+
+
+<div class="Demo Demo-tab">
+    <div class="Demo-header">
+        <div class="Demo-title">AMUI 8.4包集成列表</div>
+    </div>
+    <div class="Demo-refer">
+        <ol>
+            <li class="yes">base/reset（精简reset）</li>
+            <li class="yes">base/smooth（钱包扩展）</li>
+            <li class="yes">util/flexbox（弹性布局）</li>
+            <li class="yes">util/wingblank（两翼留白）</li>
+            <li class="yes">util/whitespace（独立留白）</li>
+            <li class="yes">util/writing（文本书写）</li>
+            <li class="yes">widget/button（基础按钮）</li>
+            <li class="yes">widget/list（基础列表）</li>
+            <li class="yes">widget/form（列表扩展——表单）</li>
+            <li class="yes">widget/tab（选项卡）</li>
+            <li class="yes">widget/checkbox（勾选框）</li>
+            <li class="yes">icon/clear（清除icon，表单输入类绑定使用）</li>
+        </ol>
+    </div>
+</div>
+<div class="Demo Demo-tab">
+    <div class="Demo-header">
+        <div class="Demo-title">AMUI 8.4包未集成列表（可选使用）</div>
+    </div>
+    <div class="Demo-refer">
+        <ol>
+            <li class="no">base/grids（浮动百分比布局）</li>
+            <li class="no">base/iconfont（iconfont，容器兼容性不佳）</li>
+            <li class="no">widget/button-group（8.3前风格选项卡）</li>
+            <li class="no">widget/card（卡片文章列表）</li>
+            <li class="no">widget/header（头部通栏）</li>
+            <li class="no">widget/message（提示类信息）</li>
+            <li class="no">widget/search（搜索框）</li>
+            <li class="no">widget/switch（滑动开关）</li>
+            <li class="no">widget/dialog（模拟原生弹窗）</li>
+            <li class="no">widget/simple-password（模拟6格输入）</li>
+            <li class="no">widget/toast（toast类提示）</li>
+            <li class="no">widget/top-notice（顶部小公告）</li>
+            <li class="no">icon/form（form可选icon）</li>
+            <li class="no">icon/message（提示可选icon）</li>
+            <li class="no">view/article（文章页面）</li>
+            <li class="no">view/agreement（协议页面）</li>
+            <li class="no">view/city-select（城市选择）</li>
+            <li class="no">view/page-result（状态结果页）</li>
+            <li class="no">view/timeline（时间轴）</li>
+            <li class="no">amui.js（常用amui中的js逻辑，需要时添加）</li>
+        </ol>
+    </div>
+</div>
+
+<div class="Demo Demo-tab">
+    <div class="Demo-header">
+        <div class="Demo-title">Tab</div>
+    </div>
+    <div class="Demo-refer">
+        <ol>
+            <li class="yes">amui包已集成</li>
+            <li>单独引用使用：widget/tab</li>
+        </ol>
+    </div>
+    <div class="Demo-content">
+        <div class="Demo-mobile">
+            <div class="am-tab">
+                <div class="am-tab-item">普通</div>
+                <div class="am-tab-item">专家</div>
+            </div>
+            <div class="am-tab">
+                <div class="am-tab-item" data-tab="selected">普通</div>
+                <div class="am-tab-item">专家</div>
+            </div>
+            <div class="am-tab">
+                <div class="am-tab-item">选项</div>
+                <div class="am-tab-item" data-tab="selected">选项</div>
+                <div class="am-tab-item">选项</div>
+            </div>
+            <div class="am-tab">
+                <a href="http://gitlab.alibaba-inc.com/animajs/animaui/raw/master/examples/8.4.html#" class="am-tab-item">选项</a>
+                <span class="am-tab-item" data-tab="selected">选项</span>
+                <a href="http://gitlab.alibaba-inc.com/animajs/animaui/raw/master/examples/8.4.html#" class="am-tab-item">选项</a>
+            </div>
+            <div class="am-tab">
+                <button class="am-tab-item">选项</button>
+                <button class="am-tab-item" data-tab="selected">选项</button>
+                <button class="am-tab-item">选项</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="Demo Demo-button-group">
+    <div class="Demo-header">
+        <div class="Demo-title">标签组(8.3前样式)</div>
+    </div>
+    <div class="Demo-refer">
+        <ol>
+            <li class="no">amui包未集成</li>
+            <li>单独引用使用：widget/button-group</li>
+        </ol>
+    </div>
+    <div class="Demo-content">
+        <div class="Demo-mobile">
+            <div class="am-button-group">
+                <button class="" type="button">标签一</button>
+                <button type="button">标签二</button>
+                <button type="button" disabled="disabled">标签三</button>
+            </div>
+            <div class="am-button-group">
+                <button class="am-button-group-current" type="button">选中标签一</button>
+                <button type="button">标签二</button>
+                <button type="button">标签三</button>
+            </div>
+            <div class="am-button-group">
+                <a href="http://gitlab.alibaba-inc.com/animajs/animaui/raw/master/examples/8.4.html#">标签一</a>
+                <a class="am-button-group-current" href="http://gitlab.alibaba-inc.com/animajs/animaui/raw/master/examples/8.4.html#">标签二</a>
+                <a href="http://gitlab.alibaba-inc.com/animajs/animaui/raw/master/examples/8.4.html#">标签三</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="Demo Demo-button">
+    <div class="Demo-header">
+        <div class="Demo-title">Button</div>
+    </div>
+    <div class="Demo-refer">
+        <ol>
+            <li class="yes">amui包已集成</li>
+            <li>单独引用使用：widget/button</li>
+            <li class="add">可选依赖：util/flexbox（布局，amui包已集成）</li>
+        </ol>
+    </div>
+    <div class="Demo-content">
+        <div class="Demo-mobile">
+            <div class="am-flexbox">
+                <div class="am-flexbox-item">
+                    <button type="button" class="am-button" am-mode="small blue">蓝色小按钮</button>
+                </div>
+                <div class="am-flexbox-item">
+                    <button type="button" class="am-button" am-mode="small white">白色小按钮</button>
+                </div>
+            </div>
+            <div class="am-flexbox">
+                <div class="am-flexbox-item">
+                    <button type="button" class="am-button" am-mode="tiny blue light">简约26px按钮</button>
+                </div>
+                <div class="am-flexbox-item">
+                    <button type="button" class="am-button" am-mode="tiny white light">简约26px按钮</button>
+                </div>
+            </div>
+            <div class="am-flexbox">
+                <div class="am-flexbox-item">
+                    <button type="button" class="am-button" am-mode="little blue light">简约31px按钮</button>
+                </div>
+                <div class="am-flexbox-item">
+                    <button type="button" class="am-button" am-mode="little white light">简约31px按钮</button>
+                </div>
+            </div>
+            <div class="am-flexbox">
+                <div class="am-flexbox-item">
+                    <button type="button" class="am-button" am-mode="small blue light">简约36px按钮</button>
+                </div>
+                <div class="am-flexbox-item">
+                    <button type="button" class="am-button" am-mode="small white light">简约36px按钮</button>
+                </div>
+            </div>
+            <div class="am-flexbox">
+                <div class="am-flexbox-item">
+                    <button type="button" class="am-button" am-mode="middle blue">蓝色40px按钮</button>
+                </div>
+                <div class="am-flexbox-item">
+                    <button type="button" class="am-button" am-mode="middle white">白色40px按钮</button>
+                </div>
+            </div>
+            <div class="am-flexbox">
+                <div class="am-flexbox-item">
+                    <button type="button" class="am-button" am-mode="middle red light">简约中按钮</button>
+                </div>
+                <div class="am-flexbox-item">
+                    <button type="button" class="am-button" am-mode="middle white light disabled">简约中按钮</button>
+                </div>
+            </div>
+            <div class="am-flexbox">
+                <div class="am-flexbox-item">
+                    <button type="button" class="am-button am-button-blue">短按钮短</button>
+                </div>
+                <div class="am-flexbox-item">
+                    <button type="button" class="am-button am-button-white">更长按钮更长</button>
+                </div>
+            </div>
+            <div class="am-flexbox" am-mode="average">
+                <div class="am-flexbox-item">
+                    <button type="button" class="am-button am-button-blue">均长按钮</button>
+                </div>
+                <div class="am-flexbox-item">
+                    <button type="button" class="am-button am-button-white">长短按钮均长</button>
+                </div>
+            </div>
+
+            <input type="button" class="am-button" am-mode="black" value="黑色按钮">
+            <button type="button" class="am-button" am-mode="blue">蓝色42px按钮</button>
+            <button type="button" disabled="disabled" class="am-button" am-mode="blue disabled">蓝色按钮 不可用</button>
+            <a href="http://gitlab.alibaba-inc.com/animajs/animaui/raw/master/examples/button" class="am-button" am-mode="white">白色按钮</a>
+            <a href="http://gitlab.alibaba-inc.com/animajs/animaui/raw/master/examples/button" class="am-button" am-mode="white inline">行内按钮</a>
+            <a href="http://gitlab.alibaba-inc.com/animajs/animaui/raw/master/examples/button" class="am-button" am-mode="tiny light inline">最小号按钮</a>
+            <button type="button" disabled="disabled" class="am-button" am-mode="white disabled">白色按钮 不可用</button>
+            <button type="button" class="am-button" am-mode="red">红色按钮</button>
+            <button type="button" disabled="disabled" class="am-button" am-mode="red disabled">红色按钮 不可用</button>
+        </div>
+    </div>
+</div>
+<div class="Demo">
+    <div class="Demo-header">
+        <div class="Demo-title">Lists ——多种基本风格</div>
+    </div>
+    <div class="Demo-refer">
+        <ol>
+            <li class="yes">amui包已集成</li>
+            <li>单独引用使用：widget/list</li>
+        </ol>
+    </div>
+    <div class="Demo-content">
+        <div class="Demo-mobile">
+            <div class="am-list" am-mode="flat">
+                <div class="am-list-header">平铺风格</div>
+                <div class="am-list-body">
+                    <div class="am-list-item">
+                        <div class="am-list-content">文本内容 文本内容</div>
+                        <div class="am-list-arrow"><span class="am-icon" am-mode="arrow-horizontal"></span></div>
+                    </div>
+                    <a href="http://gitlab.alibaba-inc.com/animajs/animaui/raw/master/examples/8.4.html#" class="am-list-item">
+                        <div class="am-list-content">文本内容 文本内容</div>
+                        <div class="am-list-arrow"><span class="am-icon" am-mode="arrow-horizontal"></span></div>
+                    </a>
+                    <a href="http://gitlab.alibaba-inc.com/animajs/animaui/raw/master/examples/8.4.html#" class="am-list-item">
+                        <div class="am-list-content">文本内容 文本内容</div>
+                        <div class="am-list-arrow"><span class="am-icon" am-mode="arrow-horizontal"></span></div>
+                    </a>
+                </div>
+                <div class="am-list-footer">文本说明文本说明</div>
+            </div>
+            <div class="am-list" am-mode="flat chip">
+                <div class="am-list-header">平铺缺角风格</div>
+                <div class="am-list-body">
+                    <div class="am-list-item">
+                        <div class="am-list-content">文本内容 文本内容</div>
+                        <div class="am-list-arrow"><span class="am-icon" am-mode="arrow-horizontal"></span></div>
+                    </div>
+                    <a href="http://gitlab.alibaba-inc.com/animajs/animaui/raw/master/examples/8.4.html#" class="am-list-item">
+                        <div class="am-list-content">文本内容 文本内容</div>
+                        <div class="am-list-arrow"><span class="am-icon" am-mode="arrow-horizontal"></span></div>
+                    </a>
+                    <a href="http://gitlab.alibaba-inc.com/animajs/animaui/raw/master/examples/8.4.html#" class="am-list-item">
+                        <div class="am-list-content">文本内容 文本内容</div>
+                        <div class="am-list-arrow"><span class="am-icon" am-mode="arrow-horizontal"></span></div>
+                    </a>
+                    <div class="am-list-item">
+                        <div class="am-list-content">文本内容 文本内容</div>
+                        <div class="am-list-arrow"><span class="am-icon" am-mode="arrow-horizontal"></span></div>
+                    </div>
+                </div>
+                <div class="am-list-footer">文本说明文本说明</div>
+            </div>
+            <div class="am-list" am-mode="radius">
+                <div class="am-list-header">圆角列表风格</div>
+                <div class="am-list-body">
+                    <div class="am-list-item">
+                        <div class="am-list-content">文本内容 文本内容</div>
+                        <div class="am-list-arrow"><span class="am-icon" am-mode="arrow-horizontal"></span></div>
+                    </div>
+                    <a href="http://gitlab.alibaba-inc.com/animajs/animaui/raw/master/examples/8.4.html#" class="am-list-item">
+                        <div class="am-list-content">文本内容 文本内容</div>
+                        <div class="am-list-arrow"><span class="am-icon" am-mode="arrow-horizontal"></span></div>
+                    </a>
+                    <a href="http://gitlab.alibaba-inc.com/animajs/animaui/raw/master/examples/8.4.html#" class="am-list-item">
+                        <div class="am-list-content">文本内容 文本内容</div>
+                        <div class="am-list-arrow"><span class="am-icon" am-mode="arrow-horizontal"></span></div>
+                    </a>
+                </div>
+                <div class="am-list-footer">文本说明文本说明</div>
+            </div>
+            <div class="am-list" am-mode="flat chip iconlist">
+                <div class="am-list-header">icon列表风格</div>
+                <div class="am-list-body">
+                    <div class="am-list-item">
+                        <div class="am-list-icon"><img src="./amui-demo_files/ximeng2.jpg" width="22" height="22" alt=""></div>
+                        <div class="am-list-content">文本内容 文本内容</div>
+                        <div class="am-list-arrow"><span class="am-icon" am-mode="arrow-horizontal"></span></div>
+                    </div>
+                    <a href="http://gitlab.alibaba-inc.com/animajs/animaui/raw/master/examples/8.4.html#" class="am-list-item">
+                        <div class="am-list-icon"><img src="./amui-demo_files/ximeng2.jpg" width="22" height="22" alt=""></div>
+                        <div class="am-list-content">文本内容 文本内容</div>
+                        <div class="am-list-arrow"><span class="am-icon" am-mode="arrow-horizontal"></span></div>
+                    </a>
+                    <a href="http://gitlab.alibaba-inc.com/animajs/animaui/raw/master/examples/8.4.html#" class="am-list-item">
+                        <div class="am-list-icon"><img src="./amui-demo_files/ximeng2.jpg" width="22" height="22" alt=""></div>
+                        <div class="am-list-content">文本内容 文本内容</div>
+                        <div class="am-list-arrow"><span class="am-icon" am-mode="arrow-horizontal"></span></div>
+                    </a>
+                    <div class="am-list-item">
+                        <div class="am-list-icon"><img src="./amui-demo_files/ximeng2.jpg" width="22" height="22" alt=""></div>
+                        <div class="am-list-content">文本内容 文本内容</div>
+                        <div class="am-list-arrow"><span class="am-icon" am-mode="arrow-horizontal"></span></div>
+                    </div>
+                </div>
+                <div class="am-list-footer">文本说明文本说明</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="Demo">
+    <div class="Demo-header">
+        <div class="Demo-title">Lists ——文本显示</div>
+    </div>
+    <div class="Demo-refer">
+        <ol>
+            <li class="yes">amui包已集成</li>
+            <li>单独引用使用：widget/list</li>
+        </ol>
+    </div>
+    <div class="Demo-content">
+        <div class="Demo-mobile">
+
+            <div class="am-list" am-mode="flat chip">
+                <div class="am-list-header">单行纯文本</div>
+                <div class="am-list-body">
+                    <a href="http://gitlab.alibaba-inc.com/animajs/animaui/raw/master/examples/8.4.html#" class="am-list-item">
+                        <div class="am-list-content">文本内容 文本内容</div>
+                        <div class="am-list-arrow"><span class="am-icon" am-mode="arrow-horizontal"></span></div>
+                    </a>
+                </div>
+                <div class="am-list-footer">文本说明文本说明</div>
+            </div>
+            <div class="am-list" am-mode="flat chip">
+                <div class="am-list-header">单行组合</div>
+                <div class="am-list-body">
+                    <a href="http://gitlab.alibaba-inc.com/animajs/animaui/raw/master/examples/8.4.html#" class="am-list-item">
+                        <div class="am-list-content">文本内容 文本内容</div>
+                        <div class="am-list-arrow"><span class="am-icon" am-mode="arrow-horizontal"></span></div>
+                    </a>
+                    <a href="http://gitlab.alibaba-inc.com/animajs/animaui/raw/master/examples/8.4.html#" class="am-list-item">
+                        <div class="am-list-content">文本内容 文本内容</div>
+                        <div class="am-list-arrow"><span class="am-icon" am-mode="arrow-horizontal"></span></div>
+                    </a>
+                    <a href="http://gitlab.alibaba-inc.com/animajs/animaui/raw/master/examples/8.4.html#" class="am-list-item">
+                        <div class="am-list-content">文本内容 文本内容</div>
+                        <div class="am-list-arrow"><span class="am-icon" am-mode="arrow-horizontal"></span></div>
+                    </a>
+                </div>
+            </div>
+            <div class="am-list" am-mode="flat chip">
+                <div class="am-list-header">信息多元化</div>
+                <div class="am-list-body">
+                    <div class="am-list-item am-list-top">
+                        <div class="am-list-content">置顶内容</div>
+                        <div class="am-list-arrow"><span class="am-icon" am-mode="arrow-horizontal"></span></div>
+                    </div>
+                    <a href="http://gitlab.alibaba-inc.com/animajs/animaui/raw/master/examples/8.4.html#" class="am-list-item">
+                        <div class="am-list-thumb"><img src="./amui-demo_files/ximeng2.jpg" width="32" height="32" alt=""></div>
+                        <div class="am-list-content">
+                            <div class="am-list-title">文本信息</div>
+                        </div>
+                        <div class="am-list-extra">8.80元</div>
+                        <div class="am-list-arrow"><span class="am-icon" am-mode="arrow-horizontal"></span></div>
+                    </a>
+                    <a href="http://gitlab.alibaba-inc.com/animajs/animaui/raw/master/examples/8.4.html#" class="am-list-item">
+                        <div class="am-list-thumb"><img src="./amui-demo_files/ximeng2.jpg" width="32" height="32" alt=""></div>
+                        <div class="am-list-content">
+                            <div class="am-list-title">樊小虎樊小虎樊小虎樊小虎樊小虎樊小虎樊小虎樊小虎樊小虎樊小虎樊小虎樊小虎樊小虎樊小虎樊小虎樊小虎</div>
+                        </div>
+                        <div class="am-list-extra am-list-key">重要信息展示</div>
+                        <div class="am-list-arrow"><span class="am-icon" am-mode="arrow-horizontal"></span></div>
+                    </a>
+
+                    <div class="am-list-item">
+                        <div class="am-list-thumb am-list-thumb-radius"><img src="./amui-demo_files/ximeng2.jpg" width="46" height="46" alt=""></div>
+                        <div class="am-list-content">
+                            <div class="am-list-title">文本信息</div>
+                            <div class="am-list-brief">文本说明文本说明文本说明文本说明文本说明文本说明文本说明文本说明文本说明文本说明文本说明文本说明文本说明文本说明文本说明文本说明文本说明文本说明文本说明文本说明</div>
+                        </div>
+                    </div>
+                    <div class="am-list-item">
+                        <div class="am-list-thumb"><img src="./amui-demo_files/ximeng2.jpg" width="32" height="32" alt=""></div>
+                        <div class="am-list-content">
+                            <div class="am-list-title">按钮可点</div>
+                        </div>
+                        <div class="am-list-extra"><a href="http://gitlab.alibaba-inc.com/animajs/animaui/raw/master/examples/8.4.html#" class="am-button" am-mode="light tiny inline">按钮</a></div>
+                    </div>
+                </div>
+                <div class="am-list-footer">表尾备注补充</div>
+            </div>
+
+
+            <div class="am-list" am-mode="flat chip">
+                <div class="am-list-header">帐户信息专用</div>
+                <div class="am-list-body">
+                    <div class="am-list-item">
+                        <div class="am-list-thumb"><img src="./amui-demo_files/ximeng2.jpg" width="32" height="32" alt=""></div>
+                        <div class="am-list-content">
+                            <div class="am-list-title">樊小虎</div>
+                        </div>
+                    </div>
+                    <a href="http://gitlab.alibaba-inc.com/animajs/animaui/raw/master/examples/8.4.html#" class="am-list-item">
+                        <div class="am-list-thumb am-list-thumb-radius"><img src="./amui-demo_files/ximeng2.jpg" width="46" height="46" alt=""></div>
+                        <div class="am-list-content">
+                            <div class="am-list-title">樊小虎</div>
+                            <div class="am-list-brief">fanxiaohu@alipay.com</div>
+                        </div>
+                        <div class="am-list-arrow"><span class="am-icon" am-mode="arrow-horizontal"></span></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="Demo">
+    <div class="Demo-header">
+        <div class="Demo-title">复选框——Lists</div>
+    </div>
+    <div class="Demo-refer">
+        <ol>
+            <li class="yes">amui包已集成</li>
+            <li>单独引用使用：widget/checkbox</li>
+            <li class="add">必选依赖：widget/list（列表，amui包已集成）</li>
+        </ol>
+    </div>
+    <div class="Demo-content">
+        <div class="Demo-mobile">
+            <div class="am-list" am-mode="flat chip">
+                <div class="am-list-header">复选框——样式一</div>
+                <div class="am-list-body">
+                    <div class="am-list-item" am-mode="check">
+                        <div class="am-list-content">表单项复选框——默认选中1</div>
+                        <div class="am-checkbox">
+                            <input type="checkbox" name="x1" checked="checked">
+                            <span class="icon-check"></span>
+                        </div>
+                    </div>
+                    <div class="am-list-item" am-mode="check">
+                        <div class="am-list-content">表单项复选框——默认未选中</div>
+                        <div class="am-checkbox">
+                            <input type="checkbox" name="x1">
+                            <span class="icon-check"></span>
+                        </div>
+                    </div>
+                    <div class="am-list-item" am-mode="check">
+                        <div class="am-list-content">表单项复选框——默认选不中</div>
+                        <div class="am-checkbox">
+                            <input type="checkbox" name="x1" disabled="disabled" checked="checked">
+                            <span class="icon-check"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="am-list" am-mode="flat chip">
+                <div class="am-list-header">复选框——样式二</div>
+                <div class="am-list-body">
+                    <div class="am-list-item" am-mode="check">
+                        <div class="am-list-content">表单项复选框——默认选中1</div>
+                        <div class="am-checkbox" am-mode="tiny">
+                            <input type="checkbox" name="x2" checked="checked">
+                            <span class="icon-check"></span>
+                        </div>
+                    </div>
+                    <div class="am-list-item" am-mode="check">
+                        <div class="am-list-content">表单项复选框——默认未选中</div>
+                        <div class="am-checkbox" am-mode="tiny">
+                            <input type="checkbox" name="x2">
+                            <span class="icon-check"></span>
+                        </div>
+                    </div>
+                    <div class="am-list-item" am-mode="check">
+                        <div class="am-list-content">表单项复选框——默认选不中</div>
+                        <div class="am-checkbox" am-mode="tiny">
+                            <input type="checkbox" name="x2" disabled="disabled" checked="checked">
+                            <span class="icon-check"></span>
+                        </div>
+                    </div>
+                    <div class="am-list-item" am-mode="check">
+                        <div class="am-list-content">带说明</div>
+                        <div class="am-list-extra">说明文字说明文字说明文字说明文字</div>
+                        <div class="am-checkbox" am-mode="tiny">
+                            <input type="checkbox" name="x1" checked="checked">
+                            <span class="icon-check"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="Demo">
+    <div class="Demo-header">
+        <div class="Demo-title">复选框-协议</div>
+    </div>
+    <div class="Demo-refer">
+        <ol>
+            <li class="yes">amui包已集成</li>
+            <li>单独引用使用：widget/checkbox</li>
+        </ol>
+    </div>
+    <div class="Demo-content">
+        <div class="Demo-mobile">
+            <h5>已选中</h5>
+
+            <div>
+            <span class="am-checkbox fn-left" am-mode="mini radio"><input id="agree" type="checkbox" checked="checked"><span class="icon-check"></span></span><label class="am-ft-md">同意<a href="http://www.alipay.com/" target="_blank">《信用支付服务合同》</a></label>
+            </div>
+            <h5>未选中</h5>
+
+            <div>
+                <span class="am-checkbox" am-mode="mini radio"><input type="checkbox"><span class="icon-check"></span></span><label class="am-ft-md">同意<a href="http://www.alipay.com/" target="_blank">《信用支付服务合同》</a></label>
+            </div>
+            <h5>选中不可改</h5>
+
+            <div>
+                <span class="am-checkbox" am-mode="mini radio"><input type="checkbox" disabled="disabled" checked="checked"><span class="icon-check"></span></span><label class="am-ft-md">同意<a href="http://www.alipay.com/" target="_blank">《信用支付服务合同》</a></label>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="Demo">
+    <div class="Demo-header">
+        <div class="Demo-title">Lists ——滑动开关</div>
+    </div>
+    <div class="Demo-refer">
+        <ol>
+            <li class="no">amui包未集成</li>
+            <li>单独引用使用：widget/switch</li>
+            <li class="add">必选依赖：widget/list（列表，amui包已集成）</li>
+        </ol>
+    </div>
+    <div class="Demo-content">
+        <div class="Demo-mobile">
+            <div class="am-list" am-mode="flat chip">
+                <div class="am-list-item">
+                    <div class="am-list-content">选中状态</div>
+                    <div class="am-switch">
+                        <input type="checkbox" name="" class="am-switch-checkbox" checked="checked">
+                        <label class="am-switch-label">
+                            <div class="am-switch-inner"></div>
+                            <div class="am-switch-switch"></div>
+                        </label>
+                    </div>
+                </div>
+                <div class="am-list-item">
+                    <div class="am-list-content">未选中状态</div>
+                    <div class="am-switch">
+                        <input type="checkbox" name="" class="am-switch-checkbox">
+                        <label class="am-switch-label">
+                            <div class="am-switch-inner"></div>
+                            <div class="am-switch-switch"></div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="Demo">
+    <div class="Demo-header">
+        <div class="Demo-title">Lists ——输入控件</div>
+    </div>
+    <div class="Demo-refer">
+        <ol>
+            <li class="no">amui包未集成</li>
+            <li>单独引用使用：widget/form</li>
+            <li class="add">必选依赖：widget/list（列表，amui包已集成）</li>
+            <li class="add">必选依赖：icon/clear（清除icon，amui包已集成）</li>
+            <li class="add">可选依赖：icon/form（表单icon，amui包未集成）</li>
+            <li class="add">必选依赖：amui.js（输入清除逻辑控制，需单独引入）</li>
+        </ol>
+    </div>
+    <div class="Demo-content">
+        <div class="Demo-mobile">
+            <div class="am-list" am-mode="flat chip form">
+
+                <div class="am-list-header">下拉展开</div>
+                <div class="am-list-body">
+                    <div class="am-list-item" am-mode="select">
+                        <div class="am-list-content">
+                            <select>
+                                <option>文本内容1</option>
+                                <option>文本内容2</option>
+                            </select>
+                        </div>
+                        <div class="am-list-arrow"><span class="am-icon" am-mode="arrow-vertical"></span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="am-list" am-mode="flat chip form">
+                <div class="am-list-header">组合</div>
+                <div class="am-list-body">
+                    <div class="am-list-item am-input-autoclear">
+                        <div class="am-list-control">
+                            <input type="text" placeholder="暗提示暗提示" value="">
+                        </div>
+                        <div class="am-list-clear"><i class="am-icon-clear am-icon" am-mode="clear"></i></div>
+                    </div>
+                    <div class="am-list-item am-input-autoclear">
+                        <div class="am-list-control">
+                            <input type="text" placeholder="暗提示暗提示" value="">
+                        </div>
+                        <div class="am-list-clear"><i class="am-icon-clear am-icon" am-mode="clear"></i></div>
+                        <div class="am-list-thumb"><i class="am-icon" am-mode="form-camera"></i></div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="am-list" am-mode="flat chip form">
+                <div class="am-list-header">输入错误的情况</div>
+                <div class="am-list-body">
+                    <div class="am-list-item am-list-item-error am-input-autoclear">
+                        <div class="am-list-control">
+                            <input type="text" placeholder="暗提示暗提示" value="333">
+                        </div>
+                        <div class="am-list-clear"><i class="am-icon-clear am-icon" am-mode="clear"></i></div>
+                    </div>
+                 </div>
+            </div>
+
+            <div class="am-list" am-mode="flat chip form">
+                <div class="am-list-header">多行输入错误的情况</div>
+                <div class="am-list-body">
+                    <div class="am-list-item am-list-item-error  am-input-autoclear">
+                        <div class="am-list-control">
+                            <input type="text" placeholder="暗提示暗提示" value="">
+                        </div>
+                        <div class="am-list-clear"><i class="am-icon-clear am-icon" am-mode="clear"></i></div>
+                    </div>
+                    <div class="am-list-item am-input-autoclear">
+                        <div class="am-list-control">
+                            <input type="text" placeholder="暗提示暗提示" value="">
+                        </div>
+                        <div class="am-list-clear"><i class="am-icon-clear am-icon" am-mode="clear"></i></div>
+                    </div>
+                    <div class="am-list-item am-list-item-error  am-input-autoclear">
+                        <div class="am-list-control">
+                            <input type="text" placeholder="暗提示暗提示" value="">
+                        </div>
+                        <div class="am-list-clear"><i class="am-icon-clear am-icon" am-mode="clear"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="am-list" am-mode="flat chip form">
+                <div class="am-list-header">全新登录</div>
+                <div class="am-list-body">
+                    <div class="am-list-item am-input-autoclear">
+                        <div class="am-list-control">
+                            <input type="text" placeholder="手机号/会员名" value="">
+                        </div>
+                        <div class="am-list-clear"><i class="am-icon-clear am-icon" am-mode="clear"></i></div>
+                    </div>
+                    <div class="am-list-item am-input-autoclear">
+                        <div class="am-list-control">
+                            <input type="text" placeholder="淘宝登录密码" value="">
+                        </div>
+                        <div class="am-list-clear"><i class="am-icon-clear am-icon" am-mode="clear"></i></div>
+                    </div>
+                 </div>
+                <div class="am-list-footer am-ft-right"><a href="http://gitlab.alibaba-inc.com/animajs/animaui/raw/master/examples/8.4.html#">忘记密码？</a></div>
+            </div>
+
+            <div class="am-list" am-mode="flat chip form">
+                <div class="am-list-header">有历史登录过非手机登录域账户</div>
+                <div class="am-list-body">
+                    <div class="am-list-item am-input-autoclear">
+                        <div class="am-list-thumb"><i class="am-icon" am-mode="lock"></i></div>
+                        <div class="am-list-control">
+                            <input type="text" placeholder="请输入登录密码" value="">
+                        </div>
+                        <div class="am-list-clear"><i class="am-icon-clear am-icon" am-mode="clear"></i></div>
+                    </div>
+                    <div class="am-list-item am-list-item-form">
+                        <div class="am-list-control">
+                            我是文字我是文字我是文字我是文字我是文字我是文字我是我是文字我是字我是文字我是文字我是文字我是文字
+                        </div>
+                    </div>
+
+                    <div class="am-list-item am-list-item-form">
+                        <div class="am-list-label">优惠券名称</div>
+                        <div class="am-list-control">
+                            <textarea rows="1" class="am-textarea-autoheight" style="resize: none;">我是文字我是文字</textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="am-list am-list-5lb" am-mode="flat chip form">
+                <div class="am-list-header">非常规表单（label固定宽度不对齐）</div>
+                <div class="am-list-body">
+                    <div class="am-list-item am-input-autoclear">
+                        <div class="am-list-label">优惠券名称</div>
+                        <div class="am-list-control">
+                            <input type="text" placeholder="最多5个字" value="">
+                            <input type="hidden" placeholder="" value="">
+                        </div>
+                        <div class="am-list-clear"><i class="am-icon-clear am-icon" am-mode="clear"></i></div>
+                    </div>
+                    <div class="am-list-item am-input-autoclear">
+                        <div class="am-list-label">优惠券</div>
+                        <div class="am-list-control">
+                            <input type="text" placeholder="暗提示暗提示" value="">
+                            <input type="hidden" placeholder="" value="">
+                        </div>
+                        <div class="am-list-clear"><i class="am-icon-clear am-icon" am-mode="clear"></i></div>
+                    </div>
+                    <div class="am-list-item am-input-autoclear">
+                        <div class="am-list-label">优惠券有</div>
+                        <div class="am-list-control">永久可用</div>
+                        <div class="am-list-clear"><i class="am-icon-clear am-icon" am-mode="clear"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="am-list am-list-6lb" am-mode="flat chip form">
+                <div class="am-list-header">非常规表单（label固定宽度对齐）</div>
+                <div class="am-list-body">
+                    <div class="am-list-item am-input-autoclear">
+                        <div class="am-list-label">优惠券名称</div>
+                        <div class="am-list-control">
+                            <input type="text" placeholder="暗提示暗提示" value="">
+                            <input type="hidden" placeholder="" value="">
+                        </div>
+                        <div class="am-list-clear"><i class="am-icon-clear am-icon" am-mode="clear"></i></div>
+                    </div>
+                    <div class="am-list-item am-input-autoclear">
+                        <div class="am-list-label">优惠券密码</div>
+                        <div class="am-list-control">
+                            <input type="text" placeholder="暗提示暗提示" value="">
+                            <input type="hidden" placeholder="" value="">
+                        </div>
+                        <div class="am-list-clear"><i class="am-icon-clear am-icon" am-mode="clear"></i></div>
+                    </div>
+                    <div class="am-list-item am-input-autoclear">
+                        <div class="am-list-label">优惠券有效期</div>
+                        <div class="am-list-control">永久可用</div>
+                        <div class="am-list-clear"><i class="am-icon-clear am-icon" am-mode="clear"></i></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="Demo">
+    <div class="Demo-header">
+        <div class="Demo-title">验证码</div>
+    </div>
+    <div class="Demo-refer">
+        <ol>
+            <li class="yes">amui包已集成</li>
+            <li>单独引用使用：widget/form</li>
+            <li class="add">必选依赖：widget/list（列表，amui包已集成）</li>
+            <li class="add">必选依赖：icon/clear（清除icon，amui包已集成）</li>
+        </ol>
+    </div>
+    <div class="Demo-content">
+        <div class="Demo-mobile">
+            <div class="am-list" am-mode="flat chip form">
+                <div class="am-list-item am-input-autoclear">
+                    <div class="am-list-label">校验码</div>
+                    <div class="am-list-control">
+                        <input type="text" placeholder="输入短信校验码" value="">
+                    </div>
+                    <div class="am-list-clear"><i class="am-icon-clear am-icon" am-mode="clear"></i></div>
+                    <div class="am-list-button">
+                        <button type="button">发送校验码</button>
+                    </div>
+                </div>
+            </div>
+            <div class="am-list" am-mode="flat chip form">
+                <div class="am-list-item am-input-autoclear">
+                    <div class="am-list-label">校验码</div>
+                    <div class="am-list-control">
+                        <input type="text" placeholder="输入短信校验码" value="">
+                    </div>
+                    <div class="am-list-clear"><i class="am-icon-clear am-icon" am-mode="clear"></i></div>
+                    <div class="am-list-button">
+                        <button type="button" disabled="disabled">58秒后重发</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="am-list" am-mode="flat chip form">
+                <div class="am-list-item am-input-autoclear">
+                    <div class="am-list-label">校验码</div>
+                    <div class="am-list-control">
+                        <input type="text" placeholder="输入短信校验码" value="">
+                    </div>
+                    <div class="am-list-clear"><i class="am-icon-clear am-icon" am-mode="clear"></i></div>
+                    <div class="am-list-button">
+                        <button type="button">重发验证码</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="Demo Demo-message">
+    <div class="Demo-header">
+        <div class="Demo-title">页面提示</div>
+    </div>
+    <div class="Demo-refer">
+        <ol>
+            <li class="no">amui包未集成</li>
+            <li>单独引用使用：widget/message</li>
+            <li class="add">必选依赖：icon/message（提示icon，amui包未集成）</li>
+        </ol>
+    </div>
+    <div class="Demo-content">
+        <div class="Demo-mobile">
+            <div class="am-message">
+                <div class="am-message-icon am-icon" am-mode="message-question"></div>
+                <div class="am-message-main">疑问提示</div>
+            </div>
+            <div class="am-message">
+                <div class="am-message-icon am-icon" am-mode="message-success"></div>
+                <div class="am-message-main">成功提示</div>
+            </div>
+            <div class="am-message">
+                <div class="am-message-icon am-icon" am-mode="message-warn"></div>
+                <div class="am-message-main">失败提示</div>
+            </div>
+            <div class="am-message">
+                <div class="am-message-icon am-icon" am-mode="message-error"></div>
+                <div class="am-message-main">出错提示</div>
+            </div>
+            <div class="am-message">
+                <div class="am-message-icon am-icon" am-mode="message-info"></div>
+                <div class="am-message-main">信息提示</div>
+            </div>
+            <div class="am-message">
+                <div class="am-message-icon am-icon" am-mode="message-wait"></div>
+                <div class="am-message-main">等待提示</div>
+            </div>
+            <div class="am-message am-message-multi">
+                <div class="am-message-icon am-icon" am-mode="message-success"></div>
+                <div class="am-message-main">主提示多行主提示多行主提示多行主提示多行主提示多行主提示多行</div>
+            </div>
+            <div class="am-message am-message-multi">
+                <div class="am-message-icon am-icon" am-mode="message-success"></div>
+                <div class="am-message-main">主提示</div>
+                <div class="am-message-sub">副提示</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="Demo Demo-search">
+    <div class="Demo-header">
+        <div class="Demo-title">Search</div>
+    </div>
+    <div class="Demo-refer">
+        <ol>
+            <li class="no">amui包未集成</li>
+            <li>单独引用使用：widget/search</li>
+            <li class="add">必选依赖：widget/button（按钮，amui包已集成）</li>
+            <li class="add">必选依赖：icon/clear（清除icon，amui包已集成）</li>
+            <li class="add">必选依赖：amui.js（输入清除逻辑控制，需单独引入）</li>
+        </ol>
+    </div>
+    <div class="Demo-content">
+        <div class="Demo-mobile">
+            <h5>初始状态</h5>
+
+            <div class="am-search am-input-autoclear">
+                <div class="am-search-input">
+                    <div class="am-search-icon"><i class="am-icon" am-mode="search"></i></div>
+                    <input class="am-search-value" type="text" placeholder="搜索" value="">
+                    <div class="am-search-clear"><i class="am-icon-clear am-icon" am-mode="clear clear-tiny"></i></div>
+                </div>
+                <div class="am-search-button">
+                    <button type="button" class="am-button" am-mode="little blue" disabled="disabled">确定</button>
+                </div>
+            </div>
+            <h5>输入状态</h5>
+
+            <div class="am-search am-input-autoclear">
+                <div class="am-search-input">
+                    <div class="am-search-icon"><i class="am-icon" am-mode="search"></i></div>
+                    <input class="am-search-value" type="text" placeholder="搜索" value="搜索内容">
+                    <div class="am-search-clear"><i class="am-icon-clear am-icon" am-mode="clear clear-tiny"></i></div>
+                </div>
+                <div class="am-search-button">
+                    <button type="button" class="am-button" am-mode="little blue">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="Demo Demo-card">
+    <div class="Demo-header">
+        <div class="Demo-title">Cards</div>
+    </div>
+    <div class="Demo-refer">
+        <ol>
+            <li class="no">amui包未集成</li>
+            <li>单独引用使用：widget/card</li>
+        </ol>
+    </div>
+    <div class="Demo-content">
+        <div class="Demo-mobile">
+            <div class="am-card">
+                <div class="am-card-item">
+                    <div class="am-card-item-header">
+                        <h3 class="am-card-item-title">标题</h3>
+                    </div>
+                    <div class="am-card-item-content">
+                        <div class="am-card-item-subject">文本内容文本内容</div>
+                        <div class="am-card-item-brief">文本说明文本说明文本说明文本说明文本说明文本说明文本说明</div>
+                        <div class="am-card-item-footnote">
+                            <div class="am-card-item-origin">邵逸夫医院</div>
+                            <div class="am-card-item-tims">14-8-21</div>
+                        </div>
+                    </div>
+                    <div class="am-card-item-footer">
+                        <a class="am-card-item-more" href="http://gitlab.alibaba-inc.com/animajs/animaui/raw/master/examples/8.4.html#">更多</a>
+                    </div>
+                </div>
+                <a href="http://gitlab.alibaba-inc.com/animajs/animaui/raw/master/examples/8.4.html#" class="am-card-item">
+                    <div class="am-card-item-header">
+                        <h3 class="am-card-item-title">整块可点</h3>
+                    </div>
+                    <div class="am-card-item-content">
+                        <div class="am-card-item-subject">文本内容文本内容</div>
+                        <div class="am-card-item-brief">文本说明文本说明文本说明文本说明文本说明文本说明文本说明</div>
+                        <div class="am-card-item-footnote">
+                            <div class="am-card-item-origin">邵逸夫医院</div>
+                            <div class="am-card-item-tims">14-8-21</div>
+                        </div>
+                    </div>
+                    <div class="am-card-item-footer">
+                        <div class="am-card-item-more" href="#">更多</div>
+                    </div>
+                </a>
+                <div class="am-card-item">
+                    <div class="am-card-item-header">
+                        <h3 class="am-card-item-title">标题2标题2标题2标题2标题2标题2标题2标题2标题2标题2标题2标题2标题2标题2标题2标题2标题2</h3>
+                    </div>
+                    <div class="am-card-item-content">
+                        <div class="am-card-item-subject">文本内容文本内容</div>
+                        <div class="am-card-item-brief">文本说明文本说明文本说明文本说明文本说明文本说明文本说明</div>
+                        <div class="am-card-item-footnote">
+                            <div class="am-card-item-origin">邵逸夫医院</div>
+                            <div class="am-card-item-tims">14-8-21</div>
+                        </div>
+                    </div>
+                    <div class="am-card-item-footer">
+                        <a class="am-card-item-more" href="http://gitlab.alibaba-inc.com/animajs/animaui/raw/master/examples/8.4.html#">更多</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="Demo Demo-head">
+    <div class="Demo-header">
+        <div class="Demo-title">Header</div>
+    </div>
+    <div class="Demo-refer">
+        <ol>
+            <li class="no">amui包未集成</li>
+            <li>单独引用使用：widget/header</li>
+        </ol>
+    </div>
+    <div class="Demo-content">
+        <div class="Demo-mobile">
+            <div class="am-header">
+                <h1 class="am-header-title">顶部导航</h1>
+            </div>
+            <div class="am-header">
+                <div class="am-header-left">
+                    <a class="am-header-back" href="http://gitlab.alibaba-inc.com/animajs/animaui/raw/master/examples/8.4.html#"></a>
+                </div>
+                <h1 class="am-header-title">只有箭头的情况</h1>
+            </div>
+            <div class="am-header">
+                <div class="am-header-left">
+                    <a class="am-header-back" href="http://gitlab.alibaba-inc.com/animajs/animaui/raw/master/examples/8.4.html#">返回</a>
+                </div>
+                <h1 class="am-header-title">返回+更多</h1>
+                <div class="am-header-right">
+                    <a class="am-header-more" href="http://gitlab.alibaba-inc.com/animajs/animaui/raw/master/examples/8.4.html#"></a>
+                </div>
+            </div>
+            <div class="am-header">
+                <div class="am-header-left">
+                    <a class="am-header-back" href="http://gitlab.alibaba-inc.com/animajs/animaui/raw/master/examples/8.4.html#">返回</a>
+                    <a class="am-header-close" href="http://gitlab.alibaba-inc.com/animajs/animaui/raw/master/examples/8.4.html#">关闭</a>
+                </div>
+                <h1 class="am-header-title">返回+关闭+链接</h1>
+                <div class="am-header-right">
+                    <a href="http://gitlab.alibaba-inc.com/animajs/animaui/raw/master/examples/8.4.html#">邮箱账单</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="Demo Demo-notice">
+    <div class="Demo-header">
+        <div class="Demo-title">顶部告示</div>
+    </div>
+    <div class="Demo-refer">
+        <ol>
+            <li class="no">amui包未集成</li>
+            <li>单独引用使用：widget/top-notice</li>
+        </ol>
+    </div>
+    <div class="Demo-content">
+        <div class="Demo-mobile">
+            <div class="am-top-notice">
+                <div class="am-top-notice-content">防欺诈盗号，请勿泄露支付密码</div>
+                <div class="am-top-notice-operation"><a class="am-top-notice-close" href="http://gitlab.alibaba-inc.com/animajs/animaui/raw/master/examples/8.4.html#">×</a></div>
+            </div>
+
+            <div class="am-top-notice" am-mode="normal">
+                <div class="am-top-notice-content">最近一次打车还没付车费哦</div>
+                <div class="am-top-notice-operation"><a class="am-top-notice-go" href="http://gitlab.alibaba-inc.com/animajs/animaui/raw/master/examples/8.4.html#">点击处理</a></div>
+            </div>
+
+            <div class="am-top-notice" am-mode="normal">
+                <div class="am-top-notice-content">最近一次打车还没付车费哦最近一次打车还没付车费哦最近一次打车还没付车费哦最近一次打车还没付车费哦最近一次打车还没付车费哦</div>
+                <div class="am-top-notice-operation"><a class="am-top-notice-go" href="http://gitlab.alibaba-inc.com/animajs/animaui/raw/master/examples/8.4.html#"></a></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="Demo Demo-layout">
+    <div class="Demo-header">
+        <div class="Demo-title">弹性布局</div>
+    </div>
+    <div class="Demo-refer">
+        <ol>
+            <li class="yes">amui包已集成</li>
+            <li>单独引用使用：util/flexbox</li>
+        </ol>
+    </div>
+    <div class="Demo-content">
+        <div class="Demo-mobile">
+            <div class="am-flexbox">
+                <div class="am-flexbox-item">2列</div>
+                <div class="am-flexbox-item">2列</div>
+            </div>
+            <div class="am-flexbox">
+                <div class="am-flexbox-item">3列</div>
+                <div class="am-flexbox-item">3列</div>
+                <div class="am-flexbox-item">3列</div>
+            </div>
+            <div class="am-flexbox">
+                <div class="am-flexbox-item">4列</div>
+                <div class="am-flexbox-item">4列</div>
+                <div class="am-flexbox-item">4列</div>
+                <div class="am-flexbox-item">4列</div>
+            </div>
+            <div class="am-flexbox">
+                <div class="am-flexbox-item">5列</div>
+                <div class="am-flexbox-item">5列</div>
+                <div class="am-flexbox-item">5列</div>
+                <div class="am-flexbox-item">5列</div>
+                <div class="am-flexbox-item">5列</div>
+            </div>
+            <div class="am-flexbox">
+                <div class="am-flexbox-item">3</div>
+                <div class="am-flexbox-item am-ft-ellipsis">自定义个性化自定义个性化自定义个性化自定义个性化</div>
+                <div class="am-flexbox-item">3</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="Demo">
+    <div class="Demo-header">
+        <div class="Demo-title">文字书写</div>
+    </div>
+    <div class="Demo-refer">
+        <ol>
+            <li class="yes">amui包已集成</li>
+            <li>单独引用使用：util/writing</li>
+        </ol>
+    </div>
+    <div class="Demo-content">
+        <div class="Demo-mobile">
+            <div class="fn-clear">
+                <div class="fn-left">左浮动</div>
+                <div class="fn-right">右浮动</div>
+            </div>
+            <div class="am-ft-left">
+                文字左对齐
+            </div>
+            <div class="am-ft-center">
+                文字中对齐
+            </div>
+            <div class="am-ft-right">
+                文字右对齐
+            </div>
+            <div class="am-ft-xl">
+                特大 18px
+            </div>
+            <div class="am-ft-lg">
+                较大 17px
+            </div>
+            <div class="am-ft-md">
+                正常 16px
+            </div>
+            <div class="am-ft-sm">
+                小 14px
+            </div>
+            <div class="am-ft-white">
+                仅用于标题按钮和深色内容 白色文字
+            </div>
+            <div class="am-ft-black">
+                文本主色 输入框标签，输入内容
+            </div>
+            <div class="am-ft-darkgray">
+                表单右侧说明文本 深灰色文字
+            </div>
+            <div class="am-ft-gray">
+                副标题 灰色文字
+            </div>
+            <div class="am-ft-lightgray">
+                暗提示 浅灰色文字
+            </div>
+            <div class="am-ft-darkblue">
+                重要信息展示，根据业务信息使用
+            </div>
+            <div class="am-ft-blue">
+                协议文本色 蓝色
+            </div>
+            <div class="am-ft-orange">
+                特殊字色 橙色
+            </div>
+            <div class="am-ft-green">
+                特殊字色 绿色
+            </div>
+            <div class="am-ft-ellipsis">文字自动截取文字自动截取文字自动截取文字自动截取</div>
+        </div>
+    </div>
+</div>
+
+<div class="Demo Demo-blank">
+    <div class="Demo-header">
+        <div class="Demo-title">左右区域留白（附加类margin）</div>
+    </div>
+    <div class="Demo-refer">
+        <ol>
+            <li class="yes">amui包已集成</li>
+            <li>单独引用使用：util/wingblank</li>
+        </ol>
+    </div>
+    <div class="Demo-content">
+        <div class="Demo-mobile">
+            <div class="Demo-brief">左右10px</div>
+            <div class="am-wingblank" am-mode="10px"></div>
+            <div class="Demo-brief">左右15px</div>
+            <div class="am-wingblank" am-mode="15px"></div>
+            <div class="Demo-brief">左右20px</div>
+            <div class="am-wingblank" am-mode="20px"></div>
+            <div class="Demo-brief">左右25px</div>
+            <div class="am-wingblank" am-mode="25px"></div>
+            <div class="Demo-brief">左右30px</div>
+            <div class="am-wingblank" am-mode="30px"></div>
+            <div class="Demo-brief">左右8px</div>
+            <div class="am-wingblank" am-mode="8px"></div>
+            <div class="Demo-brief">左右12px</div>
+            <div class="am-wingblank" am-mode="12px"></div>
+            <div class="Demo-brief">左右16px</div>
+            <div class="am-wingblank" am-mode="16px"></div>
+            <div class="Demo-brief">左右24px</div>
+            <div class="am-wingblank" am-mode="24px"></div>
+            <div class="Demo-brief">左右28px</div>
+            <div class="am-wingblank" am-mode="28px"></div>
+            <div class="Demo-brief">左右32px</div>
+            <div class="am-wingblank" am-mode="32px"></div>
+        </div>
+    </div>
+</div>
+
+<div class="Demo Demo-blank">
+    <div class="Demo-header">
+        <div class="Demo-title">上下区域留白(独立block)</div>
+    </div>
+    <div class="Demo-refer">
+        <ol>
+            <li class="yes">amui包已集成</li>
+            <li>单独引用使用：util/whitespace</li>
+        </ol>
+    </div>
+    <div class="Demo-content">
+        <div class="Demo-mobile">
+            <div class="Demo-brief">5px</div>
+            <div class="am-whitespace" am-mode="5px"></div>
+            <div class="Demo-brief">10px</div>
+            <div class="am-whitespace" am-mode="10px"></div>
+            <div class="Demo-brief">15px</div>
+            <div class="am-whitespace" am-mode="15px"></div>
+            <div class="Demo-brief">20px</div>
+            <div class="am-whitespace" am-mode="20px"></div>
+            <div class="Demo-brief">25px</div>
+            <div class="am-whitespace" am-mode="30px"></div>
+            <div class="Demo-brief">30px</div>
+            <div class="am-whitespace" am-mode="25px"></div>
+            <div class="Demo-brief">35px</div>
+            <div class="am-whitespace" am-mode="35px"></div>
+            <div class="Demo-brief">40px</div>
+            <div class="am-whitespace" am-mode="40px"></div>
+            <div class="Demo-brief">45px</div>
+            <div class="am-whitespace" am-mode="45px"></div>
+            <div class="Demo-brief">50px</div>
+            <div class="am-whitespace" am-mode="50px"></div>
+            <div class="Demo-brief">4px</div>
+            <div class="am-whitespace" am-mode="4px"></div>
+            <div class="Demo-brief">8px</div>
+            <div class="am-whitespace" am-mode="8px"></div>
+            <div class="Demo-brief">12px</div>
+            <div class="am-whitespace" am-mode="12px"></div>
+            <div class="Demo-brief">16px</div>
+            <div class="am-whitespace" am-mode="16px"></div>
+            <div class="Demo-brief">24px</div>
+            <div class="am-whitespace" am-mode="24px"></div>
+            <div class="Demo-brief">28px</div>
+            <div class="am-whitespace" am-mode="28px"></div>
+            <div class="Demo-brief">32px</div>
+            <div class="am-whitespace" am-mode="32px"></div>
+            <div class="Demo-brief">36px</div>
+            <div class="am-whitespace" am-mode="36px"></div>
+            <div class="Demo-brief">44px</div>
+            <div class="am-whitespace" am-mode="44px"></div>
+            <div class="Demo-brief">48px</div>
+            <div class="am-whitespace" am-mode="48px"></div>
+        </div>
+    </div>
+</div>
+
+<div class="Demo Demo-toast">
+    <div class="Demo-header">
+        <div class="Demo-title">Toast提示</div>
+    </div>
+    <div class="Demo-refer">
+        <ol>
+            <li class="no">amui包未集成</li>
+            <li>单独引用使用：widget/toast</li>
+        </ol>
+    </div>
+    <div class="Demo-content">
+        <div class="Demo-mobile">
+            <div class="am-toast">
+                <div class="am-toast-text">
+                    <span class="am-toast-icon am-icon" am-mode="toast-fail"></span> 错误提示
+                </div>
+                <div class="am-toast-text">
+                    <span class="am-toast-icon am-icon" am-mode="toast-success"></span> 成功提示
+                </div>
+                <div class="am-toast-text">
+                    <span class="am-toast-icon am-icon" am-mode="toast-loading"></span> 加载中
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="Demo">
+    <div class="Demo-header">
+        <div class="Demo-title">常规文章</div>
+    </div>
+    <div class="Demo-refer">
+        <ol>
+            <li class="no">amui包未集成</li>
+            <li>单独引用使用：view/article</li>
+        </ol>
+    </div>
+    <div class="Demo-content">
+        <div class="Demo-mobile">
+            <div class="am-article">
+                <h2>中石化加油卡办卡章程</h2>
+                <time>2013-11-23 12:20:00</time>
+                <p><img src="./amui-demo_files/saved_resource" width="290" height="200"></p>
+                <p>文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容</p>
+                <dl>
+                    <dt>1、文章小标题</dt>
+                    <dd>文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容</dd>
+                </dl>
+                <dl>
+                    <dt>2、文章小标题</dt>
+                    <dd>文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容</dd>
+                </dl>
+                <dl>
+                    <dt>3、文章小标题</dt>
+                    <dd>文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容</dd>
+                </dl>
+                <p>文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="Demo Demo-agreement">
+    <div class="Demo-header">
+        <div class="Demo-title">协议文章</div>
+    </div>
+    <div class="Demo-refer">
+        <ol>
+            <li class="no">amui包未集成</li>
+            <li>单独引用使用：view/agreement</li>
+        </ol>
+    </div>
+    <div class="Demo-content">
+        <div class="Demo-mobile">
+            <div class="am-agreement">
+                <h2>加油卡办卡章程</h2>
+                <p>协议文字内容协议文字内容协议文字内</p>
+                <p>协议文字内容协议文字内容协议文字内</p>
+                <p>协议文字内容协议文字内容协议文222字内</p>
+                <p>协议文字内容协议文字内容协议文222字内协议文字内容协议文字内容协议文222字内协议文字内容协议文字内容协议文222字内协议文字内容协议文字内容协议文222字内协议文字内容协议文字内容协议文222字内</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="Demo">
+    <div class="Demo-header">
+        <div class="Demo-title">时间线</div>
+    </div>
+    <div class="Demo-refer">
+        <ol>
+            <li class="no">amui包未集成</li>
+            <li>单独引用使用：view/timeline</li>
+        </ol>
+    </div>
+    <div class="Demo-content">
+        <div class="Demo-mobile">
+            <div class="am-timeline">
+                <div class="am-timeline-box">
+                    <div class="am-timeline-box-icon">
+                        <img src="./amui-demo_files/1mx2r1D6Rh.png" alt="" width="30" height="30">
+                    </div>
+                    <div class="am-timeline-box-content">
+                        <div class="am-timeline-box-title">晨间项目</div>
+                        <div class="am-timeline-box-desc">项目介绍</div>
+                    </div>
+                </div>
+                <div class="am-timeline-box">
+                    <div class="am-timeline-box-icon">
+                        <img src="./amui-demo_files/1mx2r0hiYX.png" alt="" width="30" height="30">
+                    </div>
+                    <div class="am-timeline-box-content">
+                        <div class="am-timeline-box-title">午间项目</div>
+                        <div class="am-timeline-box-desc">项目介绍项目介绍项目介绍项目介绍项目介绍项目介绍</div>
+                    </div>
+                </div>
+                <div class="am-timeline-box">
+                    <div class="am-timeline-box-icon">
+                        <img src="./amui-demo_files/1mx2r21KOD.png" alt="" width="30" height="30">
+                    </div>
+                    <div class="am-timeline-box-content">
+                        <div class="am-timeline-box-title">晚间项目</div>
+                        <div class="am-timeline-box-desc">项目介绍</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="Demo">
+    <div class="Demo-header">
+        <div class="Demo-title">城市选择</div>
+    </div>
+    <div class="Demo-refer">
+        <ol>
+            <li class="no">amui包未集成</li>
+            <li>单独引用使用：view/city-select</li>
+            <li class="add">可选依赖：widget/header（头部，amui包未集成）</li>
+        </ol>
+    </div>
+    <div class="Demo-content">
+        <div class="Demo-mobile">
+            <div class="am-header">
+                <h1><a href="http://gitlab.alibaba-inc.com/animajs/animaui/raw/master/examples/8.4.html#">上海 <i class="am-icon" am-mode="triangle-down"></i></a></h1>
+            </div>
+            <div class="am-city-select">
+                <div class="am-city-select-sub">定位您的城市</div>
+                <ul class="am-city-select-list">
+                    <li><a href="http://gitlab.alibaba-inc.com/animajs/animaui/raw/master/examples/8.4.html#">上海</a></li>
+                </ul>
+                <div class="am-city-select-sub">热门城市</div>
+                <ul class="am-city-select-list">
+                    <li><a href="http://gitlab.alibaba-inc.com/animajs/animaui/raw/master/examples/8.4.html#">上海</a></li>
+                    <li><a href="http://gitlab.alibaba-inc.com/animajs/animaui/raw/master/examples/8.4.html#">武汉</a></li>
+                    <li><a href="http://gitlab.alibaba-inc.com/animajs/animaui/raw/master/examples/8.4.html#">长沙</a></li>
+                    <li><a href="http://gitlab.alibaba-inc.com/animajs/animaui/raw/master/examples/8.4.html#">北京</a></li>
+                    <li><a href="http://gitlab.alibaba-inc.com/animajs/animaui/raw/master/examples/8.4.html#">杭州</a></li>
+                </ul>
+                <div class="am-city-select-sub">所有城市</div>
+                <div class="am-city-select-order">B</div>
+                <ul class="am-city-select-list">
+                    <li><a href="http://gitlab.alibaba-inc.com/animajs/animaui/raw/master/examples/8.4.html#">上海</a></li>
+                    <li><a href="http://gitlab.alibaba-inc.com/animajs/animaui/raw/master/examples/8.4.html#">武汉</a></li>
+                    <li><a href="http://gitlab.alibaba-inc.com/animajs/animaui/raw/master/examples/8.4.html#">长沙</a></li>
+                    <li><a href="http://gitlab.alibaba-inc.com/animajs/animaui/raw/master/examples/8.4.html#">北京</a></li>
+                    <li><a href="http://gitlab.alibaba-inc.com/animajs/animaui/raw/master/examples/8.4.html#">杭州</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="Demo Demo-page-result">
+    <div class="Demo-header">
+        <div class="Demo-title">空白页</div>
+    </div>
+    <div class="Demo-refer">
+        <ol>
+            <li class="no">amui包未集成</li>
+            <li>单独引用使用：view/page-result</li>
+            <li class="add">必选依赖：widget/button（按钮，amui包已集成）</li>
+        </ol>
+    </div>
+    <div class="Demo-content">
+        <div class="Demo-mobile">
+            <div class="am-page-result">
+                <div class="am-page-result-wrap">
+                    <div class="am-page-result-pic">
+                        <img src="./amui-demo_files/30NvQVuHAd.png" width="140" height="140">
+                    </div>
+                    <div class="am-page-result-title">我是空白页</div>
+                    <div class="am-page-result-brief">页面没有内容时候会成为空白页</div>
+                    <div class="am-page-result-button"><button class="am-button">按钮</button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="Demo Demo-page-result">
+    <div class="Demo-header">
+        <div class="Demo-title">404页</div>
+    </div>
+    <div class="Demo-refer">
+        <ol>
+            <li class="no">amui包未集成</li>
+            <li>单独引用使用：view/page-result</li>
+            <li class="add">必选依赖：widget/button（按钮，amui包已集成）</li>
+        </ol>
+    </div>
+    <div class="Demo-content">
+        <div class="Demo-mobile">
+            <div class="am-page-result">
+                <div class="am-page-result-wrap">
+                    <div class="am-page-result-pic">
+                        <img src="./amui-demo_files/30NvQ6bZHj.png" width="140" height="140">
+                    </div>
+                    <div class="am-page-result-title">暂时无法访问</div>
+                    <div class="am-page-result-button">
+                        <div class="am-flexbox" am-mode="average">
+                            <div class="am-flexbox-item">
+                                <button class="am-button" am-mode="white">关闭</button>
+                            </div>
+                            <div class="am-flexbox-item">
+                                <button class="am-button">刷新</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="Demo Demo-page-result">
+    <div class="Demo-header">
+        <div class="Demo-title">提示页</div>
+    </div>
+    <div class="Demo-refer">
+        <ol>
+            <li class="no">amui包未集成</li>
+            <li>单独引用使用：view/page-result</li>
+            <li class="add">必选依赖：widget/button（按钮，amui包已集成）</li>
+        </ol>
+    </div>
+    <div class="Demo-content">
+        <div class="Demo-mobile">
+            <div class="am-page-result am-page-result-status">
+                <div class="am-page-result-wrap">
+                    <div class="am-page-result-pic">
+                        <img src="./amui-demo_files/fff" width="140" height="140">
+                    </div>
+                    <div class="am-page-result-title">无记录</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="Demo Demo-page-result">
+    <div class="Demo-header">
+        <div class="Demo-title">404页</div>
+    </div>
+    <div class="Demo-refer">
+        <ol>
+            <li class="no">amui包未集成</li>
+            <li>单独引用使用：view/page-result</li>
+            <li class="add">必选依赖：widget/button（按钮，amui包已集成）</li>
+        </ol>
+    </div>
+    <div class="Demo-content">
+        <div class="Demo-mobile">
+            <div class="am-page-result">
+                <div class="am-page-result-wrap">
+                    <div class="am-page-result-pic">
+                        <img src="./amui-demo_files/fff" width="140" height="140">
+                    </div>
+                    <div class="am-page-result-title">我是插画页</div>
+                    <div class="am-page-result-button"><button class="am-button" am-mode="white">按钮</button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="Demo Demo-dialog">
+    <div class="Demo-header">
+        <div class="Demo-title">弹窗——基本样式</div>
+    </div>
+    <div class="Demo-refer">
+        <ol>
+            <li class="no">amui包未集成</li>
+            <li>单独引用使用：widget/dialog</li>
+        </ol>
+    </div>
+    <div class="Demo-content">
+        <div class="Demo-mobile">
+            <div class="am-dialog" am-mode="show">
+                <div class="am-dialog-wrap">
+                    <div class="am-dialog-header">
+                        <h3>标题标题</h3>
+                    </div>
+                    <div class="am-dialog-body">
+                        <p class="am-dialog-brief">说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容</p>
+                    </div>
+                    <div class="am-dialog-footer">
+                        <button type="button" class="am-dialog-button">取消</button>
+                        <button type="button" class="am-dialog-button">确定</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="Demo Demo-dialog">
+    <div class="Demo-header">
+        <div class="Demo-title">弹窗——只有内容</div>
+    </div>
+    <div class="Demo-refer">
+        <ol>
+            <li class="no">amui包未集成</li>
+            <li>单独引用使用：widget/dialog</li>
+        </ol>
+    </div>
+    <div class="Demo-content">
+        <div class="Demo-mobile">
+            <div class="am-dialog" am-mode="show">
+                <div class="am-dialog-wrap">
+                    <div class="am-dialog-body">
+                        <p class="am-dialog-brief">说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容</p>
+                    </div>
+                    <div class="am-dialog-footer">
+                        <button type="button" class="am-dialog-button">取消</button>
+                        <button type="button" class="am-dialog-button">确定</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="Demo Demo-dialog">
+    <div class="Demo-header">
+        <div class="Demo-title">弹窗——只有标题</div>
+    </div>
+    <div class="Demo-refer">
+        <ol>
+            <li class="no">amui包未集成</li>
+            <li>单独引用使用：widget/dialog</li>
+        </ol>
+    </div>
+    <div class="Demo-content">
+        <div class="Demo-mobile">
+            <div class="am-dialog" am-mode="show">
+                <div class="am-dialog-wrap">
+                    <div class="am-dialog-header">
+                        <h3>只有标题</h3>
+                    </div>
+                    <div class="am-dialog-footer">
+                        <button type="button" class="am-dialog-button">取消</button>
+                        <button type="button" class="am-dialog-button">确定</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="Demo Demo-dialog">
+    <div class="Demo-header">
+        <div class="Demo-title">弹窗——按钮定制</div>
+    </div>
+    <div class="Demo-refer">
+        <ol>
+            <li class="no">amui包未集成</li>
+            <li>单独引用使用：widget/dialog</li>
+        </ol>
+    </div>
+    <div class="Demo-content">
+        <div class="Demo-mobile">
+            <div class="am-dialog" am-mode="show">
+                <div class="am-dialog-wrap">
+                    <div class="am-dialog-header">
+                        <h3>只有标题</h3>
+                    </div>
+                    <div class="am-dialog-body">
+                        <p class="am-dialog-brief">说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容</p>
+                    </div>
+                    <div class="am-dialog-footer">
+                        <button type="button" class="am-dialog-button">确定</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="Demo Demo-dialog">
+    <div class="Demo-header">
+        <div class="Demo-title">弹窗——按钮不可用</div>
+    </div>
+    <div class="Demo-refer">
+        <ol>
+            <li class="no">amui包未集成</li>
+            <li>单独引用使用：widget/dialog</li>
+        </ol>
+    </div>
+    <div class="Demo-content">
+        <div class="Demo-mobile">
+            <div class="am-dialog" am-mode="show">
+                <div class="am-dialog-wrap">
+                    <div class="am-dialog-header">
+                        <h3>只有标题</h3>
+                    </div>
+                    <div class="am-dialog-body">
+                        <p class="am-dialog-brief">说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容</p>
+                    </div>
+                    <div class="am-dialog-footer">
+                        <button type="button" class="am-dialog-button">取消</button>
+                        <button type="button" class="am-dialog-button" disabled="disabled">确定</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="Demo Demo-dialog">
+    <div class="Demo-header">
+        <div class="Demo-title">弹窗——带输入框二</div>
+    </div>
+    <div class="Demo-refer">
+        <ol>
+            <li class="no">amui包未集成</li>
+            <li>单独引用使用：widget/dialog</li>
+        </ol>
+    </div>
+    <div class="Demo-content">
+        <div class="Demo-mobile">
+            <div class="am-dialog" am-mode="show">
+                <div class="am-dialog-wrap">
+                    <div class="am-dialog-header">
+                        <h3>标题标题标题</h3>
+                    </div>
+                    <div class="am-dialog-body">
+                        <p class="am-dialog-brief">说明内容说明内容</p>
+                        <input class="am-password-former" type="password" maxlength="6" size="6" value="" placeholder="暗提示暗提示">
+                    </div>
+                    <div class="am-dialog-footer">
+                        <button type="button" class="am-dialog-button">取消</button>
+                        <button type="button" class="am-dialog-button" disabled="disabled">确定</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<div id="HUABAN_WIDGETS"><div class="HUABAN-f-button" style="display: none;">采集</div><style>#HUABAN_WIDGETS  {font-family: "helvetica neue",arial,sans-serif; color: #444; font-size: 14px;} #HUABAN_WIDGETS * {box-sizing: content-box;} #HUABAN_WIDGETS .HUABAN-main {position: fixed; left: 0; top: 0; width: 100%; height: 100%; background: #e5e5e5; background: rgba(229,229,229,.95); max-height: 100%; overflow: hidden; z-index: 9999999999999;} #HUABAN_WIDGETS a img {border: 0;} #HUABAN_WIDGETS .HUABAN-header {height: 50px; background: white; box-shadow: 0 0 4px rgba(0,0,0,.2); width: 100%; left: 0; top: 0; position: absolute;} #HUABAN_WIDGETS .HUABAN-header .HUABAN-inner {margin: 0 auto; position: relative;} #HUABAN_WIDGETS .HUABAN-header .HUABAN-close {width: 60px; height: 50px; border-left: 1px solid #ddd; position: absolute; right: 0; top: 0; background: url(//huaban.com/img/widgets/btn_close.png) 20px 14px no-repeat; cursor: pointer;} #HUABAN_WIDGETS .HUABAN-header .HUABAN-close:hover {background-position: 20px -26px;} #HUABAN_WIDGETS .HUABAN-header .HUABAN-close:active {background-position: 20px -66px;} #HUABAN_WIDGETS .HUABAN-header .HUABAN-logo {display: block; position: absolute; top: 12px;} #HUABAN_WIDGETS .HUABAN-waterfall-holder {position: relative; overflow-y: auto; height: 100%;} #HUABAN_WIDGETS .HUABAN-waterfall {position: relative; margin-top: 50px;} #HUABAN_WIDGETS .HUABAN-waterfall .HUABAN-empty {position: absolute; left: 50%; top: 30px; height: 36px; line-height: 36px; width: 216px; text-align: left; margin-left: -128px; color: #777; background: url(//huaban.com/img/widgets/icon_notice.png) 12px 8px no-repeat white; padding-left: 40px; font-size: 15px;} #HUABAN_WIDGETS .HUABAN-btn {display: inline-block; border-radius: 2px; font-size: 14px; padding: 0 12px; height: 30px; line-height: 30px; cursor: pointer; text-decoration: none; white-space: nowrap; -moz-user-select: none; -webkit-user-select: none; user-select: none; text-align: center; background: #D53939; color: white;} #HUABAN_WIDGETS .HUABAN-btn:hover {background: #E54646;} #HUABAN_WIDGETS .HUABAN-btn:active {background: #C52424;} #HUABAN_WIDGETS .HUABAN-wbtn {background: #EDEDED; color: #444;} #HUABAN_WIDGETS .HUABAN-wbtn:hover {background: #F2F2F2;} #HUABAN_WIDGETS .HUABAN-wbtn:active {background: #DDD;} #HUABAN_WIDGETS .HUABAN-f-button {position: absolute; display: none; z-index: 9999999999998; box-shadow: 0 0 0 2px rgba(255,255,255,.2); background: #aaa; background: rgba(0,0,0,.3); color: white; cursor: pointer; padding: 0 12px; height: 30px; line-height: 30px; border-radius: 2px; font-size: 14px} #HUABAN_WIDGETS .HUABAN-f-button:hover {background-color: #999; background-color: rgba(0,0,0,.5);} #HUABAN_WIDGETS .HUABAN-f-button:active {background-color: rgba(0,0,0,.6);} #HUABAN_WIDGETS .HUABAN-red-normal-icon-button {width: 36px; height: 24px; border: 0px; line-height: 24px; padding-left: 24px; padding-right: 0px; text-align: left; background: url(//huaban.com/img/widgets/widget_icons.png) 0 -200px no-repeat; box-shadow: none !important; font-size: 14px; background-color: transparent !important;} #HUABAN_WIDGETS .HUABAN-red-normal-icon-button:hover {background-position: -130px -200px;} #HUABAN_WIDGETS .HUABAN-red-normal-icon-button:active {background-position: -260px -200px;} #HUABAN_WIDGETS .HUABAN-red-large-icon-button {width: 80px; height: 24px; border: 0px; line-height: 24px; padding-left: 24px; padding-right: 0px; text-align: left; background: url(//huaban.com/img/widgets/widget_icons.png) 0 -150px no-repeat; box-shadow: none !important; font-size: 14px; background-color: transparent !important;} #HUABAN_WIDGETS .HUABAN-red-large-icon-button:hover {background-position: -130px -150px;} #HUABAN_WIDGETS .HUABAN-red-large-icon-button:active {background-position: -260px -150px;} #HUABAN_WIDGETS .HUABAN-red-small-icon-button {width: 30px; height: 21px; border: 0px; line-height: 21px; padding-left: 20px; padding-right: 0px; text-align: left; background: url(//huaban.com/img/widgets/widget_icons.png) 0 -250px no-repeat; box-shadow: none !important; font-size: 12px; background-color: transparent !important;} #HUABAN_WIDGETS .HUABAN-red-small-icon-button:hover {background-position: -130px -250px;} #HUABAN_WIDGETS .HUABAN-red-small-icon-button:active {background-position: -260px -250px;} #HUABAN_WIDGETS .HUABAN-white-normal-icon-button {width: 36px; height: 24px; border: 0px; line-height: 24px; padding-left: 24px; padding-right: 0px; text-align: left; background: url(//huaban.com/img/widgets/widget_icons.png) 0 -500px no-repeat; box-shadow: none !important; color: #444; font-size: 14px; background-color: transparent !important;} #HUABAN_WIDGETS .HUABAN-white-normal-icon-button:hover {background-position: -130px -500px;} #HUABAN_WIDGETS .HUABAN-white-normal-icon-button:active {background-position: -260px -500px;} #HUABAN_WIDGETS .HUABAN-white-large-icon-button {width: 80px; height: 24px; border: 0px; line-height: 24px; padding-left: 24px; padding-right: 0px; text-align: left; background: url(//huaban.com/img/widgets/widget_icons.png) 0 -450px no-repeat; box-shadow: none !important; color: #444; font-size: 14px; background-color: transparent !important;} #HUABAN_WIDGETS .HUABAN-white-large-icon-button:hover {background-position: -130px -450px;} #HUABAN_WIDGETS .HUABAN-white-large-icon-button:active {background-position: -260px -450px;} #HUABAN_WIDGETS .HUABAN-white-small-icon-button {width: 30px; height: 21px; border: 0px; line-height: 21px; padding-left: 20px; padding-right: 0px; text-align: left; background: url(//huaban.com/img/widgets/widget_icons.png) 0 -550px no-repeat; box-shadow: none !important; color: #444; font-size: 12px; background-color: transparent !important;} #HUABAN_WIDGETS .HUABAN-white-small-icon-button:hover {background-position: -130px -550px;} #HUABAN_WIDGETS .HUABAN-white-small-icon-button:active {background-position: -260px -550px;} #HUABAN_WIDGETS .HUABAN-cell {width: 236px; position: absolute; background: white; box-shadow: 0 1px 3px rgba(0,0,0,.3); transition: left .3s ease-in-out, top .3s linear;} #HUABAN_WIDGETS .HUABAN-cell .HUABAN-img-holder {overflow: hidden; position: relative;} #HUABAN_WIDGETS .HUABAN-cell .HUABAN-img-holder:hover img.HUABAN-cell-img {opacity: .8} #HUABAN_WIDGETS .HUABAN-cell .HUABAN-video-icon {width: 72px; height: 62px; position: absolute; left: 50%; top: 50%; margin: -31px auto auto -36px; background: url(//huaban.com/img/widgets/media_video.png) 0 0 no-repeat; display: none;} #HUABAN_WIDGETS .HUABAN-cell.HUABAN-video .HUABAN-video-icon {display: block;} #HUABAN_WIDGETS .HUABAN-cell .HUABAN-over {display: none;} #HUABAN_WIDGETS .HUABAN-cell:hover .HUABAN-over {display: block;} #HUABAN_WIDGETS .HUABAN-cell .HUABAN-over .HUABAN-btn {width: 60px; height: 34px; padding: 0; position: absolute; left: 50%; top: 50%; margin: -18px 0 0 -31px; line-height: 34px; box-shadow: 0 0 0 2px rgba(255,255,255,.2); font-size: 16px;} #HUABAN_WIDGETS .HUABAN-cell.HUABAN-long .HUABAN-img-holder {height: 600px;} #HUABAN_WIDGETS .HUABAN-cell.HUABAN-long .HUABAN-img-holder:after {content: ""; display: block; position: absolute; width: 236px; height: 12px; left: 0; bottom: 0; background: url(//huaban.com/img/widgets/long_image_shadow_2.png) repeat-x 4px top;} #HUABAN_WIDGETS .HUABAN-cell img {width: 236px; display: block;} #HUABAN_WIDGETS .HUABAN-cell .HUABAN-size {margin: 8px 16px; font-size: 12px; color: #999} #HUABAN_WIDGETS .HUABAN-cell .HUABAN-description {display: block; width: 202px; margin: 0 6px 6px; padding: 6px 10px; border: 0; resize: none; outline: 0; border: 1px solid transparent; line-height: 18px; font-size: 13px; overflow: hidden; word-wrap: break-word; background: url(//huaban.com/img/widgets/icon_edit.png) 500px center no-repeat;} #HUABAN_WIDGETS .HUABAN-cell:hover .HUABAN-description {background-color: #fff9e0; background-position: right top;} #HUABAN_WIDGETS .HUABAN-cell .HUABAN-description:focus {background-color: #F9F9F9; background-position: 500px center;} #HUABAN_WIDGETS .HUABAN-cell .HUABAN-select-btn {width: 34px; height:34px; background: url(//huaban.com/img/widgets/checkbox.png) 0 0 no-repeat; position: absolute; right: 5px; top: 5px; cursor: pointer;} #HUABAN_WIDGETS .HUABAN-cell .HUABAN-pinned-label {position: absolute; left: 0; top: 10px; height: 24px; line-height: 24px; padding: 0 10px; background: #CE0000; background: rgba(200, 0, 0, 0.9); color: white; font-size: 12px; display: none;} #HUABAN_WIDGETS .HUABAN-cell.HUABAN-pinned .HUABAN-pinned-label {display: block;} #HUABAN_WIDGETS .HUABAN-selected .HUABAN-select-btn {background-position: 0 -40px;} #HUABAN_WIDGETS .HUABAN-multi .HUABAN-cell .HUABAN-img-holder {cursor: pointer;} #HUABAN_WIDGETS .HUABAN-multi .HUABAN-cell .HUABAN-cell-pin-btn {display: none;} #HUABAN_WIDGETS .HUABAN-multi .HUABAN-cell .HUABAN-over {display: block;} #HUABAN_WIDGETS .HUABAN-header .HUABAN-multi-buttons {position: absolute; top: 10px; left: 0; display: none;} #HUABAN_WIDGETS .HUABAN-header .HUABAN-multi-buttons .HUABAN-btn {margin-right: 10px;} #HUABAN_WIDGETS .HUABAN-header .HUABAN-multi-noti {display: none; height: 50px; line-height: 50px; text-align: center; font-size: 16px; color: #999; font-weight: bold;} #HUABAN_WIDGETS .HUABAN-header .HUABAN-multi-noti span {font-weight: normal;} #HUABAN_WIDGETS .HUABAN-header .HUABAN-multi-noti i {font-style: normal;} #HUABAN_WIDGETS .HUABAN-header .HUABAN-notice {padding: 0 10px; height:30px; line-height: 30px; position: absolute; left: 50%; top: 10px; margin-left: -83px; background: #fff9e2; text-align: center;} #HUABAN_WIDGETS .HUABAN-header .HUABAN-notice i {display: inline-block; width: 18px; height: 18px; background: url(//huaban.com/img/widgets/icon_notice.png) 0 0 no-repeat; vertical-align: top; margin: 6px 6px 0 0;} #HUABAN_WIDGETS .HUABAN-switcher {height: 50px; width: 100px; position: relative;} #HUABAN_WIDGETS .HUABAN-switcher .HUABAN-title {position: absolute; right: 75px; top: 13px; color: #999; white-space: nowrap; line-height: 24px; opacity: 0; visibility: hidden;} #HUABAN_WIDGETS .HUABAN-switcher:hover .HUABAN-title {visibility: visible; opacity: 1; -webkit-transition: opacity .2s linear; -webkit-transition-delay: .2s; transition: opacity .2s linear; transition-delay: .2s;} #HUABAN_WIDGETS .HUABAN-switcher .HUABAN-bar {width: 40px; height: 24px; background: #EB595F; border-radius: 12px; color: white; position: absolute; right: 0; top: 13px; cursor: pointer; font-size: 14px; -webkit-transition: all .2s linear; transition: all .2s linear;} #HUABAN_WIDGETS .HUABAN-switcher:hover .HUABAN-bar {width: 64px;} #HUABAN_WIDGETS .HUABAN-switcher.HUABAN-on .HUABAN-bar {background: #7DD100;} #HUABAN_WIDGETS .HUABAN-switcher .HUABAN-bar .HUABAN-round {width: 20px; height: 20px; background: white; border-radius: 50%; position: absolute; left: 2px; top: 2px; -webkit-transition: left .2s linear; box-shadow: 0px 0px 3px rgba(0,0,0,0.15); transition: left .2s linear; box-shadow: 0px 0px 3px rgba(0,0,0,0.15);} #HUABAN_WIDGETS .HUABAN-switcher.HUABAN-on .HUABAN-bar .HUABAN-round {left: 17px;} #HUABAN_WIDGETS .HUABAN-switcher.HUABAN-on:hover .HUABAN-bar .HUABAN-round {left: 41px;} #HUABAN_WIDGETS .HUABAN-switcher .HUABAN-bar .HUABAN-text-1 {height: 24px; line-height: 24px; position: absolute; right:17px; top: 0; opacity: 0; visibility: hidden; -webkit-transition: all .2s linear; transition: all .2s linear;} #HUABAN_WIDGETS .HUABAN-switcher:hover .HUABAN-bar .HUABAN-text-1 {right: 9px; opacity: 1; visibility: visible;} #HUABAN_WIDGETS .HUABAN-switcher.HUABAN-on:hover .HUABAN-bar .HUABAN-text-1 {right: 17px; opacity: 0; visibility: hidden;} #HUABAN_WIDGETS .HUABAN-switcher .HUABAN-bar .HUABAN-text-2 {height: 24px; line-height: 24px; position: absolute; left:17px; top: 0; opacity: 0; visibility: hidden; -webkit-transition: all .2s linear; transition: all .2s linear;} #HUABAN_WIDGETS .HUABAN-switcher:hover .HUABAN-bar .HUABAN-text-2 {left: 17px; opacity: 0; visibility: hidden;} #HUABAN_WIDGETS .HUABAN-switcher.HUABAN-on:hover .HUABAN-bar .HUABAN-text-2 {left: 9px; opacity: 1; visibility: visible;} #HUABAN_WIDGETS .HUABAN-header .HUABAN-switcher {position: absolute; right: 0; top: 0;} <!--[if IE 6]>#HUABAN_WIDGETS .HUABAN-red-normal-icon-button, .HUABAN-red-large-icon-button, .HUABAN-red-small-icon-button, .HUABAN-white-normal-icon-button, .HUABAN-white-large-icon-button, .HUABAN-white-small-icon-button { background-image: url({{imgBase}}/widget_icons_ie6.png) <![endif]--></style></div><embed id="xunlei_com_thunder_helper_plugin_d462f475-c18e-46be-bd10-327458d045bd" type="application/thunder_download_plugin" height="0" width="0"><div id="feedly-mini" title="feedly Mini tookit"></div></body></html>

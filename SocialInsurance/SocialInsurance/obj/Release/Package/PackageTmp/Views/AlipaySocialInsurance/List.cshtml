@@ -1,0 +1,290 @@
+﻿@model SocialInsurance.Models.Login
+    @{
+        ViewBag.Title = "社保查询";
+        Layout = "~/Views/Shared/_LayoutAlipay.cshtml";
+    }
+    <div class="am-toast" id="toast">
+        <div class="am-toast-text">
+            <span class="am-toast-icon am-icon" am-mode="toast-loading"></span> 正在加载...
+        </div>
+    </div>
+@if (Model.satus == "100")
+{
+    
+    foreach (var item in Model.year)
+    {
+        <input type="hidden"class="test"  value='@item'/>
+    }
+    <div class="am-list" am-mode="flat chip form">
+        <div class="am-list-item am-input-autoclear">
+            <div class="am-list-label">社保编号:</div>
+            <div class="am-list-control">
+                <input type="text" id="ID" value="@Model.ID">
+            </div>
+            <div class="am-list-clear"><i class="am-icon-clear am-icon" am-mode="clear"></i></div>
+        </div>
+        <div class="am-list-item am-input-autoclear">
+            <div class="am-list-label">身份证号:</div>
+            <div class="am-list-control">
+                <input type="text" id="IDCard" value="@Model.IDCard">
+            </div>
+            <div class="am-list-clear">
+                <i class="am-icon-clear am-icon" am-mode="clear"></i>
+            </div>
+        </div>
+        <div class="am-list-item am-input-autoclear">
+            <div class="am-list-label">姓名：</div>
+            <div class="am-list-control">
+                <input type="text" id="Name" value="@Model.Name">
+            </div>
+            <div class="am-list-clear">
+                <i class="am-icon-clear am-icon" am-mode="clear"></i>
+            </div>
+        </div>
+        <input type="hidden" id="date" value="" />
+    </div>
+    <div id="list">
+        <div class="am-list" am-mode="flat chip">
+            <div class="am-list-header">综合查询</div>
+            <div class="am-list-body">
+                <a onclick="result(2)" class="am-list-item">
+                    <div class="am-list-content">个人参保情况查询</div>
+                    <div class="am-list-arrow"><span class="am-icon" am-mode="arrow-horizontal"></span></div>
+                </a>
+                @*<a  onclick="result(2)" class="am-list-item">
+                        <div class="am-list-content">个人权益记录单查询</div>
+                        <div class="am-list-arrow"><span class="am-icon" am-mode="arrow-horizontal"></span></div>
+                    </a>
+                    <a href="PersonInsuranceStatus" class="am-list-item">
+                        <div class="am-list-content">企业养老保险个人账户查询</div>
+                        <div class="am-list-arrow"><span class="am-icon" am-mode="arrow-horizontal"></span></div>
+                    </a>*@
+            </div>
+            <div class="am-list-header">缴费信息查询</div>
+            <div class="am-list-body">
+                <a onclick="result(1)" class="am-list-item">
+                    <div class="am-list-content">企业养老缴费信息查询</div>
+                    <div class="am-list-arrow"><span class="am-icon" am-mode="arrow-horizontal"></span></div>
+                </a>
+                <a onclick="result(3)" class="am-list-item">
+                    <div class="am-list-content">生育缴费信息查询</div>
+                    <div class="am-list-arrow"><span class="am-icon" am-mode="arrow-horizontal"></span></div>
+                </a>
+                <a onclick="result(4)" class="am-list-item">
+                    <div class="am-list-content">工伤缴费信息查询</div>
+                    <div class="am-list-arrow"><span class="am-icon" am-mode="arrow-horizontal"></span></div>
+                </a>
+                <a onclick="result(5)" class="am-list-item">
+                    <div class="am-list-content">失业缴费信息查询</div>
+                    <div class="am-list-arrow"><span class="am-icon" am-mode="arrow-horizontal"></span></div>
+                </a>
+                <a onclick="result(6)" class="am-list-item">
+                    <div class="am-list-content">企业养老缴费信息月度查询</div>
+                    <div class="am-list-arrow"><span class="am-icon" am-mode="arrow-horizontal"></span></div>
+                </a>
+                <a onclick="result(7)" class="am-list-item">
+                    <div class="am-list-content">机关养老缴费信息月度查询</div>
+                    <div class="am-list-arrow"><span class="am-icon" am-mode="arrow-horizontal"></span></div>
+                </a>
+                <a onclick="result(8)" class="am-list-item">
+                    <div class="am-list-content">职工医保缴费信息月度查询</div>
+                    <div class="am-list-arrow"><span class="am-icon" am-mode="arrow-horizontal"></span></div>
+                </a>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="am-list" am-mode="flat chip form">
+        <div class="am-list-item am-input-autoclear">
+          <div class="am-list-body">未查到相关信息，请检查后重新输入！</div>  
+        </div>
+    </Div>
+}
+<div class="am-list" am-mode="flat chip">
+    <div id="result">
+    </div>
+    <div class="am-flexbox" am-mode="average" style="margin-top:15px;">
+        <div class="am-flexbox-item">
+            <button type="button" id="more" class="am-button am-button-blue">更多</button>
+        </div>
+    </div>
+    <div class="am-flexbox" am-mode="average" style="margin-top:15px;">
+        <div class="am-flexbox-item">
+            <button type="button" id="back" class="am-button am-button-blue">返回</button>
+        </div>
+    </div>
+ </div>
+ <script>
+     var i = 0;
+     $(function () {
+         $("#toast").hide();
+         $("#result").hide();
+         $("#back").hide();
+         $("#more").hide();
+         
+     });
+     function result(type) {
+         $("#toast").show();
+         var url = "";
+         var cpage = 1;
+         switch (type) {
+             //企业养老金缴费信息查询
+             case 1:
+                 url = "../AlipaySocialInsurance/PensionInsurance?cpage=" + cpage;
+                 break;
+                 //个人参保情况查询
+             case 2:
+                 url = "../AlipaySocialInsurance/PersonInsuranceStatus?cpage=" + cpage;
+                 break;
+                 //生育缴费查询
+             case 3:
+                 url = "../AlipaySocialInsurance/BirthInsurance?cpage=" + cpage;
+                 break;
+                 //工伤缴费查询
+             case 4:
+                 url = "../AlipaySocialInsurance/IdustrialInsurance?cpage=" + cpage;
+                 break;
+                 //失业缴费信息查询
+             case 5:
+                 url = "../AlipaySocialInsurance/UnemploymentInsurance?cpage=" + cpage;
+                 break;
+                 //企业养老缴费信息月度查询
+             case 6:
+                 $("#more").show();
+                 var year=$(".test").eq(i).val();
+                 url = "../AlipaySocialInsurance/CompanyMonthInsurance?cpage="+cpage+"&year="+year;
+                 break;
+             case 7:
+                 $("#more").show();
+                 var year = $(".test").eq(i).val();
+                 url = "../AlipaySocialInsurance/OfficeMonthInsurance?cpage=" + cpage + "&year=" + year;
+                 break;
+             case 8:
+                 $("#more").show();
+                 var year = $(".test").eq(i).val();
+                 url = "../AlipaySocialInsurance/EmployeehealthInsurance?cpage=" + cpage + "&year=" + year;
+                 break;
+         }
+         $.ajax({
+             url: url,
+             data: {
+                 ID: $("#ID").val(),
+                 IDCard: $("#IDCard").val(),
+             },
+             success: function (msg) {
+                 $("#list").hide();
+                 $("#result").show();
+                 $("#back").show();
+                 $("#result").empty().html(msg);
+                 var cpage = parseInt($("#cpage").val());
+                 var pages = parseInt($("#pages").val());
+                 if (cpage <pages)
+                 {
+                     $("#more").show();
+                 }
+             },
+             complete: function () {
+                 $("#toast").hide();
+             },
+             error: function () {
+                 alert("网络错误,请稍后重试！");
+             }
+         });
+     }
+     $("#back").click(function () {
+         $("#result").hide();
+         $("#list").show();
+         $("#back").hide();
+         $("#more").hide();
+         i = 0;
+     });
+     $("#more").click(function () {
+         i++;
+         $("#toast").show();
+         var ID = $("#ID").val();
+         var IDCard = $("#IDCard").val();
+         var cpage = parseInt($("#cpage").val()) + 1;
+         var pages = parseInt($("#pages").val());
+         var type = $("#style").val();
+         if (type != "companymonth" && type != "office" && type != "employeehealth") {
+             if (cpage < pages) {
+                 $("#more").show();
+             }
+             else {
+                 $("#more").hide();
+             }
+         }
+         else {
+
+             var len = $(".test").length;
+             if (i < len) {
+                 $("#more").show();
+             }
+             else
+             {
+                 $("#more").hide();
+                 i = 0;
+             }
+
+
+         }
+         var url = "";
+         switch (type) {
+             case "birth":
+                 url = "../AlipaySocialInsurance/BirthInsurance";
+                 break;
+             case "pension":
+                 url = "../AlipaySocialInsurance/PensionInsurance";
+                 break;
+             case "Idustrial":
+                 url = "../AlipaySocialInsurance/IdustrialInsurance";
+                 break;
+             case "unemployment":
+                 url = "../AlipaySocialInsurance/UnemploymentInsurance";
+                 break;
+             case "companymonth":
+                 cpage = 1;
+                 var year = $(".test").eq(i).val();
+                 url = "../AlipaySocialInsurance/CompanyMonthInsurance?&year=" + year;
+                 break;
+             case "office":
+                 cpage = 1;
+                 var year=$(".test").eq(i).val();
+                 url = "../AlipaySocialInsurance/OfficeMonthInsurance?&year=" + year;
+                 break;
+             case "employeehealth":
+                 cpage = 1;
+                 var year = $(".test").eq(i).val();
+                 url = "../AlipaySocialInsurance/EmployeehealthInsurance?&year=" + year;
+         }
+         $.ajax({
+             url: url,
+             data: {
+                 ID: ID,
+                 IDCard: IDCard,
+                 cpage: cpage
+             },
+             success: function (msg) {
+
+                 if (type != "companymonth" && type != "office" && type != "employeehealth")
+                 {
+                     $("#cpage").val(cpage);
+                     $("#resultmore").append(msg);
+                 }
+                 else {
+
+                     $("#result").empty().html(msg);
+                 } 
+             },
+             complete: function () {
+                 $("#toast").hide();
+             },
+             error: function () {
+                 i--;
+                 alert("网络错误，请稍后重试！");
+             }
+         });
+     });
+    </script>
