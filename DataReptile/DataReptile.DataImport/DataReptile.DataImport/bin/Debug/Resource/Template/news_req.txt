@@ -1,0 +1,16 @@
+<#--模板使用以下情况
+  --1、查询新闻
+-->
+<?xml version='1.0' encoding='UTF-8'?>
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+    <S:Body>
+        <GetNewsReq xmlns="http://new.webservice.namespace">
+            <AuthInfo>
+                <UserName>${vendorName}</UserName>
+                <Password>${vendorPass}</Password>
+            </AuthInfo>
+            <NewsStartTime>${newsStartTime?if_exists}</NewsStartTime>
+            <NewsEndTime>${newsEndTime?if_exists}</NewsEndTime>
+        </GetNewsReq>
+    </S:Body>
+</S:Envelope>

@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+    <S:Body>
+        <GetRegPoolReq xmlns="http://new.webservice.namespace">
+            <AuthInfo>
+                <UserName>{0}</UserName>
+                <Password>{1}</Password>
+            </AuthInfo>
+            <Filter>
+                <HospName>{2}</HospName>
+                <DepartName>{3}</DepartName>
+                <DoctorName>{4}</DoctorName>
+                <WorkDate>{5}</WorkDate>
+                <WorkType>{6}</WorkType>
+            </Filter>
+        </GetRegPoolReq>
+    </S:Body>
+</S:Envelope>

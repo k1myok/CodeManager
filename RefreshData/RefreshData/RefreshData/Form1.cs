@@ -23,7 +23,7 @@ namespace RefreshData
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var result = HttpHelper.GetHtmlExByByPost("http://rss.weibodangan.com/weibo/rss/1822107334/", "",Encoding.UTF8);
+            var result = HttpHelper.GetHtmlExByByPost("http://www.bazhuayu.com/", "", Encoding.UTF8);
             if (result != null)
             {
                 var sql="data source=.;initial catalog=RefreshData;user id=yang;pwd=kenyang123!@#";
@@ -32,15 +32,20 @@ namespace RefreshData
                 var table = new DataTable();
                 adapter.Fill(table);
                 XElement temp = XElement.Parse(result);
+                var tempuserid = temp.Descendants("title").FirstOrDefault().Value;
+                
+              
                 var itemrow = temp.Descendants("item").ToList();
                 foreach (var list in itemrow)
                 {
                     var row = table.NewRow();
+                    row["userid"] = tempuserid;
                     row["title"] = list.Element("title").Value;
                     row["description"] = list.Element("description").Value;
-                    row["pubDate"] = list.Element("pubDate").Value;
+                    row["pubDate"] =Convert.ToDateTime(list.Element("pubDate").Value);
                     row["guid"]= list.Element("guid").Value;
                     row ["link"] = list.Element("link").Value;
+                    row["createDate"] = System.DateTime.Now;
                     table.Rows.Add(row);
                 }
 
@@ -54,8 +59,6 @@ namespace RefreshData
                     adapter.Update(table);
                  
                 }
-
-
 
             }
 

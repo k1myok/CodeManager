@@ -1,0 +1,85 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataReptile.DataImport", "DataReptile.DataImport\DataReptile.DataImport\DataReptile.DataImport.csproj", "{CD548D5C-E4EE-4708-B3C2-623653CDF075}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataReptile.DataImport.UnitTestProject", "DataReptile.DataImport.UnitTestProject\DataReptile.DataImport.UnitTestProject.csproj", "{EA431888-CB14-47BE-BA31-68872E52A10E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataReptile.WindowsService", "DataReptile.WindowsService\DataReptile.WindowsService.csproj", "{55186E79-1740-4FDA-B45A-8BF0FFC3F105}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataReptile.WindowsService.Open", "DataReptile.WindowsService.Open\DataReptile.WindowsService.Open.csproj", "{DE7DD745-59B3-448C-8137-7819FB13B008}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://content.china-ccw.com:58080/tfs/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = DataReptile.DataImport\\DataReptile.DataImport\\DataReptile.DataImport.csproj
+		SccProjectName1 = DataReptile.DataImport/DataReptile.DataImport
+		SccLocalPath1 = DataReptile.DataImport\\DataReptile.DataImport
+		SccProjectUniqueName2 = DataReptile.DataImport.UnitTestProject\\DataReptile.DataImport.UnitTestProject.csproj
+		SccProjectName2 = DataReptile.DataImport.UnitTestProject
+		SccLocalPath2 = DataReptile.DataImport.UnitTestProject
+		SccProjectUniqueName3 = DataReptile.WindowsService.Open\\DataReptile.WindowsService.Open.csproj
+		SccProjectName3 = DataReptile.WindowsService.Open
+		SccLocalPath3 = DataReptile.WindowsService.Open
+		SccProjectUniqueName4 = DataReptile.WindowsService\\DataReptile.WindowsService.csproj
+		SccProjectName4 = DataReptile.WindowsService
+		SccLocalPath4 = DataReptile.WindowsService
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		CD_ROM|Any CPU = CD_ROM|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		DVD-5|Any CPU = DVD-5|Any CPU
+		Release|Any CPU = Release|Any CPU
+		SingleImage|Any CPU = SingleImage|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CD548D5C-E4EE-4708-B3C2-623653CDF075}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
+		{CD548D5C-E4EE-4708-B3C2-623653CDF075}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
+		{CD548D5C-E4EE-4708-B3C2-623653CDF075}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD548D5C-E4EE-4708-B3C2-623653CDF075}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD548D5C-E4EE-4708-B3C2-623653CDF075}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD548D5C-E4EE-4708-B3C2-623653CDF075}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
+		{CD548D5C-E4EE-4708-B3C2-623653CDF075}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD548D5C-E4EE-4708-B3C2-623653CDF075}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD548D5C-E4EE-4708-B3C2-623653CDF075}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
+		{CD548D5C-E4EE-4708-B3C2-623653CDF075}.SingleImage|Any CPU.Build.0 = Release|Any CPU
+		{EA431888-CB14-47BE-BA31-68872E52A10E}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
+		{EA431888-CB14-47BE-BA31-68872E52A10E}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
+		{EA431888-CB14-47BE-BA31-68872E52A10E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA431888-CB14-47BE-BA31-68872E52A10E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA431888-CB14-47BE-BA31-68872E52A10E}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA431888-CB14-47BE-BA31-68872E52A10E}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
+		{EA431888-CB14-47BE-BA31-68872E52A10E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA431888-CB14-47BE-BA31-68872E52A10E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA431888-CB14-47BE-BA31-68872E52A10E}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
+		{EA431888-CB14-47BE-BA31-68872E52A10E}.SingleImage|Any CPU.Build.0 = Release|Any CPU
+		{55186E79-1740-4FDA-B45A-8BF0FFC3F105}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
+		{55186E79-1740-4FDA-B45A-8BF0FFC3F105}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
+		{55186E79-1740-4FDA-B45A-8BF0FFC3F105}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55186E79-1740-4FDA-B45A-8BF0FFC3F105}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55186E79-1740-4FDA-B45A-8BF0FFC3F105}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
+		{55186E79-1740-4FDA-B45A-8BF0FFC3F105}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
+		{55186E79-1740-4FDA-B45A-8BF0FFC3F105}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55186E79-1740-4FDA-B45A-8BF0FFC3F105}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55186E79-1740-4FDA-B45A-8BF0FFC3F105}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
+		{55186E79-1740-4FDA-B45A-8BF0FFC3F105}.SingleImage|Any CPU.Build.0 = Release|Any CPU
+		{DE7DD745-59B3-448C-8137-7819FB13B008}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
+		{DE7DD745-59B3-448C-8137-7819FB13B008}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
+		{DE7DD745-59B3-448C-8137-7819FB13B008}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE7DD745-59B3-448C-8137-7819FB13B008}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE7DD745-59B3-448C-8137-7819FB13B008}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE7DD745-59B3-448C-8137-7819FB13B008}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
+		{DE7DD745-59B3-448C-8137-7819FB13B008}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE7DD745-59B3-448C-8137-7819FB13B008}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE7DD745-59B3-448C-8137-7819FB13B008}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
+		{DE7DD745-59B3-448C-8137-7819FB13B008}.SingleImage|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

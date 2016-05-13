@@ -1,0 +1,4 @@
+E:\Projects\PreProjects\Source\ChinaCCW\DataReptile\DataReptile.WindowsService.Open\bin\Debug\DataReptile.WindowsService.Open.dll
+E:\Projects\PreProjects\Source\ChinaCCW\DataReptile\DataReptile.WindowsService.Open\bin\Debug\DataReptile.WindowsService.Open.pdb
+E:\Projects\PreProjects\Source\ChinaCCW\DataReptile\DataReptile.WindowsService.Open\obj\Debug\DataReptile.WindowsService.Open.dll
+E:\Projects\PreProjects\Source\ChinaCCW\DataReptile\DataReptile.WindowsService.Open\obj\Debug\DataReptile.WindowsService.Open.pdb

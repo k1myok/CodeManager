@@ -9,3 +9,14 @@ E:\NET\MVCProject\RefreshData\RefreshData\RefreshData\obj\Debug\RefreshData.Prop
 E:\NET\MVCProject\RefreshData\RefreshData\RefreshData\obj\Debug\RefreshData.csproj.GenerateResource.Cache
 E:\NET\MVCProject\RefreshData\RefreshData\RefreshData\obj\Debug\RefreshData.exe
 E:\NET\MVCProject\RefreshData\RefreshData\RefreshData\obj\Debug\RefreshData.pdb
+F:\NET\MVCProject\RefreshData\RefreshData\RefreshData\bin\Debug\RefreshData.exe.config
+F:\NET\MVCProject\RefreshData\RefreshData\RefreshData\bin\Debug\RefreshData.exe
+F:\NET\MVCProject\RefreshData\RefreshData\RefreshData\bin\Debug\RefreshData.pdb
+F:\NET\MVCProject\RefreshData\RefreshData\RefreshData\bin\Debug\EntityFramework.dll
+F:\NET\MVCProject\RefreshData\RefreshData\RefreshData\bin\Debug\EntityFramework.xml
+F:\NET\MVCProject\RefreshData\RefreshData\RefreshData\bin\Debug\zh-Hans\EntityFramework.resources.dll
+F:\NET\MVCProject\RefreshData\RefreshData\RefreshData\obj\Debug\RefreshData.Form1.resources
+F:\NET\MVCProject\RefreshData\RefreshData\RefreshData\obj\Debug\RefreshData.Properties.Resources.resources
+F:\NET\MVCProject\RefreshData\RefreshData\RefreshData\obj\Debug\RefreshData.csproj.GenerateResource.Cache
+F:\NET\MVCProject\RefreshData\RefreshData\RefreshData\obj\Debug\RefreshData.exe
+F:\NET\MVCProject\RefreshData\RefreshData\RefreshData\obj\Debug\RefreshData.pdb
