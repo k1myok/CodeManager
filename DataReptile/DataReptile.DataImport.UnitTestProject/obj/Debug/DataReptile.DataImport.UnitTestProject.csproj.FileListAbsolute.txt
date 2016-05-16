@@ -1,4 +1,3 @@
-E:\Projects\PreProjects\Source\ChinaCCW\DataReptile\DataReptile.DataImport.UnitTestProject\obj\Debug\DataReptile.DataImport.UnitTestProject.csprojResolveAssemblyReference.cache
 E:\Projects\PreProjects\Source\ChinaCCW\DataReptile\DataReptile.DataImport.UnitTestProject\bin\Debug\Resource\Template\news_req.txt
 E:\Projects\PreProjects\Source\ChinaCCW\DataReptile\DataReptile.DataImport.UnitTestProject\bin\Debug\Resource\Template\privateData_req.txt
 E:\Projects\PreProjects\Source\ChinaCCW\DataReptile\DataReptile.DataImport.UnitTestProject\bin\Debug\Resource\Template\register_req.txt
@@ -17,5 +16,6 @@ E:\Projects\PreProjects\Source\ChinaCCW\DataReptile\DataReptile.DataImport.UnitT
 E:\Projects\PreProjects\Source\ChinaCCW\DataReptile\DataReptile.DataImport.UnitTestProject\bin\Debug\DataReptile.DataImport.pdb
 E:\Projects\PreProjects\Source\ChinaCCW\DataReptile\DataReptile.DataImport.UnitTestProject\bin\Debug\DataReptile.WindowsService.Open.pdb
 E:\Projects\PreProjects\Source\ChinaCCW\DataReptile\DataReptile.DataImport.UnitTestProject\bin\Debug\DataReptile.WindowsService.pdb
+E:\Projects\PreProjects\Source\ChinaCCW\DataReptile\DataReptile.DataImport.UnitTestProject\obj\Debug\DataReptile.DataImport.UnitTestProject.csprojResolveAssemblyReference.cache
 E:\Projects\PreProjects\Source\ChinaCCW\DataReptile\DataReptile.DataImport.UnitTestProject\obj\Debug\DataReptile.DataImport.UnitTestProject.dll
 E:\Projects\PreProjects\Source\ChinaCCW\DataReptile\DataReptile.DataImport.UnitTestProject\obj\Debug\DataReptile.DataImport.UnitTestProject.pdb

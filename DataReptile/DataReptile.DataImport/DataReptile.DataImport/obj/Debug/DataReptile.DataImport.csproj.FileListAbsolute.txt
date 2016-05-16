@@ -9,6 +9,8 @@ E:\Projects\PreProjects\Source\ChinaCCW\DataReptile\DataReptile.DataImport\DataR
 E:\Projects\PreProjects\Source\ChinaCCW\DataReptile\DataReptile.DataImport\DataReptile.DataImport\bin\Debug\DataReptile.DataImport.pdb
 E:\Projects\PreProjects\Source\ChinaCCW\DataReptile\DataReptile.DataImport\DataReptile.DataImport\bin\Debug\DataReptile.WindowsService.Open.dll
 E:\Projects\PreProjects\Source\ChinaCCW\DataReptile\DataReptile.DataImport\DataReptile.DataImport\bin\Debug\Microsoft.QualityTools.Testing.Fakes.dll
+E:\Projects\PreProjects\Source\ChinaCCW\DataReptile\DataReptile.DataImport\DataReptile.DataImport\bin\Debug\Oracle.DataAccess.dll
+E:\Projects\PreProjects\Source\ChinaCCW\DataReptile\DataReptile.DataImport\DataReptile.DataImport\bin\Debug\Oracle.ManagedDataAccess.dll
 E:\Projects\PreProjects\Source\ChinaCCW\DataReptile\DataReptile.DataImport\DataReptile.DataImport\bin\Debug\DataReptile.WindowsService.Open.pdb
 E:\Projects\PreProjects\Source\ChinaCCW\DataReptile\DataReptile.DataImport\DataReptile.DataImport\bin\Debug\zh-Hans\Microsoft.QualityTools.Testing.Fakes.resources.dll
 E:\Projects\PreProjects\Source\ChinaCCW\DataReptile\DataReptile.DataImport\DataReptile.DataImport\obj\Debug\DataReptile.DataImport.csprojFakesResolveAssemblyReference.cache

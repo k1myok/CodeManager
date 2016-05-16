@@ -10,6 +10,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Linq;
+using Oracle.DataAccess;
+using Oracle.ManagedDataAccess;
+using System.Data.OracleClient;
 
 
 
@@ -24,16 +27,16 @@ namespace DataReptile.DataImport
         }
         public override async Task<bool> Reptile()
         {
-            var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["SinaData"].ConnectionString);
+            var connection = new OracleConnection(ConfigurationManager.ConnectionStrings["OracleDbContext"].ConnectionString);
             connection.Open();
-            var command = new SqlCommand("select UserID from sinauser", connection);
-            SqlDataReader rd = command.ExecuteReader();
+            var command = new OracleCommand("select USERID from TB_SINAUSER ", connection);
+           OracleDataReader rd = command.ExecuteReader();
             var UserID = string.Empty;
             while (rd.Read())
             {
                 UserID = rd[0].ToString();
                 var result=UpdarteToDB(UserID);
-               this.WriteLog("新浪微博数据抓取：" + UserID + "-" + result);
+                this.WriteLog("新浪微博数据抓取：" + UserID + "-" + result);
                 //var result = this.ConvertToNodes(xmlData);
                 //if (result == null || result.Count == 0)
                 //    this.WreteLog("将XMLdata 转换为XML Nodes时结果为空！");
@@ -50,10 +53,10 @@ namespace DataReptile.DataImport
                 var result = HttpHelper.GetHtmlExByByPost(url, "", Encoding.UTF8);
                 if (result != null)
                 {
-                    var sql = new SqlConnection(ConfigurationManager.ConnectionStrings["SinaData"].ConnectionString);
+                    var sql = new OracleConnection(ConfigurationManager.ConnectionStrings["OracleDbContext"].ConnectionString);
                     sql.Open();
                     //var  = "data source=.;initial catalog=RefreshData;user id=yang;pwd=kenyang123!@#";
-                    var adapter = new SqlDataAdapter("select top 1 * from SinaData where 0>1", sql);
+                    var adapter = new OracleDataAdapter("select * from TB_WEIBOINFO where 0>1", sql);
                     var table = new DataTable();
                     adapter.Fill(table);
                     XElement temp = XElement.Parse(result);
@@ -71,8 +74,8 @@ namespace DataReptile.DataImport
                         row["guid"] = guid;
                         row["link"] = list.Element("link").Value;
                         row["createDate"] = System.DateTime.Now;
-                        var tempsql ="select count(*) from SinaData where guid='"+guid+"'";
-                        var cmd = new SqlCommand(tempsql, sql);
+                        var tempsql = "select count(*) from TB_WEIBOINFO where guid='" + guid + "'";
+                        var cmd = new OracleCommand(tempsql, sql);
                         var No =Convert.ToInt32(cmd.ExecuteScalar());
                         if (No<1)
                         {
@@ -83,32 +86,32 @@ namespace DataReptile.DataImport
                             this.WriteLog("该条信息已经存入数据库：" + list.Element("title").Value);
                         }
                     }
-                    var command = new SqlCommand("delete from SinaData where 0>1", sql);
+                    var command = new OracleCommand("delete from TB_WEIBOINFO  where 0>1", sql);
                     if (sql.State == ConnectionState.Closed)
                         sql.Open();
                     if (command.ExecuteNonQuery() > -1)
                     {
-                        var builder = new SqlCommandBuilder(adapter);
+                       var builder = new OracleCommandBuilder(adapter);
                         adapter.InsertCommand = builder.GetInsertCommand();
                         if (adapter.Update(table) > 0)
                         {
 
-                            interval = 5*60*1000;
+                            interval = 1*60*60*1000;
                             return true;
                         }
                         else
-                            interval = 3 * 60 * 1000;
+                            interval = 5 * 60 * 1000;
                         return false;
                     } 
                 }
-                interval = 5 * 60 * 1000;
+                interval = 10 * 60 * 1000;
                 return false;
 
         }
 
 
 
-        public int interval = 2* 60*1000;
+        public int interval = 1*60*60*1000;
         public override int Interval
         {
             get { return interval; }
