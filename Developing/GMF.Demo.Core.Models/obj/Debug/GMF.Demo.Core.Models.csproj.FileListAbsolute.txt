@@ -1,0 +1,11 @@
+F:\NET\MVCProject\Developing\GMF.Demo.Core.Models\bin\Debug\GMF.Demo.Core.Models.dll
+F:\NET\MVCProject\Developing\GMF.Demo.Core.Models\bin\Debug\GMF.Demo.Core.Models.pdb
+F:\NET\MVCProject\Developing\GMF.Demo.Core.Models\bin\Debug\GMF.Component.Tools.dll
+F:\NET\MVCProject\Developing\GMF.Demo.Core.Models\bin\Debug\log4net.dll
+F:\NET\MVCProject\Developing\GMF.Demo.Core.Models\bin\Debug\Newtonsoft.Json.dll
+F:\NET\MVCProject\Developing\GMF.Demo.Core.Models\bin\Debug\GMF.Component.Tools.pdb
+F:\NET\MVCProject\Developing\GMF.Demo.Core.Models\bin\Debug\log4net.xml
+F:\NET\MVCProject\Developing\GMF.Demo.Core.Models\bin\Debug\Newtonsoft.Json.xml
+F:\NET\MVCProject\Developing\GMF.Demo.Core.Models\obj\Debug\GMF.Demo.Core.Models.csprojResolveAssemblyReference.cache
+F:\NET\MVCProject\Developing\GMF.Demo.Core.Models\obj\Debug\GMF.Demo.Core.Models.dll
+F:\NET\MVCProject\Developing\GMF.Demo.Core.Models\obj\Debug\GMF.Demo.Core.Models.pdb

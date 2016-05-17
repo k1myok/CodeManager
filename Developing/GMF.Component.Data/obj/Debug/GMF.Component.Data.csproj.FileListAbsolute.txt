@@ -1,0 +1,14 @@
+F:\NET\MVCProject\Developing\GMF.Component.Data\bin\Debug\GMF.Component.Data.dll
+F:\NET\MVCProject\Developing\GMF.Component.Data\bin\Debug\GMF.Component.Data.pdb
+F:\NET\MVCProject\Developing\GMF.Component.Data\bin\Debug\EntityFramework.dll
+F:\NET\MVCProject\Developing\GMF.Component.Data\bin\Debug\GMF.Component.Tools.dll
+F:\NET\MVCProject\Developing\GMF.Component.Data\bin\Debug\log4net.dll
+F:\NET\MVCProject\Developing\GMF.Component.Data\bin\Debug\Newtonsoft.Json.dll
+F:\NET\MVCProject\Developing\GMF.Component.Data\bin\Debug\GMF.Component.Tools.pdb
+F:\NET\MVCProject\Developing\GMF.Component.Data\bin\Debug\EntityFramework.xml
+F:\NET\MVCProject\Developing\GMF.Component.Data\bin\Debug\log4net.xml
+F:\NET\MVCProject\Developing\GMF.Component.Data\bin\Debug\Newtonsoft.Json.xml
+F:\NET\MVCProject\Developing\GMF.Component.Data\bin\Debug\zh-Hans\EntityFramework.resources.dll
+F:\NET\MVCProject\Developing\GMF.Component.Data\obj\Debug\GMF.Component.Data.csprojResolveAssemblyReference.cache
+F:\NET\MVCProject\Developing\GMF.Component.Data\obj\Debug\GMF.Component.Data.dll
+F:\NET\MVCProject\Developing\GMF.Component.Data\obj\Debug\GMF.Component.Data.pdb
