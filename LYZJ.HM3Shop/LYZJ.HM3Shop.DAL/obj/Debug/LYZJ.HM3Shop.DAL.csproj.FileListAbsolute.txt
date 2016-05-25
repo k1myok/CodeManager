@@ -1,0 +1,15 @@
+F:\heima\practice\LYZJ.HM3Shop\LYZJ.HM3Shop.DAL\bin\Debug\LYZJ.HM3Shop.DAL.dll
+F:\heima\practice\LYZJ.HM3Shop\LYZJ.HM3Shop.DAL\bin\Debug\LYZJ.HM3Shop.DAL.pdb
+F:\heima\practice\LYZJ.HM3Shop\LYZJ.HM3Shop.DAL\bin\Debug\EntityFramework.dll
+F:\heima\practice\LYZJ.HM3Shop\LYZJ.HM3Shop.DAL\bin\Debug\LYZJ.HM3Shop.Common.dll
+F:\heima\practice\LYZJ.HM3Shop\LYZJ.HM3Shop.DAL\bin\Debug\LYZJ.HM3Shop.IDAL.dll
+F:\heima\practice\LYZJ.HM3Shop\LYZJ.HM3Shop.DAL\bin\Debug\LYZJ.HM3Shop.Model.dll
+F:\heima\practice\LYZJ.HM3Shop\LYZJ.HM3Shop.DAL\bin\Debug\LYZJ.HM3Shop.Common.pdb
+F:\heima\practice\LYZJ.HM3Shop\LYZJ.HM3Shop.DAL\bin\Debug\LYZJ.HM3Shop.IDAL.pdb
+F:\heima\practice\LYZJ.HM3Shop\LYZJ.HM3Shop.DAL\bin\Debug\LYZJ.HM3Shop.Model.pdb
+F:\heima\practice\LYZJ.HM3Shop\LYZJ.HM3Shop.DAL\bin\Debug\EntityFramework.xml
+F:\heima\practice\LYZJ.HM3Shop\lib\LYZJ.HM3Shop.DAL.dll
+F:\heima\practice\LYZJ.HM3Shop\lib\LYZJ.HM3Shop.DAL.pdb
+F:\heima\practice\LYZJ.HM3Shop\LYZJ.HM3Shop.DAL\obj\Debug\LYZJ.HM3Shop.DAL.csprojResolveAssemblyReference.cache
+F:\heima\practice\LYZJ.HM3Shop\LYZJ.HM3Shop.DAL\obj\Debug\LYZJ.HM3Shop.DAL.dll
+F:\heima\practice\LYZJ.HM3Shop\LYZJ.HM3Shop.DAL\obj\Debug\LYZJ.HM3Shop.DAL.pdb

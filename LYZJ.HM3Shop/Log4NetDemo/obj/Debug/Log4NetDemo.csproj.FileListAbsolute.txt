@@ -1,0 +1,8 @@
+F:\heima\practice\LYZJ.HM3Shop\Log4NetDemo\bin\Debug\Log4NetDemo.exe.config
+F:\heima\practice\LYZJ.HM3Shop\Log4NetDemo\bin\Debug\Log4NetDemo.exe
+F:\heima\practice\LYZJ.HM3Shop\Log4NetDemo\bin\Debug\Log4NetDemo.pdb
+F:\heima\practice\LYZJ.HM3Shop\Log4NetDemo\bin\Debug\log4net.dll
+F:\heima\practice\LYZJ.HM3Shop\Log4NetDemo\bin\Debug\log4net.xml
+F:\heima\practice\LYZJ.HM3Shop\Log4NetDemo\obj\Debug\Log4NetDemo.csprojResolveAssemblyReference.cache
+F:\heima\practice\LYZJ.HM3Shop\Log4NetDemo\obj\Debug\Log4NetDemo.exe
+F:\heima\practice\LYZJ.HM3Shop\Log4NetDemo\obj\Debug\Log4NetDemo.pdb

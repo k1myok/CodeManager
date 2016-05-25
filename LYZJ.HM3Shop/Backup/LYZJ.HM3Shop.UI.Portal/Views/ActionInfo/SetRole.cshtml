@@ -1,0 +1,64 @@
+﻿@model LYZJ.HM3Shop.Model.ActionInfo
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>SetRole</title>
+    <script src="../../Scripts/jquery-1.7.1.js"></script>
+    <script src="../../Scripts/jquery.unobtrusive-ajax.js"></script>
+    <script type="text/javascript">
+        function AfterSetRole(data) {
+            if (data == "OK") {
+                //调用父容器的方法，传递参数关闭层
+                window.parent.AfterSetRole();
+            }
+            else {
+                alert("权限角色设置出错，请您检查");
+            }
+        }
+    </script>
+</head>
+<body>
+    
+    <h3>欢迎您给权限:<font color="red" size="5">@Model.ActionName </font>设置角色信息:</h3>
+    <hr />
+    
+    <fieldset>
+        <legend>请选择您需要设置给权限设置的角色</legend>
+        @using(Ajax.BeginForm("SetRole","ActionInfo",new AjaxOptions(){OnSuccess="AfterSetRole"},new{id="frmSetRole"})){
+            //存放一个隐藏域，用来给前台传递权限的ID
+            <input type="hidden" name="hidenActionID" value="@Model.ID" />
+                      
+            List<LYZJ.HM3Shop.Model.Role> allRoles = (List<LYZJ.HM3Shop.Model.Role>)ViewBag.AllRoles;
+            List<int> ExistRoleIds=(List<int>)ViewBag.ExistRoleIds;
+            for (int i = 0; i < allRoles.Count; i++)
+            {
+                if(i%3==0)
+                {
+                    <br />
+                }
+                string str = "ckb_" + allRoles[i].ID;
+                //判断当前的角色有没有加入到权限里面取，如果在里面，直接显示选中即可，否则不显示 
+                if(ExistRoleIds.Contains(allRoles[i].ID))
+                {         
+                    <input type="checkbox" checked="checked" name="@str" value=" @str" id="@str" />
+                }
+                else
+                {
+                    <input type="checkbox" name="@str" value=" @str" id="@str" />  
+                }
+                <label for="@str">@allRoles[i].RoleName</label><span>&nbsp;&nbsp;</span>
+            }
+            <br />
+            <div style="text-align:center;">
+                <input type="submit" value="设置权限角色" />
+            </div>
+        }
+    </fieldset>
+</body>
+</html>

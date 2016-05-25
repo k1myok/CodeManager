@@ -1,0 +1,143 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LYZJ.HM3Shop.Model", "LYZJ.HM3Shop.Model\LYZJ.HM3Shop.Model.csproj", "{B1EE250F-B388-48D8-B2E1-0863942B9BCF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LYZJ.HM3Shop.UI.Portal", "LYZJ.HM3Shop.UI.Portal\LYZJ.HM3Shop.UI.Portal.csproj", "{AAF2C5A4-F31E-4F28-98C6-C1E503FBC15E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LYZJ.HM3Shop.IDAL", "LYZJ.HM3Shop.IDAL\LYZJ.HM3Shop.IDAL.csproj", "{A7C10109-AC46-4DCF-B800-4EAFDC8F2F1A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LYZJ.HM3Shop.IBLL", "LYZJ.HM3Shop.IBLL\LYZJ.HM3Shop.IBLL.csproj", "{32437310-4A2D-4181-BBCE-23AB6D9F0B45}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Interface", "Interface", "{D9EB90D8-267C-4DD1-BD67-8D82BC2F26D6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTest", "UnitTest", "{3E43A84A-3D50-4A50-AC61-12F10AB27C84}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ModelCommon", "ModelCommon", "{A104BFAA-DCF3-4E24-B6EE-496BA4EB2C94}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Implement", "Implement", "{558FCA78-11F9-4172-8B0E-AF8A4C287AFD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LYZJ.HM3Shop.BLL", "LYZJ.HM3Shop.BLL\LYZJ.HM3Shop.BLL.csproj", "{689BA6B7-177C-4CC5-959D-0B3CDAA60F4F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{86227FAD-1C43-4702-857E-94D7144E32E3} = {86227FAD-1C43-4702-857E-94D7144E32E3}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LYZJ.HM3Shop.Common", "LYZJ.HM3Shop.Common\LYZJ.HM3Shop.Common.csproj", "{E7044190-C623-4DEA-ADED-97BBE594AC67}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LYZJ.HM3Shop.DAL", "LYZJ.HM3Shop.DAL\LYZJ.HM3Shop.DAL.csproj", "{86227FAD-1C43-4702-857E-94D7144E32E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LYZJ.HM3Shop.UnitTest", "LYZJ.HM3Shop.UnitTest\LYZJ.HM3Shop.UnitTest.csproj", "{AF60F815-23FD-41BA-875E-0D0EEAF550BD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListProductCategory", "ListProductCategory\ListProductCategory.csproj", "{FC081C0E-D502-49A1-B990-24798535024B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Log4NetDemo", "Log4NetDemo\Log4NetDemo.csproj", "{4A6B4E69-B01A-4FB8-940C-55A106DE35A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Memcached", "Memcached\Memcached.csproj", "{8871DB5D-1DE8-4DF2-8E26-EA7E29B45789}"
+EndProject
+Global
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 10
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = LYZJ.HM3Shop.IBLL\\LYZJ.HM3Shop.IBLL.csproj
+		SccProjectTopLevelParentUniqueName1 = LYZJ.HM3Shop.sln
+		SccLocalPath1 = .
+		SccProjectFilePathRelativizedFromConnection1 = LYZJ.HM3Shop.IBLL\\
+		SccProjectUniqueName2 = LYZJ.HM3Shop.IDAL\\LYZJ.HM3Shop.IDAL.csproj
+		SccProjectTopLevelParentUniqueName2 = LYZJ.HM3Shop.sln
+		SccLocalPath2 = .
+		SccProjectFilePathRelativizedFromConnection2 = LYZJ.HM3Shop.IDAL\\
+		SccProjectUniqueName3 = LYZJ.HM3Shop.Model\\LYZJ.HM3Shop.Model.csproj
+		SccProjectTopLevelParentUniqueName3 = LYZJ.HM3Shop.sln
+		SccLocalPath3 = .
+		SccProjectFilePathRelativizedFromConnection3 = LYZJ.HM3Shop.Model\\
+		SccProjectUniqueName4 = LYZJ.HM3Shop.UI.Portal\\LYZJ.HM3Shop.UI.Portal.csproj
+		SccLocalPath4 = .
+		SccProjectFilePathRelativizedFromConnection4 = LYZJ.HM3Shop.UI.Portal\\
+		SccProjectUniqueName5 = LYZJ.HM3Shop.BLL\\LYZJ.HM3Shop.BLL.csproj
+		SccProjectTopLevelParentUniqueName5 = LYZJ.HM3Shop.sln
+		SccProjectName5 = \u0022$/LYZJ.HM3Shop.root/LYZJ.HM3Shop/LYZJ.HM3Shop.BLL\u0022,\u0020FAAAAAAA
+		SccLocalPath5 = LYZJ.HM3Shop.BLL
+		SccProjectUniqueName6 = LYZJ.HM3Shop.Common\\LYZJ.HM3Shop.Common.csproj
+		SccProjectTopLevelParentUniqueName6 = LYZJ.HM3Shop.sln
+		SccProjectName6 = \u0022$/LYZJ.HM3Shop.root/LYZJ.HM3Shop/LYZJ.HM3Shop.Common\u0022,\u0020NAAAAAAA
+		SccLocalPath6 = LYZJ.HM3Shop.Common
+		SccProjectUniqueName7 = LYZJ.HM3Shop.DAL\\LYZJ.HM3Shop.DAL.csproj
+		SccProjectTopLevelParentUniqueName7 = LYZJ.HM3Shop.sln
+		SccProjectName7 = \u0022$/LYZJ.HM3Shop.root/LYZJ.HM3Shop/LYZJ.HM3Shop.DAL\u0022,\u0020SAAAAAAA
+		SccLocalPath7 = LYZJ.HM3Shop.DAL
+		SccProjectUniqueName8 = LYZJ.HM3Shop.UnitTest\\LYZJ.HM3Shop.UnitTest.csproj
+		SccProjectTopLevelParentUniqueName8 = LYZJ.HM3Shop.sln
+		SccProjectName8 = \u0022$/LYZJ.HM3Shop.root/LYZJ.HM3Shop/LYZJ.HM3Shop.UnitTest\u0022,\u0020UXAAAAAA
+		SccLocalPath8 = LYZJ.HM3Shop.UnitTest
+		SccProjectUniqueName9 = ListProductCategory\\ListProductCategory.csproj
+		SccLocalPath9 = .
+		SccProjectFilePathRelativizedFromConnection9 = ListProductCategory\\
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B1EE250F-B388-48D8-B2E1-0863942B9BCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1EE250F-B388-48D8-B2E1-0863942B9BCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1EE250F-B388-48D8-B2E1-0863942B9BCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1EE250F-B388-48D8-B2E1-0863942B9BCF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AAF2C5A4-F31E-4F28-98C6-C1E503FBC15E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAF2C5A4-F31E-4F28-98C6-C1E503FBC15E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAF2C5A4-F31E-4F28-98C6-C1E503FBC15E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAF2C5A4-F31E-4F28-98C6-C1E503FBC15E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7C10109-AC46-4DCF-B800-4EAFDC8F2F1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7C10109-AC46-4DCF-B800-4EAFDC8F2F1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7C10109-AC46-4DCF-B800-4EAFDC8F2F1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7C10109-AC46-4DCF-B800-4EAFDC8F2F1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32437310-4A2D-4181-BBCE-23AB6D9F0B45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32437310-4A2D-4181-BBCE-23AB6D9F0B45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32437310-4A2D-4181-BBCE-23AB6D9F0B45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32437310-4A2D-4181-BBCE-23AB6D9F0B45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{689BA6B7-177C-4CC5-959D-0B3CDAA60F4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{689BA6B7-177C-4CC5-959D-0B3CDAA60F4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{689BA6B7-177C-4CC5-959D-0B3CDAA60F4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{689BA6B7-177C-4CC5-959D-0B3CDAA60F4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7044190-C623-4DEA-ADED-97BBE594AC67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7044190-C623-4DEA-ADED-97BBE594AC67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7044190-C623-4DEA-ADED-97BBE594AC67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7044190-C623-4DEA-ADED-97BBE594AC67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86227FAD-1C43-4702-857E-94D7144E32E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86227FAD-1C43-4702-857E-94D7144E32E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86227FAD-1C43-4702-857E-94D7144E32E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86227FAD-1C43-4702-857E-94D7144E32E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF60F815-23FD-41BA-875E-0D0EEAF550BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF60F815-23FD-41BA-875E-0D0EEAF550BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF60F815-23FD-41BA-875E-0D0EEAF550BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF60F815-23FD-41BA-875E-0D0EEAF550BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC081C0E-D502-49A1-B990-24798535024B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC081C0E-D502-49A1-B990-24798535024B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC081C0E-D502-49A1-B990-24798535024B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC081C0E-D502-49A1-B990-24798535024B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A6B4E69-B01A-4FB8-940C-55A106DE35A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A6B4E69-B01A-4FB8-940C-55A106DE35A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A6B4E69-B01A-4FB8-940C-55A106DE35A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A6B4E69-B01A-4FB8-940C-55A106DE35A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8871DB5D-1DE8-4DF2-8E26-EA7E29B45789}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8871DB5D-1DE8-4DF2-8E26-EA7E29B45789}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8871DB5D-1DE8-4DF2-8E26-EA7E29B45789}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8871DB5D-1DE8-4DF2-8E26-EA7E29B45789}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B1EE250F-B388-48D8-B2E1-0863942B9BCF} = {A104BFAA-DCF3-4E24-B6EE-496BA4EB2C94}
+		{32437310-4A2D-4181-BBCE-23AB6D9F0B45} = {D9EB90D8-267C-4DD1-BD67-8D82BC2F26D6}
+		{A7C10109-AC46-4DCF-B800-4EAFDC8F2F1A} = {D9EB90D8-267C-4DD1-BD67-8D82BC2F26D6}
+		{AF60F815-23FD-41BA-875E-0D0EEAF550BD} = {3E43A84A-3D50-4A50-AC61-12F10AB27C84}
+		{4A6B4E69-B01A-4FB8-940C-55A106DE35A9} = {3E43A84A-3D50-4A50-AC61-12F10AB27C84}
+		{8871DB5D-1DE8-4DF2-8E26-EA7E29B45789} = {3E43A84A-3D50-4A50-AC61-12F10AB27C84}
+		{689BA6B7-177C-4CC5-959D-0B3CDAA60F4F} = {558FCA78-11F9-4172-8B0E-AF8A4C287AFD}
+		{E7044190-C623-4DEA-ADED-97BBE594AC67} = {558FCA78-11F9-4172-8B0E-AF8A4C287AFD}
+		{86227FAD-1C43-4702-857E-94D7144E32E3} = {558FCA78-11F9-4172-8B0E-AF8A4C287AFD}
+	EndGlobalSection
+	GlobalSection(Performance) = preSolution
+		HasPerformanceSessions = true
+	EndGlobalSection
+EndGlobal

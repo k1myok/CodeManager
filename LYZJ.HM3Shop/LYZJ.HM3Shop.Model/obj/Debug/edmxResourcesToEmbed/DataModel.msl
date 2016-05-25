@@ -1,0 +1,253 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DataModelStoreContainer" CdmEntityContainer="DataModelContainer">
+    <EntitySetMapping Name="UserInfo">
+      <EntityTypeMapping TypeName="IsTypeOf(DataModel.UserInfo)">
+        <MappingFragment StoreEntitySet="UserInfo">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UName" ColumnName="UName" />
+          <ScalarProperty Name="Pwd" ColumnName="Pwd" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Mail" ColumnName="Mail" />
+          <ScalarProperty Name="SubTime" ColumnName="SubTime" />
+          <ScalarProperty Name="LastModifiedOn" ColumnName="LastModifiedOn" />
+          <ScalarProperty Name="DelFlag" ColumnName="DelFlag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Role">
+      <EntityTypeMapping TypeName="IsTypeOf(DataModel.Role)">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="RoleType" ColumnName="RoleType" />
+          <ScalarProperty Name="DelFlag" ColumnName="DelFlag" />
+          <ScalarProperty Name="SubTime" ColumnName="SubTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="R_UserInfo_Role">
+      <EntityTypeMapping TypeName="IsTypeOf(DataModel.R_UserInfo_Role)">
+        <MappingFragment StoreEntitySet="R_UserInfo_Role">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UserInfoID" ColumnName="UserInfoID" />
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="SubTime" ColumnName="SubTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ActionInfo">
+      <EntityTypeMapping TypeName="IsTypeOf(DataModel.ActionInfo)">
+        <MappingFragment StoreEntitySet="ActionInfo">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="RequestUrl" ColumnName="RequestUrl" />
+          <ScalarProperty Name="RequestHttpType" ColumnName="RequestHttpType" />
+          <ScalarProperty Name="ActionName" ColumnName="ActionName" />
+          <ScalarProperty Name="SubTime" ColumnName="SubTime" />
+          <ScalarProperty Name="ActionType" ColumnName="ActionType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="R_UserInfo_ActionInfo">
+      <EntityTypeMapping TypeName="IsTypeOf(DataModel.R_UserInfo_ActionInfo)">
+        <MappingFragment StoreEntitySet="R_UserInfo_ActionInfo">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UserInfoID" ColumnName="UserInfoID" />
+          <ScalarProperty Name="ActionInfoID" ColumnName="ActionInfoID" />
+          <ScalarProperty Name="HasPermation" ColumnName="HasPermation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ActionGroup">
+      <EntityTypeMapping TypeName="IsTypeOf(DataModel.ActionGroup)">
+        <MappingFragment StoreEntitySet="ActionGroup">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+          <ScalarProperty Name="DelFlag" ColumnName="DelFlag" />
+          <ScalarProperty Name="GroupType" ColumnName="GroupType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="实体1集">
+      <EntityTypeMapping TypeName="IsTypeOf(DataModel.实体1)">
+        <MappingFragment StoreEntitySet="实体1集">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UserInfoID" ColumnName="UserInfoID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Category">
+      <EntityTypeMapping TypeName="IsTypeOf(DataModel.Category)">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CatName" ColumnName="CatName" />
+          <ScalarProperty Name="DelFlag" ColumnName="DelFlag" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+          <ScalarProperty Name="TreePath" ColumnName="TreePath" />
+          <ScalarProperty Name="Level" ColumnName="Level" />
+          <ScalarProperty Name="IsLeaf" ColumnName="IsLeaf" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GoodInfo">
+      <EntityTypeMapping TypeName="IsTypeOf(DataModel.GoodInfo)">
+        <MappingFragment StoreEntitySet="GoodInfo">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="GoodName" ColumnName="GoodName" />
+          <ScalarProperty Name="GoodNo" ColumnName="GoodNo" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="GoodStatus" ColumnName="GoodStatus" />
+          <ScalarProperty Name="Subtime" ColumnName="Subtime" />
+          <ScalarProperty Name="OnShelfTime" ColumnName="OnShelfTime" />
+          <ScalarProperty Name="OffLineTime" ColumnName="OffLineTime" />
+          <ScalarProperty Name="GoodMark" ColumnName="GoodMark" />
+          <ScalarProperty Name="MainInageId" ColumnName="MainInageId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Property">
+      <EntityTypeMapping TypeName="IsTypeOf(DataModel.Property)">
+        <MappingFragment StoreEntitySet="Property">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="PropName" ColumnName="PropName" />
+          <ScalarProperty Name="ShowType" ColumnName="ShowType" />
+          <ScalarProperty Name="PropOptions" ColumnName="PropOptions" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PropOption">
+      <EntityTypeMapping TypeName="IsTypeOf(DataModel.PropOption)">
+        <MappingFragment StoreEntitySet="PropOption">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="OptionName" ColumnName="OptionName" />
+          <ScalarProperty Name="ShowName" ColumnName="ShowName" />
+          <ScalarProperty Name="PropertyID" ColumnName="PropertyID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GoodsPropValue">
+      <EntityTypeMapping TypeName="IsTypeOf(DataModel.GoodsPropValue)">
+        <MappingFragment StoreEntitySet="GoodsPropValue">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="PropID" ColumnName="PropID" />
+          <ScalarProperty Name="OptionID" ColumnName="OptionID" />
+          <ScalarProperty Name="GoodInfoID" ColumnName="GoodInfoID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GoodSKU">
+      <EntityTypeMapping TypeName="IsTypeOf(DataModel.GoodSKU)">
+        <MappingFragment StoreEntitySet="GoodSKU">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="SkuCode" ColumnName="SkuCode" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="SKUOptions" ColumnName="SKUOptions" />
+          <ScalarProperty Name="GoodInfoID" ColumnName="GoodInfoID" />
+          <ScalarProperty Name="StoreCount" ColumnName="StoreCount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ImageInfo">
+      <EntityTypeMapping TypeName="IsTypeOf(DataModel.ImageInfo)">
+        <MappingFragment StoreEntitySet="ImageInfo">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="URL" ColumnName="URL" />
+          <ScalarProperty Name="Alt" ColumnName="Alt" />
+          <ScalarProperty Name="ImageSize" ColumnName="ImageSize" />
+          <ScalarProperty Name="DelFlag" ColumnName="DelFlag" />
+          <ScalarProperty Name="GoodInfoID" ColumnName="GoodInfoID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Shop">
+      <EntityTypeMapping TypeName="IsTypeOf(DataModel.Shop)">
+        <MappingFragment StoreEntitySet="Shop">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ShopName" ColumnName="ShopName" />
+          <ScalarProperty Name="Property1" ColumnName="Property1" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="ActionInfoRole" TypeName="DataModel.ActionInfoRole" StoreEntitySet="ActionInfoRole">
+      <EndProperty Name="ActionInfo">
+        <ScalarProperty Name="ID" ColumnName="ActionInfo_ID" />
+      </EndProperty>
+      <EndProperty Name="Role">
+        <ScalarProperty Name="ID" ColumnName="Role_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ActionInfoActionGroup" TypeName="DataModel.ActionInfoActionGroup" StoreEntitySet="ActionInfoActionGroup">
+      <EndProperty Name="ActionInfo">
+        <ScalarProperty Name="ID" ColumnName="ActionInfo_ID" />
+      </EndProperty>
+      <EndProperty Name="ActionGroup">
+        <ScalarProperty Name="ID" ColumnName="ActionGroup_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="UserInfoActionGroup" TypeName="DataModel.UserInfoActionGroup" StoreEntitySet="UserInfoActionGroup">
+      <EndProperty Name="UserInfo">
+        <ScalarProperty Name="ID" ColumnName="UserInfo_ID" />
+      </EndProperty>
+      <EndProperty Name="ActionGroup">
+        <ScalarProperty Name="ID" ColumnName="ActionGroup_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ActionGroupRole" TypeName="DataModel.ActionGroupRole" StoreEntitySet="ActionGroupRole">
+      <EndProperty Name="ActionGroup">
+        <ScalarProperty Name="ID" ColumnName="ActionGroup_ID" />
+      </EndProperty>
+      <EndProperty Name="Role">
+        <ScalarProperty Name="ID" ColumnName="Role_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CategoryProperty" TypeName="DataModel.CategoryProperty" StoreEntitySet="CategoryProperty">
+      <EndProperty Name="Category">
+        <ScalarProperty Name="ID" ColumnName="Category_ID" />
+      </EndProperty>
+      <EndProperty Name="Property">
+        <ScalarProperty Name="ID" ColumnName="Property_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PropertyGoodInfo" TypeName="DataModel.PropertyGoodInfo" StoreEntitySet="PropertyGoodInfo">
+      <EndProperty Name="Property">
+        <ScalarProperty Name="ID" ColumnName="Property_ID" />
+      </EndProperty>
+      <EndProperty Name="GoodInfo">
+        <ScalarProperty Name="ID" ColumnName="GoodInfo_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="GoodSKUGoodInfo" TypeName="DataModel.GoodSKUGoodInfo" StoreEntitySet="GoodSKU">
+      <EndProperty Name="GoodInfo">
+        <ScalarProperty Name="ID" ColumnName="GoodInfo_ID" />
+      </EndProperty>
+      <EndProperty Name="GoodSKU">
+        <ScalarProperty Name="ID" ColumnName="ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="GoodSKUGoodsPropValue" TypeName="DataModel.GoodSKUGoodsPropValue" StoreEntitySet="GoodSKUGoodsPropValue">
+      <EndProperty Name="GoodSKU">
+        <ScalarProperty Name="ID" ColumnName="GoodSKU_ID" />
+      </EndProperty>
+      <EndProperty Name="GoodsPropValue">
+        <ScalarProperty Name="ID" ColumnName="GoodsPropValue_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="GoodsPropValueGoodInfo" TypeName="DataModel.GoodsPropValueGoodInfo" StoreEntitySet="GoodsPropValue">
+      <EndProperty Name="GoodInfo">
+        <ScalarProperty Name="ID" ColumnName="GoodInfo_ID" />
+      </EndProperty>
+      <EndProperty Name="GoodsPropValue">
+        <ScalarProperty Name="ID" ColumnName="ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CategoryGoodInfo" TypeName="DataModel.CategoryGoodInfo" StoreEntitySet="CategoryGoodInfo">
+      <EndProperty Name="Category">
+        <ScalarProperty Name="ID" ColumnName="Category_ID" />
+      </EndProperty>
+      <EndProperty Name="GoodInfo">
+        <ScalarProperty Name="ID" ColumnName="GoodInfo_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

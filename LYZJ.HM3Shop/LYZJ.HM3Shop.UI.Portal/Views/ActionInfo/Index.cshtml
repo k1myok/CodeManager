@@ -1,0 +1,466 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Index</title>
+    @*引用EasyUI的Css文件*@
+    <link href="../../Content/jquery-easyui-1.3.1/themes/default/easyui.css" rel="stylesheet" />
+    <link href="../../Content/jquery-easyui-1.3.1/themes/icon.css" rel="stylesheet" />
+     <link href="../../Content/Site.css" rel="stylesheet" />
+    @*引用easyUI的JS文件*@
+    <script src="../../Content/jquery-easyui-1.3.1/jquery-1.8.0.min.js"></script>
+    <script src="../../Content/jquery-easyui-1.3.1/jquery.easyui.min.js"></script>
+    <script src="../../Content/jquery-easyui-1.3.1/locale/easyui-lang-zh_CN.js"></script>
+    @*引用变化时间的JS文件*@
+    <script src="../../Content/jquery-easyui-1.3.1/datapattern2.js"></script>
+    <script type="text/javascript">
+        $(function () {
+
+            //首先加载数据显示在表单列表中
+            initActionInfoTable();
+
+            //实现添加权限信息
+            AddActionInfo();
+
+            //实现修改权限信息
+            UpdateActionInfo();
+
+            //设置搜索用户权限的信息
+            SearchActionInfo();
+
+        });
+
+        //首先加载数据显示在表单列表中
+        function initActionInfoTable(queryParame) {
+            $('#test').datagrid({
+                title: '用户权限管理',
+                iconCls: 'icon-save',
+                height: 400,
+                nowrap: true,
+                autoRowHeight: false,
+                striped: true,
+                collapsible: true,
+                url: '/ActionInfo/GetActionUserInfoShow',
+                sortName: 'ID',
+                sortOrder: 'asc',
+                //striped:true,
+                border: true,
+                remoteSort: false,
+                idField: 'ID',
+                pagination: true,
+                rownumbers: true,
+                queryParams: queryParame,
+                columns: [[
+                    { field: 'ck', checkbox: true },
+					{ field: 'ID', title: 'ID', width: 50, sortable: true },
+                    { field: 'ActionName', title: "权限名称", width: 150, sortable: true, },
+                    { field: 'RequestHttpType', title: "请求方式", width: 150, sortable: true, },
+                    { field: 'RequestUrl', title: '请求地址', width: 360, sortable: true },
+                      {
+                          field: 'ActionType', title: "权限类型", width: 150, sortable: true,
+                          formatter: function (value, row, index) {
+                              if (value == "0") {
+                                  return "普通权限";
+                              }
+                              else {
+                                  return "菜单权限";
+                              }
+                          }
+                      },
+                    {
+                        field: 'SubTime', title: "添加时间", width: 150, sortable: true,
+                        formatter: function (value, row, index) {
+                            return (eval(value.replace(/\/Date\((\d+)\)\//gi, "new Date($1)"))).pattern("yyyy-M-d h:m:s");
+                        }
+                    }
+              
+                ]],
+
+                toolbar: [{
+                    id: 'btnadd',
+                    text: '添加权限',
+                    iconCls: 'icon-add',
+                    handler: function () {
+                        //实现弹出添加用户信息的层
+                        ShowCreateActionInfoDialog();
+                    }
+                }, '-', {
+                    id: 'btncut',
+                    text: '修改权限',
+                    iconCls: 'icon-cut',
+                    handler: function () {
+
+                        //实现弹出修改用户信息的层
+                        ShowUpdateActionInfoDialog();
+                    }
+                }, '-', {
+                    id: 'btnsave',
+                    text: '删除权限',
+                    iconCls: 'icon-remove',
+                    handler: function () {
+                        //确认只删除一条用户信息
+                        DeleteActionInfoByClick();
+                    }
+                }, '-', {
+                    id: 'btnSetAction',
+                    text: '设置角色',
+                    iconCls: 'icon-redo',
+                    handler: function () {
+                        //设置用户角色权限
+                        SetActionInfoRole();
+                    }
+                }, '-', {
+                    id: 'btnSetAction',
+                    text: '设置分组',
+                    iconCls: 'icon-redo',
+                    handler: function () {
+                        //设置用户分组权限
+                        SetActionInfoGroup();
+                    }
+                }]
+            });
+        }
+
+        //弹出添加层
+        function ShowCreateActionInfoDialog() {
+            $("#AddActionInfoDialog").dialog('open').dialog('setTitle', "添加权限信息");
+
+            //当再次添加的时候清空文本框里面的值
+            ClearTextBoxSecond();
+        }
+
+        //实现添加权限信息
+        function AddActionInfo() {
+            $("#btnAddActionInfo").click(function () {
+                //首先验证表单是否通过
+                var validate = $("#ActionInfoAdd").form('validate');
+                if (validate == false) {
+                    return false;
+                }
+                //构造需要传递的参数给后台,RequestUrl,RequestHttpType,ActionName
+                var postData = {
+                    RequestUrl: $("#RequestUrl").val(),
+                    RequestHttpType: $("#RequestHttpType").combobox('getValue'),
+                    ActionName: $("#ActionName").val(),
+                    ActionType: $("#ActionType").combobox('getValue')
+                };
+                //异步实现添加信息
+                $.post("/ActionInfo/AddActionInfo", postData, function (data) {
+                    if (data == "OK") {
+                        //关闭层，刷新表单
+                        $("#AddActionInfoDialog").dialog('close');
+                        $("#test").datagrid('reload');
+                    }
+                    else {
+                        $.messager.alert("友情提示", "添加失败，请您检查");
+                    }
+                });
+            });
+        }
+
+        //当再次添加的时候清空文本框里面的值,RequestUrl,RequestHttpType,ActionName
+        function ClearTextBoxSecond() {
+            $("#RequestUrl").val("");
+            $("#ActionName").val("");
+        }
+
+        //当单击修改的时候弹出修改的层
+        function ShowUpdateActionInfoDialog() {
+            //首先获取选择的数量的多少
+            var CheckID = $("#test").datagrid('getSelections');
+            if (CheckID.length == 1) {
+                $("#UpdateActionInfoDialog").dialog('open').dialog('setTitle', '修改用户权限信息')
+                //当弹出层的时候绑定用户权限的信息
+                BindActionInfo();
+            }
+            else {
+                $.messager.alert("友情提示", "每次只能修改一行数据，你已经选择了<font color='red' size='6'>" + CheckID.length + "</font>行");
+            }
+        }
+
+        //当用户单击修改的时候，显示用户权限的信息
+        function BindActionInfo() {
+            //首先获取用户选择的ID信息
+            var BindID = $("#test").datagrid('getSelections')[0].ID;
+            //使用异步发送时间的请求,ActionName1，RequestUrl1，RequestHttpType1
+            $.getJSON("/ActionInfo/BindActionInfo", { ID: BindID }, function (date) {
+                $("#ID").val(date.ID);
+                $("#ActionName1").val(date.ActionName);
+                $("#RequestUrl1").val(date.RequestUrl);
+                $("#RequestHttpType1").combobox('setValue', date.RequestHttpType);
+                $("#ActionType1").combobox('setValue', date.ActionType);
+            });
+        }
+
+        //实现修改权限的信息
+        function UpdateActionInfo() {
+            $("#btnUpdateActionInfo").click(function () {
+                //首先验证表单是否通过验证信息
+                var validate = $("#ActionInfoUpdate").form('validate');
+                if (validate == false) {
+                    return false;
+                }
+                //获取传递的参数,ActionName1，RequestUrl1，RequestHttpType1
+                var postData = {
+                    ID: $("#ID").val(),
+                    ActionName: $("#ActionName1").val(),
+                    RequestUrl: $("#RequestUrl1").val(),
+                    RequestHttpType: $("#RequestHttpType1").combobox('getValue'),
+                    ActionType: $("#ActionType1").combobox('getValue')
+                };
+
+                //发送异步请求进行修改信息
+                $.post("/ActionInfo/UpdateActionInfo", postData, function (data) {
+                    if (data == "OK") {
+                        //关闭层，刷新表格
+                        $("#UpdateActionInfoDialog").dialog('close');
+                        $("#test").datagrid('reload');
+                    }
+                    else {
+                        $.messager.alert("友情提示", "修改失败，请您检查");
+                    }
+                });
+            });
+        }
+
+        //实现删除权限的信息
+        function DeleteActionInfoByClick() {
+            //首先判断用户必须选择数据才能删除
+            var CheckID = $("#test").datagrid('getSelections');
+            if (CheckID.length >= 1) {
+                //构造选择的删除的所有的ID
+                var ids = "";
+                for (var i = 0; i < CheckID.length; i++) {
+                    ids += CheckID[i].ID + ",";
+                }
+                ids = ids.substring(0, ids.length - 1);
+
+                //确认删除信息
+                $.messager.confirm("友情提示", "您确认要删除此数据吗？", function (deleteData) {
+                    if (deleteData) {
+                        //发送异步请求
+                        $.post("/ActionInfo/DeleteActionInfo", { ID: ids }, function (data) {
+                            if (data == "OK") {
+                                //实现提示删除成功，刷新表格
+                                $.messager.alert("友情提示", "删除成功");
+                                $("#test").datagrid('reload');
+                                //删除之后，清空上一次选择的信息
+                                $("#test").datagrid('clearSelections');
+                            }
+                            else {
+                                $.messager.alert("友情提示", "删除失败" + data);
+                            }
+                        })
+                    }
+                })
+            }
+            else {
+                $.messager.alert("友情提示", "请选择您要删除的数据");
+            }
+        }
+
+        //设置用户搜索权限的方法
+        function SearchActionInfo() {
+            //按照条件进行搜索
+            $("#btnSerach").click(function () {
+                var SearchRequestHttpType = $("#SLRequestHttpType").combobox('getValue');
+                if (SearchRequestHttpType == "Check") {
+                    SearchRequestHttpType = "";
+                }
+                else {
+                    SearchRequestHttpType = $("#SLRequestHttpType").combobox('getValue');
+                }
+                var queryParame = {
+                    SearchActionName: $("#txtActionName").val(),
+                    SearchRequestHttpType: SearchRequestHttpType
+                };
+                //重新调用刷新表单信息
+                initActionInfoTable(queryParame);
+                return false;
+            });
+        }
+
+        //设置用户的分组信息
+        function SetActionInfoRole() {
+            var setRoleID = $("#test").datagrid('getSelections');
+            if (setRoleID.length == 1) {
+                //弹出层
+                $("#DivSetActionInfoRole").dialog('open').dialog('setTitle', "设置权限组角色信息");
+            }
+            else {
+                $.messager.alert("友情提示", "每次只能设置一个用户的权限角色信息，你已经选择了<font color='red' size='6'>" + setRoleID.length + "</font>个");
+            }
+            //修改Iframe标签框架跳转到src属性来修改权限的角色信息
+            $("#frameSetRole").attr("src", "/ActionInfo/SetRole/" + setRoleID[0].ID);
+
+        }
+
+        //设置角色成功之后执行的方法
+        function AfterSetRole() {
+            //关闭层
+            $("#DivSetActionInfoRole").dialog('close');
+            //提示信息
+            $.messager.alert("友情提示", "角色设置成功");
+        }
+
+        //设置用户的分组权限信息
+        function SetActionInfoGroup() {
+            //
+            var setRoleID = $("#test").datagrid('getSelections');
+            if (setRoleID.length == 1) {
+                //弹出层
+                $("#DivSetActionInfoGroup").dialog('open').dialog('setTitle', "设置权限组角色信息");
+            }
+            else {
+                $.messager.alert("友情提示", "每次只能设置一个用户的权限角色信息，你已经选择了<font color='red' size='6'>" + setRoleID.length + "</font>个");
+            }
+            //修改Iframe标签框架跳转到src属性来修改权限的角色信息
+            $("#frameSetGroup").attr("src", "/ActionInfo/SetAction/" + setRoleID[0].ID);
+        }
+        
+        //设置菜单项成功之后关闭层
+        function AfterSetAction() {
+            //关闭层
+            $("#DivSetActionInfoGroup").dialog('close');
+            //提示成功的信息
+            $.messager.alert("友情提示", "菜单项设置成功");
+        }
+
+    </script>
+</head>
+<body>
+    @*-------------------------- 搜索-------------------------*@
+    <fieldset>
+    <legend>用户权限信息模糊搜索</legend>
+        <div>
+            <label for="txtActionName">权限名称：</label>
+            <input type="text" ID="txtActionName" name="txtActionName"  />&nbsp;&nbsp;
+         
+            <label for="SLRequestHttpType">请求方式：</label>
+            <select id="SLRequestHttpType" name="SLRequestHttpType"  class="easyui-combobox" editable="false" >
+                <option value="Check">---请选择---</option>
+		        <option value="HttpGet">HttpGet</option>
+		        <option value="HttpPost">HttpPost</option>
+            </select>
+
+            <a href="#" class="easyui-linkbutton" iconcls="icon-search" id="btnSerach"  name="btnSerach">模糊搜索</a>
+        </div>
+    </fieldset>
+
+    @*-------------------------- 实现对权限数据的显示-------------------------*@
+    <div>
+        <table id="test"></table>
+    </div>
+
+    @*----------------------------设置添加的弹出层--------------------------------*@
+    <div id="AddActionInfoDialog" class="easyui-dialog" style="width:360px;height:250px;padding:10px 20px"
+			closed="true" resizable="true" modal="true" buttons="#dlg-buttons" align="center">
+        <form id="ActionInfoAdd" method="post" novalidate="novalidate">
+            <table id="tblAdd">
+                <tr>
+                    <th colspan="2" >添加用户权限信息</th>
+                </tr>
+                 <tr>
+                    <td><label for="ActionName">权限名称：</label></td>
+                    <td><input class="easyui-validatebox" type="text" id="ActionName" name="ActionName" data-options="required:true,validType:'length[1,16]'" /></td><td>
+                </tr>
+                <tr>  
+                    <td><label for="RequestUrl">请求地址：</label></td>
+                    <td><input class="easyui-validatebox" type="text" id="RequestUrl" name="RequestUrl" data-options="required:true,validType:'length[1,256]'" /></td><td>
+                </tr>
+                <tr>
+                    <td><label for="RequestHttpType">请求方式：</label></td>
+                    <td>
+                        <select id="RequestHttpType" name="RequestHttpType" editable="false" class="easyui-combobox" style="width:164px" >
+                            <option value="HttpGet">HttpGet</option>
+		                    <option value="HttpPost">HttpPost</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="ActionType">权限类型：</label></td>
+                    <td>
+                        <select id="ActionType" name="ActionType" editable="false" class="easyui-combobox" style="width:164px" >
+                            <option value="0">普通权限</option>
+		                    <option value="1">菜单权限</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align:center; padding-top:10px">
+                        <a href="javascript:void(0)" class="easyui-linkbutton" id="btnAddActionInfo" iconcls="icon-ok" >确定</a>
+                        <a href="javascript:void(0)" class="easyui-linkbutton" iconcls="icon-cancel" onclick="javascript:$('#AddActionInfoDialog').dialog('close')">关闭</a>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+    @*----------------------------设置修改的弹出层--------------------------------*@
+    <div id="UpdateActionInfoDialog" class="easyui-dialog" style="width:360px;height:300px;padding:10px 20px"
+			closed="true" resizable="true" modal="true" buttons="#dlg-buttons" align="center">
+        <form id="ActionInfoUpdate" method="post" novalidate="novalidate">
+            <table id="tblUpdate">
+                <tr>
+                    <th colspan="2" >修改用户权限信息</th>
+                </tr>
+                <tr>
+                    <td><label for="ID">ID：</label></td>
+                    <td><input class="easyui-validatebox" type="text" id="ID" name="ID" readonly="true" /></td><td>
+                </tr>
+                 <tr>
+                    <td><label for="ActionName">权限名称：</label></td>
+                    <td><input class="easyui-validatebox" type="text" id="ActionName1" name="ActionName" data-options="required:true,validType:'length[1,16]'" /></td><td>
+                </tr>
+                <tr>  
+                    <td><label for="RequestUrl">请求地址：</label></td>
+                    <td><input class="easyui-validatebox" type="text" id="RequestUrl1" name="RequestUrl" data-options="required:true,validType:'length[1,256]'" /></td><td>
+                </tr>  
+                <tr>
+                    <td><label for="RequestHttpType">请求方式：</label></td>
+                    <td>
+                        <select id="RequestHttpType1" name="RequestHttpType" editable="false"   class="easyui-combobox" style="width:164px" >
+                            <option value="HttpGet">HttpGet</option>
+		                    <option value="HttpPost">HttpPost</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="ActionType">权限类型：</label></td>
+                    <td>
+                        <select id="ActionType1" name="ActionType" editable="false" class="easyui-combobox" style="width:164px" >
+                            <option value="0">普通权限</option>
+		                    <option value="1">菜单权限</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align:center; padding-top:10px">
+                        <a href="javascript:void(0)" class="easyui-linkbutton" id="btnUpdateActionInfo" iconcls="icon-ok" >确定</a>
+                        <a href="javascript:void(0)" class="easyui-linkbutton" iconcls="icon-cancel" onclick="javascript:$('#UpdateActionInfoDialog').dialog('close')">关闭</a>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+
+    @*----------------------------设置权限管理的角色信息--------------------------------*@
+    <div id="DivSetActionInfoRole" class="easyui-dialog" style="width:500px;height:400px;padding:10px 20px"
+			closed="true" resizable="true" modal="true" buttons="#dlg-buttons" align="center">      
+        <iframe id="frameSetRole" src="/Welcome.htm" scrolling="yes" frameborder="0" width="100%" height="100%">       
+        </iframe>
+    </div>
+
+    @*----------------------------设置权限管理的角色信息--------------------------------*@
+    <div id="DivSetActionInfoGroup" class="easyui-dialog" style="width:600px;height:350px;padding:10px 20px"
+			closed="true" resizable="true" modal="true" buttons="#dlg-buttons" align="center">      
+        <iframe id="frameSetGroup" src="/Welcome.htm" scrolling="yes" frameborder="0" width="100%" height="100%">       
+        </iframe>
+    </div>
+</body>
+</html>

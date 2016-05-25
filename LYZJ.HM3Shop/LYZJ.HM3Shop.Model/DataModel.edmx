@@ -1,0 +1,1406 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DataModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="DataModelStoreContainer">
+    <EntitySet Name="UserInfo" EntityType="DataModel.Store.UserInfo" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Role" EntityType="DataModel.Store.Role" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="R_UserInfo_Role" EntityType="DataModel.Store.R_UserInfo_Role" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ActionInfo" EntityType="DataModel.Store.ActionInfo" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="R_UserInfo_ActionInfo" EntityType="DataModel.Store.R_UserInfo_ActionInfo" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ActionGroup" EntityType="DataModel.Store.ActionGroup" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="实体1集" EntityType="DataModel.Store.实体1集" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Category" EntityType="DataModel.Store.Category" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="GoodInfo" EntityType="DataModel.Store.GoodInfo" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Property" EntityType="DataModel.Store.Property" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PropOption" EntityType="DataModel.Store.PropOption" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="GoodsPropValue" EntityType="DataModel.Store.GoodsPropValue" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="GoodSKU" EntityType="DataModel.Store.GoodSKU" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ImageInfo" EntityType="DataModel.Store.ImageInfo" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Shop" EntityType="DataModel.Store.Shop" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ActionInfoRole" EntityType="DataModel.Store.ActionInfoRole" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ActionInfoActionGroup" EntityType="DataModel.Store.ActionInfoActionGroup" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserInfoActionGroup" EntityType="DataModel.Store.UserInfoActionGroup" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ActionGroupRole" EntityType="DataModel.Store.ActionGroupRole" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CategoryProperty" EntityType="DataModel.Store.CategoryProperty" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PropertyGoodInfo" EntityType="DataModel.Store.PropertyGoodInfo" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="GoodSKUGoodsPropValue" EntityType="DataModel.Store.GoodSKUGoodsPropValue" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CategoryGoodInfo" EntityType="DataModel.Store.CategoryGoodInfo" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="UserInfoR_UserInfo_Role" Association="DataModel.Store.UserInfoR_UserInfo_Role">
+      <End Role="UserInfo" EntitySet="UserInfo" />
+      <End Role="R_UserInfo_Role" EntitySet="R_UserInfo_Role" />
+    </AssociationSet>
+    <AssociationSet Name="RoleR_UserInfo_Role" Association="DataModel.Store.RoleR_UserInfo_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="R_UserInfo_Role" EntitySet="R_UserInfo_Role" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ActionInfoRole_ActionInfo" Association="DataModel.Store.FK_ActionInfoRole_ActionInfo">
+      <End Role="ActionInfo" EntitySet="ActionInfo" />
+      <End Role="ActionInfoRole" EntitySet="ActionInfoRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ActionInfoRole_Role" Association="DataModel.Store.FK_ActionInfoRole_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="ActionInfoRole" EntitySet="ActionInfoRole" />
+    </AssociationSet>
+    <AssociationSet Name="UserInfoR_UserInfo_ActionInfo" Association="DataModel.Store.UserInfoR_UserInfo_ActionInfo">
+      <End Role="UserInfo" EntitySet="UserInfo" />
+      <End Role="R_UserInfo_ActionInfo" EntitySet="R_UserInfo_ActionInfo" />
+    </AssociationSet>
+    <AssociationSet Name="ActionInfoR_UserInfo_ActionInfo" Association="DataModel.Store.ActionInfoR_UserInfo_ActionInfo">
+      <End Role="ActionInfo" EntitySet="ActionInfo" />
+      <End Role="R_UserInfo_ActionInfo" EntitySet="R_UserInfo_ActionInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ActionInfoActionGroup_ActionInfo" Association="DataModel.Store.FK_ActionInfoActionGroup_ActionInfo">
+      <End Role="ActionInfo" EntitySet="ActionInfo" />
+      <End Role="ActionInfoActionGroup" EntitySet="ActionInfoActionGroup" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ActionInfoActionGroup_ActionGroup" Association="DataModel.Store.FK_ActionInfoActionGroup_ActionGroup">
+      <End Role="ActionGroup" EntitySet="ActionGroup" />
+      <End Role="ActionInfoActionGroup" EntitySet="ActionInfoActionGroup" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserInfoActionGroup_UserInfo" Association="DataModel.Store.FK_UserInfoActionGroup_UserInfo">
+      <End Role="UserInfo" EntitySet="UserInfo" />
+      <End Role="UserInfoActionGroup" EntitySet="UserInfoActionGroup" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserInfoActionGroup_ActionGroup" Association="DataModel.Store.FK_UserInfoActionGroup_ActionGroup">
+      <End Role="ActionGroup" EntitySet="ActionGroup" />
+      <End Role="UserInfoActionGroup" EntitySet="UserInfoActionGroup" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ActionGroupRole_ActionGroup" Association="DataModel.Store.FK_ActionGroupRole_ActionGroup">
+      <End Role="ActionGroup" EntitySet="ActionGroup" />
+      <End Role="ActionGroupRole" EntitySet="ActionGroupRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ActionGroupRole_Role" Association="DataModel.Store.FK_ActionGroupRole_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="ActionGroupRole" EntitySet="ActionGroupRole" />
+    </AssociationSet>
+    <AssociationSet Name="UserInfo实体1" Association="DataModel.Store.UserInfo实体1">
+      <End Role="UserInfo" EntitySet="UserInfo" />
+      <End Role="实体1" EntitySet="实体1集" />
+    </AssociationSet>
+    <AssociationSet Name="PropertyPropOption" Association="DataModel.Store.PropertyPropOption">
+      <End Role="Property" EntitySet="Property" />
+      <End Role="PropOption" EntitySet="PropOption" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CategoryProperty_Category" Association="DataModel.Store.FK_CategoryProperty_Category">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="CategoryProperty" EntitySet="CategoryProperty" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CategoryProperty_Property" Association="DataModel.Store.FK_CategoryProperty_Property">
+      <End Role="Property" EntitySet="Property" />
+      <End Role="CategoryProperty" EntitySet="CategoryProperty" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PropertyGoodInfo_Property" Association="DataModel.Store.FK_PropertyGoodInfo_Property">
+      <End Role="Property" EntitySet="Property" />
+      <End Role="PropertyGoodInfo" EntitySet="PropertyGoodInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PropertyGoodInfo_GoodInfo" Association="DataModel.Store.FK_PropertyGoodInfo_GoodInfo">
+      <End Role="GoodInfo" EntitySet="GoodInfo" />
+      <End Role="PropertyGoodInfo" EntitySet="PropertyGoodInfo" />
+    </AssociationSet>
+    <AssociationSet Name="GoodSKUGoodInfo" Association="DataModel.Store.GoodSKUGoodInfo">
+      <End Role="GoodSKU" EntitySet="GoodSKU" />
+      <End Role="GoodInfo" EntitySet="GoodInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GoodSKUGoodsPropValue_GoodSKU" Association="DataModel.Store.FK_GoodSKUGoodsPropValue_GoodSKU">
+      <End Role="GoodSKU" EntitySet="GoodSKU" />
+      <End Role="GoodSKUGoodsPropValue" EntitySet="GoodSKUGoodsPropValue" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GoodSKUGoodsPropValue_GoodsPropValue" Association="DataModel.Store.FK_GoodSKUGoodsPropValue_GoodsPropValue">
+      <End Role="GoodsPropValue" EntitySet="GoodsPropValue" />
+      <End Role="GoodSKUGoodsPropValue" EntitySet="GoodSKUGoodsPropValue" />
+    </AssociationSet>
+    <AssociationSet Name="GoodsPropValueGoodInfo" Association="DataModel.Store.GoodsPropValueGoodInfo">
+      <End Role="GoodsPropValue" EntitySet="GoodsPropValue" />
+      <End Role="GoodInfo" EntitySet="GoodInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CategoryGoodInfo_Category" Association="DataModel.Store.FK_CategoryGoodInfo_Category">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="CategoryGoodInfo" EntitySet="CategoryGoodInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CategoryGoodInfo_GoodInfo" Association="DataModel.Store.FK_CategoryGoodInfo_GoodInfo">
+      <End Role="GoodInfo" EntitySet="GoodInfo" />
+      <End Role="CategoryGoodInfo" EntitySet="CategoryGoodInfo" />
+    </AssociationSet>
+    <AssociationSet Name="GoodInfoImageInfo" Association="DataModel.Store.GoodInfoImageInfo">
+      <End Role="GoodInfo" EntitySet="GoodInfo" />
+      <End Role="ImageInfo" EntitySet="ImageInfo" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="UserInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UName" Type="nvarchar" Nullable="false" MaxLength="32" />
+    <Property Name="Pwd" Type="nvarchar" Nullable="false" MaxLength="32" />
+    <Property Name="Phone" Type="varchar" Nullable="true" MaxLength="16" />
+    <Property Name="Mail" Type="nvarchar" Nullable="true" MaxLength="32" />
+    <Property Name="SubTime" Type="datetime" Nullable="false" />
+    <Property Name="LastModifiedOn" Type="datetime" Nullable="false" />
+    <Property Name="DelFlag" Type="smallint" Nullable="false" DefaultValue="0" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleName" Type="nvarchar" Nullable="false" MaxLength="32" />
+    <Property Name="RoleType" Type="smallint" Nullable="false" DefaultValue="0" />
+    <Property Name="DelFlag" Type="smallint" Nullable="false" DefaultValue="0" />
+    <Property Name="SubTime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="R_UserInfo_Role">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserInfoID" Type="int" Nullable="false" />
+    <Property Name="RoleID" Type="int" Nullable="false" />
+    <Property Name="SubTime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ActionInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RequestUrl" Type="varchar" Nullable="false" MaxLength="256" />
+    <Property Name="RequestHttpType" Type="varchar" Nullable="false" DefaultValue="&quot;Get&quot;" MaxLength="16" />
+    <Property Name="ActionName" Type="nvarchar" Nullable="false" MaxLength="16" />
+    <Property Name="SubTime" Type="datetime" Nullable="false" />
+    <Property Name="ActionType" Type="smallint" Nullable="false" DefaultValue="0" />
+  </EntityType>
+  <EntityType Name="R_UserInfo_ActionInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserInfoID" Type="int" Nullable="false" />
+    <Property Name="ActionInfoID" Type="int" Nullable="false" />
+    <Property Name="HasPermation" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ActionGroup">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GroupName" Type="nvarchar" Nullable="false" MaxLength="32" />
+    <Property Name="DelFlag" Type="smallint" Nullable="false" />
+    <Property Name="GroupType" Type="smallint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="实体1集">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserInfoID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CatName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DelFlag" Type="smallint" Nullable="false" />
+    <Property Name="ParentID" Type="int" Nullable="false" />
+    <Property Name="TreePath" Type="nvarchar" Nullable="false" MaxLength="64" />
+    <Property Name="Level" Type="int" Nullable="false" />
+    <Property Name="IsLeaf" Type="smallint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GoodInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GoodName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="GoodNo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Remark" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="GoodStatus" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Subtime" Type="datetime" Nullable="false" />
+    <Property Name="OnShelfTime" Type="datetime" Nullable="false" />
+    <Property Name="OffLineTime" Type="datetime" Nullable="false" />
+    <Property Name="GoodMark" Type="smallint" Nullable="false" />
+    <Property Name="MainInageId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Property">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PropName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ShowType" Type="smallint" Nullable="false" />
+    <Property Name="PropOptions" Type="nvarchar" Nullable="false" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="PropOption">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OptionName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ShowName" Type="nvarchar" Nullable="false" MaxLength="32" />
+    <Property Name="PropertyID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GoodsPropValue">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PropID" Type="int" Nullable="false" />
+    <Property Name="OptionID" Type="int" Nullable="false" />
+    <Property Name="GoodInfoID" Type="int" Nullable="false" />
+    <Property Name="GoodInfo_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GoodSKU">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SkuCode" Type="nvarchar" Nullable="false" MaxLength="64" />
+    <Property Name="Remark" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SKUOptions" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="GoodInfoID" Type="int" Nullable="false" />
+    <Property Name="StoreCount" Type="decimal" Nullable="false" />
+    <Property Name="GoodInfo_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ImageInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="URL" Type="varchar" Nullable="false" MaxLength="256" />
+    <Property Name="Alt" Type="nvarchar" Nullable="false" MaxLength="32" />
+    <Property Name="ImageSize" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DelFlag" Type="smallint" Nullable="false" />
+    <Property Name="GoodInfoID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Shop">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ShopName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Property1" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ActionInfoRole">
+    <Key>
+      <PropertyRef Name="ActionInfo_ID" />
+      <PropertyRef Name="Role_ID" />
+    </Key>
+    <Property Name="ActionInfo_ID" Type="int" Nullable="false" />
+    <Property Name="Role_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ActionInfoActionGroup">
+    <Key>
+      <PropertyRef Name="ActionInfo_ID" />
+      <PropertyRef Name="ActionGroup_ID" />
+    </Key>
+    <Property Name="ActionInfo_ID" Type="int" Nullable="false" />
+    <Property Name="ActionGroup_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserInfoActionGroup">
+    <Key>
+      <PropertyRef Name="UserInfo_ID" />
+      <PropertyRef Name="ActionGroup_ID" />
+    </Key>
+    <Property Name="UserInfo_ID" Type="int" Nullable="false" />
+    <Property Name="ActionGroup_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ActionGroupRole">
+    <Key>
+      <PropertyRef Name="ActionGroup_ID" />
+      <PropertyRef Name="Role_ID" />
+    </Key>
+    <Property Name="ActionGroup_ID" Type="int" Nullable="false" />
+    <Property Name="Role_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CategoryProperty">
+    <Key>
+      <PropertyRef Name="Category_ID" />
+      <PropertyRef Name="Property_ID" />
+    </Key>
+    <Property Name="Category_ID" Type="int" Nullable="false" />
+    <Property Name="Property_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PropertyGoodInfo">
+    <Key>
+      <PropertyRef Name="Property_ID" />
+      <PropertyRef Name="GoodInfo_ID" />
+    </Key>
+    <Property Name="Property_ID" Type="int" Nullable="false" />
+    <Property Name="GoodInfo_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GoodSKUGoodsPropValue">
+    <Key>
+      <PropertyRef Name="GoodSKU_ID" />
+      <PropertyRef Name="GoodsPropValue_ID" />
+    </Key>
+    <Property Name="GoodSKU_ID" Type="int" Nullable="false" />
+    <Property Name="GoodsPropValue_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CategoryGoodInfo">
+    <Key>
+      <PropertyRef Name="Category_ID" />
+      <PropertyRef Name="GoodInfo_ID" />
+    </Key>
+    <Property Name="Category_ID" Type="int" Nullable="false" />
+    <Property Name="GoodInfo_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="UserInfoR_UserInfo_Role">
+    <End Role="UserInfo" Type="DataModel.Store.UserInfo" Multiplicity="1" />
+    <End Role="R_UserInfo_Role" Type="DataModel.Store.R_UserInfo_Role" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserInfo">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="R_UserInfo_Role">
+        <PropertyRef Name="UserInfoID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RoleR_UserInfo_Role">
+    <End Role="Role" Type="DataModel.Store.Role" Multiplicity="1" />
+    <End Role="R_UserInfo_Role" Type="DataModel.Store.R_UserInfo_Role" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="R_UserInfo_Role">
+        <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserInfoR_UserInfo_ActionInfo">
+    <End Role="UserInfo" Type="DataModel.Store.UserInfo" Multiplicity="1" />
+    <End Role="R_UserInfo_ActionInfo" Type="DataModel.Store.R_UserInfo_ActionInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserInfo">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="R_UserInfo_ActionInfo">
+        <PropertyRef Name="UserInfoID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ActionInfoR_UserInfo_ActionInfo">
+    <End Role="ActionInfo" Type="DataModel.Store.ActionInfo" Multiplicity="1" />
+    <End Role="R_UserInfo_ActionInfo" Type="DataModel.Store.R_UserInfo_ActionInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ActionInfo">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="R_UserInfo_ActionInfo">
+        <PropertyRef Name="ActionInfoID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserInfo实体1">
+    <End Role="UserInfo" Type="DataModel.Store.UserInfo" Multiplicity="1" />
+    <End Role="实体1" Type="DataModel.Store.实体1集" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserInfo">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="实体1">
+        <PropertyRef Name="UserInfoID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PropertyPropOption">
+    <End Role="Property" Type="DataModel.Store.Property" Multiplicity="1" />
+    <End Role="PropOption" Type="DataModel.Store.PropOption" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Property">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PropOption">
+        <PropertyRef Name="PropertyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="GoodSKUGoodInfo">
+    <End Role="GoodSKU" Type="DataModel.Store.GoodSKU" Multiplicity="*" />
+    <End Role="GoodInfo" Type="DataModel.Store.GoodInfo" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="GoodInfo">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="GoodSKU">
+        <PropertyRef Name="GoodInfo_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="GoodsPropValueGoodInfo">
+    <End Role="GoodsPropValue" Type="DataModel.Store.GoodsPropValue" Multiplicity="*" />
+    <End Role="GoodInfo" Type="DataModel.Store.GoodInfo" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="GoodInfo">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="GoodsPropValue">
+        <PropertyRef Name="GoodInfo_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="GoodInfoImageInfo">
+    <End Role="GoodInfo" Type="DataModel.Store.GoodInfo" Multiplicity="1" />
+    <End Role="ImageInfo" Type="DataModel.Store.ImageInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GoodInfo">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ImageInfo">
+        <PropertyRef Name="GoodInfoID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ActionInfoRole_ActionInfo">
+    <End Role="ActionInfo" Type="DataModel.Store.ActionInfo" Multiplicity="1" />
+    <End Role="ActionInfoRole" Type="DataModel.Store.ActionInfoRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ActionInfo">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ActionInfoRole">
+        <PropertyRef Name="ActionInfo_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ActionInfoRole_Role">
+    <End Role="ActionInfoRole" Type="DataModel.Store.ActionInfoRole" Multiplicity="*" />
+    <End Role="Role" Type="DataModel.Store.Role" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ActionInfoRole">
+        <PropertyRef Name="Role_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ActionInfoActionGroup_ActionInfo">
+    <End Role="ActionInfo" Type="DataModel.Store.ActionInfo" Multiplicity="1" />
+    <End Role="ActionInfoActionGroup" Type="DataModel.Store.ActionInfoActionGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ActionInfo">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ActionInfoActionGroup">
+        <PropertyRef Name="ActionInfo_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ActionInfoActionGroup_ActionGroup">
+    <End Role="ActionInfoActionGroup" Type="DataModel.Store.ActionInfoActionGroup" Multiplicity="*" />
+    <End Role="ActionGroup" Type="DataModel.Store.ActionGroup" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="ActionGroup">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ActionInfoActionGroup">
+        <PropertyRef Name="ActionGroup_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserInfoActionGroup_UserInfo">
+    <End Role="UserInfo" Type="DataModel.Store.UserInfo" Multiplicity="1" />
+    <End Role="UserInfoActionGroup" Type="DataModel.Store.UserInfoActionGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserInfo">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UserInfoActionGroup">
+        <PropertyRef Name="UserInfo_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserInfoActionGroup_ActionGroup">
+    <End Role="UserInfoActionGroup" Type="DataModel.Store.UserInfoActionGroup" Multiplicity="*" />
+    <End Role="ActionGroup" Type="DataModel.Store.ActionGroup" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="ActionGroup">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UserInfoActionGroup">
+        <PropertyRef Name="ActionGroup_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ActionGroupRole_ActionGroup">
+    <End Role="ActionGroup" Type="DataModel.Store.ActionGroup" Multiplicity="1" />
+    <End Role="ActionGroupRole" Type="DataModel.Store.ActionGroupRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ActionGroup">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ActionGroupRole">
+        <PropertyRef Name="ActionGroup_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ActionGroupRole_Role">
+    <End Role="ActionGroupRole" Type="DataModel.Store.ActionGroupRole" Multiplicity="*" />
+    <End Role="Role" Type="DataModel.Store.Role" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ActionGroupRole">
+        <PropertyRef Name="Role_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CategoryProperty_Category">
+    <End Role="Category" Type="DataModel.Store.Category" Multiplicity="1" />
+    <End Role="CategoryProperty" Type="DataModel.Store.CategoryProperty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CategoryProperty">
+        <PropertyRef Name="Category_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CategoryProperty_Property">
+    <End Role="CategoryProperty" Type="DataModel.Store.CategoryProperty" Multiplicity="*" />
+    <End Role="Property" Type="DataModel.Store.Property" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Property">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CategoryProperty">
+        <PropertyRef Name="Property_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PropertyGoodInfo_Property">
+    <End Role="Property" Type="DataModel.Store.Property" Multiplicity="1" />
+    <End Role="PropertyGoodInfo" Type="DataModel.Store.PropertyGoodInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Property">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PropertyGoodInfo">
+        <PropertyRef Name="Property_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PropertyGoodInfo_GoodInfo">
+    <End Role="PropertyGoodInfo" Type="DataModel.Store.PropertyGoodInfo" Multiplicity="*" />
+    <End Role="GoodInfo" Type="DataModel.Store.GoodInfo" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="GoodInfo">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PropertyGoodInfo">
+        <PropertyRef Name="GoodInfo_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GoodSKUGoodsPropValue_GoodSKU">
+    <End Role="GoodSKU" Type="DataModel.Store.GoodSKU" Multiplicity="1" />
+    <End Role="GoodSKUGoodsPropValue" Type="DataModel.Store.GoodSKUGoodsPropValue" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GoodSKU">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="GoodSKUGoodsPropValue">
+        <PropertyRef Name="GoodSKU_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GoodSKUGoodsPropValue_GoodsPropValue">
+    <End Role="GoodSKUGoodsPropValue" Type="DataModel.Store.GoodSKUGoodsPropValue" Multiplicity="*" />
+    <End Role="GoodsPropValue" Type="DataModel.Store.GoodsPropValue" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="GoodsPropValue">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="GoodSKUGoodsPropValue">
+        <PropertyRef Name="GoodsPropValue_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CategoryGoodInfo_Category">
+    <End Role="Category" Type="DataModel.Store.Category" Multiplicity="1" />
+    <End Role="CategoryGoodInfo" Type="DataModel.Store.CategoryGoodInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CategoryGoodInfo">
+        <PropertyRef Name="Category_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CategoryGoodInfo_GoodInfo">
+    <End Role="CategoryGoodInfo" Type="DataModel.Store.CategoryGoodInfo" Multiplicity="*" />
+    <End Role="GoodInfo" Type="DataModel.Store.GoodInfo" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="GoodInfo">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CategoryGoodInfo">
+        <PropertyRef Name="GoodInfo_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="DataModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="DataModelContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="UserInfo" EntityType="DataModel.UserInfo" />
+          <EntitySet Name="Role" EntityType="DataModel.Role" />
+          <EntitySet Name="R_UserInfo_Role" EntityType="DataModel.R_UserInfo_Role" />
+          <AssociationSet Name="UserInfoR_UserInfo_Role" Association="DataModel.UserInfoR_UserInfo_Role">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="R_UserInfo_Role" EntitySet="R_UserInfo_Role" />
+          </AssociationSet>
+          <AssociationSet Name="RoleR_UserInfo_Role" Association="DataModel.RoleR_UserInfo_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="R_UserInfo_Role" EntitySet="R_UserInfo_Role" />
+          </AssociationSet>
+          <EntitySet Name="ActionInfo" EntityType="DataModel.ActionInfo" />
+          <AssociationSet Name="ActionInfoRole" Association="DataModel.ActionInfoRole">
+            <End Role="ActionInfo" EntitySet="ActionInfo" />
+            <End Role="Role" EntitySet="Role" />
+          </AssociationSet>
+          <EntitySet Name="R_UserInfo_ActionInfo" EntityType="DataModel.R_UserInfo_ActionInfo" />
+          <AssociationSet Name="UserInfoR_UserInfo_ActionInfo" Association="DataModel.UserInfoR_UserInfo_ActionInfo">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="R_UserInfo_ActionInfo" EntitySet="R_UserInfo_ActionInfo" />
+          </AssociationSet>
+          <AssociationSet Name="ActionInfoR_UserInfo_ActionInfo" Association="DataModel.ActionInfoR_UserInfo_ActionInfo">
+            <End Role="ActionInfo" EntitySet="ActionInfo" />
+            <End Role="R_UserInfo_ActionInfo" EntitySet="R_UserInfo_ActionInfo" />
+          </AssociationSet>
+          <EntitySet Name="ActionGroup" EntityType="DataModel.ActionGroup" />
+          <AssociationSet Name="ActionInfoActionGroup" Association="DataModel.ActionInfoActionGroup">
+            <End Role="ActionInfo" EntitySet="ActionInfo" />
+            <End Role="ActionGroup" EntitySet="ActionGroup" />
+          </AssociationSet>
+          <AssociationSet Name="UserInfoActionGroup" Association="DataModel.UserInfoActionGroup">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="ActionGroup" EntitySet="ActionGroup" />
+          </AssociationSet>
+          <AssociationSet Name="ActionGroupRole" Association="DataModel.ActionGroupRole">
+            <End Role="ActionGroup" EntitySet="ActionGroup" />
+            <End Role="Role" EntitySet="Role" />
+          </AssociationSet>
+          <EntitySet Name="实体1集" EntityType="DataModel.实体1" />
+          <AssociationSet Name="UserInfo实体1" Association="DataModel.UserInfo实体1">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="实体1" EntitySet="实体1集" />
+          </AssociationSet>
+          <EntitySet Name="Category" EntityType="DataModel.Category" />
+          <EntitySet Name="GoodInfo" EntityType="DataModel.GoodInfo" />
+          <EntitySet Name="Property" EntityType="DataModel.Property" />
+          <EntitySet Name="PropOption" EntityType="DataModel.PropOption" />
+          <AssociationSet Name="PropertyPropOption" Association="DataModel.PropertyPropOption">
+            <End Role="Property" EntitySet="Property" />
+            <End Role="PropOption" EntitySet="PropOption" />
+          </AssociationSet>
+          <AssociationSet Name="CategoryProperty" Association="DataModel.CategoryProperty">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Property" EntitySet="Property" />
+          </AssociationSet>
+          <AssociationSet Name="PropertyGoodInfo" Association="DataModel.PropertyGoodInfo">
+            <End Role="Property" EntitySet="Property" />
+            <End Role="GoodInfo" EntitySet="GoodInfo" />
+          </AssociationSet>
+          <EntitySet Name="GoodsPropValue" EntityType="DataModel.GoodsPropValue" />
+          <EntitySet Name="GoodSKU" EntityType="DataModel.GoodSKU" />
+          <AssociationSet Name="GoodSKUGoodInfo" Association="DataModel.GoodSKUGoodInfo">
+            <End Role="GoodSKU" EntitySet="GoodSKU" />
+            <End Role="GoodInfo" EntitySet="GoodInfo" />
+          </AssociationSet>
+          <AssociationSet Name="GoodSKUGoodsPropValue" Association="DataModel.GoodSKUGoodsPropValue">
+            <End Role="GoodSKU" EntitySet="GoodSKU" />
+            <End Role="GoodsPropValue" EntitySet="GoodsPropValue" />
+          </AssociationSet>
+          <AssociationSet Name="GoodsPropValueGoodInfo" Association="DataModel.GoodsPropValueGoodInfo">
+            <End Role="GoodsPropValue" EntitySet="GoodsPropValue" />
+            <End Role="GoodInfo" EntitySet="GoodInfo" />
+          </AssociationSet>
+          <AssociationSet Name="CategoryGoodInfo" Association="DataModel.CategoryGoodInfo">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="GoodInfo" EntitySet="GoodInfo" />
+          </AssociationSet>
+          <EntitySet Name="ImageInfo" EntityType="DataModel.ImageInfo" />
+          <AssociationSet Name="GoodInfoImageInfo" Association="DataModel.GoodInfoImageInfo">
+            <End Role="GoodInfo" EntitySet="GoodInfo" />
+            <End Role="ImageInfo" EntitySet="ImageInfo" />
+          </AssociationSet>
+          <EntitySet Name="Shop" EntityType="DataModel.Shop" />
+        </EntityContainer>
+        <EntityType Name="UserInfo">
+          <Documentation>
+            <Summary>用户表的设计</Summary>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="UName" Nullable="false" MaxLength="32" />
+          <Property Type="String" Name="Pwd" Nullable="false" MaxLength="32" />
+          <Property Type="String" Name="Phone" MaxLength="16" Nullable="true" Unicode="false" />
+          <Property Type="String" Name="Mail" MaxLength="32" Nullable="true" />
+          <Property Type="DateTime" Name="SubTime" Nullable="false" />
+          <Property Type="DateTime" Name="LastModifiedOn" Nullable="false" />
+          <Property Type="Int16" Name="DelFlag" Nullable="false" DefaultValue="0" >
+            <Documentation>
+              <LongDescription>确认假删除</LongDescription>
+            </Documentation>
+          </Property>
+          <NavigationProperty Name="R_UserInfo_Role" Relationship="DataModel.UserInfoR_UserInfo_Role" FromRole="UserInfo" ToRole="R_UserInfo_Role" />
+          <NavigationProperty Name="R_UserInfo_ActionInfo" Relationship="DataModel.UserInfoR_UserInfo_ActionInfo" FromRole="UserInfo" ToRole="R_UserInfo_ActionInfo" />
+          <NavigationProperty Name="ActionGroup" Relationship="DataModel.UserInfoActionGroup" FromRole="UserInfo" ToRole="ActionGroup" />
+          <NavigationProperty Name="实体1" Relationship="DataModel.UserInfo实体1" FromRole="UserInfo" ToRole="实体1" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Documentation>
+            <Summary>角色表的设计</Summary>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="RoleName" Nullable="false" MaxLength="32" />
+          <Property Type="Int16" Name="RoleType" Nullable="false" DefaultValue="0" >
+            <Documentation>
+              <LongDescription>角色类型的判断(特殊角色)</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Type="Int16" Name="DelFlag" Nullable="false" DefaultValue="0" />
+          <Property Type="DateTime" Name="SubTime" Nullable="false" />
+          <NavigationProperty Name="R_UserInfo_Role" Relationship="DataModel.RoleR_UserInfo_Role" FromRole="Role" ToRole="R_UserInfo_Role" />
+          <NavigationProperty Name="ActionInfo" Relationship="DataModel.ActionInfoRole" FromRole="Role" ToRole="ActionInfo" />
+          <NavigationProperty Name="ActionGroup" Relationship="DataModel.ActionGroupRole" FromRole="Role" ToRole="ActionGroup" />
+        </EntityType>
+        <EntityType Name="R_UserInfo_Role">
+          <Documentation>
+            <Summary>人为的添加中间表更灵活</Summary>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="UserInfo" Relationship="DataModel.UserInfoR_UserInfo_Role" FromRole="R_UserInfo_Role" ToRole="UserInfo" />
+          <Property Type="Int32" Name="UserInfoID" Nullable="false" />
+          <NavigationProperty Name="Role" Relationship="DataModel.RoleR_UserInfo_Role" FromRole="R_UserInfo_Role" ToRole="Role" />
+          <Property Type="Int32" Name="RoleID" Nullable="false" >
+            <Documentation>
+              <Summary>用户表和角色表映射出来的表</Summary>
+            </Documentation>
+          </Property>
+          <Property Type="DateTime" Name="SubTime" Nullable="false" />
+        </EntityType>
+        <Association Name="UserInfoR_UserInfo_Role">
+          <End Type="DataModel.UserInfo" Role="UserInfo" Multiplicity="1" />
+          <End Type="DataModel.R_UserInfo_Role" Role="R_UserInfo_Role" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="R_UserInfo_Role">
+              <PropertyRef Name="UserInfoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RoleR_UserInfo_Role">
+          <End Type="DataModel.Role" Role="Role" Multiplicity="1" />
+          <End Type="DataModel.R_UserInfo_Role" Role="R_UserInfo_Role" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="R_UserInfo_Role">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ActionInfo">
+          <Documentation>
+            <LongDescription>权限表的设计</LongDescription>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="RequestUrl" Nullable="false" MaxLength="256" Unicode="false" />
+          <Property Type="String" Name="RequestHttpType" Nullable="false" MaxLength="16" Unicode="false" DefaultValue="&quot;Get&quot;" />
+          <Property Type="String" Name="ActionName" Nullable="false" MaxLength="16" />
+          <Property Type="DateTime" Name="SubTime" Nullable="false" />
+          <NavigationProperty Name="Role" Relationship="DataModel.ActionInfoRole" FromRole="ActionInfo" ToRole="Role" />
+          <NavigationProperty Name="R_UserInfo_ActionInfo" Relationship="DataModel.ActionInfoR_UserInfo_ActionInfo" FromRole="ActionInfo" ToRole="R_UserInfo_ActionInfo" />
+          <Property Type="Int16" Name="ActionType" Nullable="false" DefaultValue="0" >
+            <Documentation>
+              <LongDescription>0表示普通类型，1表示菜单组</LongDescription>
+            </Documentation>
+          </Property>
+          <NavigationProperty Name="ActionGroup" Relationship="DataModel.ActionInfoActionGroup" FromRole="ActionInfo" ToRole="ActionGroup" />
+        </EntityType>
+        <Association Name="ActionInfoRole">
+          <End Type="DataModel.ActionInfo" Role="ActionInfo" Multiplicity="*" />
+          <End Type="DataModel.Role" Role="Role" Multiplicity="*" />
+        </Association>
+        <EntityType Name="R_UserInfo_ActionInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="UserInfo" Relationship="DataModel.UserInfoR_UserInfo_ActionInfo" FromRole="R_UserInfo_ActionInfo" ToRole="UserInfo" />
+          <Property Type="Int32" Name="UserInfoID" Nullable="false" />
+          <NavigationProperty Name="ActionInfo" Relationship="DataModel.ActionInfoR_UserInfo_ActionInfo" FromRole="R_UserInfo_ActionInfo" ToRole="ActionInfo" />
+          <Property Type="Int32" Name="ActionInfoID" Nullable="false" />
+          <Property Type="Boolean" Name="HasPermation" Nullable="false" />
+        </EntityType>
+        <Association Name="UserInfoR_UserInfo_ActionInfo">
+          <End Type="DataModel.UserInfo" Role="UserInfo" Multiplicity="1" />
+          <End Type="DataModel.R_UserInfo_ActionInfo" Role="R_UserInfo_ActionInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="R_UserInfo_ActionInfo">
+              <PropertyRef Name="UserInfoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ActionInfoR_UserInfo_ActionInfo">
+          <End Type="DataModel.ActionInfo" Role="ActionInfo" Multiplicity="1" />
+          <End Type="DataModel.R_UserInfo_ActionInfo" Role="R_UserInfo_ActionInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ActionInfo">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="R_UserInfo_ActionInfo">
+              <PropertyRef Name="ActionInfoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ActionGroup">
+          <Documentation>
+            <LongDescription>菜单组的表实体</LongDescription>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="ActionInfo" Relationship="DataModel.ActionInfoActionGroup" FromRole="ActionGroup" ToRole="ActionInfo" />
+          <Property Type="String" Name="GroupName" Nullable="false" MaxLength="32" />
+          <Property Type="Int16" Name="DelFlag" Nullable="false" />
+          <NavigationProperty Name="UserInfo" Relationship="DataModel.UserInfoActionGroup" FromRole="ActionGroup" ToRole="UserInfo" />
+          <Property Type="Int16" Name="GroupType" Nullable="false" >
+            <Documentation>
+              <LongDescription>权限组的类型，0普通组，1代表菜单组</LongDescription>
+            </Documentation>
+          </Property>
+          <NavigationProperty Name="Role" Relationship="DataModel.ActionGroupRole" FromRole="ActionGroup" ToRole="Role" />
+        </EntityType>
+        <Association Name="ActionInfoActionGroup">
+          <End Type="DataModel.ActionInfo" Role="ActionInfo" Multiplicity="*" />
+          <End Type="DataModel.ActionGroup" Role="ActionGroup" Multiplicity="*" />
+        </Association>
+        <Association Name="UserInfoActionGroup">
+          <End Type="DataModel.UserInfo" Role="UserInfo" Multiplicity="*" />
+          <End Type="DataModel.ActionGroup" Role="ActionGroup" Multiplicity="*" />
+        </Association>
+        <Association Name="ActionGroupRole">
+          <End Type="DataModel.ActionGroup" Role="ActionGroup" Multiplicity="*" />
+          <End Type="DataModel.Role" Role="Role" Multiplicity="*" />
+        </Association>
+        <EntityType Name="实体1">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="UserInfo" Relationship="DataModel.UserInfo实体1" FromRole="实体1" ToRole="UserInfo" />
+          <Property Type="Int32" Name="UserInfoID" Nullable="false" />
+        </EntityType>
+        <Association Name="UserInfo实体1">
+          <End Type="DataModel.UserInfo" Role="UserInfo" Multiplicity="1" />
+          <End Type="DataModel.实体1" Role="实体1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="实体1">
+              <PropertyRef Name="UserInfoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Category">
+          <Documentation>
+            <LongDescription>类别表</LongDescription>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="CatName" Nullable="false" />
+          <Property Type="Int16" Name="DelFlag" Nullable="false" />
+          <Property Type="Int32" Name="ParentID" Nullable="false" />
+          <Property Type="String" Name="TreePath" Nullable="false" MaxLength="64" />
+          <Property Type="Int32" Name="Level" Nullable="false" />
+          <Property Type="Int16" Name="IsLeaf" Nullable="false" >
+            <Documentation>
+              <LongDescription>是否是一个叶子节点，记录一下</LongDescription>
+            </Documentation>
+          </Property>
+          <NavigationProperty Name="Property" Relationship="DataModel.CategoryProperty" FromRole="Category" ToRole="Property" />
+          <NavigationProperty Name="GoodInfo" Relationship="DataModel.CategoryGoodInfo" FromRole="Category" ToRole="GoodInfo" />
+        </EntityType>
+        <EntityType Name="GoodInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Property" Relationship="DataModel.PropertyGoodInfo" FromRole="GoodInfo" ToRole="Property" />
+          <NavigationProperty Name="GoodSKU" Relationship="DataModel.GoodSKUGoodInfo" FromRole="GoodInfo" ToRole="GoodSKU" />
+          <NavigationProperty Name="GoodsPropValue" Relationship="DataModel.GoodsPropValueGoodInfo" FromRole="GoodInfo" ToRole="GoodsPropValue" />
+          <Property Type="String" Name="GoodName" Nullable="false" />
+          <Property Type="String" Name="GoodNo" Nullable="false" />
+          <Property Type="String" Name="Description" Nullable="false" />
+          <Property Type="String" Name="Remark" Nullable="false" />
+          <Property Type="String" Name="GoodStatus" Nullable="false" />
+          <Property Type="DateTime" Name="Subtime" Nullable="false" />
+          <Property Type="DateTime" Name="OnShelfTime" Nullable="false" >
+            <Documentation>
+              <LongDescription>商品上架时间</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Type="DateTime" Name="OffLineTime" Nullable="false" >
+            <Documentation>
+              <LongDescription>下架时间</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Type="Int16" Name="GoodMark" Nullable="false" />
+          <NavigationProperty Name="Category" Relationship="DataModel.CategoryGoodInfo" FromRole="GoodInfo" ToRole="Category" />
+          <NavigationProperty Name="ImageInfo" Relationship="DataModel.GoodInfoImageInfo" FromRole="GoodInfo" ToRole="ImageInfo" />
+          <Property Type="Int32" Name="MainInageId" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Property">
+          <Documentation>
+            <LongDescription>商品属性表</LongDescription>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="PropName" Nullable="false" />
+          <Property Type="Int16" Name="ShowType" Nullable="false" >
+            <Documentation>
+              <LongDescription>属性展示的方式</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Type="String" Name="PropOptions" Nullable="false" MaxLength="256" />
+          <NavigationProperty Name="PropOption" Relationship="DataModel.PropertyPropOption" FromRole="Property" ToRole="PropOption" />
+          <NavigationProperty Name="Category" Relationship="DataModel.CategoryProperty" FromRole="Property" ToRole="Category" />
+          <NavigationProperty Name="GoodInfo" Relationship="DataModel.PropertyGoodInfo" FromRole="Property" ToRole="GoodInfo" />
+        </EntityType>
+        <EntityType Name="PropOption">
+          <Documentation>
+            <LongDescription>属性项</LongDescription>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="OptionName" Nullable="false" />
+          <Property Type="String" Name="ShowName" Nullable="false" MaxLength="32" />
+          <NavigationProperty Name="Property" Relationship="DataModel.PropertyPropOption" FromRole="PropOption" ToRole="Property" />
+          <Property Type="Int32" Name="PropertyID" Nullable="false" />
+        </EntityType>
+        <Association Name="PropertyPropOption">
+          <End Type="DataModel.Property" Role="Property" Multiplicity="1" />
+          <End Type="DataModel.PropOption" Role="PropOption" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Property">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PropOption">
+              <PropertyRef Name="PropertyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CategoryProperty">
+          <End Type="DataModel.Category" Role="Category" Multiplicity="*" />
+          <End Type="DataModel.Property" Role="Property" Multiplicity="*" />
+        </Association>
+        <Association Name="PropertyGoodInfo">
+          <End Type="DataModel.Property" Role="Property" Multiplicity="*" />
+          <End Type="DataModel.GoodInfo" Role="GoodInfo" Multiplicity="*" />
+        </Association>
+        <EntityType Name="GoodsPropValue">
+          <Documentation>
+            <LongDescription>属性值表</LongDescription>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="PropID" Nullable="false" >
+            <Documentation>
+              <LongDescription>属性的ID</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Type="Int32" Name="OptionID" Nullable="false" >
+            <Documentation>
+              <LongDescription>属性项的ID</LongDescription>
+            </Documentation>
+          </Property>
+          <NavigationProperty Name="GoodSKU" Relationship="DataModel.GoodSKUGoodsPropValue" FromRole="GoodsPropValue" ToRole="GoodSKU" />
+          <NavigationProperty Name="GoodInfo" Relationship="DataModel.GoodsPropValueGoodInfo" FromRole="GoodsPropValue" ToRole="GoodInfo" />
+          <Property Type="Int32" Name="GoodInfoID" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GoodSKU">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="SkuCode" Nullable="false" MaxLength="64" >
+            <Documentation>
+              <LongDescription>SKU的Code是一个值，算出来的</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Type="String" Name="Remark" Nullable="false" />
+          <Property Type="String" Name="SKUOptions" Nullable="false" MaxLength="128" >
+            <Documentation>
+              <LongDescription>ID,ID,ID,项目</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Type="Int32" Name="GoodInfoID" Nullable="false" />
+          <NavigationProperty Name="GoodInfo" Relationship="DataModel.GoodSKUGoodInfo" FromRole="GoodSKU" ToRole="GoodInfo" />
+          <NavigationProperty Name="GoodsPropValue" Relationship="DataModel.GoodSKUGoodsPropValue" FromRole="GoodSKU" ToRole="GoodsPropValue" />
+          <Property Type="Decimal" Name="StoreCount" Nullable="false" />
+        </EntityType>
+        <Association Name="GoodSKUGoodInfo">
+          <End Type="DataModel.GoodSKU" Role="GoodSKU" Multiplicity="*" />
+          <End Type="DataModel.GoodInfo" Role="GoodInfo" Multiplicity="1" />
+        </Association>
+        <Association Name="GoodSKUGoodsPropValue">
+          <End Type="DataModel.GoodSKU" Role="GoodSKU" Multiplicity="*" />
+          <End Type="DataModel.GoodsPropValue" Role="GoodsPropValue" Multiplicity="*" />
+        </Association>
+        <Association Name="GoodsPropValueGoodInfo">
+          <End Type="DataModel.GoodsPropValue" Role="GoodsPropValue" Multiplicity="*" />
+          <End Type="DataModel.GoodInfo" Role="GoodInfo" Multiplicity="1" />
+        </Association>
+        <Association Name="CategoryGoodInfo">
+          <End Type="DataModel.Category" Role="Category" Multiplicity="*" />
+          <End Type="DataModel.GoodInfo" Role="GoodInfo" Multiplicity="*" />
+        </Association>
+        <EntityType Name="ImageInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="URL" Nullable="false" Unicode="false" MaxLength="256" />
+          <Property Type="String" Name="Alt" Nullable="false" MaxLength="32" />
+          <Property Type="String" Name="ImageSize" Nullable="false" />
+          <Property Type="Int16" Name="DelFlag" Nullable="false" />
+          <NavigationProperty Name="GoodInfo" Relationship="DataModel.GoodInfoImageInfo" FromRole="ImageInfo" ToRole="GoodInfo" />
+          <Property Type="Int32" Name="GoodInfoID" Nullable="false" />
+        </EntityType>
+        <Association Name="GoodInfoImageInfo">
+          <End Type="DataModel.GoodInfo" Role="GoodInfo" Multiplicity="1" />
+          <End Type="DataModel.ImageInfo" Role="ImageInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GoodInfo">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ImageInfo">
+              <PropertyRef Name="GoodInfoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Shop">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="ShopName" Nullable="false" />
+          <Property Type="String" Name="Property1" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DataModelStoreContainer" CdmEntityContainer="DataModelContainer">
+    <EntitySetMapping Name="UserInfo">
+      <EntityTypeMapping TypeName="IsTypeOf(DataModel.UserInfo)">
+        <MappingFragment StoreEntitySet="UserInfo">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UName" ColumnName="UName" />
+          <ScalarProperty Name="Pwd" ColumnName="Pwd" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Mail" ColumnName="Mail" />
+          <ScalarProperty Name="SubTime" ColumnName="SubTime" />
+          <ScalarProperty Name="LastModifiedOn" ColumnName="LastModifiedOn" />
+          <ScalarProperty Name="DelFlag" ColumnName="DelFlag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Role">
+      <EntityTypeMapping TypeName="IsTypeOf(DataModel.Role)">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="RoleType" ColumnName="RoleType" />
+          <ScalarProperty Name="DelFlag" ColumnName="DelFlag" />
+          <ScalarProperty Name="SubTime" ColumnName="SubTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="R_UserInfo_Role">
+      <EntityTypeMapping TypeName="IsTypeOf(DataModel.R_UserInfo_Role)">
+        <MappingFragment StoreEntitySet="R_UserInfo_Role">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UserInfoID" ColumnName="UserInfoID" />
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="SubTime" ColumnName="SubTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ActionInfo">
+      <EntityTypeMapping TypeName="IsTypeOf(DataModel.ActionInfo)">
+        <MappingFragment StoreEntitySet="ActionInfo">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="RequestUrl" ColumnName="RequestUrl" />
+          <ScalarProperty Name="RequestHttpType" ColumnName="RequestHttpType" />
+          <ScalarProperty Name="ActionName" ColumnName="ActionName" />
+          <ScalarProperty Name="SubTime" ColumnName="SubTime" />
+          <ScalarProperty Name="ActionType" ColumnName="ActionType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="R_UserInfo_ActionInfo">
+      <EntityTypeMapping TypeName="IsTypeOf(DataModel.R_UserInfo_ActionInfo)">
+        <MappingFragment StoreEntitySet="R_UserInfo_ActionInfo">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UserInfoID" ColumnName="UserInfoID" />
+          <ScalarProperty Name="ActionInfoID" ColumnName="ActionInfoID" />
+          <ScalarProperty Name="HasPermation" ColumnName="HasPermation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ActionGroup">
+      <EntityTypeMapping TypeName="IsTypeOf(DataModel.ActionGroup)">
+        <MappingFragment StoreEntitySet="ActionGroup">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+          <ScalarProperty Name="DelFlag" ColumnName="DelFlag" />
+          <ScalarProperty Name="GroupType" ColumnName="GroupType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="实体1集">
+      <EntityTypeMapping TypeName="IsTypeOf(DataModel.实体1)">
+        <MappingFragment StoreEntitySet="实体1集">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UserInfoID" ColumnName="UserInfoID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Category">
+      <EntityTypeMapping TypeName="IsTypeOf(DataModel.Category)">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CatName" ColumnName="CatName" />
+          <ScalarProperty Name="DelFlag" ColumnName="DelFlag" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+          <ScalarProperty Name="TreePath" ColumnName="TreePath" />
+          <ScalarProperty Name="Level" ColumnName="Level" />
+          <ScalarProperty Name="IsLeaf" ColumnName="IsLeaf" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GoodInfo">
+      <EntityTypeMapping TypeName="IsTypeOf(DataModel.GoodInfo)">
+        <MappingFragment StoreEntitySet="GoodInfo">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="GoodName" ColumnName="GoodName" />
+          <ScalarProperty Name="GoodNo" ColumnName="GoodNo" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="GoodStatus" ColumnName="GoodStatus" />
+          <ScalarProperty Name="Subtime" ColumnName="Subtime" />
+          <ScalarProperty Name="OnShelfTime" ColumnName="OnShelfTime" />
+          <ScalarProperty Name="OffLineTime" ColumnName="OffLineTime" />
+          <ScalarProperty Name="GoodMark" ColumnName="GoodMark" />
+          <ScalarProperty Name="MainInageId" ColumnName="MainInageId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Property">
+      <EntityTypeMapping TypeName="IsTypeOf(DataModel.Property)">
+        <MappingFragment StoreEntitySet="Property">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="PropName" ColumnName="PropName" />
+          <ScalarProperty Name="ShowType" ColumnName="ShowType" />
+          <ScalarProperty Name="PropOptions" ColumnName="PropOptions" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PropOption">
+      <EntityTypeMapping TypeName="IsTypeOf(DataModel.PropOption)">
+        <MappingFragment StoreEntitySet="PropOption">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="OptionName" ColumnName="OptionName" />
+          <ScalarProperty Name="ShowName" ColumnName="ShowName" />
+          <ScalarProperty Name="PropertyID" ColumnName="PropertyID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GoodsPropValue">
+      <EntityTypeMapping TypeName="IsTypeOf(DataModel.GoodsPropValue)">
+        <MappingFragment StoreEntitySet="GoodsPropValue">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="PropID" ColumnName="PropID" />
+          <ScalarProperty Name="OptionID" ColumnName="OptionID" />
+          <ScalarProperty Name="GoodInfoID" ColumnName="GoodInfoID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GoodSKU">
+      <EntityTypeMapping TypeName="IsTypeOf(DataModel.GoodSKU)">
+        <MappingFragment StoreEntitySet="GoodSKU">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="SkuCode" ColumnName="SkuCode" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="SKUOptions" ColumnName="SKUOptions" />
+          <ScalarProperty Name="GoodInfoID" ColumnName="GoodInfoID" />
+          <ScalarProperty Name="StoreCount" ColumnName="StoreCount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ImageInfo">
+      <EntityTypeMapping TypeName="IsTypeOf(DataModel.ImageInfo)">
+        <MappingFragment StoreEntitySet="ImageInfo">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="URL" ColumnName="URL" />
+          <ScalarProperty Name="Alt" ColumnName="Alt" />
+          <ScalarProperty Name="ImageSize" ColumnName="ImageSize" />
+          <ScalarProperty Name="DelFlag" ColumnName="DelFlag" />
+          <ScalarProperty Name="GoodInfoID" ColumnName="GoodInfoID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Shop">
+      <EntityTypeMapping TypeName="IsTypeOf(DataModel.Shop)">
+        <MappingFragment StoreEntitySet="Shop">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ShopName" ColumnName="ShopName" />
+          <ScalarProperty Name="Property1" ColumnName="Property1" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="ActionInfoRole" TypeName="DataModel.ActionInfoRole" StoreEntitySet="ActionInfoRole">
+      <EndProperty Name="ActionInfo">
+        <ScalarProperty Name="ID" ColumnName="ActionInfo_ID" />
+      </EndProperty>
+      <EndProperty Name="Role">
+        <ScalarProperty Name="ID" ColumnName="Role_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ActionInfoActionGroup" TypeName="DataModel.ActionInfoActionGroup" StoreEntitySet="ActionInfoActionGroup">
+      <EndProperty Name="ActionInfo">
+        <ScalarProperty Name="ID" ColumnName="ActionInfo_ID" />
+      </EndProperty>
+      <EndProperty Name="ActionGroup">
+        <ScalarProperty Name="ID" ColumnName="ActionGroup_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="UserInfoActionGroup" TypeName="DataModel.UserInfoActionGroup" StoreEntitySet="UserInfoActionGroup">
+      <EndProperty Name="UserInfo">
+        <ScalarProperty Name="ID" ColumnName="UserInfo_ID" />
+      </EndProperty>
+      <EndProperty Name="ActionGroup">
+        <ScalarProperty Name="ID" ColumnName="ActionGroup_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ActionGroupRole" TypeName="DataModel.ActionGroupRole" StoreEntitySet="ActionGroupRole">
+      <EndProperty Name="ActionGroup">
+        <ScalarProperty Name="ID" ColumnName="ActionGroup_ID" />
+      </EndProperty>
+      <EndProperty Name="Role">
+        <ScalarProperty Name="ID" ColumnName="Role_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CategoryProperty" TypeName="DataModel.CategoryProperty" StoreEntitySet="CategoryProperty">
+      <EndProperty Name="Category">
+        <ScalarProperty Name="ID" ColumnName="Category_ID" />
+      </EndProperty>
+      <EndProperty Name="Property">
+        <ScalarProperty Name="ID" ColumnName="Property_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PropertyGoodInfo" TypeName="DataModel.PropertyGoodInfo" StoreEntitySet="PropertyGoodInfo">
+      <EndProperty Name="Property">
+        <ScalarProperty Name="ID" ColumnName="Property_ID" />
+      </EndProperty>
+      <EndProperty Name="GoodInfo">
+        <ScalarProperty Name="ID" ColumnName="GoodInfo_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="GoodSKUGoodInfo" TypeName="DataModel.GoodSKUGoodInfo" StoreEntitySet="GoodSKU">
+      <EndProperty Name="GoodInfo">
+        <ScalarProperty Name="ID" ColumnName="GoodInfo_ID" />
+      </EndProperty>
+      <EndProperty Name="GoodSKU">
+        <ScalarProperty Name="ID" ColumnName="ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="GoodSKUGoodsPropValue" TypeName="DataModel.GoodSKUGoodsPropValue" StoreEntitySet="GoodSKUGoodsPropValue">
+      <EndProperty Name="GoodSKU">
+        <ScalarProperty Name="ID" ColumnName="GoodSKU_ID" />
+      </EndProperty>
+      <EndProperty Name="GoodsPropValue">
+        <ScalarProperty Name="ID" ColumnName="GoodsPropValue_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="GoodsPropValueGoodInfo" TypeName="DataModel.GoodsPropValueGoodInfo" StoreEntitySet="GoodsPropValue">
+      <EndProperty Name="GoodInfo">
+        <ScalarProperty Name="ID" ColumnName="GoodInfo_ID" />
+      </EndProperty>
+      <EndProperty Name="GoodsPropValue">
+        <ScalarProperty Name="ID" ColumnName="ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CategoryGoodInfo" TypeName="DataModel.CategoryGoodInfo" StoreEntitySet="CategoryGoodInfo">
+      <EndProperty Name="Category">
+        <ScalarProperty Name="ID" ColumnName="Category_ID" />
+      </EndProperty>
+      <EndProperty Name="GoodInfo">
+        <ScalarProperty Name="ID" ColumnName="GoodInfo_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

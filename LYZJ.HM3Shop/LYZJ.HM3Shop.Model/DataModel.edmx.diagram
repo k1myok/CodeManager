@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2f16c6936acb4f6cb91cba00b8ec110a" Name="关系图1" >
+        <EntityTypeShape EntityType="DataModel.UserInfo" Width="1.5" PointX="0.5" PointY="0.5" />
+        <EntityTypeShape EntityType="DataModel.Role" Width="1.5" PointX="4.625" PointY="3.625" FillColor="Red" />
+        <EntityTypeShape EntityType="DataModel.R_UserInfo_Role" Width="1.5" PointX="2.5" PointY="4.25" FillColor="Lime" />
+        <AssociationConnector Association="DataModel.UserInfoR_UserInfo_Role" ManuallyRouted="false" >
+        </AssociationConnector>
+        <AssociationConnector Association="DataModel.RoleR_UserInfo_Role" />
+        <EntityTypeShape EntityType="DataModel.ActionInfo" Width="1.5" PointX="8.125" PointY="3.125" FillColor="Fuchsia" />
+        <AssociationConnector Association="DataModel.ActionInfoRole" />
+        <EntityTypeShape EntityType="DataModel.R_UserInfo_ActionInfo" Width="1.5" PointX="3.625" PointY="1" />
+        <AssociationConnector Association="DataModel.UserInfoR_UserInfo_ActionInfo" />
+        <AssociationConnector Association="DataModel.ActionInfoR_UserInfo_ActionInfo" />
+        <EntityTypeShape EntityType="DataModel.ActionGroup" Width="1.5" PointX="6.625" PointY="0.5" FillColor="Maroon" />
+        <AssociationConnector Association="DataModel.ActionInfoActionGroup" />
+        <AssociationConnector Association="DataModel.UserInfoActionGroup" />
+        <AssociationConnector Association="DataModel.ActionGroupRole" />
+        <EntityTypeShape EntityType="DataModel.Category" Width="1.5" PointX="1.5" PointY="6.375" />
+        <EntityTypeShape EntityType="DataModel.GoodInfo" Width="1.5" PointX="1.25" PointY="9.625" IsExpanded="true" FillColor="Fuchsia" />
+        <EntityTypeShape EntityType="DataModel.Property" Width="1.5" PointX="5" PointY="6.625" FillColor="Red" />
+        <EntityTypeShape EntityType="DataModel.PropOption" Width="1.5" PointX="8" PointY="6.5" />
+        <AssociationConnector Association="DataModel.PropertyPropOption" />
+        <AssociationConnector Association="DataModel.CategoryProperty" />
+        <AssociationConnector Association="DataModel.PropertyGoodInfo" ManuallyRouted="false" >
+        </AssociationConnector>
+        <EntityTypeShape EntityType="DataModel.GoodsPropValue" Width="1.5" PointX="5.625" PointY="9.375" FillColor="64, 64, 0" />
+        <EntityTypeShape EntityType="DataModel.GoodSKU" Width="1.5" PointX="8" PointY="8.875" FillColor="255, 128, 0" />
+        <AssociationConnector Association="DataModel.GoodSKUGoodInfo" />
+        <AssociationConnector Association="DataModel.GoodSKUGoodsPropValue" />
+        <AssociationConnector Association="DataModel.GoodsPropValueGoodInfo" />
+        <AssociationConnector Association="DataModel.CategoryGoodInfo" />
+        <EntityTypeShape EntityType="DataModel.ImageInfo" Width="1.5" PointX="4.125" PointY="11.875" IsExpanded="true" FillColor="Gray" />
+        <AssociationConnector Association="DataModel.GoodInfoImageInfo" />
+        <EntityTypeShape EntityType="DataModel.Shop" Width="1.5" PointX="6.875" PointY="11.875" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

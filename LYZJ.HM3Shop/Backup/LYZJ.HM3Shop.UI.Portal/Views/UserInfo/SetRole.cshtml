@@ -1,0 +1,76 @@
+﻿@model LYZJ.HM3Shop.Model.UserInfo
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>SetRole</title>
+    <script src="../../Scripts/jquery-1.7.1.js"></script>
+    <script src="../../Scripts/jquery.unobtrusive-ajax.js"></script>
+    <script type="text/javascript">
+        function AfterSetRole(data) {
+            if (data == "OK") {
+                //调用父容器的一个方法，关闭对话框
+                window.parent.AfterSetRole();
+            }
+            else {
+                alert("出错了，请您检查");
+            }
+        }
+    </script>
+
+</head>
+<body>
+    <h3>欢迎您给用户:<font color="red" size="5">@Model.UName </font>设置角色信息:</h3>
+     <hr />
+
+        <fieldset>
+         @* foreach (var role in allRoles)
+             {
+                 string str = "ckb_" + role.ID;
+                <input type="checkbox" name="name" id="@str" value="@str" />
+                <label for="@str">@role.RoleName</label><span>&nbsp;&nbsp;</span> 
+             }*@
+         
+             @using (Ajax.BeginForm("SetRole", "UserInfo", new AjaxOptions() { OnSuccess = "AfterSetRole" }, new { id="frmSetRole"}))
+             {
+                 //存放一个隐藏域用来给前台传递ID
+                 <input type="hidden" name="hidUserId" value="@Model.ID" />
+                
+                 <legend>请选择您设置需要的角色</legend>
+             
+                 //获取后台传递过来的Role对象，并且进行转换
+                 List<LYZJ.HM3Shop.Model.Role> allRoles = (List<LYZJ.HM3Shop.Model.Role>)ViewBag.AllRoles;
+                 List<int> ExistIds = (List<int>)ViewBag.ExtistRoleIds;
+                 for (int i = 0; i < allRoles.Count; i++)
+                 {
+                     if (i % 3 == 0)
+                     {
+                          <br />
+                     }
+                     string str = "ckb_" + allRoles[i].ID;
+                    <!-- 判断当前的角色有没有 加入到用户的里面去，如果加入的话选中，否则不选 -->
+                     if (ExistIds.Contains(allRoles[i].ID))
+                     {
+                        <input type="checkbox" checked="checked" name="@str"  id="@str" value="@str" />   
+                     }
+                     else
+                     {
+                        <input type="checkbox"  id="@str" name="@str" value="@str" />   
+                     }
+                    <label for="@str">@allRoles[i].RoleName</label><span>&nbsp;&nbsp;</span>
+                 }
+                 <br />
+                <div style="text-align:center;">
+                    <input type="submit" value="设置角色" />
+                </div>
+             }
+        </fieldset>
+
+     <br />
+</body>
+</html>

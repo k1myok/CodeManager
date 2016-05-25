@@ -1,0 +1,177 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<HTML>
+ <HEAD>
+  <TITLE> ZTREE DEMO </TITLE>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" href="demoStyle/demo.css" type="text/css">
+  <link rel="stylesheet" href="zTreeStyle/zTreeStyle.css" type="text/css">
+  <script type="text/javascript" src="jquery-1.4.2.js"></script>
+  <script type="text/javascript" src="jquery.ztree-2.6.js"></script>
+  <script type="text/javascript" src="demoTools.js"></script>
+  <SCRIPT LANGUAGE="JavaScript">
+  <!--
+	var zTree1;
+	var setting;
+
+	var zNodes =[
+		{name:"100个节点", id:"1", count:100, times:1,isParent:true},
+		{name:"500个节点", id:"2", count:500, times:1,isParent:true},
+		{name:"1000个节点", id:"3", count:1000, times:1,isParent:true}
+	];
+
+	setting = {
+		expandSpeed: "",
+		async: true,
+		asyncUrl: getUrl,
+		callback: {
+			beforeExpand: zTreeBeforeExpand,
+			asyncSuccess: zTreeAjaxSuccess,
+			asyncError: zTreeAjaxError
+		}
+	};
+
+	$(document).ready(function(){
+		reloadTree();
+	});
+	var startTime = 0;
+	var endTime = 0;
+	function getUrl(treeNode) {
+		var curCount = (treeNode.nodes) ? treeNode.nodes.length : 0;
+		var getCount = (curCount + perCount) > treeNode.count ? (treeNode.count - curCount) : perCount;
+		var param = "id="+treeNode.id+"_"+(treeNode.times++) +"&count="+getCount;
+//		return "asyncData/nodeForHugeData.jsp?" + param;
+		return "asyncData/nodeForHugeData.php?" + param;
+	}
+	function zTreeBeforeExpand(treeId, treeNode) {
+		if (!treeNode.isAjaxing) {
+			startTime = new Date();
+			ajaxGetNodes(treeNode, "refresh");
+			return false;
+		} else {
+			alert("zTree 正在下载数据中，请稍后展开节点。。。");
+			return false;
+		}
+		return true;
+	}
+
+	function zTreeAjaxSuccess(event, treeId, treeNode, msg) {
+		if (!msg || msg.length == 0) {
+			return;
+		}
+		var totalCount = treeNode.count;
+			var ajaxInfo = "treeNode:" + treeNode.name;
+			if (treeNode.nodes.length < totalCount) {
+				var percent = treeNode.nodes.length*100/totalCount + "%";
+				ajaxInfo += ("<br/>进度：" + percent);
+				setTimeout(function() {ajaxGetNodes(treeNode);}, perTime);
+			} else {
+				endTime = new Date();
+				var usedTime = (endTime.getTime() - startTime.getTime())/1000;
+				ajaxInfo += ("<br/>加载完毕，共"+treeNode.nodes.length+"个子节点, 耗时："+ usedTime + "秒");
+				treeNode.icon = "";
+				zTree1.updateNode(treeNode);
+				zTree1.selectNode(treeNode.nodes[0]);
+			}
+			$("#onAsync").html(ajaxInfo);
+	}
+
+	function zTreeAjaxError(event, treeId, treeNode, XMLHttpRequest, textStatus, errorThrown) {
+		alert("异步获取数据出现异常。");
+		treeNode.icon = "";
+		zTree1.updateNode(treeNode);
+	}
+
+	function ajaxGetNodes(treeNode, reloadType) {
+		if (reloadType == "refresh") {
+			treeNode.icon = "zTreeStyle/img/loading.gif";
+			zTree1.updateNode(treeNode);
+		}
+		zTree1.reAsyncChildNodes(treeNode, reloadType);
+	}
+
+	var perCount = 50;
+	function changeCount(count) {
+//		if (isGetNodes) {
+//			alert("zTree正在下载数据中，请稍后更改配置。。。");
+//			$("#a_" + perCount).attr("checked", true);
+//			return;
+//		}
+		perCount = count;
+		reloadTree()
+	}
+	var perTime = 50;
+	function changeTime(time) {
+//		if (isGetNodes) {
+//			alert("zTree正在下载数据中，请稍后更改配置。。。");
+//			$("#at_" + perTime).attr("checked", true);
+//			return;
+//		}
+		perTime = time;
+		reloadTree()
+	}
+	
+	function reloadTree() {
+		zTree1 = $("#treeDemo").zTree(setting, clone(zNodes, ""));
+		$("#onAsync").html("<br/>");
+	}
+
+  //-->
+  </SCRIPT>
+ </HEAD>
+
+<BODY>
+<center class="headTitle">大数据量演示<span> —— 高级异步加载</span></center>
+<TABLE border=0 width="700" class="tb1">
+	<TR>
+		<TD width=340px align=center valign=top>
+		<div class="zTreeDemoBackground">
+			<ul id="treeDemo" class="tree"></ul>
+		</div>		
+		</TD>
+		<TD width=360px align=left valign=top>
+		<div class="demoContent">
+			<li class="title focus">
+				<font color="red" style="font-size:12px;">此演示需要发布到 php 服务器下方能正常执行。<br/>
+				使用 Tomcat 的朋友，请修改asyncUrl的值</font>
+			</li>
+			<li class="title focus">
+				<button class="ico star" onfocus="this.blur();"></button>异步加载数据配置
+				<ul class="remark">——修改以下配置后，重新展开节点看看变化</ul>
+				<ul>
+					单次获取条数：<INPUT TYPE="radio" id="a_50" NAME="aCount" checked onclick="changeCount(50);">50条
+					<INPUT TYPE="radio" id="a_100" NAME="aCount" onclick="changeCount(100);">100条
+					<INPUT TYPE="radio" id="a_200" NAME="aCount" onclick="changeCount(200);">200条
+					<br/>单次获取间隔：<INPUT TYPE="radio" id="at_50" NAME="aTime" checked onclick="changeTime(50);">50毫秒
+					<INPUT TYPE="radio" id="at_100" NAME="aTime" onclick="changeTime(100);">100毫秒
+					<INPUT TYPE="radio" id="at_300" NAME="aTime" onclick="changeTime(300);">300毫秒
+				</ul>
+			</li>
+			<li class="title focus">
+				<button class="ico books" onfocus="this.blur();"></button>异步加载说明
+				<ul class="remark">
+					此应用完全利用 zTree 提供的接口，针对特殊案例实现的功能。
+				</ul>
+				<ul class="remark">
+					对于上千个节点的一次性加载，在IE下有可能会出现一段时间的假<br/>
+					死状态，为了避免这种情况，制作自定义的异步加载方法，将上千<br/>
+					个节点进行分组下载，即避免了页面的假死，也可以提供友好的进<br/>
+					度提示功能。
+				</ul>
+				<ul class="remark">
+					应用中还实现了自动展开节点并选中第一个子节点的功能。
+				</ul>
+			</li>
+			<li class="title focus">
+				<button class="ico safari" onfocus="this.blur();"></button>事件监控
+				<ul class="event">
+				异步加载:&nbsp;&nbsp;<a id="onAsync"><br/></a><br/>
+				</ul>
+				
+			</li>
+				
+		</div>	
+		</TD>
+	</TR>
+</TABLE>
+</BODY>
+</HTML>

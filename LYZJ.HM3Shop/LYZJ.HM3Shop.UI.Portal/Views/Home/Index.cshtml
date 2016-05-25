@@ -1,0 +1,156 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>电子商务管理后台网站首页</title>
+    @*--------------------应用easyUI的CSS文件---------------------*@
+    <link href="../../Content/jquery-easyui-1.3.1/themes/icon.css" rel="stylesheet" />
+    <link href="../../Content/jquery-easyui-1.3.1/themes/default/easyui.css" rel="stylesheet" />
+    @*---------------------应用easyUI的的JS文件-----------------*@
+    <script src="../../Content/jquery-easyui-1.3.1/jquery-1.8.0.min.js"></script>
+    <script src="../../Content/jquery-easyui-1.3.1/jquery.easyui.min.js"></script>
+    <script src="../../Content/jquery-easyui-1.3.1/locale/easyui-lang-zh_CN.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            //在前台自动显示菜单的信息根据用户的信息
+            BindMenuDataGroupType();
+
+            //绑定菜单单击事件
+            BindMenuClickHrefEvent();
+
+            //读取动态时间的变化
+            ReadDateTimeShow();
+
+            //这里实现对时间动态的变化
+            var setTimeInterval = setInterval(ReadDateTimeShow, 1000);
+
+            //实现Tab布局
+            $("#ttTab").tabs({});
+
+        });
+
+
+        //绑定前台菜单栏
+        function BindMenuDataGroupType() {
+            //根据异步读取发送过来的Json字符串
+            $.getJSON("/Home/LoadMenuData", {}, function (data) {
+                //实现在菜单拦中的显示,遍历节点集合
+                for (var i = 0; i < data.length; i++) {
+                    var groupInfo = data[i]; //拿到组的信息
+
+                    //拿到内容的信息,每个菜单项构造成一个p标签
+                    var strMenuItemHTMl = "";
+                    for (var j = 0; j < groupInfo.MenuItems.length; j++) {
+                        var menuItem = groupInfo.MenuItems[j];
+                        strMenuItemHTMl += '<p><a href="javascript:void(0)" src="' + menuItem.Url + '" class="menuLink">' + menuItem.MenuName + '</a></p>';
+                    }
+                    
+                    //EasyUI添加节点
+                    $("#aa").accordion('add', {
+                        title: groupInfo.GroupName,
+                        content: strMenuItemHTMl,
+                        selected:false,
+                    });
+                    //$("#aa").accordion('select', groupInfo.GroupName);
+                }
+                //绑定用户单击跳转事件
+                BindMenuClickHrefEvent();
+            });
+        }
+
+        //实现用户单击导航栏跳转页面的方法
+        function BindMenuClickHrefEvent() {
+            $(".menuLink").click(function () {
+                //获取按钮里面的Src属性
+                var src = $(this).attr("src");
+                //将主框架的iframe跳转到菜单指向的地址，$("#frmWorkArea").attr("src", src);
+                //
+                //Tab页面添加页面标签，每当单击左边的导航栏的时候跳转
+                var titleShow = $(this).text();
+                var strHtml = '<iframe id="frmWorkArea" width="100%" height="100%" frameborder="0" scrolling="yes" src="' + src + '"></iframe>';
+                //判断Tab标签中是否有相同的数据标签
+                var isExist = $("#ttTab").tabs('exists', titleShow);
+                if (!isExist) {
+                    $("#ttTab").tabs('add', {
+                        title: titleShow,
+                        content: strHtml,
+                        iconCls: 'icon-save',
+                        closable: true,
+                    });
+                }
+                else {
+                    $('#aa').tabs('select', titleShow);
+                }
+            });
+        }
+
+        //读取动态时间的变化
+        function ReadDateTimeShow() {
+            var year = new Date().getFullYear();
+            var Month = new Date().getMonth() + 1;
+            var Day = new Date().getDate();
+            var Time = new Date().toLocaleTimeString();
+            var AddDate = year + "年" + Month + "月" + Day + "日,时间:" + Time;
+            $("#date").text(AddDate);
+        }
+
+
+    </script>
+
+</head>
+<body class="easyui-layout">
+
+    @*-----------------------------------网站头部--开始-------------------------------------*@
+    <div data-options="region:'north',border:false" style="height: 60px; background-image: url(../../images/3.jpg); background-repeat: repeat-x;">
+        <img src="../../images/Logo .png" />
+        <div style="float: right; padding-top: 5px; width: 750px; font-size: 18px">
+            <marquee>欢迎管理员<font color="red" size="5">@ViewBag.UName</font>登录陇原之家后台管理</marquee>
+            <div style="float: right; padding-right:30px; font-size: 14px; padding-top: 6px;">
+                当前时间：<b id="date"></b>  &nbsp;&nbsp <a href="/Login/Index"><b>注销</b></a>
+            </div>
+        </div>
+
+    </div>
+    @*-----------------------------------网站头部--结束-------------------------------------*@
+
+
+    @*------------------------------------网站左边导航栏 开始-------------------------------------------------*@
+    <div data-options="region:'west',split:true,title:'菜单导航'" style="width: 150px;">
+        <div id="aa" class="easyui-accordion" style="text-align:center;">
+
+            @*-------------菜单项-----------*@
+        @*    使用异步动态加载
+            <div title="用户管理" data-options="iconCls:'icon-ok'" selected="true" style="overflow: auto; padding: 10px;">
+                <p><a href="javascript:void(0)" src="/UserInfo/Index" class="menuLink">用户管理</a></p>
+                <p><a href="javascript:void(0)" src="/Role/Index" class="menuLink">角色管理</a></p>
+                <p><a href="javascript:void(0)" src="/ActionInfo/Index" class="menuLink">权限管理</a></p>
+                <p><a href="javascript:void(0)" src="/ActionGroup/Index" class="menuLink">菜单组管理</a></p>
+            </div>*@
+        </div>
+    </div>
+    @*---------------------------------------网站左边导航栏 开始--------------------------------------------*@
+
+
+    @*-------------------------------------网站工作区域  开始------------------------------------------------*@
+    <div data-options="region:'center',title:'>>陇原之家后台官网>>管理员：@ViewBag.UName'">
+        @*<iframe id="frmWorkArea" width="100%" height="100%" frameborder="0" scrolling="yes" src="../../WelCome.html"></iframe>*@
+        @*Tab容器的使用*@
+        <div id="ttTab" class="easyui-tabs" data-options="tools:'#tab-tools'" fit="true">
+	    </div>
+    </div>
+    @*--------------------------------------网站工作区域  结束-----------------------------------------------*@
+
+
+    @*---------------------------------网站底部 开始----------------------------------------------------*@
+    <div data-options="region:'south',border:false" style="height: 20px; background: #A9FACD; text-align: center;">
+        版权所有  @@copy 2012-2032  陇原之家
+    </div>
+    @*-------------------------------------网站底部  结束------------------------------------------------*@
+
+</body>
+</html>

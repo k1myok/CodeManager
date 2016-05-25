@@ -1,9 +1,0 @@
-F:\NET\MVCProject\WXDeveloper\WXDeveloper\bin\Debug\WXDeveloper.dll
-F:\NET\MVCProject\WXDeveloper\WXDeveloper\bin\Debug\WXDeveloper.pdb
-F:\NET\MVCProject\WXDeveloper\WXDeveloper\bin\Debug\EntityFramework.dll
-F:\NET\MVCProject\WXDeveloper\WXDeveloper\bin\Debug\Newtonsoft.Json.dll
-F:\NET\MVCProject\WXDeveloper\WXDeveloper\bin\Debug\EntityFramework.xml
-F:\NET\MVCProject\WXDeveloper\WXDeveloper\bin\Debug\Newtonsoft.Json.xml
-F:\NET\MVCProject\WXDeveloper\WXDeveloper\bin\Debug\zh-Hans\EntityFramework.resources.dll
-F:\NET\MVCProject\WXDeveloper\WXDeveloper\obj\Debug\WXDeveloper.dll
-F:\NET\MVCProject\WXDeveloper\WXDeveloper\obj\Debug\WXDeveloper.pdb

@@ -1,0 +1,56 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Index</title>
+    @*引用easyUI的CSS*@
+    <link href="../../Content/jquery-easyui-1.3.1/themes/default/easyui.css" rel="stylesheet" />
+    <link href="../../Content/jquery-easyui-1.3.1/themes/icon.css" rel="stylesheet" />
+     <link href="../../Content/Site.css" rel="stylesheet" />
+    @*引用easyUI的JS*@
+    <script src="../../Content/jquery-easyui-1.3.1/jquery-1.8.0.min.js"></script>
+    <script src="../../Content/jquery-easyui-1.3.1/jquery.easyui.min.js"></script>
+    <script src="../../Content/jquery-easyui-1.3.1/locale/easyui-lang-zh_CN.js"></script>
+    @*引用转换时间的JS文件*@
+    <script src="../../Content/jquery-easyui-1.3.1/datapattern2.js"></script>
+
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false">
+    </script>
+    <script type="text/javascript">
+        function InitializeMap() {
+            var latlng = new google.maps.LatLng(-34.397, 150.644);
+            var myOptions = {
+                zoom: 8,
+                center: latlng,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            var map = new google.maps.Map(document.getElementById("map"), myOptions);
+        }
+        window.onload = InitializeMap;
+    </script>
+
+
+</head>
+<body>
+    @*-------------------------- 搜索-------------------------*@
+    <fieldset>
+        <legend>谷歌地图详细信息查找</legend>
+        <div>
+            <label for="txtSerachGroupName">分组名称：</label>
+            <input type="text" ID="txtSerachGroupName" name="txtSerachGroupName"  />&nbsp;&nbsp;       
+            <label for="SOSearchGroupType">分组类型：</label> 
+            <select id="SOSearchGroupType" name="SOSearchGroupType" class="easyui-combobox" editable="false" >
+                <option value="-1" selected="selected">---请选择---</option>
+		        <option value="0">普通组</option>
+		        <option value="1">菜单组</option>
+            </select>
+
+            <a href="#" class="easyui-linkbutton" iconcls="icon-search" id="btnSerach"  name="btnSerach">模糊搜索</a>
+        </div>
+    </fieldset>
+</body>
+</html>

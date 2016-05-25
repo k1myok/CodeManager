@@ -1,0 +1,63 @@
+﻿@model LYZJ.HM3Shop.Model.UserInfo
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>AddUserActionInfo</title>
+    <script src="../../Scripts/jquery-1.7.1.js"></script>
+    <script src="../../Scripts/jquery.unobtrusive-ajax.js"></script>
+    <script type="text/javascript">
+        function AfterActionInfoShowUser(data) {
+            if (data == "OK") {
+                //调用父容器的方法，关闭层信息
+                window.parent.AfterActionInfoShowUser();
+            }
+            else {
+                alert("添加失败，请您检查");
+            }
+        }
+    </script>
+
+</head>
+<body>
+    <h3>欢迎您给用户:<font color="red" size="5">@Model.UName </font>设置角色信息:</h3>
+    <hr />
+    <fieldset>
+        <legend>添加用户特殊权限</legend>
+        @using(Ajax.BeginForm("SetActionInfo","UserInfo",new AjaxOptions{OnSuccess="AfterActionInfoShowUser"},new{ID="frmSetAction"})){
+
+            //存放一个隐藏域，用来给前台传递用户ID
+            <input type="hidden" name="hideUserID" value="@Model.ID" />
+            
+            List<LYZJ.HM3Shop.Model.ActionInfo> actionInfo = (List<LYZJ.HM3Shop.Model.ActionInfo>)ViewBag.AllActions;
+            List<int> existIDs = (List<int>)ViewBag.Exists;
+            for (int i = 0; i < actionInfo.Count; i++)
+            {
+                 if(i%5==0)
+                 {
+                     <br />
+                 }
+                string str = "ckb_" + actionInfo[i].ID;
+                //判断当前权限有没有被选中，如果选中则显示选中，反之依然
+                if(existIDs.Contains(actionInfo[i].ID))
+                {
+                    <input type="checkbox" checked="checked" name="@str"  id="@str" value="@str" />  
+                }
+                else
+                {
+                    <input type="checkbox"  name="@str"  id="@str" value="@str" />  
+                }
+                <label for="@str">@actionInfo[i].ActionName</label><span>&nbsp;&nbsp;</span>
+            }
+            <div style="text-align:center;">
+                <input type="submit" value="设置用户特殊权限" />
+            </div>
+        }
+    </fieldset>
+</body>
+</html>

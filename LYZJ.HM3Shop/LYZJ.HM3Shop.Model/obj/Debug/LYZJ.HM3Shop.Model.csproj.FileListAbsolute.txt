@@ -1,0 +1,12 @@
+F:\heima\practice\LYZJ.HM3Shop\LYZJ.HM3Shop.Model\bin\Debug\LYZJ.HM3Shop.Model.dll.config
+F:\heima\practice\LYZJ.HM3Shop\LYZJ.HM3Shop.Model\bin\Debug\LYZJ.HM3Shop.Model.dll
+F:\heima\practice\LYZJ.HM3Shop\LYZJ.HM3Shop.Model\bin\Debug\LYZJ.HM3Shop.Model.pdb
+F:\heima\practice\LYZJ.HM3Shop\LYZJ.HM3Shop.Model\bin\Debug\EntityFramework.dll
+F:\heima\practice\LYZJ.HM3Shop\LYZJ.HM3Shop.Model\bin\Debug\EntityFramework.xml
+F:\heima\practice\LYZJ.HM3Shop\LYZJ.HM3Shop.Model\bin\Debug\zh-Hans\EntityFramework.resources.dll
+F:\heima\practice\LYZJ.HM3Shop\LYZJ.HM3Shop.Model\obj\Debug\LYZJ.HM3Shop.Model.csprojResolveAssemblyReference.cache
+F:\heima\practice\LYZJ.HM3Shop\lib\LYZJ.HM3Shop.Model.dll.config
+F:\heima\practice\LYZJ.HM3Shop\lib\LYZJ.HM3Shop.Model.dll
+F:\heima\practice\LYZJ.HM3Shop\lib\LYZJ.HM3Shop.Model.pdb
+F:\heima\practice\LYZJ.HM3Shop\LYZJ.HM3Shop.Model\obj\Debug\LYZJ.HM3Shop.Model.dll
+F:\heima\practice\LYZJ.HM3Shop\LYZJ.HM3Shop.Model\obj\Debug\LYZJ.HM3Shop.Model.pdb

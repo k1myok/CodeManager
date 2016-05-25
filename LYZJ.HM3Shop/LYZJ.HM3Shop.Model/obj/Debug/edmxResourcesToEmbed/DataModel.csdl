@@ -1,0 +1,478 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="DataModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="DataModelContainer" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="UserInfo" EntityType="DataModel.UserInfo" />
+    <EntitySet Name="Role" EntityType="DataModel.Role" />
+    <EntitySet Name="R_UserInfo_Role" EntityType="DataModel.R_UserInfo_Role" />
+    <AssociationSet Name="UserInfoR_UserInfo_Role" Association="DataModel.UserInfoR_UserInfo_Role">
+      <End Role="UserInfo" EntitySet="UserInfo" />
+      <End Role="R_UserInfo_Role" EntitySet="R_UserInfo_Role" />
+    </AssociationSet>
+    <AssociationSet Name="RoleR_UserInfo_Role" Association="DataModel.RoleR_UserInfo_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="R_UserInfo_Role" EntitySet="R_UserInfo_Role" />
+    </AssociationSet>
+    <EntitySet Name="ActionInfo" EntityType="DataModel.ActionInfo" />
+    <AssociationSet Name="ActionInfoRole" Association="DataModel.ActionInfoRole">
+      <End Role="ActionInfo" EntitySet="ActionInfo" />
+      <End Role="Role" EntitySet="Role" />
+    </AssociationSet>
+    <EntitySet Name="R_UserInfo_ActionInfo" EntityType="DataModel.R_UserInfo_ActionInfo" />
+    <AssociationSet Name="UserInfoR_UserInfo_ActionInfo" Association="DataModel.UserInfoR_UserInfo_ActionInfo">
+      <End Role="UserInfo" EntitySet="UserInfo" />
+      <End Role="R_UserInfo_ActionInfo" EntitySet="R_UserInfo_ActionInfo" />
+    </AssociationSet>
+    <AssociationSet Name="ActionInfoR_UserInfo_ActionInfo" Association="DataModel.ActionInfoR_UserInfo_ActionInfo">
+      <End Role="ActionInfo" EntitySet="ActionInfo" />
+      <End Role="R_UserInfo_ActionInfo" EntitySet="R_UserInfo_ActionInfo" />
+    </AssociationSet>
+    <EntitySet Name="ActionGroup" EntityType="DataModel.ActionGroup" />
+    <AssociationSet Name="ActionInfoActionGroup" Association="DataModel.ActionInfoActionGroup">
+      <End Role="ActionInfo" EntitySet="ActionInfo" />
+      <End Role="ActionGroup" EntitySet="ActionGroup" />
+    </AssociationSet>
+    <AssociationSet Name="UserInfoActionGroup" Association="DataModel.UserInfoActionGroup">
+      <End Role="UserInfo" EntitySet="UserInfo" />
+      <End Role="ActionGroup" EntitySet="ActionGroup" />
+    </AssociationSet>
+    <AssociationSet Name="ActionGroupRole" Association="DataModel.ActionGroupRole">
+      <End Role="ActionGroup" EntitySet="ActionGroup" />
+      <End Role="Role" EntitySet="Role" />
+    </AssociationSet>
+    <EntitySet Name="实体1集" EntityType="DataModel.实体1" />
+    <AssociationSet Name="UserInfo实体1" Association="DataModel.UserInfo实体1">
+      <End Role="UserInfo" EntitySet="UserInfo" />
+      <End Role="实体1" EntitySet="实体1集" />
+    </AssociationSet>
+    <EntitySet Name="Category" EntityType="DataModel.Category" />
+    <EntitySet Name="GoodInfo" EntityType="DataModel.GoodInfo" />
+    <EntitySet Name="Property" EntityType="DataModel.Property" />
+    <EntitySet Name="PropOption" EntityType="DataModel.PropOption" />
+    <AssociationSet Name="PropertyPropOption" Association="DataModel.PropertyPropOption">
+      <End Role="Property" EntitySet="Property" />
+      <End Role="PropOption" EntitySet="PropOption" />
+    </AssociationSet>
+    <AssociationSet Name="CategoryProperty" Association="DataModel.CategoryProperty">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="Property" EntitySet="Property" />
+    </AssociationSet>
+    <AssociationSet Name="PropertyGoodInfo" Association="DataModel.PropertyGoodInfo">
+      <End Role="Property" EntitySet="Property" />
+      <End Role="GoodInfo" EntitySet="GoodInfo" />
+    </AssociationSet>
+    <EntitySet Name="GoodsPropValue" EntityType="DataModel.GoodsPropValue" />
+    <EntitySet Name="GoodSKU" EntityType="DataModel.GoodSKU" />
+    <AssociationSet Name="GoodSKUGoodInfo" Association="DataModel.GoodSKUGoodInfo">
+      <End Role="GoodSKU" EntitySet="GoodSKU" />
+      <End Role="GoodInfo" EntitySet="GoodInfo" />
+    </AssociationSet>
+    <AssociationSet Name="GoodSKUGoodsPropValue" Association="DataModel.GoodSKUGoodsPropValue">
+      <End Role="GoodSKU" EntitySet="GoodSKU" />
+      <End Role="GoodsPropValue" EntitySet="GoodsPropValue" />
+    </AssociationSet>
+    <AssociationSet Name="GoodsPropValueGoodInfo" Association="DataModel.GoodsPropValueGoodInfo">
+      <End Role="GoodsPropValue" EntitySet="GoodsPropValue" />
+      <End Role="GoodInfo" EntitySet="GoodInfo" />
+    </AssociationSet>
+    <AssociationSet Name="CategoryGoodInfo" Association="DataModel.CategoryGoodInfo">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="GoodInfo" EntitySet="GoodInfo" />
+    </AssociationSet>
+    <EntitySet Name="ImageInfo" EntityType="DataModel.ImageInfo" />
+    <AssociationSet Name="GoodInfoImageInfo" Association="DataModel.GoodInfoImageInfo">
+      <End Role="GoodInfo" EntitySet="GoodInfo" />
+      <End Role="ImageInfo" EntitySet="ImageInfo" />
+    </AssociationSet>
+    <EntitySet Name="Shop" EntityType="DataModel.Shop" />
+  </EntityContainer>
+  <EntityType Name="UserInfo">
+    <Documentation>
+      <Summary>用户表的设计</Summary>
+    </Documentation>
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="UName" Nullable="false" MaxLength="32" />
+    <Property Type="String" Name="Pwd" Nullable="false" MaxLength="32" />
+    <Property Type="String" Name="Phone" MaxLength="16" Nullable="true" Unicode="false" />
+    <Property Type="String" Name="Mail" MaxLength="32" Nullable="true" />
+    <Property Type="DateTime" Name="SubTime" Nullable="false" />
+    <Property Type="DateTime" Name="LastModifiedOn" Nullable="false" />
+    <Property Type="Int16" Name="DelFlag" Nullable="false" DefaultValue="0">
+      <Documentation>
+        <LongDescription>确认假删除</LongDescription>
+      </Documentation>
+    </Property>
+    <NavigationProperty Name="R_UserInfo_Role" Relationship="DataModel.UserInfoR_UserInfo_Role" FromRole="UserInfo" ToRole="R_UserInfo_Role" />
+    <NavigationProperty Name="R_UserInfo_ActionInfo" Relationship="DataModel.UserInfoR_UserInfo_ActionInfo" FromRole="UserInfo" ToRole="R_UserInfo_ActionInfo" />
+    <NavigationProperty Name="ActionGroup" Relationship="DataModel.UserInfoActionGroup" FromRole="UserInfo" ToRole="ActionGroup" />
+    <NavigationProperty Name="实体1" Relationship="DataModel.UserInfo实体1" FromRole="UserInfo" ToRole="实体1" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Documentation>
+      <Summary>角色表的设计</Summary>
+    </Documentation>
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="RoleName" Nullable="false" MaxLength="32" />
+    <Property Type="Int16" Name="RoleType" Nullable="false" DefaultValue="0">
+      <Documentation>
+        <LongDescription>角色类型的判断(特殊角色)</LongDescription>
+      </Documentation>
+    </Property>
+    <Property Type="Int16" Name="DelFlag" Nullable="false" DefaultValue="0" />
+    <Property Type="DateTime" Name="SubTime" Nullable="false" />
+    <NavigationProperty Name="R_UserInfo_Role" Relationship="DataModel.RoleR_UserInfo_Role" FromRole="Role" ToRole="R_UserInfo_Role" />
+    <NavigationProperty Name="ActionInfo" Relationship="DataModel.ActionInfoRole" FromRole="Role" ToRole="ActionInfo" />
+    <NavigationProperty Name="ActionGroup" Relationship="DataModel.ActionGroupRole" FromRole="Role" ToRole="ActionGroup" />
+  </EntityType>
+  <EntityType Name="R_UserInfo_Role">
+    <Documentation>
+      <Summary>人为的添加中间表更灵活</Summary>
+    </Documentation>
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="UserInfo" Relationship="DataModel.UserInfoR_UserInfo_Role" FromRole="R_UserInfo_Role" ToRole="UserInfo" />
+    <Property Type="Int32" Name="UserInfoID" Nullable="false" />
+    <NavigationProperty Name="Role" Relationship="DataModel.RoleR_UserInfo_Role" FromRole="R_UserInfo_Role" ToRole="Role" />
+    <Property Type="Int32" Name="RoleID" Nullable="false">
+      <Documentation>
+        <Summary>用户表和角色表映射出来的表</Summary>
+      </Documentation>
+    </Property>
+    <Property Type="DateTime" Name="SubTime" Nullable="false" />
+  </EntityType>
+  <Association Name="UserInfoR_UserInfo_Role">
+    <End Type="DataModel.UserInfo" Role="UserInfo" Multiplicity="1" />
+    <End Type="DataModel.R_UserInfo_Role" Role="R_UserInfo_Role" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserInfo">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="R_UserInfo_Role">
+        <PropertyRef Name="UserInfoID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RoleR_UserInfo_Role">
+    <End Type="DataModel.Role" Role="Role" Multiplicity="1" />
+    <End Type="DataModel.R_UserInfo_Role" Role="R_UserInfo_Role" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="R_UserInfo_Role">
+        <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ActionInfo">
+    <Documentation>
+      <LongDescription>权限表的设计</LongDescription>
+    </Documentation>
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="RequestUrl" Nullable="false" MaxLength="256" Unicode="false" />
+    <Property Type="String" Name="RequestHttpType" Nullable="false" MaxLength="16" Unicode="false" DefaultValue="&quot;Get&quot;" />
+    <Property Type="String" Name="ActionName" Nullable="false" MaxLength="16" />
+    <Property Type="DateTime" Name="SubTime" Nullable="false" />
+    <NavigationProperty Name="Role" Relationship="DataModel.ActionInfoRole" FromRole="ActionInfo" ToRole="Role" />
+    <NavigationProperty Name="R_UserInfo_ActionInfo" Relationship="DataModel.ActionInfoR_UserInfo_ActionInfo" FromRole="ActionInfo" ToRole="R_UserInfo_ActionInfo" />
+    <Property Type="Int16" Name="ActionType" Nullable="false" DefaultValue="0">
+      <Documentation>
+        <LongDescription>0表示普通类型，1表示菜单组</LongDescription>
+      </Documentation>
+    </Property>
+    <NavigationProperty Name="ActionGroup" Relationship="DataModel.ActionInfoActionGroup" FromRole="ActionInfo" ToRole="ActionGroup" />
+  </EntityType>
+  <Association Name="ActionInfoRole">
+    <End Type="DataModel.ActionInfo" Role="ActionInfo" Multiplicity="*" />
+    <End Type="DataModel.Role" Role="Role" Multiplicity="*" />
+  </Association>
+  <EntityType Name="R_UserInfo_ActionInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="UserInfo" Relationship="DataModel.UserInfoR_UserInfo_ActionInfo" FromRole="R_UserInfo_ActionInfo" ToRole="UserInfo" />
+    <Property Type="Int32" Name="UserInfoID" Nullable="false" />
+    <NavigationProperty Name="ActionInfo" Relationship="DataModel.ActionInfoR_UserInfo_ActionInfo" FromRole="R_UserInfo_ActionInfo" ToRole="ActionInfo" />
+    <Property Type="Int32" Name="ActionInfoID" Nullable="false" />
+    <Property Type="Boolean" Name="HasPermation" Nullable="false" />
+  </EntityType>
+  <Association Name="UserInfoR_UserInfo_ActionInfo">
+    <End Type="DataModel.UserInfo" Role="UserInfo" Multiplicity="1" />
+    <End Type="DataModel.R_UserInfo_ActionInfo" Role="R_UserInfo_ActionInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserInfo">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="R_UserInfo_ActionInfo">
+        <PropertyRef Name="UserInfoID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ActionInfoR_UserInfo_ActionInfo">
+    <End Type="DataModel.ActionInfo" Role="ActionInfo" Multiplicity="1" />
+    <End Type="DataModel.R_UserInfo_ActionInfo" Role="R_UserInfo_ActionInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ActionInfo">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="R_UserInfo_ActionInfo">
+        <PropertyRef Name="ActionInfoID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ActionGroup">
+    <Documentation>
+      <LongDescription>菜单组的表实体</LongDescription>
+    </Documentation>
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="ActionInfo" Relationship="DataModel.ActionInfoActionGroup" FromRole="ActionGroup" ToRole="ActionInfo" />
+    <Property Type="String" Name="GroupName" Nullable="false" MaxLength="32" />
+    <Property Type="Int16" Name="DelFlag" Nullable="false" />
+    <NavigationProperty Name="UserInfo" Relationship="DataModel.UserInfoActionGroup" FromRole="ActionGroup" ToRole="UserInfo" />
+    <Property Type="Int16" Name="GroupType" Nullable="false">
+      <Documentation>
+        <LongDescription>权限组的类型，0普通组，1代表菜单组</LongDescription>
+      </Documentation>
+    </Property>
+    <NavigationProperty Name="Role" Relationship="DataModel.ActionGroupRole" FromRole="ActionGroup" ToRole="Role" />
+  </EntityType>
+  <Association Name="ActionInfoActionGroup">
+    <End Type="DataModel.ActionInfo" Role="ActionInfo" Multiplicity="*" />
+    <End Type="DataModel.ActionGroup" Role="ActionGroup" Multiplicity="*" />
+  </Association>
+  <Association Name="UserInfoActionGroup">
+    <End Type="DataModel.UserInfo" Role="UserInfo" Multiplicity="*" />
+    <End Type="DataModel.ActionGroup" Role="ActionGroup" Multiplicity="*" />
+  </Association>
+  <Association Name="ActionGroupRole">
+    <End Type="DataModel.ActionGroup" Role="ActionGroup" Multiplicity="*" />
+    <End Type="DataModel.Role" Role="Role" Multiplicity="*" />
+  </Association>
+  <EntityType Name="实体1">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="UserInfo" Relationship="DataModel.UserInfo实体1" FromRole="实体1" ToRole="UserInfo" />
+    <Property Type="Int32" Name="UserInfoID" Nullable="false" />
+  </EntityType>
+  <Association Name="UserInfo实体1">
+    <End Type="DataModel.UserInfo" Role="UserInfo" Multiplicity="1" />
+    <End Type="DataModel.实体1" Role="实体1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserInfo">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="实体1">
+        <PropertyRef Name="UserInfoID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Category">
+    <Documentation>
+      <LongDescription>类别表</LongDescription>
+    </Documentation>
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="CatName" Nullable="false" />
+    <Property Type="Int16" Name="DelFlag" Nullable="false" />
+    <Property Type="Int32" Name="ParentID" Nullable="false" />
+    <Property Type="String" Name="TreePath" Nullable="false" MaxLength="64" />
+    <Property Type="Int32" Name="Level" Nullable="false" />
+    <Property Type="Int16" Name="IsLeaf" Nullable="false">
+      <Documentation>
+        <LongDescription>是否是一个叶子节点，记录一下</LongDescription>
+      </Documentation>
+    </Property>
+    <NavigationProperty Name="Property" Relationship="DataModel.CategoryProperty" FromRole="Category" ToRole="Property" />
+    <NavigationProperty Name="GoodInfo" Relationship="DataModel.CategoryGoodInfo" FromRole="Category" ToRole="GoodInfo" />
+  </EntityType>
+  <EntityType Name="GoodInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Property" Relationship="DataModel.PropertyGoodInfo" FromRole="GoodInfo" ToRole="Property" />
+    <NavigationProperty Name="GoodSKU" Relationship="DataModel.GoodSKUGoodInfo" FromRole="GoodInfo" ToRole="GoodSKU" />
+    <NavigationProperty Name="GoodsPropValue" Relationship="DataModel.GoodsPropValueGoodInfo" FromRole="GoodInfo" ToRole="GoodsPropValue" />
+    <Property Type="String" Name="GoodName" Nullable="false" />
+    <Property Type="String" Name="GoodNo" Nullable="false" />
+    <Property Type="String" Name="Description" Nullable="false" />
+    <Property Type="String" Name="Remark" Nullable="false" />
+    <Property Type="String" Name="GoodStatus" Nullable="false" />
+    <Property Type="DateTime" Name="Subtime" Nullable="false" />
+    <Property Type="DateTime" Name="OnShelfTime" Nullable="false">
+      <Documentation>
+        <LongDescription>商品上架时间</LongDescription>
+      </Documentation>
+    </Property>
+    <Property Type="DateTime" Name="OffLineTime" Nullable="false">
+      <Documentation>
+        <LongDescription>下架时间</LongDescription>
+      </Documentation>
+    </Property>
+    <Property Type="Int16" Name="GoodMark" Nullable="false" />
+    <NavigationProperty Name="Category" Relationship="DataModel.CategoryGoodInfo" FromRole="GoodInfo" ToRole="Category" />
+    <NavigationProperty Name="ImageInfo" Relationship="DataModel.GoodInfoImageInfo" FromRole="GoodInfo" ToRole="ImageInfo" />
+    <Property Type="Int32" Name="MainInageId" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Property">
+    <Documentation>
+      <LongDescription>商品属性表</LongDescription>
+    </Documentation>
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="PropName" Nullable="false" />
+    <Property Type="Int16" Name="ShowType" Nullable="false">
+      <Documentation>
+        <LongDescription>属性展示的方式</LongDescription>
+      </Documentation>
+    </Property>
+    <Property Type="String" Name="PropOptions" Nullable="false" MaxLength="256" />
+    <NavigationProperty Name="PropOption" Relationship="DataModel.PropertyPropOption" FromRole="Property" ToRole="PropOption" />
+    <NavigationProperty Name="Category" Relationship="DataModel.CategoryProperty" FromRole="Property" ToRole="Category" />
+    <NavigationProperty Name="GoodInfo" Relationship="DataModel.PropertyGoodInfo" FromRole="Property" ToRole="GoodInfo" />
+  </EntityType>
+  <EntityType Name="PropOption">
+    <Documentation>
+      <LongDescription>属性项</LongDescription>
+    </Documentation>
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="OptionName" Nullable="false" />
+    <Property Type="String" Name="ShowName" Nullable="false" MaxLength="32" />
+    <NavigationProperty Name="Property" Relationship="DataModel.PropertyPropOption" FromRole="PropOption" ToRole="Property" />
+    <Property Type="Int32" Name="PropertyID" Nullable="false" />
+  </EntityType>
+  <Association Name="PropertyPropOption">
+    <End Type="DataModel.Property" Role="Property" Multiplicity="1" />
+    <End Type="DataModel.PropOption" Role="PropOption" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Property">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PropOption">
+        <PropertyRef Name="PropertyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CategoryProperty">
+    <End Type="DataModel.Category" Role="Category" Multiplicity="*" />
+    <End Type="DataModel.Property" Role="Property" Multiplicity="*" />
+  </Association>
+  <Association Name="PropertyGoodInfo">
+    <End Type="DataModel.Property" Role="Property" Multiplicity="*" />
+    <End Type="DataModel.GoodInfo" Role="GoodInfo" Multiplicity="*" />
+  </Association>
+  <EntityType Name="GoodsPropValue">
+    <Documentation>
+      <LongDescription>属性值表</LongDescription>
+    </Documentation>
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="PropID" Nullable="false">
+      <Documentation>
+        <LongDescription>属性的ID</LongDescription>
+      </Documentation>
+    </Property>
+    <Property Type="Int32" Name="OptionID" Nullable="false">
+      <Documentation>
+        <LongDescription>属性项的ID</LongDescription>
+      </Documentation>
+    </Property>
+    <NavigationProperty Name="GoodSKU" Relationship="DataModel.GoodSKUGoodsPropValue" FromRole="GoodsPropValue" ToRole="GoodSKU" />
+    <NavigationProperty Name="GoodInfo" Relationship="DataModel.GoodsPropValueGoodInfo" FromRole="GoodsPropValue" ToRole="GoodInfo" />
+    <Property Type="Int32" Name="GoodInfoID" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GoodSKU">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="SkuCode" Nullable="false" MaxLength="64">
+      <Documentation>
+        <LongDescription>SKU的Code是一个值，算出来的</LongDescription>
+      </Documentation>
+    </Property>
+    <Property Type="String" Name="Remark" Nullable="false" />
+    <Property Type="String" Name="SKUOptions" Nullable="false" MaxLength="128">
+      <Documentation>
+        <LongDescription>ID,ID,ID,项目</LongDescription>
+      </Documentation>
+    </Property>
+    <Property Type="Int32" Name="GoodInfoID" Nullable="false" />
+    <NavigationProperty Name="GoodInfo" Relationship="DataModel.GoodSKUGoodInfo" FromRole="GoodSKU" ToRole="GoodInfo" />
+    <NavigationProperty Name="GoodsPropValue" Relationship="DataModel.GoodSKUGoodsPropValue" FromRole="GoodSKU" ToRole="GoodsPropValue" />
+    <Property Type="Decimal" Name="StoreCount" Nullable="false" />
+  </EntityType>
+  <Association Name="GoodSKUGoodInfo">
+    <End Type="DataModel.GoodSKU" Role="GoodSKU" Multiplicity="*" />
+    <End Type="DataModel.GoodInfo" Role="GoodInfo" Multiplicity="1" />
+  </Association>
+  <Association Name="GoodSKUGoodsPropValue">
+    <End Type="DataModel.GoodSKU" Role="GoodSKU" Multiplicity="*" />
+    <End Type="DataModel.GoodsPropValue" Role="GoodsPropValue" Multiplicity="*" />
+  </Association>
+  <Association Name="GoodsPropValueGoodInfo">
+    <End Type="DataModel.GoodsPropValue" Role="GoodsPropValue" Multiplicity="*" />
+    <End Type="DataModel.GoodInfo" Role="GoodInfo" Multiplicity="1" />
+  </Association>
+  <Association Name="CategoryGoodInfo">
+    <End Type="DataModel.Category" Role="Category" Multiplicity="*" />
+    <End Type="DataModel.GoodInfo" Role="GoodInfo" Multiplicity="*" />
+  </Association>
+  <EntityType Name="ImageInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="URL" Nullable="false" Unicode="false" MaxLength="256" />
+    <Property Type="String" Name="Alt" Nullable="false" MaxLength="32" />
+    <Property Type="String" Name="ImageSize" Nullable="false" />
+    <Property Type="Int16" Name="DelFlag" Nullable="false" />
+    <NavigationProperty Name="GoodInfo" Relationship="DataModel.GoodInfoImageInfo" FromRole="ImageInfo" ToRole="GoodInfo" />
+    <Property Type="Int32" Name="GoodInfoID" Nullable="false" />
+  </EntityType>
+  <Association Name="GoodInfoImageInfo">
+    <End Type="DataModel.GoodInfo" Role="GoodInfo" Multiplicity="1" />
+    <End Type="DataModel.ImageInfo" Role="ImageInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GoodInfo">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ImageInfo">
+        <PropertyRef Name="GoodInfoID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Shop">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="ShopName" Nullable="false" />
+    <Property Type="String" Name="Property1" Nullable="false" />
+  </EntityType>
+</Schema>
