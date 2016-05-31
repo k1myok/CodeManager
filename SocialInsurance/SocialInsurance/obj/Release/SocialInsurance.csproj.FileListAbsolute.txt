@@ -44,3 +44,7 @@ F:\NET\MVCProject\SocialInsurance\SocialInsurance\obj\Release\SocialInsurance.cs
 F:\NET\MVCProject\SocialInsurance\SocialInsurance\bin\System.Net.Http.Formatting.dll
 F:\NET\MVCProject\SocialInsurance\SocialInsurance\bin\System.Net.Http.Formatting.xml
 F:\NET\MVCProject\SocialInsurance\SocialInsurance\bin\zh-Hans\System.Net.Http.Formatting.resources.dll
+F:\NET\MVCProject\SocialInsurance\SocialInsurance\bin\System.Web.dll
+F:\NET\MVCProject\SocialInsurance\SocialInsurance\bin\System.Web.Http.WebHost.dll
+F:\NET\MVCProject\SocialInsurance\SocialInsurance\bin\System.Web.Http.WebHost.xml
+F:\NET\MVCProject\SocialInsurance\SocialInsurance\bin\zh-Hans\System.Web.Http.WebHost.resources.dll

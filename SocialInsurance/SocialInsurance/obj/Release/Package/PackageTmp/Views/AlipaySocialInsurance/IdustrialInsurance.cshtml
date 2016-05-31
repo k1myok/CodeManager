@@ -7,6 +7,13 @@
 <style>
     .name {
         width: 16.666666%;
+        text-align:center;
+          padding-left:3px;
+        padding-right:3px;
+    }
+    .nametemp {
+         width: 16.666666%;
+        text-align:center;
     }
 </style>
 @if (Model.status == "200")
@@ -26,35 +33,35 @@ else
             <input type="hidden" id="pages" value='@Model.pages' />
             <input type="hidden" id="style" value="Idustrial" />
             <div class="am-list-item">
-                <div class="name am-ft-center">结算期</div>
-                <div class="name am-ft-center">缴费基数</div>
-                <div class="name am-ft-center">缴费月数</div>
-                <div class="name am-ft-center">缴费金额</div>
-                <div class="name am-ft-center">到账标记</div>
-                <div class="name am-ft-center">缴费类别</div>
+                <div class="nametemp">结算期</div>
+                <div class="name">缴费基数</div>
+                <div class="name">缴费月数</div>
+                <div class="name">缴费金额</div>
+                <div class="nametemp">到账标记</div>
+                @*<div class="nametemp">缴费类别</div>*@
             </div>
          }
             @foreach (var item in Model.data)
             {
                 <div class="am-list-item">
-                    <div class="name">
+                    <div class="nametemp">
                         <div class="">@item.akf088</div>
                     </div>
                     <div class="name">
-                        <div class="am-ft-center">@item.aif005</div>
+                       @item.aif005
                     </div>
                     <div class="name">
-                        <div class="am-ft-center">@item.aif004</div>
+                       @item.aif004
                     </div>
                     <div class="name">
-                        <div class="am-ft-center">@item.aif006</div>
+                        @item.aif006
                     </div>
-                    <div class="name">
-                        <div class="am-ft-center">@item.akf084</div>
+                    <div class="nametemp">
+                        @item.akf084
                     </div>
-                    <div class="name">
+                    @*<div class="name">
                         <div class="am-ft-center">@item.akf081</div>
-                    </div>
+                    </div>*@
                 </div>
             }
           </div>
