@@ -45,7 +45,7 @@ namespace DataReptile.DataImport
             try
             {
                 var xmlData = this.GetHospitialsDoc(hospitalName);
-                this.WreteLog(xmlData);
+                //this.WreteLog(xmlData);
                 var result = this.ConvertToNodes(xmlData);
                 if (result == null || result.Count == 0)
                     this.WreteLog("将XMLdata 转换为XML Nodes时结果为空！");

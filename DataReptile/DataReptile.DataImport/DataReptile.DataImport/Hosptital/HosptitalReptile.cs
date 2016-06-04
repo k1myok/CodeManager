@@ -27,7 +27,7 @@ namespace DataReptile.DataImport
             try
             {
                 var xmlData = this.GetHospitials();
-                this.WriteLog(xmlData);
+                //this.WriteLog(xmlData);
                 var nodes = this.FindHosptitalNodes(xmlData);
                 if (nodes == null || nodes.Count == 0)
                 {
@@ -42,11 +42,10 @@ namespace DataReptile.DataImport
                     new Doctorschedual().Reptile();
                 }
                 return result;
-
             }
             catch (Exception ex)
             {
-                this.WriteLog(ex.Message);
+                this.WriteLog("HosptitalReptile.Reptile: " + ex.Message);
                 return false;
             }
         }
@@ -77,7 +76,6 @@ namespace DataReptile.DataImport
             if (hosptitalNodes == null || hosptitalNodes.Count == 0)
                 return false;
             var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["CityService"].ConnectionString);
-
             var adapter = new SqlDataAdapter("select top 1 * from Hospital where 0>1", connection);
             var table = new DataTable();
             adapter.Fill(table);
@@ -98,6 +96,7 @@ namespace DataReptile.DataImport
             var command = new SqlCommand("delete from Hospital", connection);
             if (connection.State == ConnectionState.Closed)
                 connection.Open();
+           
             if (command.ExecuteNonQuery() > -1)
             {
                 var builder = new SqlCommandBuilder(adapter);

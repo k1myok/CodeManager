@@ -43,13 +43,21 @@ namespace DataReptile.DataImport
         {
             if (timeCount > 5)
                 return;
-            var xmlData = GetSchedualList(hospitalName);
-            this.WreteLog(xmlData);
-            var result = ConvertToNodes(xmlData);
-            if (result == null || result.Count == 0)
-                this.WreteLog("将XMLdata 转换为XML Nodes时结果为空！");
-            var shedual = UpdateToDB(hospitalName, result);
-            this.WreteLog("医生排班信息更新到数据库结果为：" + hospitalName + "-" + shedual);
+            try
+            {
+                var xmlData = GetSchedualList(hospitalName);
+                //this.WreteLog(xmlData);
+                var result = ConvertToNodes(xmlData);
+                if (result == null || result.Count == 0)
+                    this.WreteLog("将XMLdata 转换为XML Nodes时结果为空！");
+                var shedual = UpdateToDB(hospitalName, result);
+                this.WreteLog("医生排班信息更新到数据库结果为：" + hospitalName + "-" + shedual);
+            }
+            catch (Exception ex)
+            {
+                this.WreteLog("DoctorSchedual:" + hospitalName + ":" + ex.Message);
+                HandSchedual(hospitalName,timeCount + 1);
+            }
         }
 
         public bool GetHospitallist()

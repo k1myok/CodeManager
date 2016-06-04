@@ -2,3 +2,8 @@ E:\Projects\PreProjects\Source\ChinaCCW\DataReptile\DataReptile.WindowsService.O
 E:\Projects\PreProjects\Source\ChinaCCW\DataReptile\DataReptile.WindowsService.Open\bin\Debug\DataReptile.WindowsService.Open.pdb
 E:\Projects\PreProjects\Source\ChinaCCW\DataReptile\DataReptile.WindowsService.Open\obj\Debug\DataReptile.WindowsService.Open.dll
 E:\Projects\PreProjects\Source\ChinaCCW\DataReptile\DataReptile.WindowsService.Open\obj\Debug\DataReptile.WindowsService.Open.pdb
+E:\Projects\PreProjects\Source\ChinaCCW\DataReptile\DataReptile.WindowsService.Open\obj\Debug\DataReptile.WindowsService.Open.csprojResolveAssemblyReference.cache
+E:\新建文件夹\Source\ChinaCCW\DataReptile\DataReptile.WindowsService.Open\bin\Debug\DataReptile.WindowsService.Open.dll
+E:\新建文件夹\Source\ChinaCCW\DataReptile\DataReptile.WindowsService.Open\bin\Debug\DataReptile.WindowsService.Open.pdb
+E:\新建文件夹\Source\ChinaCCW\DataReptile\DataReptile.WindowsService.Open\obj\Debug\DataReptile.WindowsService.Open.dll
+E:\新建文件夹\Source\ChinaCCW\DataReptile\DataReptile.WindowsService.Open\obj\Debug\DataReptile.WindowsService.Open.pdb

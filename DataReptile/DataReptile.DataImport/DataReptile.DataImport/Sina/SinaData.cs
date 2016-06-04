@@ -36,7 +36,7 @@ namespace DataReptile.DataImport
             {
                 UserID = rd[0].ToString();
                 var result=UpdarteToDB(UserID);
-                this.WriteLog("新浪微博数据抓取：" + UserID + "-" + result);
+               this.WriteLog("新浪微博数据抓取：" + UserID + "-" + result);
                 //var result = this.ConvertToNodes(xmlData);
                 //if (result == null || result.Count == 0)
                 //    this.WreteLog("将XMLdata 转换为XML Nodes时结果为空！");
@@ -81,10 +81,10 @@ namespace DataReptile.DataImport
                         {
                             table.Rows.Add(row);
                         }
-                        else
-                        {
-                            this.WriteLog("该条信息已经存入数据库：" + list.Element("title").Value);
-                        }
+                        //else
+                        //{
+                        //   this.WriteLog("该条信息已经存入数据库：" + list.Element("title").Value);
+                        //}
                     }
                     var command = new OracleCommand("delete from TB_WEIBOINFO  where 0>1", sql);
                     if (sql.State == ConnectionState.Closed)
