@@ -1,0 +1,49 @@
+﻿@model LYZJ.HM3Shop.Model.UserInfo
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Regist</title>
+</head>
+<body>
+    <script src="@Url.Content("~/Scripts/jquery-1.7.1.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+    
+    @using (Html.BeginForm()) {
+        @Html.ValidationSummary(true)
+        <fieldset>
+            <legend>UserInfo</legend>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.UName)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.UName)
+                @Html.ValidationMessageFor(model => model.UName)
+            </div>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Pwd)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Pwd)
+                @Html.ValidationMessageFor(model => model.Pwd)
+            </div>
+    
+            <p>
+                <input type="submit" value="Create" />
+            </p>
+        </fieldset>
+    }
+    
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+</body>
+</html>

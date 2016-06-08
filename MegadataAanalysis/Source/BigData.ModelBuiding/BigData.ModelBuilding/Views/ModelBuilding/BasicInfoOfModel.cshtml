@@ -1,0 +1,83 @@
+﻿@model BigData.ModelBuilding.Models.BuildingModel
+
+<div>
+    <div class="SimpleGroup">
+        <label class="form">@Html.DisplayNameFor(model => model.Name)</label>
+        <div>
+            <input type="text" value="@Html.DisplayFor(model => model.Name) " />
+        </div>
+    </div>
+
+
+    <div class="SimpleGroup">
+        <label class="form">@Html.DisplayNameFor(model => model.Description)</label>
+        <div>
+            <input type="text" value="@Html.DisplayFor(model => model.Description) " />
+        </div>
+    </div>
+
+
+    <div class="SimpleGroup">
+        <label class="form">@Html.DisplayNameFor(model => model.CreateDate)</label>
+        <div class="textarea">
+            <textarea style="height:60px;"> @Html.DisplayFor(model => model.CreateDate)</textarea>
+        </div>
+    </div>
+
+
+    <div class="SimpleGroup">
+        <label class="form">@Html.DisplayNameFor(model => model.UpdateDate)</label>
+        <div class="textarea">
+            <textarea style="height:60px;"> @Html.DisplayFor(model => model.UpdateDate)</textarea>
+        </div>
+    </div>
+
+
+    <div class="SimpleGroup">
+        <label class="form">@Html.DisplayNameFor(model => model.SourceName)</label>
+        <div class="textarea">
+            <textarea style="height:60px;"> @Html.DisplayFor(model => model.SourceName)</textarea>
+        </div>
+    </div>
+
+
+    <div class="SimpleGroup">
+        <label class="form">@Html.DisplayNameFor(model => model.SourceType)</label>
+        <div class="textarea">
+            <textarea style="height:60px;"> @Html.DisplayFor(model => model.SourceType)</textarea>
+        </div>
+    </div>
+
+
+    <div class="SimpleGroup">
+        <label class="form">@Html.DisplayNameFor(model => model.OutputName)</label>
+        <div class="textarea">
+            <textarea style="height:60px;"> @Html.DisplayFor(model => model.OutputName)</textarea>
+        </div>
+    </div>
+
+
+    <div class="SimpleGroup">
+        <label class="form">@Html.DisplayNameFor(model => model.OutputType)</label>
+        <div class="textarea">
+            <textarea style="height:60px;"> @Html.DisplayFor(model => model.OutputType)</textarea>
+        </div>
+    </div>
+
+
+    <div class="SimpleGroup">
+        <label class="form">@Html.DisplayNameFor(model => model.WhereCaluse)</label>
+        <div class="textarea">
+            <textarea style="height:60px;"> @Html.DisplayFor(model => model.WhereCaluse)</textarea>
+        </div>
+    </div>
+
+
+    <div class="SimpleGroup">
+        <label class="form">@Html.DisplayNameFor(model => model.OrderFields)</label>
+        <div class="textarea">
+            <textarea style="height:60px;"> @Html.DisplayFor(model => model.OrderFields)</textarea>
+        </div>
+    </div>
+
+</div>

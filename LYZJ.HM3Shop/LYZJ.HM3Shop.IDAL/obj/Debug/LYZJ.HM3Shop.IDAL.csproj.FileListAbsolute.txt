@@ -1,0 +1,14 @@
+F:\heima\practice\LYZJ.HM3Shop\LYZJ.HM3Shop.IDAL\bin\Debug\LYZJ.HM3Shop.IDAL.dll
+F:\heima\practice\LYZJ.HM3Shop\LYZJ.HM3Shop.IDAL\bin\Debug\LYZJ.HM3Shop.IDAL.pdb
+F:\heima\practice\LYZJ.HM3Shop\LYZJ.HM3Shop.IDAL\bin\Debug\LYZJ.HM3Shop.Common.dll
+F:\heima\practice\LYZJ.HM3Shop\LYZJ.HM3Shop.IDAL\bin\Debug\LYZJ.HM3Shop.Model.dll
+F:\heima\practice\LYZJ.HM3Shop\LYZJ.HM3Shop.IDAL\bin\Debug\EntityFramework.dll
+F:\heima\practice\LYZJ.HM3Shop\LYZJ.HM3Shop.IDAL\bin\Debug\LYZJ.HM3Shop.Common.pdb
+F:\heima\practice\LYZJ.HM3Shop\LYZJ.HM3Shop.IDAL\bin\Debug\LYZJ.HM3Shop.Model.pdb
+F:\heima\practice\LYZJ.HM3Shop\LYZJ.HM3Shop.IDAL\bin\Debug\EntityFramework.xml
+F:\heima\practice\LYZJ.HM3Shop\LYZJ.HM3Shop.IDAL\bin\Debug\zh-Hans\EntityFramework.resources.dll
+F:\heima\practice\LYZJ.HM3Shop\lib\LYZJ.HM3Shop.IDAL.dll
+F:\heima\practice\LYZJ.HM3Shop\lib\LYZJ.HM3Shop.IDAL.pdb
+F:\heima\practice\LYZJ.HM3Shop\LYZJ.HM3Shop.IDAL\obj\Debug\LYZJ.HM3Shop.IDAL.csprojResolveAssemblyReference.cache
+F:\heima\practice\LYZJ.HM3Shop\LYZJ.HM3Shop.IDAL\obj\Debug\LYZJ.HM3Shop.IDAL.dll
+F:\heima\practice\LYZJ.HM3Shop\LYZJ.HM3Shop.IDAL\obj\Debug\LYZJ.HM3Shop.IDAL.pdb

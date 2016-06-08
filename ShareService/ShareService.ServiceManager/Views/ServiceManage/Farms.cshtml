@@ -1,0 +1,217 @@
+﻿@model IEnumerable<ShareService.ServiceManager.Models.ServerFarm>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Farms</title>
+    <style>
+        .leftDock {
+            float: left;
+            top: 5px;
+            left: 5px;
+            margin-left: 5px;
+            margin-top: 5px;
+        }
+
+        .rightDock {
+            float: right;
+            top: 5px;
+            left: 5px;
+             margin-right: 5px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    
+    <script>
+        var selectedFarmRow = null;
+        var selectedFarmIndex = -1;
+        $(document).ready(function () {
+            $("#farmsTable").jqxDataTable(
+                {
+                    sortable: true,
+                    editable: false,
+                    width: '100%',
+                    selectionMode: 'singleRow',
+                    columns: [
+                      { text: '名称', dataField: '名称', width: '70%', align: 'center', cellsAlign: 'center' },
+                      { text: '是否启用', dataField: '是否启用', width: '30%', align: 'center', cellsAlign: 'center' },
+                      //{ text: '其他操作', dataField: '其他操作', width: '40%', align: 'center', cellsAlign: 'center' },
+                    ]
+                });
+            $('#farmsTable').on('rowSelect',
+                function (event) {
+                    selectedFarmRow = args.row;
+                    selectedFarmIndex = args.index;
+                }
+            );
+        
+            initFarmsButtons();
+        });
+        function initFarmsButtons() {
+            $("#leftFarmsButtons").jqxButtonGroup({ mode: 'default' });
+            $("#rightFarmsButtons").jqxButtonGroup({ mode: 'default' });
+            $("#leftFarmsButtons").unbind('buttonclick').on('buttonclick', function (event) {
+                var clickedButton = event.args.button;
+                var id = clickedButton[0].id;
+                if (id == "add") {
+                    AddFarmRow();
+                }
+                else if (id == "delete") {
+                    if (selectedFarmRow != null) {
+                        if (confirm("确定删除？")) {
+                            DeleteFarm(selectedFarmRow.GUID);
+                        }
+
+                    } else { alert("请选择项！");}
+                }
+            });
+
+            $("#rightFarmsButtons").unbind('buttonclick').on('buttonclick', function (event) {
+                var clickedButton = event.args.button;
+                var id = clickedButton[0].id;
+                if (id == "edit") {
+                    if (selectedFarmRow != null) {
+                        EditFarm(selectedFarmRow.GUID);
+                    }
+                    else {
+                        alert('请选择项！');
+                    }
+                } else if (id == "detail")
+                {
+                    if (selectedFarmRow != null) {
+                        DetailFarm(selectedFarmRow.GUID);
+                    }
+                    else {
+                        alert('请选择项！');
+                    }
+                } else if (id == "resetFarms") {
+                    $.ajax({
+                        type: "GET",
+                        url: "http://localhost/ShareService.ServiceManager/ARRManager/ResetFarms",
+                        success: function (msg) {
+                            alert(msg.Result ? "重新配置成功！" : "重新配置失败！");
+                        }
+                    });
+                }
+            });
+        }
+        function AddFarmRow() {
+            $('#createFarm').jqxWindow({
+                width: 360,
+                height: 240,
+                resizable: false
+            });
+            $('#createFarm').jqxWindow('open');
+
+        }
+        function EditFarm(guid) {
+            window.location.href = "http://localhost/ShareService.ServiceManager/ServiceManage/EditFarm?guid=" + guid;
+        }
+        function DetailFarm(guid) {
+            window.location.href = "http://localhost/ShareService.ServiceManager/ServiceManage/DetailFarm?guid=" + guid;
+
+        }
+        function DeleteFarm(guid) {
+            window.location.href = "http://localhost/ShareService.ServiceManager/ServiceManage/DeleteFarm?guid=" + guid;
+        }
+    </script>
+    @*<input value="新建" class="btn btn-default btn-sm" onclick="addFarmRow()" type="button" />*@
+    <div style="height:35px; background-color:lightgray; margin-top:1px; margin-bottom:1px;">
+        <div id='leftFarmsButtons' class="leftDock">
+            <button style="padding:4px 16px;" id="add">
+                新建
+            </button>
+            <button style="padding:4px 16px;" id="delete">
+                删除
+            </button>
+        </div>
+        <div id='rightFarmsButtons' class="rightDock">
+            <button style="padding:4px 16px;" id="edit">
+                编辑
+            </button>
+            <button style="padding:4px 16px;" id="detail">
+                详情
+            </button>
+            <button style="padding:4px 16px;" id="resetFarms">
+                重新配置
+            </button>
+        </div>
+    </div>
+    <table id="farmsTable" style="width:100%;" border="1">
+        <thead>
+            <tr>
+                <th>
+                    @*@Html.DisplayNameFor(model => model.Name)*@
+                    名称
+                </th>
+                <th>
+                    @*@Html.DisplayNameFor(model => model.Enable)*@
+                    是否启用
+                </th>
+                <th style="display:none;">GUID</th>
+                @*<th>其他操作</th>*@
+            </tr>
+        </thead>
+        <tbody>
+            @if (null != Model && Model.Count() > 0)
+            {
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @*@Html.DisplayFor(modelItem => item.Enable)*@
+                            @if (item.Enable == true)
+                            {
+                                //Html.Display("是");
+                                <label>是</label>
+                            }
+                            else {
+                                <label>否</label>
+                            }
+                        </td>
+                        <td style="display:none;">
+                            @Html.DisplayFor(modelItem => item.Code)
+                        </td>
+                        @*<td id="farm_td">
+                            <a class="btn btn-sm btn-default" id=@item.Code>编辑</a>
+                            <a class="btn btn-sm btn-default" id="@item.Code">详情</a>
+                            <a class="btn btn-sm btn-default" href="DeleteFarm?guid=@item.Code">删除</a>
+                        </td>*@
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+    <div id="createFarm" style="display:none;">
+        <div id="customWindowHeader">
+            <span id="captureContainer" style="float: left">新建场</span>
+        </div>
+        <div id="customWindowContent" style="overflow: hidden">
+            <div style="margin: 10px">
+                @{ Html.RenderPartial("CreateFarm", new ShareService.ServiceManager.Models.ServerFarm());}
+            </div>
+        </div>
+    </div>
+    @*<div id="EditFarm" style="display:none;">
+            <div id="customWindowHeader">
+                <span id="captureContainer" style="float: left">编辑场</span>
+            </div>
+            <div id="customWindowContent" style="overflow: hidden">
+                <div style="margin: 10px">
+                    @{ Html.RenderPartial("EditFarm", new ShareService.ServiceManager.Models.ServerFarm());}
+                </div>
+            </div>
+        </div>*@
+</body>
+</html>

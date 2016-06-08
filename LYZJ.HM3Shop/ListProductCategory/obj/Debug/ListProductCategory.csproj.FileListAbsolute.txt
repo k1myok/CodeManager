@@ -1,0 +1,5 @@
+F:\heima\practice\LYZJ.HM3Shop\ListProductCategory\bin\Debug\ListProductCategory.exe.config
+F:\heima\practice\LYZJ.HM3Shop\ListProductCategory\bin\Debug\ListProductCategory.exe
+F:\heima\practice\LYZJ.HM3Shop\ListProductCategory\bin\Debug\ListProductCategory.pdb
+F:\heima\practice\LYZJ.HM3Shop\ListProductCategory\obj\Debug\ListProductCategory.exe
+F:\heima\practice\LYZJ.HM3Shop\ListProductCategory\obj\Debug\ListProductCategory.pdb

@@ -1,0 +1,11 @@
+F:\heima\practice\LYZJ.HM3Shop\Memcached\bin\Debug\Memcached.exe.config
+F:\heima\practice\LYZJ.HM3Shop\Memcached\bin\Debug\Memcached.exe
+F:\heima\practice\LYZJ.HM3Shop\Memcached\bin\Debug\Memcached.pdb
+F:\heima\practice\LYZJ.HM3Shop\Memcached\bin\Debug\Commons.dll
+F:\heima\practice\LYZJ.HM3Shop\Memcached\bin\Debug\ICSharpCode.SharpZipLib.dll
+F:\heima\practice\LYZJ.HM3Shop\Memcached\bin\Debug\log4net.dll
+F:\heima\practice\LYZJ.HM3Shop\Memcached\bin\Debug\Memcached.ClientLibrary.dll
+F:\heima\practice\LYZJ.HM3Shop\Memcached\bin\Debug\Memcached.ClientLibrary.pdb
+F:\heima\practice\LYZJ.HM3Shop\Memcached\obj\Debug\Memcached.csprojResolveAssemblyReference.cache
+F:\heima\practice\LYZJ.HM3Shop\Memcached\obj\Debug\Memcached.exe
+F:\heima\practice\LYZJ.HM3Shop\Memcached\obj\Debug\Memcached.pdb

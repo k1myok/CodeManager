@@ -1,0 +1,9 @@
+E:\Projects\PreProjects\Source\ShareService\Source\ShareService.Service.ARR\bin\Debug\ShareService.Service.ARR.dll
+E:\Projects\PreProjects\Source\ShareService\Source\ShareService.Service.ARR\bin\Debug\ShareService.Service.ARR.pdb
+E:\Projects\PreProjects\Source\ShareService\Source\ShareService.Service.ARR\obj\Debug\ShareService.Service.ARR.dll
+E:\Projects\PreProjects\Source\ShareService\Source\ShareService.Service.ARR\obj\Debug\ShareService.Service.ARR.pdb
+E:\NET\MVCProject\ShareService\ShareService.Service.ARR\bin\Debug\ShareService.Service.ARR.dll
+E:\NET\MVCProject\ShareService\ShareService.Service.ARR\bin\Debug\ShareService.Service.ARR.pdb
+E:\NET\MVCProject\ShareService\ShareService.Service.ARR\obj\Debug\ShareService.Service.ARR.csprojResolveAssemblyReference.cache
+E:\NET\MVCProject\ShareService\ShareService.Service.ARR\obj\Debug\ShareService.Service.ARR.dll
+E:\NET\MVCProject\ShareService\ShareService.Service.ARR\obj\Debug\ShareService.Service.ARR.pdb

@@ -1,0 +1,132 @@
+﻿@model LYZJ.HM3Shop.Model.UserInfo
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>SetUserActionInfo</title>
+    <link href="../../Content/jquery-easyui-1.3.1/themes/default/easyui.css" rel="stylesheet" />
+    <link href="../../Content/jquery-easyui-1.3.1/themes/icon.css" rel="stylesheet" />
+    <link href="../../Content/tableStyle.css" rel="stylesheet" />
+
+    <script src="../../Content/jquery-easyui-1.3.1/jquery-1.8.0.min.js"></script>
+    <script src="../../Content/jquery-easyui-1.3.1/jquery.easyui.min.js"></script>
+    <script src="../../Scripts/jquery.unobtrusive-ajax.js"></script>
+    <script src="../../Content/jquery-easyui-1.3.1/locale/easyui-lang-zh_CN.js"></script>
+    <script type="text/javascript">
+
+        //跳转父窗体执行方法
+        function AfterUpdateActionPermotion(data) {
+            if (data == "OK") {
+                window.parent.AfterUpdateActionPermotion();
+            }
+            else {
+                alert("出错了，请您检查");
+            }
+        }
+
+        //实现添加特殊权限弹出层
+        $(function () {
+            $("#addActionInfo").click(function () {
+                window.parent.AddUserAcionInfoShow();
+            });
+
+            //删除特殊权限的设置
+            DelteUserActionInfo();
+
+            //设置允许用户特殊权限可用还是不可用
+            CheckUserActionInfoIsTrue();
+        });
+        
+        //删除特殊权限的设置
+        function DelteUserActionInfo() {
+            $("a[rAUId]").click(function () {
+                var RID = $(this).attr("rAUId");
+                //提示是否删除用户信息
+                $.messager.confirm("友情提示", "您确认要删除此信息吗？", function (DeleteOK) {
+                    if (DeleteOK) {
+                        //发送异步请求进行删除信息
+                        $.post("/UserInfo/DeleteUserAction/", { ID: RID }, function (data) {
+                            if (data = "OK") {
+                                $.messager.alert("友情提示", "删除成功");
+                                window.parent.SerUserAction();
+                            }
+                            else {
+                                $.messager.alert("友情提示", "删除失败，请您检查");
+                            }
+                        });
+                    }
+                });
+            });
+        }
+
+        //设置允许用户特殊权限可用还是不可用
+        function CheckUserActionInfoIsTrue() {
+
+        }
+
+    </script>
+</head>
+<body>
+    <h3>欢迎您给用户:<font color="red" size="5">@Model.UName </font>设置特殊权限信息:</h3>
+    <a href="#" class="easyui-linkbutton" iconCls="icon-add"  id="addActionInfo">添加特殊权限</a>
+    <hr />
+
+    <fieldset>
+        <legend>设置用户特殊权限</legend>
+        <table style="width:380px">
+            <thead>
+                <tr>
+                    <td>权限名称</td><td>设置</td><td>删除</td>
+                </tr>
+            </thead>
+
+            <tbody id="tbActionList">
+                @using (Ajax.BeginForm("UpdatePermation", "UserInfo", new AjaxOptions() { OnSuccess = "AfterUpdateActionPermotion" }, new { ID = "frmSetActionRole" }))
+                {
+                                    
+                    //获取前台传递过来的强类型对象，
+                    var specialData = (List<LYZJ.HM3Shop.UI.Portal.Models.UserSpecialActionInfo>)ViewBag.ActionData;
+                    <tr>
+                        <td colspan="3"><input type="hidden" name="hidenId" value="@Model.ID" />  </td>
+                    </tr>
+                    foreach (var item in specialData)
+                    {
+                        string strName = "HasPass_" + item.ActionID;
+                        <tr>
+                            <td>@item.ActionName</td>
+                            <td>
+                                @if (item.HasPermation)
+                                { 
+                                    <input type="radio" value="true" id="setTrue" name="@strName" checked="checked" /><label for="setTrue">允许</label>
+                                    <input type="radio" value="false" id="setFalse" name="@strName"/><label for="setFalse">拒绝</label>
+                                }
+                                else
+                                {
+                                    <input type="radio" value="true" id="setTrue" name="@strName"/><label for="setTrue">允许</label>
+                                    <input type="radio" value="false" id="setFalse" name="@strName"  checked="checked" /><label for="setFalse">拒绝</label>
+                                }
+                            </td>
+                            <td>
+                                @*actionId="@item.ActionID" userId="@item.UserID"*@
+                                <a href="#" class="easyui-linkbutton" plain="true" deletebutton="true" rAUId="@item.RID" iconCls="icon-cancel">删除</a>
+                            </td>
+                        </tr>
+                    }   
+                <tr>
+                    <td style="text-align:center;" colspan="3"><input type="submit" id="btnAddAction" name="btnAddAction" value="保存设置" /></td>
+                </tr>
+                }
+                </tbody>
+            </table>
+        
+    </fieldset>
+
+
+
+</body>
+</html>

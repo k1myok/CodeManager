@@ -1,0 +1,78 @@
+﻿@model IEnumerable<ShareService.ServiceManager.Models.UFUser>
+
+<script>
+    var groupCode = '@ViewBag.groupCode';
+    $(document).ready(function () {
+        $('#resourceWindow').jqxWindow({
+            width: '400px',
+            height: '340px',
+            resizable: true,
+            initContent: function () {
+            }
+        });
+    });
+
+    function viewUser(code) {
+        $('#loader').show();
+        $.ajax({
+            url: '../UserManager/Detail?code=' + code,
+            success: function (data) {
+                $('#resourceWindow #titleContainer').html('用户信息');
+                $('#resourceWindow #customWindowContent').empty().html(data);
+                $('#resourceWindow').jqxWindow('open');
+            },
+            complete: function () {
+                $('#loader').hide();
+            }
+        });
+    }
+
+    function change(userCode, selected) {
+        var url = selected ? "../GroupManager/AddUserToGroup" : "../GroupManager/RemoveUserFromGroup";
+        $.ajax({
+            url: url + '?userCode=' + userCode + '&groupCode=' + groupCode,
+            success: function (result) {
+                if (!result.State) {
+                    alert("与服务器发生通信故障，稍后再试！");
+                }
+            }
+        });
+    }
+</script>
+<table class="UFTable">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            操作
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+               
+                @if (ViewBag.userCodes.Contains(item.Code))
+                {
+                    <input type="checkbox" checked value="@item.Code" onchange="change('@item.Code', this.checked)" />
+
+                }
+                else {
+                    <input type="checkbox" value="@item.Code" onchange="change('@item.Code',  this.checked)" />
+                }
+                @*|<a onclick="viewUser('@item.Code')" style="cursor:pointer;">详细信息</a>*@
+            </td>
+        </tr>
+    }
+</table>
+
+
+
+
+
+

@@ -1,0 +1,4 @@
+F:\NET\MVCProject\Developing\GMF.Demo.Site.Models\bin\Debug\GMF.Demo.Site.Models.dll
+F:\NET\MVCProject\Developing\GMF.Demo.Site.Models\bin\Debug\GMF.Demo.Site.Models.pdb
+F:\NET\MVCProject\Developing\GMF.Demo.Site.Models\obj\Debug\GMF.Demo.Site.Models.dll
+F:\NET\MVCProject\Developing\GMF.Demo.Site.Models\obj\Debug\GMF.Demo.Site.Models.pdb

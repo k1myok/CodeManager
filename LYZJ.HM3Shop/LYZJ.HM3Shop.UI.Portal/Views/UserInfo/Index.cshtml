@@ -1,0 +1,538 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Index</title>
+    <link href="../../Content/jquery-easyui-1.3.1/themes/icon.css" rel="stylesheet" />
+    <link href="../../Content/jquery-easyui-1.3.1/themes/default/easyui.css" rel="stylesheet" />
+    <link href="../../Content/Site.css" rel="stylesheet" />
+
+    <script src="../../Content/jquery-easyui-1.3.1/jquery-1.8.0.min.js"></script>
+    <script src="../../Content/jquery-easyui-1.3.1/jquery.easyui.min.js"></script>
+    <script src="../../Content/jquery-easyui-1.3.1/locale/easyui-lang-zh_CN.js"></script>
+    @*修改时间格式的Js文件*@
+    <script src="../../Content/jquery-easyui-1.3.1/datapattern2.js"></script>
+
+    <script type="text/javascript">
+
+        $(function () {
+            //初始化弹出窗体
+            initTable();
+
+            //绑定注册按钮的事件
+            BindRegistButtonClickEvent();
+
+            //绑定修改事件的信息
+            BindUpdateButtonClickEvent();
+
+            //添加的时候只能添加一个用户名，进行异步判断
+            CheckUserInfoIsTrue();
+
+            //自己写一个验证两次输入的密码相同的JavaScript代码
+            CheckPwdAndPwdOKiSEqualTo();
+
+            //搜索用户信息
+            SearchUNameMailInfo();
+
+        });
+
+        //初始化表格 
+        function initTable(queryData) {
+            $('#test').datagrid({
+                title: '用户管理',
+                iconCls: 'icon-save',
+                height: 400,
+                nowrap: true,
+                autoRowHeight: false,
+                striped: true,
+                collapsible: true,
+                url: '/UserInfo/GetAllUserInfos',
+                sortName: 'ID',
+                sortOrder: 'asc',
+                //striped:true,
+                border: true,
+                remoteSort: false,
+                idField: 'ID',
+                pagination: true,
+                rownumbers: true,
+                queryParams: queryData,
+                columns: [[
+                    //ID, UName, Pwd, Phone, Mail, SubTime, LastModifiedOn, DelFlag
+                    { field: 'ck', checkbox: true },
+					{ field: 'ID', title: 'ID', width: 50, sortable: true },
+					{ field: 'UName', title: '姓名', width: 100, sortable: true },
+                    { field: 'Pwd', title: "密码", width: 150, sortable: true, },
+                    { field: 'Phone', title: "电话", width: 150, sortable: true, },
+                    { field: 'Mail', title: "EMail", width: 150, sortable: true, },
+                    {
+                        field: 'SubTime', title: "添加时间", width: 150, sortable: true,
+                        formatter: function (value, row, index) {
+                            return (eval(value.replace(/\/Date\((\d+)\)\//gi, "new Date($1)"))).pattern("yyyy-M-d h:m:s");
+                        }
+                    }
+                ]],
+
+                toolbar: [{
+                    id: 'btnadd',
+                    text: '添加用户',
+                    iconCls: 'icon-add',
+                    handler: function () {
+                        //实现弹出添加用户信息的层
+                        ShowCreateUserDialog();
+                    }
+                }, '-', {
+                    id: 'btncut',
+                    text: '修改用户',
+                    iconCls: 'icon-cut',
+                    handler: function () {
+
+                        //实现弹出修改用户信息的层
+                        ShowUpdateUserDialog();
+                    }
+                }, '-', {
+                    id: 'btnsave',
+                    text: '删除用户',
+                    iconCls: 'icon-remove',
+                    handler: function () {
+                        //确认只删除一条用户信息
+                        DeleteUserInfoByClick();
+                    }
+                }, '-', {
+                    id: 'btnSetRole',
+                    text: '设置用户角色',
+                    iconCls: 'icon-redo',
+                    handler: function () {
+                        //弹出设置用户角色
+                        SetUserRole();
+                    }
+                }, '-', {
+                    id: 'btnSetAction',
+                    text: '设置用户特殊权限',
+                    iconCls: 'icon-redo',
+                    handler: function () {
+                        //给用户设置特殊权限
+                        SerUserAction();
+                    }
+                }]
+            });
+        }
+
+        //弹出添加用户的对话框
+        function ShowCreateUserDialog() {
+            //实现弹出添加用户信息的层
+            $('#AddUserDialog').dialog('open').dialog('setTitle', '添加用户信息');
+
+            //添加完成后清空文本框的值
+            ClearTextBox();
+        }
+
+        //注册用户添加事件
+        function BindRegistButtonClickEvent() {
+            $("#btnRegist").click(function () {
+                //验证所有的文本框是否通过用户的验证
+                var valid = $('#ff').form('validate');
+                if (valid == false) {
+                    return false;
+                }
+
+                //创建传递的参数, //UName,Pwd,Pwd,PwdOK,Phone,Mail
+                var postdata = {
+                    UName: $("#UName").val(),
+                    Pwd: $("#Pwd").val(),
+                    Phone: $("#Phone").val(),
+                    Mail: $("#Mail").val()
+                };
+
+                //发送异步请求到后台保存用户数据
+                $.post("/UserInfo/Regist", postdata, function (data) {
+                    if (data == "OK") {
+                        //添加成功，(1)关闭对话框，刷新表格
+                        alert("添加成功");
+                        $('#AddUserDialog').dialog('close');
+                        $("#test").datagrid("reload");
+                    }
+                    else {
+                        alert("添加失败，请您检查");
+                    }
+                });
+            });
+        }
+
+        //当添加或者修改完成后清空文本框中的值
+        function ClearTextBox() {
+            //UName,Pwd,PwdOK,Phone,Mail
+            $("#UName").val("");
+            $("#Pwd").val("");
+            $("#PwdOK").val("");
+            $("#Phone").val("");
+            $("#Mail").val("");
+        }
+
+        //确认只删除一条用户信息
+        function TestUserInfo() {
+            //确认只删除一条用户信息
+            //function DeleteUserInfoByClick() {
+            //    //获取到用户选定的某一列的ID号
+            //    var deleteUserInfoID = $("#test").datagrid("getSelections");
+            //    //判断用户选择了多少条数据
+            //    if (deleteUserInfoID.length == 1) {
+            //        $.messager.confirm("删除信息", "您确认删除该条信息吗？", function (DeleteUserInfo) {
+            //            if (DeleteUserInfo) {
+            //                $.post("/UserInfo/DeleteUserInfo", { deleteUserInfoID: deleteUserInfoID[0].ID }, function (data) {
+            //                    if (data == "OK") {
+            //                        alert("删除成功");
+            //                        $("#test").datagrid("reload");
+
+            //                        //当删除完成的时候清除掉所选择的长度，防止下次选择的时候还记录了上次的内容
+            //                        deleteUserInfoID.length = "";
+
+            //                    }
+            //                    else {
+            //                        alert("删除失败，请检查");
+            //                    }
+            //                });
+            //            }
+            //        });
+            //    }
+            //    else {
+            //        $.messager.alert("友情提示", "每次只能删除一行，你已经选择了<font color='red' size='6'>" + deleteUserInfoID.length + "</font>行");
+            //    }
+            //}
+        }
+
+        //实现多选删除信息
+        function DeleteUserInfoByClick() {
+            //获取到用户选定的某一列的ID号
+            var deleteUserInfoID = $("#test").datagrid("getSelections");
+            //判断用户选择了多少条数据
+            // //异步将删除的ID发送到后台，后台删除之后，返回前台OK，前台刷新表格
+            if (deleteUserInfoID.length >= 1) {
+                var ids = "";   //1,2,3,4
+                for (var i = 0; i < deleteUserInfoID.length; i++) {
+                    ids += deleteUserInfoID[i].ID + ",";
+                }
+                //去掉最后的一个,
+                ids = ids.substring(0, ids.length - 1);
+
+                //遍历出删除用户的信息
+                var UNameList = "";
+                for (var i = 0; i < deleteUserInfoID.length; i++) {
+                    UNameList += deleteUserInfoID[i].UName + ",";
+                }
+                UNameList = UNameList.substring(0, UNameList.length - 1);
+                //var LoginUName = $("#test").datagrid("getSelections")[0].UName;
+                //发送异步请求删除数据
+                $.messager.confirm("删除信息", "您确认删除<font color='Red' size='3'>" + UNameList + "</font>用户吗？", function (DeleteUserInfo) {
+                    if (DeleteUserInfo) {
+                        $.post("/UserInfo/DeleteUserInfo", { deleteUserInfoID: ids, UName: UNameList }, function (data) {
+                            if (data == "OK") {
+                                $.messager.alert("友情提示", "删除成功");
+                                $("#test").datagrid("reload");
+
+                                //当删除完成的时候清除掉所选择的长度，防止下次选择的时候还记录了上次的内容
+                                //第一种方法
+                                //deleteUserInfoID.length = "";
+                                //第二种方法
+                                $("#test").datagrid("clearSelections");
+                            }
+                            else {
+                                $.messager.alert("友情提示", "删除失败:" + data);
+                            }
+                        });
+                    }
+                });
+            }
+            else {
+                $.messager.alert("友情提示", "请您选择要删除的数据");
+            }
+        }
+
+        //弹出修改用户的对话框
+        function ShowUpdateUserDialog() {
+            var UpdateUserInfoID = $("#test").datagrid("getSelections");
+            if (UpdateUserInfoID.length == 1) {
+                $("#UpdateUserDialog").dialog("open").dialog("setTitle", "修改用户信息");
+                
+                //绑定显示修改的详细信息的内容
+                BingUpdateDetailsShowTextBox();
+            }
+            else {
+                $.messager.alert("友情提示", "每次只能修改一行数据，你已经选择了<font color='red' size='6'>" + UpdateUserInfoID.length + "</font>行");
+            }
+        }
+
+        //绑定修改用户的信息显示在用户的TextBox文本框中
+        function BingUpdateDetailsShowTextBox() {
+            //首先获取选中的用户的ID
+            var CheckID = $("#test").datagrid("getSelections")[0].ID;
+            
+            //使用异步的getJSON请求绑定前台传递过来的数据
+            $.getJSON("/UserInfo/GetBindDetails", { ID: CheckID }, function (date) {
+                //绑定数据显示到控件上面，UName,Pwd,PwdOK,Phone,Mail
+                $("#ID").val(CheckID);
+                $("#UName1").val(date.UName);
+                $("#Pwd1").val(date.Pwd);
+                $("#PwdOK1").val(date.Pwd);
+                $("#Phone1").val(date.Phone);
+                $("#Mail1").val(date.Mail);
+            });
+        }
+
+        //修改用户的信息
+        function BindUpdateButtonClickEvent() {
+            $("#btnUpdate").click(function () {           
+                //首先判断前台的验证是否通过
+                var valid = $('#UpdateUserInfo').form('validate');
+                if (valid == false) {
+                    return false;
+                }
+
+                //构造需要修改的参数，//UName1，Pwd1，PwdOK1，Phone1，Mail1
+                var postData = {
+                    ID: $("#ID").val(),
+                    UName: $("#UName1").val(),
+                    Pwd: $("#Pwd1").val(),
+                    PwdOK: $("#PwdOK1").val(),
+                    Phone:$("#Phone1").val(),
+                    Mail: $("#Mail1").val()
+                };
+
+                //使用异步实现修改用户信息
+                $.post("/UserInfo/UpdateInfo", postData, function (date) {
+                    if (date == "OK") {
+                        $("#UpdateUserDialog").dialog('close');
+                        $("#test").datagrid('reload');
+                    }
+                    else {
+                        alert("修改失败，请检查");
+                    }
+                });
+            });
+        }
+
+        //检查用户名是否存在
+        function CheckUserInfoIsTrue() {
+            $("#UName").blur(function () {
+                //获取输入到控件的值
+                var UName = $("#UName").val();
+                //使用异步验证
+                $.post("/UserInfo/CheckUserName", { UName: UName }, function (date) {
+                    if (date == "OK") {
+                        alert("用户名已经存在，请您检查");
+                        $("#UName").val("");
+                        return;
+                    }
+                });
+            });
+        }
+
+        //验证两次输入的密码必须一致
+        function CheckPwdAndPwdOKiSEqualTo() {
+            $.extend($.fn.validatebox.defaults.rules, {
+                //判断必须和某个字段相同
+                equalTo: {
+                    validator: function (value, param) {
+                        return $('#' + param[0]).val() == value;
+                    },
+                    message: '字段不匹配'
+                }
+            });
+        }
+
+        //搜索数据信息
+        function SearchUNameMailInfo() {
+            //btnSerach，txtSerachName，txtSerachMail
+            //按条件进行查询信息
+            $("#btnSerach").click(function () {
+                var queryData = { SearchName: $("#txtSerachName").val(), SearchMail: $("#txtSerachMail").val() };
+                initTable(queryData);
+                return false;  
+            });
+        }
+
+        //弹出设置用户角色信息
+        function SetUserRole() {
+            var SetUserRoleID = $("#test").datagrid('getSelections');
+            if (SetUserRoleID.length == 1) {
+                $("#UserRoleInfoDialog").dialog('open').dialog('setTitle', "设置用户角色信息");
+
+            }
+            else {
+                $.messager.alert("友情提示", "每次只能设置一个用户的角色信息，你已经选择了<font color='red' size='6'>" + SetUserRoleID.length + "</font>个");
+            }
+            //将弹出的信息修改iframe框架跳转的src属性设置为修改用户权限的信息
+            $("#frameSetRole").attr("src", "/UserInfo/SetRole/" + SetUserRoleID[0].ID);
+
+        }
+
+        //设置角色成功之后自行的方法
+        function AfterSetRole() {
+            $("#UserRoleInfoDialog").dialog('close');
+            $.messager.alert("友情提示", "角色设置成功");
+        }
+
+        //UserActionInfoDialog,frameSetAction,
+        //弹出用户特殊权限设置的文本框
+        function SerUserAction() {
+            var SetActionInfoID = $("#test").datagrid('getSelections');
+            if (SetActionInfoID.length == 1) {
+                $("#UserActionInfoDialog").dialog('open').dialog('setTitle',"设置用户特殊权限")
+            }
+            else {
+                $.messager.alert("友情提示", "每次只能设置一个用户的角色信息，你已经选择了<font color='red' size='6'>" + SetActionInfoID.length + "</font>个");
+            }
+            $("#frameSetAction").attr("src", "/UserInfo/SetUserActionInfo/" + SetActionInfoID[0].ID);
+        }
+
+        //设置用户特殊权限成功后执行的方法
+        function AfterUpdateActionPermotion() {
+            $("#UserActionInfoDialog").dialog('close');
+            $.messager.alert("友情提示", "用户特殊权限是否允许设置成功");
+        }
+
+        function AddUserAcionInfoShow() {
+            var SetActionInfoID = $("#test").datagrid('getSelections');
+            $("#AddUserActionInfoDialog").dialog('open').dialog('setTitle', '添加用户特殊权限')
+            $("#AddframeSetAction").attr("src", "/UserInfo/AddUserActionInfo/" + SetActionInfoID[0].ID);
+        }
+
+        //设置用户特殊权限添加成功之后执行的方法
+        function AfterActionInfoShowUser() {
+            $.messager.alert("友情提示", "用户特殊权限设置成功，请您检查");
+            $("#AddUserActionInfoDialog").dialog("close");
+            $("#UserActionInfoDialog").dialog('close');
+        }
+
+    </script>
+
+</head>
+<body>
+
+     @*-------------------------- 搜索-------------------------*@
+    <fieldset>
+        <legend>用户详细信息模糊搜索</legend>
+    <div>
+        <label for="txtSerachName">姓名：</label>
+        <input type="text" ID="txtSerachName" name="txtSerachName"  />&nbsp;&nbsp;
+         
+        <label for="txtSerachName">邮箱：</label>
+        <input type="text" ID="txtSerachMail" name="txtSerachMail"  />
+
+      @*  <input type="button" id="btnSerach" name="btnSerach" value="搜索" />*@
+        <a href="#" class="easyui-linkbutton" iconcls="icon-search" id="btnSerach"  name="btnSerach">模糊搜索</a>
+    </div>
+    </fieldset>
+
+    @*-------------------------- 实现对用户数据的显示-------------------------*@
+    <div>
+        <table id="test"></table>
+    </div>
+
+     @*----------------------------设置添加的弹出层--------------------------------*@
+    <div id="AddUserDialog" class="easyui-dialog" style="width:360px;height:300px;padding:10px 20px"
+			closed="true" resizable="true" modal="true" buttons="#dlg-buttons" align="center">
+        <form id="ff" method="post" novalidate="novalidate">
+            <table id="tblAdd">
+                <tr>
+                    <th colspan="2" >添加用户信息</th>
+                </tr>
+                <tr>
+                    <td><label for="UName">用户名：</label></td>
+                    <td><input class="easyui-validatebox" type="text" id="UName" name="UName" data-options="required:true,validType:'length[1,32]'" /></td><td>
+                </tr>
+                <tr>
+                    <td><label for="Pwd">密码：</label></td>
+                    <td><input class="easyui-validatebox" type="text" id="Pwd" name="Pwd"  data-options="required:true,validType:'length[1,32]'" /></td>
+                </tr>
+                    <tr>
+                    <td><label for="PwdOK">确认密码：</label></td>
+                    <td><input class="easyui-validatebox" type="text" id="PwdOK" name="PwdOK" data-options="required:true" validType="equalTo['Pwd']" invalidMessage="两次输入密码不匹配" /></td>
+                </tr>
+                    <tr>
+                    <td><label for="Phone">电话：</label></td>
+                    <td><input class="easyui-numberbox" type="text" id="Phone" name="Phone" data-options="validType:'length[1,14]'" /></td><td><span style="color:red">必须数字</span></td>
+                </tr>
+                <tr>
+                    <td><label for="Mail">邮箱:</label></td>   <!--data-options="validType:'email'"-->
+                    <td><input class="easyui-validatebox" type="text" id="Mail" name="Mail" data-options="validType:'email'" /></td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align:center; padding-top:10px">
+                        <a href="javascript:void(0)" class="easyui-linkbutton" id="btnRegist" iconcls="icon-ok" >确定</a>
+                        <a href="javascript:void(0)" class="easyui-linkbutton" iconcls="icon-cancel" onclick="javascript:$('#AddUserDialog').dialog('close')">关闭</a>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+    @*----------------------------设置修改的的弹出层--------------------------------*@
+    <div id="UpdateUserDialog" class="easyui-dialog" style="width:360px;height:300px;padding:10px 20px"
+			closed="true" resizable="true" modal="true" buttons="#dlg-buttons" align="center">
+        <form id="UpdateUserInfo" method="post" novalidate="novalidate">
+            <table id="tblUpdate">
+                <tr>
+                    <th colspan="2" >修改用户信息</th>
+                </tr>
+                <tr>
+                    <td><label for="ID">用户ID:</label></td>
+                    <td><input class="easyui-validatebox" type="text" id="ID" name="ID" readonly="true"/></td><td>
+                </tr>
+                <tr>
+                    <td><label for="UName1">用户名：</label></td>
+                    <td><input class="easyui-validatebox" type="text" id="UName1" name="UName" data-options="required:true,validType:'length[1,32]'" /></td><td>
+                </tr>
+                <tr>
+                    <td><label for="Pwd1">密码：</label></td>
+                    <td><input class="easyui-validatebox" type="text" id="Pwd1" name="Pwd"  data-options="required:true,validType:'length[1,32]'" /></td>
+                </tr>
+                <tr>
+                    <td><label for="PwdOK1">确认密码：</label></td>
+                    <td><input class="easyui-validatebox" type="text" id="PwdOK1" name="PwdOK" data-options="required:true" validType="equalTo['Pwd1']" invalidMessage="两次输入密码不匹配" /></td>
+                </tr>
+                    <tr>
+                    <td><label for="Phone1">电话：</label></td>
+                    <td><input class="easyui-numberbox" type="text" id="Phone1" name="Phone" data-options="validType:'length[1,14]'" /></td><td><span style="color:red">必须数字</span></td>
+                </tr>
+                <tr>
+                    <td><label for="Mail1">邮箱:</label></td>   <!--data-options="validType:'email'"-->
+                    <td><input class="easyui-validatebox" type="text" id="Mail1" name="Mail" data-options="validType:'email'" /></td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align:center; padding-top:10px">
+                        <a href="javascript:void(0)" class="easyui-linkbutton" id="btnUpdate" iconcls="icon-ok" >确定</a>
+                        <a href="javascript:void(0)" class="easyui-linkbutton" iconcls="icon-cancel" onclick="javascript:$('#UpdateUserDialog').dialog('close')">关闭</a>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+    @*----------------------------设置用户角色的的弹出层--------------------------------*@
+    <div id="UserRoleInfoDialog" class="easyui-dialog" style="width:500px;height:400px;padding:10px 20px"
+			closed="true" resizable="true" modal="true" buttons="#dlg-buttons" align="center">
+        
+        <iframe id="frameSetRole" src="/Welcome.htm" scrolling="yes" frameborder="0" width="100%" height="100%">       
+        </iframe>
+
+    </div>
+
+    @*----------------------------设置用户特殊权限的的弹出层--------------------------------*@
+    <div id="UserActionInfoDialog" class="easyui-dialog" style="width:500px;height:470px;padding:10px 20px"
+			closed="true" resizable="true" modal="true" buttons="#dlg-buttons" align="center">        
+        <iframe id="frameSetAction" src="/Welcome.htm" scrolling="yes" frameborder="0" width="100%" height="100%">       
+        </iframe>
+    </div>
+    
+    @*----------------------------设置用户特殊权限的添加信息的的弹出层--------------------------------*@
+    <div id="AddUserActionInfoDialog" class="easyui-dialog" style="width:600px;height:350px;padding:10px 20px"
+			closed="true" resizable="true" modal="true" buttons="#dlg-buttons" align="center">        
+        <iframe id="AddframeSetAction" src="/Welcome.htm" scrolling="yes" frameborder="0" width="100%" height="100%">       
+        </iframe>
+    </div>
+</body>
+</html>

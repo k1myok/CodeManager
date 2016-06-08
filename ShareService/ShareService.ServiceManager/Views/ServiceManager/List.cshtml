@@ -1,0 +1,151 @@
+﻿@model IEnumerable<ShareService.ServiceManager.Models.Service>
+
+<script>
+        var selectedDirectory = '@(ViewBag.DirectoryCode)';
+            $(document).ready(function () {
+                $('#resourceWindow').jqxWindow({
+                    width: '400px',
+                    height: '340px',
+                    resizable: true,
+                    okButton: $('#okButton'),
+                    initContent: function () {
+                        $('#okButton').jqxButton({ width: '80px', disabled: false });
+                    }
+                });
+            });
+
+            function createService() {
+                $('#loader').show();
+                $.ajax({
+                    url: '../ServiceManager/Create?directoryCode=' + selectedDirectory,
+                    success: function (data) {
+                        $('#resourceWindow #titleContainer').html('添加服务资源');
+                        $('#resourceWindow #customWindowContent').empty().html(data);
+                        $('#resourceWindow').jqxWindow('open');
+                    },
+                    complete:function()
+                    {
+                        $('#loader').hide();
+                    }
+                });
+            }
+
+            function editService(resourceCode) {
+                $('#loader').show();
+                $.ajax({
+                    url: '../ServiceManager/Edit?resourceCode=' + resourceCode,
+                    success: function (data) {
+                        $('#resourceWindow #titleContainer').html('编辑服务资源');
+                        $('#resourceWindow #customWindowContent').empty().html(data);
+                        $('#resourceWindow').jqxWindow('open');
+                    },
+                    complete: function () {
+                        $('#loader').hide();
+                    }
+                });
+            }
+
+            function viewService(resourceCode) {
+                $('#loader').show();
+                $.ajax({
+                    url: '../ServiceManager/Detail?resourceCode=' + resourceCode,
+                    success: function (data) {
+                        $('#resourceWindow #titleContainer').html('服务详细信息');
+                        $('#resourceWindow #customWindowContent').empty().html(data);
+                        $('#resourceWindow').jqxWindow('open');
+                    },
+                    complete: function () {
+                        $('#loader').hide();
+                    }
+                });
+            }
+
+            function deleteService(resourceCode)
+            {
+                if (confirm('您确定删除该资源吗？')) {
+                    $('#loader').show();
+                    $.ajax({
+                        url: '../ServiceManager/Delete?resourceCode=' + resourceCode,
+                        success: function (result) {
+                            if (result.State) {
+                                showServiceList(selectedDirectory);
+                            }
+                            else {
+                                alert("删除该资源时发生错误，删除失败！");
+                            }
+                        },
+                        error:function(msg)
+                        {
+                            alert("与服务器通讯发生异常，请检查网络状况！");
+                        },
+                        complete: function () {
+                            $('#loader').hide();
+                        }
+                    });
+                }
+            }
+</script>
+<div class="NavWindow">
+    <div class="NavHeader">
+        <img src="~/Images/home.png" />
+        <span>您当前的位置：服务资源管理</span>
+    </div>
+    <div class="NavContent">
+        <div class="Title">
+            <div style="float:left;margin-left:10px;font-weight:bold;">服务资源列表</div>
+            <div onclick="createService();" class="UFButton">
+                添加
+            </div>
+            <div onclick="showServiceList('@ViewBag.DirectoryCode')" class="UFButton">
+                刷新
+            </div>
+        </div>
+        <div class="Content">
+            <table class="UFTable">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.URL)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Decription)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.UpdateDate)
+                    </th>
+                    <th>
+                        操作
+                    </th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.URL)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Decription)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UpdateDate)
+                        </td>
+                        <td>
+                            <a onclick="editService('@item.Code')" style="cursor:pointer;">编辑</a>
+                            <a onclick="viewService('@item.Code')" style="cursor:pointer;">详细信息</a>
+                            <a onclick="deleteService('@item.Code')" style="cursor:pointer;">删除</a>
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </div>
+</div>
+
+

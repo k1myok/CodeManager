@@ -1,0 +1,6 @@
+F:\heima\practice\LYZJ.HM3Shop\LYZJ.HM3Shop.Common\bin\Debug\LYZJ.HM3Shop.Common.dll
+F:\heima\practice\LYZJ.HM3Shop\LYZJ.HM3Shop.Common\bin\Debug\LYZJ.HM3Shop.Common.pdb
+F:\heima\practice\LYZJ.HM3Shop\lib\LYZJ.HM3Shop.Common.dll
+F:\heima\practice\LYZJ.HM3Shop\lib\LYZJ.HM3Shop.Common.pdb
+F:\heima\practice\LYZJ.HM3Shop\LYZJ.HM3Shop.Common\obj\Debug\LYZJ.HM3Shop.Common.dll
+F:\heima\practice\LYZJ.HM3Shop\LYZJ.HM3Shop.Common\obj\Debug\LYZJ.HM3Shop.Common.pdb

@@ -1,0 +1,42 @@
+﻿@model int
+@{
+    ViewBag.Title = "用户管理";
+    Layout = null;
+}
+<html>
+<head>
+    <script>
+    $(document).ready(function () {
+        var index = parseInt($('#jqxSecurityTabs').data('index'));
+        $('#jqxSecurityTabs').jqxTabs({ width: '100%', height: '100%', position: 'top', selectedItem: index });
+    })
+    </script>
+</head>
+<body>
+    <div id='jqxSecurityTabs' data-index="@Model"style="overflow-x:hidden;overflow-y:hidden;border:none;">
+        <ul>
+            <li style="margin-left: 30px;">用户管理</li>
+            <li>角色管理</li>
+            <li>组管理</li>
+            <li>权限管理</li>
+        </ul>
+        <div style="padding:2px;overflow-x:hidden;overflow-y:hidden;">
+             @{ Html.RenderAction("Users", "SecurityManager"); }
+        </div>
+        <div style="padding:2px;overflow-x:hidden;overflow-y:hidden;">
+            @{ Html.RenderAction("Roles", "SecurityManager"); }
+        </div>
+        <div style="padding:2px;overflow-x:hidden;overflow-y:hidden;">
+            @{ Html.RenderAction("Groups", "SecurityManager"); }
+        </div>
+        <div style="overflow-x:hidden;overflow-y:hidden;">
+            d
+        </div>
+    </div>
+
+</body>
+</html>
+
+
+
+

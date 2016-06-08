@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+
+
+    <script>
+        function onMenuClick(url) {
+            if (url != "") {
+                if (url == "../Manage/Default") {
+                    window.location.href = "../Manage/Default";
+                } else {
+                    $('#loader').show();
+                    $.ajax({
+                        url: url,
+                        success: function (data) {
+                            $('#MainContent').empty().html(data);
+                        },
+                        complete: function () {
+                            $('#loader').hide();
+                        }
+                    });
+                }               
+            }
+            else
+                $('#MainContent').empty();
+
+        }
+    </script>
+
+    <link href="~/Content/SimpleTheme.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="Header">
+        <div class="Title">
+            地理信息共享服务平台
+        </div>
+        <div class="MenuLink">
+            <div onclick="onMenuClick('../Manage/Default')">
+                @*<img src="~/Images/server.png"*@
+                <img src="~/Images/首页.png" />
+                <div>
+                    首页
+                </div>
+            </div>
+            <div onclick="onMenuClick('../HostManager/Manager')">
+                @*<img src="~/Images/server.png"*@
+                <img src="~/Images/server_manage.png" />
+                <div>
+                    服务器管理
+                </div>
+            </div>
+            <div onclick="onMenuClick('../DirectoryManager/List')">
+                @*<img src="~/Images/server.png" />*@
+                <img src="~/Images/server_resource_manage.png" />
+                <div>
+                    服务管理
+                </div>
+            </div>
+            <div onclick="onMenuClick('../MetadataManager/List')">
+                @*<img src="~/Images/server.png" />*@
+                <img src="~/Images/metadata_manager.png" />
+                <div>
+                    元数据管理
+                </div>
+            </div>
+            <div onclick="onMenuClick('../SecurityManager/List')">
+                @*<img src="~/Images/server.png" />*@
+                <img src="~/Images/security_manage.png" />
+                <div>
+                    安全管理
+                </div>
+            </div>
+
+            @*<ul>
+                    <li>
+                    </li>
+                    <li><a onclick="onMenuClick('../DirectoryManager/List')">服务管理</a></li>
+                    <li><a onclick="onMenuClick('../SecurityManager/Index')">安全管理</a></li>
+                    <li>@Html.ActionLink("资源查询", "About", "Home")</li>
+                    <li>@Html.ActionLink("资源统计", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("元数据管理", "List", "MetadataManager")</li>
+                    <li>@Html.ActionLink("系统帮助", "Contact", "Home")</li>
+                </ul>*@
+        </div>
+    </div>
+    <div class="MainContentContainer">
+        <div class="MainContent" id="MainContent">
+            @RenderBody()
+        </div>
+    </div>
+    @*<footer>
+            <div>
+                <div>
+                    <a href="http://www.china-ccw.com">&copy; @DateTime.Now.Year - 苏州云联智慧信息技术应用有限公司</a>
+                </div>
+            </div>
+        </footer>*@
+
+    <div id="resourceWindow" style="display:none;">
+        <div id="customWindowHeader">
+            <span id="titleContainer" style="float: left"></span>
+        </div>
+        <div id="customWindowContent" style="overflow:auto">
+        </div>
+    </div>
+
+    <div id="loader" class="Loading">
+        请 稍 后...
+    </div>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

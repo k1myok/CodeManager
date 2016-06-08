@@ -1,0 +1,97 @@
+<?xml version="1.0" ?> 
+ <response>
+ <meta>
+  <reqserialno>GJ07L20151223150941707527</reqserialno> 
+  <channeltype>016</channeltype> 
+  </meta>
+ <data>
+ <list>
+ <info>
+  <orderby /> 
+  <pages>1</pages> 
+  <page>1</page> 
+  <total>1</total> 
+  </info>
+ <cols>
+  <custacno /> 
+  <custname /> 
+  <paperkind /> 
+  <paperid /> 
+  <corpacno /> 
+  <accubankid /> 
+  <bankname /> 
+  <corpname /> 
+  <cardflag /> 
+  <monthinco /> 
+  <averinco /> 
+  <isspeperc /> 
+  <custperc /> 
+  <corpperc /> 
+  <isalloperc /> 
+  <alloperc /> 
+  <alloamt /> 
+  <accuamt /> 
+  <sumamt /> 
+  <bal /> 
+  <custacstat /> 
+  <custtrusstat /> 
+  <operdate /> 
+  <bankid /> 
+  <operid /> 
+  <agentcorpno /> 
+  <drawcardflag /> 
+  <cardstat /> 
+  <lastsavemonth /> 
+  <channeltype /> 
+  <custid /> 
+  <accucardno /> 
+  <orderno /> 
+  <custdept /> 
+  <natisign2 /> 
+  <bindbanktype /> 
+  <bankcardno /> 
+  </cols>
+ <rows>
+ <row id="1">
+  <c>0961838227</c> 
+  <c>韩山秀</c> 
+  <c>A</c> 
+  <c>420803198204045129</c> 
+  <c>1201043768</c> 
+  <c>010206</c> 
+  <c>建行干将支行(大厅)</c> 
+  <c>苏州市住房公积金管理中心</c> 
+  <c>1</c> 
+  <c>8450</c> 
+  <c>8450</c> 
+  <c /> 
+  <c>12</c> 
+  <c>12</c> 
+  <c>1</c> 
+  <c>18</c> 
+  <c>1521</c> 
+  <c>2028</c> 
+  <c>3549</c> 
+  <c>9702.23</c> 
+  <c>200</c> 
+  <c>230</c> 
+  <c>20120926</c> 
+  <c>010203</c> 
+  <c>010203000</c> 
+  <c /> 
+  <c>1</c> 
+  <c>001</c> 
+  <c>201511</c> 
+  <c>002</c> 
+  <c>A4208031982040451290</c> 
+  <c>09618382271</c> 
+  <c /> 
+  <c /> 
+  <c>156</c> 
+  <c>014</c> 
+  <c>6214619999025685774</c> 
+  </row>
+  </rows>
+  </list>
+  </data>
+  </response>

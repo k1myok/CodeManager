@@ -1,0 +1,8 @@
+F:\NET\MVCProject\Developing\GMF.Component.Tools\bin\Debug\GMF.Component.Tools.dll
+F:\NET\MVCProject\Developing\GMF.Component.Tools\bin\Debug\GMF.Component.Tools.pdb
+F:\NET\MVCProject\Developing\GMF.Component.Tools\bin\Debug\log4net.dll
+F:\NET\MVCProject\Developing\GMF.Component.Tools\bin\Debug\Newtonsoft.Json.dll
+F:\NET\MVCProject\Developing\GMF.Component.Tools\bin\Debug\log4net.xml
+F:\NET\MVCProject\Developing\GMF.Component.Tools\bin\Debug\Newtonsoft.Json.xml
+F:\NET\MVCProject\Developing\GMF.Component.Tools\obj\Debug\GMF.Component.Tools.dll
+F:\NET\MVCProject\Developing\GMF.Component.Tools\obj\Debug\GMF.Component.Tools.pdb

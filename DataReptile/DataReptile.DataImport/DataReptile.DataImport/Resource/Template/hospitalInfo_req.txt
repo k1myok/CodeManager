@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+    <S:Body>
+        <GetHospInfoReq xmlns="http://new.webservice.namespace">
+            <AuthInfo>
+                <UserName>{0}</UserName>
+                <Password>{1}</Password>
+            </AuthInfo>
+            <Filter>
+                <OperType>{2}</OperType>
+                <HospName>{3}</HospName>
+                <DepartName>{4}</DepartName>
+                <DoctorName>{5}</DoctorName>
+                <BeginDate>{6}</BeginDate>
+                <EndDate>{7}</EndDate>
+            </Filter>
+            <NotifyAddr>{8}</NotifyAddr>
+        </GetHospInfoReq>
+    </S:Body>
+</S:Envelope>

@@ -1,0 +1,70 @@
+﻿@model SocialInsurance.Models.IdustrialInsurance
+
+@{
+    ViewBag.Title = "IdustrialInsurance";
+    Layout = null;
+}
+<style>
+    .name {
+        width: 16.666666%;
+        text-align:center;
+          padding-left:3px;
+        padding-right:3px;
+    }
+    .nametemp {
+         width: 16.666666%;
+        text-align:center;
+    }
+</style>
+@if (Model.status == "200")
+{
+    <div class="am-list-footer" style="padding-top:10px;padding:15px 10px 10px 15px;">
+        未查到你要查询相关信息，请稍后再试
+    </div>
+}
+else
+{
+    
+       if (Model.status == "100")
+        {  <div id="resultmore">
+         @if(Model.cpage==1)
+           {
+            <input type="hidden" id="cpage" value='@Model.cpage' />
+            <input type="hidden" id="pages" value='@Model.pages' />
+            <input type="hidden" id="style" value="Idustrial" />
+            <div class="am-list-item">
+                <div class="nametemp">结算期</div>
+                <div class="name">缴费基数</div>
+                <div class="name">缴费月数</div>
+                <div class="name">缴费金额</div>
+                <div class="nametemp">到账标记</div>
+                @*<div class="nametemp">缴费类别</div>*@
+            </div>
+         }
+            @foreach (var item in Model.data)
+            {
+                <div class="am-list-item">
+                    <div class="nametemp">
+                        <div class="">@item.akf088</div>
+                    </div>
+                    <div class="name">
+                       @item.aif005
+                    </div>
+                    <div class="name">
+                       @item.aif004
+                    </div>
+                    <div class="name">
+                        @item.aif006
+                    </div>
+                    <div class="nametemp">
+                        @item.akf084
+                    </div>
+                    @*<div class="name">
+                        <div class="am-ft-center">@item.akf081</div>
+                    </div>*@
+                </div>
+            }
+          </div>
+        }
+}
+

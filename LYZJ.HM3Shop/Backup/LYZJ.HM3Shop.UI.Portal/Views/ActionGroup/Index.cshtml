@@ -1,0 +1,364 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Index</title>
+    @*引用easyUI的CSS*@
+    <link href="../../Content/jquery-easyui-1.3.1/themes/default/easyui.css" rel="stylesheet" />
+    <link href="../../Content/jquery-easyui-1.3.1/themes/icon.css" rel="stylesheet" />
+     <link href="../../Content/Site.css" rel="stylesheet" />
+    @*引用easyUI的JS*@
+    <script src="../../Content/jquery-easyui-1.3.1/jquery-1.8.0.min.js"></script>
+    <script src="../../Content/jquery-easyui-1.3.1/jquery.easyui.min.js"></script>
+    <script src="../../Content/jquery-easyui-1.3.1/locale/easyui-lang-zh_CN.js"></script>
+    @*引用转换时间的JS文件*@
+    <script src="../../Content/jquery-easyui-1.3.1/datapattern2.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            //实现绑定所有的的用户角色的信息
+            initAtionGroup();
+            
+            //实现对所有菜单组的添加功能
+            AddActionGroupInfo();
+
+            //实现模糊查询的功能
+            SearchActionGroupInfo();
+
+            //实现得到数据进行修改权限组信息
+            UpdateActionGroupInfo();
+        });
+
+        //实现对用户角色的绑定
+        function initAtionGroup(queryData) {
+            $('#test').datagrid({
+                title: '用户角色管理',
+                iconCls: 'icon-save',
+                height: 380,
+                nowrap: true,
+                autoRowHeight: false,
+                striped: true,
+                collapsible: true,
+                url: '/ActionGroup/GetAllActionGroupInfo',
+                sortName: 'ID',
+                sortOrder: 'asc',
+                //striped:true,
+                border: true,
+                remoteSort: false,
+                idField: 'ID',
+                pagination: true,
+                rownumbers: true,
+                queryParams: queryData,    //参数为了多条件查询预留
+                columns: [[
+                    { field: 'ck', checkbox: true },
+					{ field: 'ID', title: 'ID', width: 60, sortable: true },
+					{ field: 'GroupName', title: '分组名称', width: 250, sortable: true },
+                    {
+                        field: 'GroupType', title: "分组类型", width: 250, sortable: true,
+                        formatter: function (value, row, index) {
+                            if (value == 0) {
+                                return "普通组";
+                            }
+                            if (value == 1) {
+                                return "菜单组";
+                            }
+                        }
+                    }
+                ]],
+
+                toolbar: [{
+                    id: 'btnadd',
+                    text: '添加权限组',
+                    iconCls: 'icon-add',
+                    handler: function () {
+                        //实现弹出添加用户信息的层
+                        ShowCreateActionGroupDialog();
+                    }
+                }, '-', {
+                    id: 'btncut',
+                    text: '修改权限组',
+                    iconCls: 'icon-cut',
+                    handler: function () {
+
+                        //实现弹出修改用户信息的层
+                        ShowUpdateActionGroupDialog();
+                    }
+                }, '-', {
+                    id: 'btnsave',
+                    text: '删除权限组',
+                    iconCls: 'icon-remove',
+                    handler: function () {
+                        //确认只删除一条用户信息
+                        DeleteUserActionGroupInfoByClick();
+                    }
+                }, '-', {
+                    id: 'btnSetActionGroup',
+                    text: '设置角色',
+                    iconCls: 'icon-redo',
+                    handler: function () {
+                        //给菜单组设置角色信息
+                        SetActionGroupRole();
+                    }
+                }]
+            });
+        }
+
+        //当单击添加的时候弹出添加层
+        function ShowCreateActionGroupDialog() {
+            $("#AddActionGroupDialog").dialog('open').dialog('setTitle', '添加权限组信息');
+            //当添加成功的时候再次单击添加成功则清空表格中的数据
+            ClearTextBoxActionGroup();
+        }
+
+        //实现对菜单组信息的添加
+        function AddActionGroupInfo() {
+            $("#btnAddActionGroup").click(function () {
+                //首先验证form表单是否通过验证
+                var validate = $("#ActionGroupAdd").form('validate');
+                if (validate == false) {
+                    return false;
+                }
+                //获取给前台传递的参数，GroupName，GroupType
+                var postData = {
+                    GroupName: $("#GroupName").val(),
+                    GroupType: $("#GroupType").combobox('getValue')
+                };
+                //异步实现添加菜单组功能
+                $.post("/ActionGroup/AddActionGroupInfo", postData, function (date) {
+                    if (date == "OK") {
+                        //添加成功，关闭层，刷新表单
+                        $("#AddActionGroupDialog").dialog('close');
+                        $("#test").datagrid('reload');
+                    }
+                    else {
+                        $.messager.alert("友情提示", "添加失败，请您检查");
+                    }
+                });
+            });
+        }
+        
+        //当添加成功的时候再次单击添加成功则清空表格中的数据
+        function ClearTextBoxActionGroup() {
+            $("#GroupName").val("");
+        }
+
+        //当单击修改的时候弹出修改的层
+        function ShowUpdateActionGroupDialog() {
+            var UpdateID = $("#test").datagrid('getSelections');
+            if (UpdateID.length == 1) {
+                $("#UpdateActionGroupDialog").dialog('open').dialog('setTitle', "修改菜单组信息");
+                //帮顶我们需要修改的数据
+                BindupdateActionGroupInfo();
+            }
+            else {
+                $.messager.alert("友情提示", "每次只能修改一行数据，你已经选择了<font color='red' size='6'>" + UpdateID.length + "</font>行");
+            }
+        }
+
+        //当单击修改弹出层的时候，喜欢我们的信息能够显示在层的上面
+        function BindupdateActionGroupInfo() {
+            //获取需要绑定的ID
+            var BindID = $("#test").datagrid('getSelections')[0].ID;
+            //发送异步请求来实现绑定数据,GroupName，GroupType
+            $.getJSON("/ActionGroup/BindActionGroupInfo", { ID: BindID }, function (date) {
+                $("#ID").val(date.ID);
+                $("#GroupName1").val(date.GroupName);
+                $("#GroupType1").combobox('setValue', date.GroupType);
+            })
+        }
+
+        //实现模糊查询的信息
+        function SearchActionGroupInfo() {
+            $("#btnSerach").click(function () {
+                var querData = {
+                    SearchActionName: $("#txtSerachGroupName").val(),
+                    SearchActionType: $("#SOSearchGroupType").combobox('getValue')
+                };
+                initAtionGroup(querData);
+                return false;
+            });
+        }
+
+        //实现对权限组的修改功能
+        function UpdateActionGroupInfo() {
+            $("#btnUpdateActionGroup").click(function () {
+                //首先判断是否全部通过form表单验证
+                var validate = $("#ActionGroupUpdate").form('validate');
+                if (validate == false) {
+                    return false;
+                }
+                //获取参数传递给后台进行修改操作
+                var postData = {
+                    ID: $("#ID").val(),
+                    GroupName: $("#GroupName1").val(),
+                    GroupType: $("#GroupType1").combobox('getValue')
+                };
+                //发送异步请求给前台实现修改操作
+                $.post("/ActionGroup/UpdateActionGroup", postData, function (data) {
+                    if (data = "OK") {
+                        //关闭层，刷新表单
+                        $("#UpdateActionGroupDialog").dialog('close');
+                        $("#test").datagrid('reload');
+                    }
+                    else {
+                        $.messager.alert("友情提示", "修改失败，请您检查");
+                    }
+                });
+            });
+        }
+
+        //实现对权限组进行多选删除
+        function DeleteUserActionGroupInfoByClick() {
+            //首先获取用户选择的ID
+            var deleteID = $("#test").datagrid('getSelections');
+            //构造成4,5,6这样的字符串传递给后天接受
+            if (deleteID.length >0) {
+                var checkID = "";
+                //循环遍历出需要删除的数据以制定的格式传递过去
+                for (var i = 0; i < deleteID.length; i++) {
+                    checkID += deleteID[i].ID + ",";
+                }
+                checkID = checkID.substring(0, checkID.length - 1);
+                //发送异步请求传递给后台我们所选中的数据
+                $.messager.confirm("友情提示", "您确认要删除这些信息吗？", function (deleteOK) {
+                    if (deleteOK) {
+                        $.post("/ActionGroup/DeleteActionGroupInfo", { ID: checkID }, function (data) {
+                            if (data == "OK") {
+                                $("#test").datagrid('reload');
+                                //清空表单的信息，
+                                $("#test").datagrid('clearSelections');
+                            }
+                            else {
+                                $.messager.alert("友情提示", "删除失败 " + data);
+                            }
+                        });
+                    }
+                });
+            }
+            else {
+                $.messager.alert("友情提示", "请您选择要删除的数据");
+            }
+        }
+        
+        //实现对菜单组设置角色
+        function SetActionGroupRole() {
+            var setRoleID = $("#test").datagrid('getSelections');
+            if (setRoleID.length == 1) {
+                //弹出层
+                $("#DivSetActionGroupRole").dialog('open').dialog('setTitle', "设置菜单项角色信息");
+            }
+            else {
+                $.messager.alert("友情提示", "每次只能设置一个用户的权限角色信息，你已经选择了<font color='red' size='6'>" + setRoleID.length + "</font>个");
+            }
+            //修改Iframe标签框架跳转到src属性来修改权限的角色信息
+            $("#frameSetGroupRole").attr("src", "/ActionGroup/SetRole/" + setRoleID[0].ID);
+        }
+
+        //当菜单项添加角色执行成功的时候执行下面的方法
+        function AfterSetActionGroupRole() {
+            $("#DivSetActionGroupRole").dialog('close');
+            $.messager.alert("友情提示", "菜单项角色设置成功");
+        }
+
+    </script>
+</head>
+<body>
+    @*-------------------------- 搜索-------------------------*@
+    <fieldset>
+        <legend>菜单组信息模糊搜索</legend>
+        <div>
+            <label for="txtSerachGroupName">分组名称：</label>
+            <input type="text" ID="txtSerachGroupName" name="txtSerachGroupName"  />&nbsp;&nbsp;       
+            <label for="SOSearchGroupType">分组类型：</label> 
+            <select id="SOSearchGroupType" name="SOSearchGroupType" class="easyui-combobox" editable="false" >
+                <option value="-1" selected="selected">---请选择---</option>
+		        <option value="0">普通组</option>
+		        <option value="1">菜单组</option>
+            </select>
+
+            <a href="#" class="easyui-linkbutton" iconcls="icon-search" id="btnSerach"  name="btnSerach">模糊搜索</a>
+        </div>
+    </fieldset>
+
+    @*-------------------------- 实现对用户角色的显示-------------------------*@
+    <div>
+        <table id="test"></table>
+    </div>
+
+    @*----------------------------设置添加的弹出层--------------------------------*@
+    <div id="AddActionGroupDialog" class="easyui-dialog" style="width:360px;height:200px;padding:10px 20px"
+			closed="true" resizable="true" modal="true" buttons="#dlg-buttons" align="center">
+        <form id="ActionGroupAdd" method="post" novalidate="novalidate">
+            <table id="tblAdd">
+                <tr>
+                    <th colspan="2" >添加权限组信息</th>
+                </tr>
+                <tr>
+                    <td><label for="GroupName">分组名称：</label></td>
+                    <td><input class="easyui-validatebox" type="text" id="GroupName" name="GroupName" data-options="required:true,validType:'length[1,32]'" /></td><td>
+                </tr>
+                <tr>
+                    <td><label for="RoleType">分组类型：</label></td>
+                    <td>
+                         <select id="GroupType" name="GroupType" class="easyui-combobox" editable="false" style="width:156px"  >
+		                    <option value="0">普通组</option>
+		                    <option value="1">菜单组</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align:center; padding-top:10px">
+                        <a href="javascript:void(0)" class="easyui-linkbutton" id="btnAddActionGroup" iconcls="icon-ok" >确定</a>
+                        <a href="javascript:void(0)" class="easyui-linkbutton" iconcls="icon-cancel" onclick="javascript:$('#AddActionGroupDialog').dialog('close')">关闭</a>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+    @*----------------------------设置修改的弹出层--------------------------------*@
+    <div id="UpdateActionGroupDialog" class="easyui-dialog" style="width:360px;height:200px;padding:10px 20px"
+			closed="true" resizable="true" modal="true" buttons="#dlg-buttons" align="center">
+        <form id="ActionGroupUpdate" method="post" novalidate="novalidate">
+            <table id="tblUpdate">
+                <tr>
+                    <th colspan="2" >修改权限组信息</th>
+                </tr>
+                <tr>
+                    <td><label for="ID">ID：</label></td>
+                    <td><input class="easyui-validatebox" type="text" id="ID" name="ID" readonly="true" /></td><td>
+                </tr>
+                <tr>
+                    <td><label for="GroupName">分组名称：</label></td>
+                    <td><input class="easyui-validatebox" type="text" id="GroupName1" name="GroupName" data-options="required:true,validType:'length[1,32]'" /></td><td>
+                </tr>
+                <tr>
+                    <td><label for="RoleType">分组类型：</label></td>
+                    <td>
+                         <select id="GroupType1" name="GroupType" class="easyui-combobox" editable="false" style="width:156px"  >
+		                    <option value="0">普通组</option>
+		                    <option value="1">菜单组</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align:center; padding-top:10px">
+                        <a href="javascript:void(0)" class="easyui-linkbutton" id="btnUpdateActionGroup" iconcls="icon-ok" >确定</a>
+                        <a href="javascript:void(0)" class="easyui-linkbutton" iconcls="icon-cancel" onclick="javascript:$('#UpdateActionGroupDialog').dialog('close')">关闭</a>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    
+    @*----------------------------设置菜单项管理的角色信息--------------------------------*@
+    <div id="DivSetActionGroupRole" class="easyui-dialog" style="width:500px;height:300px;padding:10px 20px"
+			closed="true" resizable="true" modal="true" buttons="#dlg-buttons" align="center">      
+        <iframe id="frameSetGroupRole" src="/Welcome.htm" scrolling="yes" frameborder="0" width="100%" height="100%">       
+        </iframe>
+    </div>
+</body>
+</html>

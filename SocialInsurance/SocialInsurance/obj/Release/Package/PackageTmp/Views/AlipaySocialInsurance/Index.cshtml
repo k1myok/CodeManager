@@ -1,0 +1,80 @@
+﻿@model SocialInsurance.Models.User
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAlipay.cshtml";
+}
+
+<script type="text/javascript">
+    $("#toast").hide();
+</script>
+<div class="am-list" am-mode="flat  form">
+    <div class="am-list-item am-input-autoclear">
+        <div class="am-list-label">社保编号:</div>
+        <div class="am-list-control">
+            <input type="text" id="ID" placeholder="请输入社保编号" value="">
+            <input type="hidden" id="status">
+        </div>
+        <div class="am-list-clear"><i class="am-icon-clear am-icon" am-mode="clear"></i></div>
+    </div>
+    <div class="am-list-item am-input-autoclear">
+        <div class="am-list-label">身份证号:</div>
+        <div class="am-list-control">
+            <input type="text" id="IDCard" placeholder="请输入身份证号" value="">
+        </div>
+        <div class="am-list-clear"><i class="am-icon-clear am-icon" am-mode="clear"></i></div>
+    </div>
+    <div style="padding-top:30px;padding-left:15px;padding-right:15px;">
+        <button type="button" class="am-button" id="search" am-mode="blue disabled">登录</button>
+    </div>
+    <div class="am-list-footer">
+  说明：<br />
+        1.社保编号长度为10位<br />
+        2.身份证号码，最后一位是"X"的，应为大写字母。
+    </div>
+ </div>
+<div style="display:block;font-family:STHeitiSC;font-size: 14px; margin-bottom: 15px; margin-left: 0px; width: 100%;text-align: center; z-index:-1; bottom: 0px;position: absolute;">
+    <div class="am-agreement am-ft-gray am-ft-sm">
+        <p>
+            本服务由苏州市人力资源和社会保障局<br />苏州云联智慧信息技术应用有限公司提供支持
+        </p>
+    </div>
+</div>
+<script type="text/javascript">
+    //$(function () {
+    //    var status = getCookie("status");
+    //    var ID = $("#ID").val().trim();
+    //    var IDCard = $("#IDCard").val().trim();
+    //    if (status =="100"&&ID!=""&&IDCard!="")
+    //    {
+    //        location.href = "list?ID=" + ID + "&IDCard=" + IDCard;
+    //    }
+    //});
+    function getCookie(key) {
+        var keyValues = document.cookie.split(";");
+        for (var index = 0; index < keyValues.length; index++) {
+            var keyValue = keyValues[index].split("=");
+            if (keyValue[0].trim() == key)
+                return keyValue[1];
+        }
+        return null;
+    }
+
+    window.setInterval("checkButtonState()",200);
+    function checkButtonState()
+    {
+        if ($("#IDCard").val().trim()&&$("#ID").val().trim())
+            $("#search").attr("am-mode", "blue");
+        else
+            $("#search").attr("am-mode", "blue disabled");
+    }
+    $("#search").click(function ()
+    {
+        var ID = $("#ID").val().trim();
+        var IDCard=$("#IDCard").val().trim();
+        if (checkID(ID) && checkIDCard(IDCard))
+        {
+            location.href = "list?ID=" + ID + "&IDCard=" + IDCard;
+        }
+    });
+</script>
+

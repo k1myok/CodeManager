@@ -1,0 +1,63 @@
+﻿@model LYZJ.HM3Shop.Model.ActionInfo
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>SetAction</title>
+    <script src="../../Scripts/jquery-1.7.1.js"></script>
+    <script src="../../Scripts/jquery.unobtrusive-ajax.js"></script>
+    <script type="text/javascript">
+        function AfterSetAction(data) {
+            if (data == "OK") {
+                //调用父容器的方法，传递参数关闭层
+                window.parent.AfterSetAction();
+            }
+            else {
+                alert("权限角色设置出错，请您检查");
+            }
+        }
+    </script>
+</head>
+<body>
+    <h3>欢迎您给权限:<font color="red" size="5">@Model.ActionName </font>设置分组信息:</h3>
+    <hr />
+    
+    <fieldset>
+        <legend>设置权限分组信息</legend>
+      @using(Ajax.BeginForm("SetAction","ActionInfo",new AjaxOptions(){OnSuccess="AfterSetAction"},new{id="frmSetRole"})){
+            //存放一个隐藏域，用来给前台传递权限的ID
+            <input type="hidden" name="hidenActionID" value="@Model.ID" />
+            //ViewBag.AllAction ，ViewBag.Exists         
+          List<LYZJ.HM3Shop.Model.ActionGroup> allActions = (List<LYZJ.HM3Shop.Model.ActionGroup>)ViewBag.AllAction;
+          List<int> Exists = (List<int>)ViewBag.Exists;
+          for (int i = 0; i < allActions.Count; i++)
+          {
+              if (i % 4 == 0)
+              {
+                  <br />
+              }
+              string str = "act_" + allActions[i].ID;
+              //判断当前的菜单组有没有被选中到权限里面
+              if (Exists.Contains(allActions[i].ID))
+              {
+                  <input type="checkbox" checked="checked" name="@str" value=" @str" id="@str" />
+              }
+              else
+              {
+                  <input type="checkbox" name="@str" value=" @str" id="@str" />
+              }
+              <label for="@str">@allActions[i].GroupName</label><span>&nbsp;&nbsp;</span>
+          }
+        <br />
+        <div style="text-align:center;">
+            <input type="submit" value="设置权限角色" />
+        </div>
+      }
+    </fieldset>
+</body>
+</html>

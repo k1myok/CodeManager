@@ -1,0 +1,114 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>陇原之家后台登录首页</title>
+    <link href="../../Content/jquery-easyui-1.3.1/themes/icon.css" rel="stylesheet" />
+    <link href="../../Content/jquery-easyui-1.3.1/themes/default/easyui.css" rel="stylesheet" />
+
+    <script src="../../Content/jquery-easyui-1.3.1/jquery-1.8.0.min.js"></script>
+    <script src="../../Content/jquery-easyui-1.3.1/jquery.easyui.min.js"></script>
+    <script src="../../Content/jquery-easyui-1.3.1/locale/easyui-lang-zh_CN.js"></script>
+    <style type="text/css">
+        #imgCode {
+            cursor:pointer;
+        }
+    </style>
+
+    <script type="text/javascript">
+
+        if (window.parent.window != window) {
+            window.top.location.href = "/Login/Index";
+        }
+        $(function () {
+            //实现用户的登录信息
+            LoginUserInfo();
+
+            //单击重新改变验证码
+            ClickRemoveChangeCode();
+        });
+
+        //异步实现用户的登录
+        function LoginUserInfo(LoginUserInfo) {
+            $("#btnLogin").click(function () {
+                //验证用户必须输入必填项
+                var validate = $("#ff").form("validate");
+                if (validate == false) {
+                    return false;
+                }
+                //获取传递前台的参数，UName，Pwd，Code
+                var postData = {
+                    UName: $("#UName").val(),
+                    Pwd: $("#Pwd").val(),
+                    Code: $("#Code").val()
+                };
+
+                //异步实现登录功能
+                $.post("/Login/CheckUserLogin", postData, function (data) {
+                    if (data == "OK") {
+                        window.location.href = "/Home/Index";
+                    }
+                    else {
+                        alert(data);
+                        window.location.href = "/Login/Index/";
+                    }
+                });
+
+            });
+        }
+
+        //单击重新改变验证码
+        function ClickRemoveChangeCode() {
+            var code = $("#imgCode").attr("src");
+            $("#imgCode").attr("src", code + "1");
+        }
+
+    </script>
+</head>
+<body>
+
+    @*-------------------设置用户登录信息的弹出层-------------------*@
+    <div id="AddUserDialog" class="easyui-dialog" style="width:400px;height:230px;padding:10px 20px"
+			  modal="true" closable="false" title="用户登录" buttons="#dlg-buttons" align="center">
+        <form id="ff" method="post" novalidate="novalidate">
+            <table id="tblAdd">
+                <tr>
+                    <th colspan="2" >用户登录信息</th>
+                </tr>
+                <tr>
+                    <td><label for="UName">用户名：</label></td>
+                    <td><input class="easyui-validatebox" type="text" id="UName" name="UName" value="@ViewBag.UName" data-options="required:true,validType:'length[1,32]'" /></td><td>
+                </tr>
+                <tr>
+                    <td><label for="Pwd">密  码：</label></td>
+                    <td><input class="easyui-validatebox" type="text" id="Pwd" name="Pwd"  data-options="required:true,validType:'length[1,32]'" /></td>
+                </tr>
+                <tr>
+                    <td><label for="Code">验证码：</label></td>
+                    <td><input class="easyui-validatebox" type="text" id="Code" name="Code"  data-options="required:true,validType:'length[1,20]'" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>验证码：</td>
+                    <td>
+                        <img src="/Login/CheckCode?ID=1" id="imgCode" alt="单击可刷新" onclick="ClickRemoveChangeCode()"  />
+                        <div style="float:right; margin-top: 5px;">
+                            <a href="javascript:void(0)" onclick="ClickRemoveChangeCode();return false;">看不清，换一张</a>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align:center; padding-top:10px">
+                        <a href="javascript:void(0)" class="easyui-linkbutton" id="btnLogin" iconcls="icon-ok" >确定</a>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+</body>
+</html>

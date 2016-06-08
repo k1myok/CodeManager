@@ -1,0 +1,64 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Add</title>
+    <script src="../../Scripts/jquery-1.7.1.js"></script>
+    <style type="text/css">
+        .showDown {
+            float: right;
+            margin-top: -10px;
+            margin-right: 10px;
+            cursor: pointer;
+            background-image:url('../../Content/jquery-easyui-1.3.1/themes/default/images/accordion_collapse.png');
+        }
+        .showUp {
+            background-image:url('../../Content/jquery-easyui-1.3.1/themes/default/images/accordion_expand.png');
+        }
+    </style>
+    <script type="text/javascript">
+        $(function () {
+            $(".showDown").click(function () {
+                $(this).toggleClass("showUp");
+                $(this).siblings("div").toggle("slow");
+            });
+        });
+    </script>
+</head>
+<body>
+    @*-----------------第一个面板-----------------*@
+    <div>
+        <fieldset>
+            <legend>添加商品信息显示功能</legend>
+            <span class="showDown">&nbsp;&nbsp;</span>
+            <div class="DivShow">
+                <p>safsfsdfsd</p>
+                <p>safsfsdfsd</p>
+                <p>safsfsdfsd</p>
+                <p>safsfsdfsd</p>
+                <p>safsfsdfsd</p>
+                <p>safsfsdfsd</p>
+            </div>
+        </fieldset>
+    </div>
+    @*-----------------第二个面板-----------------*@
+    <div>
+        <fieldset>
+            <legend>修改商品信息显示功能</legend>
+            <span class="showDown">&nbsp;&nbsp;</span>
+            <div class="DivShow">
+                <p>safsfsdfsd</p>
+                <p>safsfsdfsd</p>
+                <p>safsfsdfsd</p>
+                <p>safsfsdfsd</p>
+                <p>safsfsdfsd</p>
+                <p>safsfsdfsd</p>
+            </div>
+        </fieldset>
+    </div>
+</body>
+</html>

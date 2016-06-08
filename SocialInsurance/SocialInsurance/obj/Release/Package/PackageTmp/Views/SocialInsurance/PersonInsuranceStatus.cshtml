@@ -1,0 +1,71 @@
+﻿@model SocialInsurance.Models.PInsuranceStatu
+@{
+    ViewBag.Title = "个人参保情况查询";
+    //Layout = "~/Views/Shared/_LayoutAlipay.cshtml";
+    Layout = null;
+}
+<script type="text/javascript">
+    $("#toast").hide();
+    $("#back").click(function () {
+        $("#result").hide();
+        $("#list").show();
+    });
+</script>
+<style>
+    .name {
+        width: 25%;
+        text-align: center;
+    }
+</style>
+@if (Model.status == "200")
+{
+
+    <div class="am-list-footer" style="padding-top:10px;padding:15px 10px 10px 15px;">
+        未查到你相关信息
+    </div>
+}
+else
+{
+    if (Model.status == "100")
+    {
+        if (Model.cpages == 1)
+        {
+            <div class="am-list-item">
+                <div class="name am-ft-center">参加险种</div>
+                <div class="name am-ft-center">参保状态</div>
+                @*<div class="name am-ft-center">所在单位编号</div>
+                    <div class="name am-ft-center">所在单位名称</div>*@
+                <div class="name am-ft-center">缴费状态</div>
+                <div class="name am-ft-center">待遇状态</div>
+                @*<div class="name am-ft-center">人员编号</div>*@
+            </div>
+        }
+        foreach (var item in Model.data)
+        {
+            <div class="am-list-item">
+                <div class="name">
+                    <div class="">@item.akf066</div>
+                </div>
+                <div class="name">
+                    <div class="am-ft-center">@item.aac008</div>
+                </div>
+                @*<div class="name">
+                        <div class="am-ft-center">@item.aab001</div>
+                    </div>
+                    <div class="name">
+                        <div class="am-ft-center">@item.aab004</div>
+                    </div>*@
+                <div class="name">
+                    <div class="am-ft-center">@item.aac031</div>
+                </div>
+                <div class="name">
+                    <div class="am-ft-center">@item.akf067</div>
+                </div>
+                @*<div class="name">
+                        <div class="am-ft-center">@item.aac001</div>
+                    </div>*@
+            </div>
+        }
+    }
+
+}
