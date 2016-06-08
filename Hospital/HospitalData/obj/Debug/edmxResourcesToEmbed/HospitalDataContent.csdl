@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CityServiceModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityType Name="Member">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IDCard" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Style" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="openID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Register">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IDCard" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="OPenId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="HospName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DepartName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DoctorName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RegisteDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ClinicDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="StartTime" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EndTime" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RegisterFee" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SN" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DocRate" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Style" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="comment" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ClinicSerialNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Depart">
+    <Key>
+      <PropertyRef Name="HospName" />
+      <PropertyRef Name="DepartName" />
+    </Key>
+    <Property Name="HospName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DepartName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DepartType" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DepartIntro" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="Limited" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="RegistryFee" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="ClinicFee" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="DepartSex" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="ChildAge" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Doctor">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="HospName" />
+      <PropertyRef Name="DepartName" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HospName" Type="String" MaxLength="100" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="DepartName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DoctorName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DocSex" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="DocRank" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DoctorInro" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="DocMajor" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="IsExpert" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="RegistryFee" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="ClinicFee" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="DocPhotoURL" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Hospital">
+    <Key>
+      <PropertyRef Name="HospName" />
+    </Key>
+    <Property Name="HospName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Grade" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Kind" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Intro" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="CityServiceEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Members" EntityType="Self.Member" />
+    <EntitySet Name="Registers" EntityType="Self.Register" />
+    <EntitySet Name="Departs" EntityType="Self.Depart" />
+    <EntitySet Name="Doctors" EntityType="Self.Doctor" />
+    <EntitySet Name="Hospitals" EntityType="Self.Hospital" />
+  </EntityContainer>
+</Schema>
