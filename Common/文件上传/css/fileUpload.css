@@ -1,0 +1,30 @@
+﻿ /*源文件头信息：
+ <copyright file="FileUpload.js">
+ Copyright(c)2014-2034 Kencery.All rights reserved.
+ 个人博客：http://www.cnblogs.com/hanyinglong
+ 创建人：韩迎龙(kencery)
+ 创建时间：2015-6-24
+ </copyright>*/
+
+body
+{
+    font-family: "微软雅黑";
+    font-size: 12px;
+}
+.input-file {
+    overflow: hidden;
+    position: relative;
+}
+.input-file input {
+    opacity: 0;
+    filter: alpha(opacity=0);
+    font-size: 100px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+#uploadTable {
+    width: 500px;
+    border-collapse: collapse;
+    border: 1px solid Silver;
+}
