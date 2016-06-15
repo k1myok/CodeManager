@@ -15,7 +15,7 @@
     {
         <input type="hidden"class="test"  value='@item'/>
     }
-    <div class="am-list" am-mode="flat chip form">
+    <div class="am-list" am-mode="flat form">
         <div class="am-list-item am-input-autoclear">
             <div class="am-list-label">社保编号:</div>
             <div class="am-list-content">
@@ -44,63 +44,64 @@
         <input type="hidden" id="date" value="" />
     </div>
     <div id="list">
-        <div class="am-list" am-mode="flat chip">
+        <div class="am-list" am-mode="flat">
             <div class="am-list-header">综合查询</div>
             <div class="am-list-body">
-                <a onclick="result(2)" class="am-list-item">
+                <a href="QueryResult?type=status" class="am-list-item">
                     <div class="am-list-content">个人参保情况查询</div>
                     <div class="am-list-arrow"><span class="am-icon" am-mode="arrow-horizontal"></span></div>
                 </a>
-                @*<a  onclick="result(2)" class="am-list-item">
-                        <div class="am-list-content">个人权益记录单查询</div>
-                        <div class="am-list-arrow"><span class="am-icon" am-mode="arrow-horizontal"></span></div>
-                    </a>
-                    <a href="PersonInsuranceStatus" class="am-list-item">
-                        <div class="am-list-content">企业养老保险个人账户查询</div>
-                        <div class="am-list-arrow"><span class="am-icon" am-mode="arrow-horizontal"></span></div>
-                    </a>*@
             </div>
             <div class="am-list-header">缴费信息查询</div>
             <div class="am-list-body">
-                <a onclick="result(1)" class="am-list-item">
+                <a href="QueryResult?type=pension" class="am-list-item">
                     <div class="am-list-content">企业养老缴费信息查询</div>
                     <div class="am-list-arrow"><span class="am-icon" am-mode="arrow-horizontal"></span></div>
                 </a>
-                <a onclick="result(3)" class="am-list-item">
+                <a href="QueryResult?type=birth" class="am-list-item">
                     <div class="am-list-content">生育缴费信息查询</div>
                     <div class="am-list-arrow"><span class="am-icon" am-mode="arrow-horizontal"></span></div>
                 </a>
-                <a onclick="result(4)" class="am-list-item">
+                <a href="QueryResult?type=Idustrial" class="am-list-item">
                     <div class="am-list-content">工伤缴费信息查询</div>
                     <div class="am-list-arrow"><span class="am-icon" am-mode="arrow-horizontal"></span></div>
                 </a>
-                <a onclick="result(5)" class="am-list-item">
+                <a href="QueryResult?type=unemployment" class="am-list-item">
                     <div class="am-list-content">失业缴费信息查询</div>
                     <div class="am-list-arrow"><span class="am-icon" am-mode="arrow-horizontal"></span></div>
                 </a>
-                <a onclick="result(6)" class="am-list-item">
+                <a href="QueryResult?type=companymonth" class="am-list-item">
                     <div class="am-list-content">企业养老缴费信息月度查询</div>
                     <div class="am-list-arrow"><span class="am-icon" am-mode="arrow-horizontal"></span></div>
                 </a>
-                <a onclick="result(7)" class="am-list-item">
+                <a href="QueryResult?type=office" class="am-list-item">
                     <div class="am-list-content">机关养老缴费信息月度查询</div>
                     <div class="am-list-arrow"><span class="am-icon" am-mode="arrow-horizontal"></span></div>
                 </a>
-                <a onclick="result(8)" class="am-list-item">
+                <a href="QueryResult?type=employeehealth" class="am-list-item">
                     <div class="am-list-content">职工医保缴费信息月度查询</div>
                     <div class="am-list-arrow"><span class="am-icon" am-mode="arrow-horizontal"></span></div>
                 </a>
             </div>
         </div>
     </div>
+
+}
+else if(Model.satus=="300")
+{
+    <div class="am-list" am-mode="flat form">
+        <div class="am-list-item am-input-autoclear">
+            <div class="am-list-body">网络错误,请稍后重试！</div>
+        </div>
+    </div>
 }
 else
 {
-    <div class="am-list" am-mode="flat chip form">
+    <div class="am-list" am-mode="flat form">
         <div class="am-list-item am-input-autoclear">
-          <div class="am-list-body">未查到相关信息，请检查后重新输入！</div>  
+            <div class="am-list-body">未查到相关信息，请检查后重新输入！</div>
         </div>
-    </Div>
+    </div>
 }
 <div class="am-list" am-mode="flat chip">
     <div id="result">

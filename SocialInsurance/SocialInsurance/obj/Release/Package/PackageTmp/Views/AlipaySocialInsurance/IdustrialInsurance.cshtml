@@ -6,27 +6,37 @@
 }
 <style>
     .name {
-        width: 16.666666%;
+        width: 20%;
         text-align:center;
           padding-left:3px;
         padding-right:3px;
     }
     .nametemp {
-         width: 16.666666%;
+         width: 20%;
         text-align:center;
     }
 </style>
 @if (Model.status == "200")
 {
-    <div class="am-list-footer" style="padding-top:10px;padding:15px 10px 10px 15px;">
-        未查到你要查询相关信息，请稍后再试
+    <div class="am-list" am-mode="flat form">
+        <div class="am-list-item am-input-autoclear">
+            <div class="am-list-body">未查到你要查询相关信息，请稍后再试</div>
+        </div>
+    </div>
+}
+else if (Model.status == "300")
+{
+    <div class="am-list" am-mode="flat form">
+        <div class="am-list-item am-input-autoclear">
+            <div class="am-list-body">网络错误,请稍后重试！</div>
+        </div>
     </div>
 }
 else
 {
-    
-       if (Model.status == "100")
-        {  <div id="resultmore">
+
+    if (Model.status == "100")
+    {  <div id="resultmore">
          @if(Model.cpage==1)
            {
             <input type="hidden" id="cpage" value='@Model.cpage' />

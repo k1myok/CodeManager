@@ -10,16 +10,34 @@ namespace SocialInsurance.Controllers
 {
     public class SocialInsuranceController : Controller
     {
+        public PartialViewResult QueryResult(string type)
+        {
+            ViewBag.Type = type;
+            Login log = new Login();
+            log = Session["userinfo"] as Login;
+
+            return PartialView(log);
+        }
         public PartialViewResult Index()
         {
             return PartialView();
         }
         public PartialViewResult List(string ID, string IDCard)
         {
-            var client = new SocialInsuranceService.ShbServClient();
-            var temp = client.si010201(ID, IDCard, 8, 1);
-            XElement xoc = XElement.Parse(temp);
             Login log = new Login();
+            var client = new SocialInsuranceService.ShbServClient();
+            var temp = string.Empty;
+            try
+            {
+                temp = client.si010201(ID, IDCard, 8, 1);
+            }
+            catch (Exception ex)
+            {
+                log.satus = "300";
+                return PartialView(log);
+            }
+            //var temp = client.si010201(ID, IDCard, 8,1);
+            XElement xoc = XElement.Parse(temp);
             var faultcode = xoc.Descendants("faultcode").ToList();
             var row = xoc.Descendants("row").ToList();
             if (faultcode.Count() > 0)
@@ -29,6 +47,9 @@ namespace SocialInsurance.Controllers
             }
             else
             {
+                Session["userinfo"] = log;
+                Session["ID"] = ID;
+                Session["IDCard"] = IDCard;
                 log.satus = "100";
                 log.Name = row[1].Attribute("aac003").Value;
                 List<int> year = new List<int>();
@@ -44,6 +65,8 @@ namespace SocialInsurance.Controllers
             }
         }
 
+
+
         public PartialViewResult Default()
         {
             return PartialView();
@@ -53,12 +76,23 @@ namespace SocialInsurance.Controllers
         /// </summary>
         /// <param name="con"></param>
         /// <returns></returns>
-        public PartialViewResult PensionInsurance(string ID, string IDCard, long cpage)
+        public PartialViewResult PensionInsurance(long cpage)
         {
-            var client = new SocialInsuranceService.ShbServClient();
-            var temp = client.si010201(ID, IDCard, 8, cpage);
-            XElement xoc = XElement.Parse(temp);
+            var ID = Session["ID"].ToString();
+            var IDCard = Session["IDCard"].ToString();
             PensionInsurance p = new PensionInsurance();
+            var client = new SocialInsuranceService.ShbServClient();
+            var temp = string.Empty;
+            try
+            {
+                temp = client.si010201(ID, IDCard, 8, cpage);
+            }
+            catch (Exception ex)
+            {
+                p.status = "300";
+                return PartialView(p);
+            }
+            XElement xoc = XElement.Parse(temp);
             List<PensionInsuranceDetail> data = new List<PensionInsuranceDetail>();
             var faultcode = xoc.Descendants("faultcode").ToList();
             if (faultcode.Count() > 0)
@@ -94,13 +128,23 @@ namespace SocialInsurance.Controllers
         /// </summary>
         /// <param name="ID"></param>
         /// <param name="IDCard"></param>
-        public PartialViewResult PersonInsuranceStatus(string ID, string IDCard, long cpage)
+        public PartialViewResult PersonInsuranceStatus(long cpage)
         {
-
-            var client = new SocialInsuranceService.ShbServClient();
-            var temp = client.si120101(ID, IDCard, 8, cpage);
-            XElement xoc = XElement.Parse(temp);
+            var ID = Session["ID"].ToString();
+            var IDCard = Session["IDCard"].ToString();
             PInsuranceStatu p = new PInsuranceStatu();
+            var client = new SocialInsuranceService.ShbServClient();
+            var temp = string.Empty;
+            try
+            {
+                temp = client.si120101(ID, IDCard, 8, cpage);
+            }
+            catch (Exception ex)
+            {
+                p.status = "300";
+                return PartialView(p);
+            }
+            XElement xoc = XElement.Parse(temp);
             List<PInsuranceStatuDetail> data = new List<PInsuranceStatuDetail>();
             var faultcode = xoc.Descendants("faultcode").ToList();
             if (faultcode.Count() > 0)
@@ -140,12 +184,24 @@ namespace SocialInsurance.Controllers
         /// <param name="ID"></param>
         /// <param name="IDCard"></param>
         /// <returns></returns>
-        public PartialViewResult BirthInsurance(string ID, string IDCard, long cpage)
+        public PartialViewResult BirthInsurance(long cpage)
         {
-            var client = new SocialInsuranceService.ShbServClient();
-            var temp = client.si090401(ID, IDCard, 8, cpage);
-            XElement xoc = XElement.Parse(temp);
+            var ID = Session["ID"].ToString();
+            var IDCard = Session["IDCard"].ToString();
             BirthInsurance birthIn = new BirthInsurance();
+            var client = new SocialInsuranceService.ShbServClient();
+            var temp = string.Empty;
+            try
+            {
+                temp = client.si090401(ID, IDCard, 8, cpage);
+            }
+            catch (Exception ex)
+            {
+                birthIn.status = "300";
+                return PartialView(birthIn);
+            }
+
+            XElement xoc = XElement.Parse(temp);
             List<BirthInsuranceDetail> detail = new List<BirthInsuranceDetail>();
             var faultcode = xoc.Descendants("faultcode").ToList();
             if (faultcode.Count() > 0)
@@ -186,14 +242,25 @@ namespace SocialInsurance.Controllers
         /// <param name="ID"></param>
         /// <param name="IDCard"></param>
         /// <returns></returns>
-        public PartialViewResult IdustrialInsurance(string ID, string IDCard, long cpage)
+        public PartialViewResult IdustrialInsurance(long cpage)
         {
-            ID = "0500708293";
-            IDCard = "441381198208204752";
-            var client = new SocialInsuranceService.ShbServClient();
-            var temp = client.si070201(ID, IDCard, 8, cpage);
-            XElement xoc = XElement.Parse(temp);
+            var ID = Session["ID"].ToString();
+            var IDCard = Session["IDCard"].ToString();
             IdustrialInsurance Idustrial = new IdustrialInsurance();
+            var client = new SocialInsuranceService.ShbServClient();
+            var temp = string.Empty;
+            try
+            {
+                temp = client.si070201(ID, IDCard, 8, cpage);
+            }
+            catch (Exception ex)
+            {
+                Idustrial.status = "300";
+                return PartialView(Idustrial);
+            }
+
+            XElement xoc = XElement.Parse(temp);
+
             List<IdustrialInsuranceDetail> data = new List<IdustrialInsuranceDetail>();
             var faultcode = xoc.Descendants("faultcode").ToList();
             if (faultcode.Count() > 0)
@@ -231,14 +298,25 @@ namespace SocialInsurance.Controllers
         /// <param name="ID"></param>
         /// <param name="IDCard"></param>
         /// <returns></returns>
-        public PartialViewResult UnemploymentInsurance(string ID, string IDCard, long cpage)
+        public PartialViewResult UnemploymentInsurance(long cpage)
         {
-            ID = "0500708293";
-            IDCard = "441381198208204752";
-            var client = new SocialInsuranceService.ShbServClient();
-            var temp = client.si080201(ID, IDCard, 8, cpage);
-            XElement xoc = XElement.Parse(temp);
+            var ID = Session["ID"].ToString();
+            var IDCard = Session["IDCard"].ToString();
             UnemploymentInsurance p = new UnemploymentInsurance();
+            var client = new SocialInsuranceService.ShbServClient();
+            var temp = string.Empty;
+            try
+            {
+                temp = client.si080201(ID, IDCard, 8, cpage);
+            }
+            catch (Exception)
+            {
+                p.status = "300";
+                return PartialView(p);
+            }
+
+            XElement xoc = XElement.Parse(temp);
+
             List<UnemploymentInsuranceDetail> data = new List<UnemploymentInsuranceDetail>();
             var faultcode = xoc.Descendants("faultcode").ToList();
             if (faultcode.Count > 0)
@@ -278,12 +356,25 @@ namespace SocialInsurance.Controllers
         /// <param name="IDCard"></param>
         /// <param name="cpage"></param>
         /// <returns></returns>
-        public PartialViewResult CompanyMonthInsurance(string ID, string IDCard, long cpage, long year)
+        public PartialViewResult CompanyMonthInsurance(long cpage, long year)
         {
+            var ID = Session["ID"].ToString();
+            var IDCard = Session["IDCard"].ToString();
             CompanyMonthInsurance Cm = new CompanyMonthInsurance();
             List<CompanyMonthInsuranceDetail> data = new List<CompanyMonthInsuranceDetail>();
             var client = new SocialInsuranceService.ShbServClient();
-            var temp = client.si030601(ID, IDCard, "110", year, 12, 1);
+            var temp = string.Empty;
+            try
+            {
+                temp = client.si030601(ID, IDCard, "110", year, 12, 1);
+            }
+            catch (Exception ex)
+            {
+                Cm.status = "300";
+                return PartialView(Cm);
+
+            }
+
             XElement xoc = XElement.Parse(temp);
             var faultcode = xoc.Descendants("faultcode").ToList();
             if (faultcode.Count > 0)
@@ -297,7 +388,7 @@ namespace SocialInsurance.Controllers
                 var result = xoc.Descendants("result").ToList();
                 Cm.status = "100";
                 Cm.pages = Convert.ToInt32(result[0].Attribute("pages").Value);
-                Cm.cpage = Convert.ToInt32(result[1].Attribute("cpage").Value);
+                Cm.cpage = Convert.ToInt32(cpage);
                 Cm.rowcount = result[2].Attribute("rowcount").Value.ToString();
                 foreach (var item in rows)
                 {
@@ -324,12 +415,24 @@ namespace SocialInsurance.Controllers
         /// <param name="cpage"></param>
         /// <param name="year"></param>
         /// <returns></returns>
-        public PartialViewResult OfficeMonthInsurance(string ID, string IDCard, long cpage, long year)
+        public PartialViewResult OfficeMonthInsurance(long cpage, long year)
         {
+            var ID = Session["ID"].ToString();
+            var IDCard = Session["IDCard"].ToString();
             OfficeMonthInsurance OffIn = new OfficeMonthInsurance();
             List<OfficeMonthInsuranceDetail> data = new List<OfficeMonthInsuranceDetail>();
             var client = new SocialInsuranceService.ShbServClient();
-            var temp = client.si030602(ID, IDCard, "110", year, 20, 1);
+            var temp = string.Empty;
+            try
+            {
+                temp = client.si030602(ID, IDCard, "110", year, 20, 1);
+            }
+            catch (Exception ex)
+            {
+                OffIn.status = "300";
+                return PartialView(OffIn);
+            }
+
 
             XElement xoc = XElement.Parse(temp);
             var faultcode = xoc.Descendants("faultcode").ToList();
@@ -344,7 +447,7 @@ namespace SocialInsurance.Controllers
                 var result = xoc.Descendants("result").ToList();
                 OffIn.status = "100";
                 OffIn.pages = Convert.ToInt32(result[0].Attribute("pages").Value);
-                OffIn.cpage = Convert.ToInt32(result[1].Attribute("cpage").Value);
+                OffIn.cpage = Convert.ToInt32(cpage);
                 OffIn.rowcount = result[2].Attribute("rowcount").Value.ToString();
                 foreach (var item in rows)
                 {
@@ -370,12 +473,23 @@ namespace SocialInsurance.Controllers
         /// <param name="cpage"></param>
         /// <param name="year"></param>
         /// <returns></returns>
-        public PartialViewResult EmployeehealthInsurance(string ID, string IDCard, long cpage, long year)
+        public PartialViewResult EmployeehealthInsurance(long cpage, long year)
         {
+            var ID = Session["ID"].ToString();
+            var IDCard = Session["IDCard"].ToString();
             EmployeehealthInsurance OffIn = new EmployeehealthInsurance();
             List<EmployeehealthInsuranceDetail> data = new List<EmployeehealthInsuranceDetail>();
             var client = new SocialInsuranceService.ShbServClient();
-            var temp = client.si040401(ID, IDCard, "110", year, 20, 1);
+            var temp = string.Empty;
+            try
+            {
+                temp = client.si040401(ID, IDCard, "110", year, 20, 1);
+            }
+            catch (Exception ex)
+            {
+                OffIn.status = "300";
+                return PartialView(OffIn);
+            }
             XElement xoc = XElement.Parse(temp);
             var faultcode = xoc.Descendants("faultcode").ToList();
             if (faultcode.Count > 0)
@@ -389,7 +503,7 @@ namespace SocialInsurance.Controllers
                 var result = xoc.Descendants("result").ToList();
                 OffIn.status = "100";
                 OffIn.pages = Convert.ToInt32(result[0].Attribute("pages").Value);
-                OffIn.cpage = Convert.ToInt32(result[1].Attribute("cpage").Value);
+                OffIn.cpage = Convert.ToInt32(cpage);
                 OffIn.rowcount = result[2].Attribute("rowcount").Value.ToString();
                 foreach (var item in rows)
                 {

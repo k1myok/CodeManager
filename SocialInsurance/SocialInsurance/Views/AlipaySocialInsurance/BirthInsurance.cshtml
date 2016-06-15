@@ -16,10 +16,17 @@
         padding-right: 3px;
     }
 </style>
-@if (Model.status == "200")
+@if(Model.status == "200")
 {
     <div class="am-list-footer" style="padding-top:10px;padding:15px 10px 10px 15px;">
         未查到你要查询相关信息，请稍后再试
+    </div>
+
+}
+else if (Model.status == "300")
+{
+    <div class="am-list-footer" style="padding-top:10px;padding:15px 10px 10px 15px;">
+        网络错误，请稍后重试！
     </div>
 
 }
@@ -57,6 +64,4 @@ else
         </div>
     }
 }
-<script type="text/javascript">
-    $("#morebutton").show();
-</script>
+

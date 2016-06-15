@@ -6,14 +6,30 @@
 
 <style>
     .name {
-        width: 14.2857%;
+        width: 20%;
         text-align: center;
+    }
+    .nametemp {
+        width: 20%;
+        text-align: center;
+         padding-left:3px;
+        padding-right:3px;
     }
 </style>
 @if (Model.status == "200")
 {
-    <div class="am-list-footer" style="padding-top:10px;padding:15px 10px 10px 15px;">
-        未查到你要查询相关信息，请稍后再试
+    <div class="am-list" am-mode="flat form">
+        <div class="am-list-item am-input-autoclear">
+            <div class="am-list-body">未查到你要查询相关信息，请稍后再试</div>
+        </div>
+    </div>
+}
+else if (Model.status == "300")
+{
+    <div class="am-list" am-mode="flat form">
+        <div class="am-list-item am-input-autoclear">
+            <div class="am-list-body">网络错误,请稍后重试！</div>
+        </div>
     </div>
 }
 else
@@ -25,27 +41,27 @@ else
             {
                 <input type="hidden" id="style" value="employeehealth" />
                 <div class="am-list-item">
-                    <div class="name am-ft-center">结算期</div>
-                    <div class="name am-ft-center">月缴费基数</div>
-                    <div class="name am-ft-center">个人缴金额</div>
-                    <div class="name am-ft-center">单位缴金额</div>
-                    <div class="name am-ft-center">缴费月数</div>
-                    <div class="name am-ft-center">计入个人账户</div>
-                    <div class="name am-ft-center">到账标记</div>
-                    <div class="name am-ft-center">缴费类别</div>
+                    <div class="name">结算期</div>
+                    <div class="nametemp">月缴费基数</div>
+                    <div class="nametemp">个人缴金额</div>
+                    <div class="nametemp">单位缴金额</div>
+                    @*<div class="nametemp">缴费月数</div>*@
+                    @*<div class="nametemp">计入个人账户</div>*@
+                    <div class="name">到账标记</div>
+                    @*<div class="name">缴费类别</div>*@
                 </div>
             }
             @foreach (var item in Model.data)
             {
                 <div class="am-list-item">
-                    <div class="name am-ft-center">@item.akf088</div>
-                    <div class="name am-ft-center">@item.aae180</div>
-                    <div class="name am-ft-center">@item.aae082</div>
-                    <div class="name am-ft-center">@item.aae080</div>
-                    <div class="name am-ft-center">@item.aif004</div>
-                    <div class="name am-ft-center">@item.aif057</div>
-                    <div class="name am-ft-center">@item.akf084</div>
-                    <div class="name am-ft-center">@item.akf081</div>
+                    <div class="name">@item.akf088</div>
+                    <div class="nametemp">@item.aae180</div>
+                    <div class="nametemp">@item.aae082</div>
+                    <div class="nametemp">@item.aae080</div>
+                    @*<div class="nametemp">@item.aif004</div>*@
+                    @*<div class="nametemp">@item.aif057</div>*@
+                    <div class="name">@item.akf084</div>
+                    @*<div class="name">@item.akf081</div>*@
                 </div>
             }
         </div>

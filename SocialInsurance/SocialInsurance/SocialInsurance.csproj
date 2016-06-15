@@ -20,6 +20,10 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -93,6 +97,7 @@
     </Reference>
     <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.30506.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
@@ -331,7 +336,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\SocialInsurance\Default.cshtml" />
     <None Include="Service References\SocialInsuranceService\ShbServ.wsdl" />
-    <Content Include="Views\SocialInsurance\PersonalInsurance.cshtml" />
+    <Content Include="Views\SocialInsurance\PensionInsurance.cshtml" />
     <Content Include="Views\SocialInsurance\PersonInsuranceStatus.cshtml" />
     <Content Include="Views\SocialInsurance\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutAlipay.cshtml" />
@@ -351,9 +356,9 @@
     <Content Include="Views\SocialInsurance\IdustrialInsurance.cshtml" />
     <Content Include="Views\SocialInsurance\List.cshtml" />
     <Content Include="Views\SocialInsurance\OfficeMonthInsurance.cshtml" />
-    <Content Include="Views\SocialInsurance\PensionInsurance.cshtml" />
     <Content Include="Views\SocialInsurance\UnemploymentInsurance.cshtml" />
     <Content Include="Views\AlipaySocialInsurance\QueryResult.cshtml" />
+    <Content Include="Views\SocialInsurance\QueryResult.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -386,6 +391,8 @@
           <DevelopmentServerPort>1989</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost/SocialInsurance</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>http://localhost/SocialInsurance</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

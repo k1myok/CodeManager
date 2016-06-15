@@ -19,9 +19,18 @@
 </style>
 @if (Model.status == "200")
 {
-
-    <div class="am-list-footer">
-       没有查到相关信息
+    <div class="am-list" am-mode="flat form">
+        <div class="am-list-item am-input-autoclear">
+            <div class="am-list-body">未查到你要查询相关信息，请稍后再试</div>
+        </div>
+    </div>
+}
+else if (Model.status == "300")
+{
+    <div class="am-list" am-mode="flat form">
+        <div class="am-list-item am-input-autoclear">
+            <div class="am-list-body">网络错误,请稍后重试！</div>
+        </div>
     </div>
 }
 else

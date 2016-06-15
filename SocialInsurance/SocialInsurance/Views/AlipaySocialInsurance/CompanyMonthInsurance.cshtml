@@ -23,6 +23,13 @@
         未查到你要查询相关信息，请稍后再试
     </div>
 }
+else if (Model.status == "300")
+{
+    <div class="am-list-footer" style="padding-top:10px;padding:15px 10px 10px 15px;">
+        网络错误，请稍后重试！
+    </div>
+
+}
 else
 {
     if (Model.status == "100")
@@ -48,9 +55,9 @@ else
                     <div class="nametemp">@item.aif034</div>
                     <div class="nametemp">@item.aae082</div>
                     <div class="nametemp">@item.aae180</div>
-                    <div class="nametemp">@item.aif004</div>
+                    @*<div class="nametemp">@item.aif004</div>*@
                     <div class="name">@item.akf084</div>
-                    <div class="name">@item.akf081</div>
+                    @*<div class="name">@item.akf081</div>*@
                 </div>
             }
         </div>
