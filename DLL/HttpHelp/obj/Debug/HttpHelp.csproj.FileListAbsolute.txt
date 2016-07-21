@@ -2,3 +2,7 @@ F:\Code\DLL\HttpHelp\bin\Debug\HttpHelp.dll
 F:\Code\DLL\HttpHelp\bin\Debug\HttpHelp.pdb
 F:\Code\DLL\HttpHelp\obj\Debug\HttpHelp.dll
 F:\Code\DLL\HttpHelp\obj\Debug\HttpHelp.pdb
+E:\ManageCode\Github\DLL\HttpHelp\bin\Debug\HttpHelp.dll
+E:\ManageCode\Github\DLL\HttpHelp\bin\Debug\HttpHelp.pdb
+E:\ManageCode\Github\DLL\HttpHelp\obj\Debug\HttpHelp.dll
+E:\ManageCode\Github\DLL\HttpHelp\obj\Debug\HttpHelp.pdb
