@@ -1,0 +1,4 @@
+F:\Code\DLL\HttpHelp\bin\Debug\HttpHelp.dll
+F:\Code\DLL\HttpHelp\bin\Debug\HttpHelp.pdb
+F:\Code\DLL\HttpHelp\obj\Debug\HttpHelp.dll
+F:\Code\DLL\HttpHelp\obj\Debug\HttpHelp.pdb
