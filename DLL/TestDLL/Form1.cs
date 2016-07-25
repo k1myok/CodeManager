@@ -19,10 +19,12 @@ namespace TestDLL
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var filepath = string.Empty;
-            var path=@"D:CSDS\";
-            var mes = "wefqergfewrkqlglweqglmklekgdfkgsfdglfdlsfdlklfsadl;fsdalksklfsdklfsdkleriklvmdfkvbaslkllkdskl";
-            HttpHelp.DealWithFile.WtiteLog(path,mes);
+           // var result = HttpHelp.DataTableToJson.ToJson(DataTable dt);
+             
+            //var filepath = string.Empty;
+            //var path=@"D:CSDS\";
+            //var mes = "wefqergfewrkqlglweqglmklekgdfkgsfdglfdlsfdlklfsadl;fsdalksklfsdklfsdkleriklvmdfkvbaslkllkdskl";
+            //HttpHelp.DealWithFile.WtiteLog(path,mes);
          //   OpenFileDialog file = new OpenFileDialog();
          //   if (file.ShowDialog() == DialogResult.OK)
          //   {

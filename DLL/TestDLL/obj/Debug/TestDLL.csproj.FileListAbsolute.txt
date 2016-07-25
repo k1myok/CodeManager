@@ -8,3 +8,13 @@ F:\Code\DLL\TestDLL\obj\Debug\TestDLL.Properties.Resources.resources
 F:\Code\DLL\TestDLL\obj\Debug\TestDLL.csproj.GenerateResource.Cache
 F:\Code\DLL\TestDLL\obj\Debug\TestDLL.exe
 F:\Code\DLL\TestDLL\obj\Debug\TestDLL.pdb
+F:\ManagerCode\GitHub\DLL\TestDLL\bin\Debug\TestDLL.exe
+F:\ManagerCode\GitHub\DLL\TestDLL\bin\Debug\TestDLL.pdb
+F:\ManagerCode\GitHub\DLL\TestDLL\bin\Debug\HttpHelp.dll
+F:\ManagerCode\GitHub\DLL\TestDLL\bin\Debug\HttpHelp.pdb
+F:\ManagerCode\GitHub\DLL\TestDLL\obj\Debug\TestDLL.csprojResolveAssemblyReference.cache
+F:\ManagerCode\GitHub\DLL\TestDLL\obj\Debug\TestDLL.Form1.resources
+F:\ManagerCode\GitHub\DLL\TestDLL\obj\Debug\TestDLL.Properties.Resources.resources
+F:\ManagerCode\GitHub\DLL\TestDLL\obj\Debug\TestDLL.csproj.GenerateResource.Cache
+F:\ManagerCode\GitHub\DLL\TestDLL\obj\Debug\TestDLL.exe
+F:\ManagerCode\GitHub\DLL\TestDLL\obj\Debug\TestDLL.pdb
