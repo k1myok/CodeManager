@@ -109,14 +109,20 @@ namespace HttpHelp
 
         public static void WtiteLog(string path,string mes)
         {
-           
-            var filepath = path + @"123.txt";
 
+            var filepath = path + DateTime.Now.ToLongDateString().ToString() + ".txt";
             if (!File.Exists(filepath))
             {
                 File.CreateText(filepath);
-                
-                File.AppendAllLines(filepath,new string[] {mes},Encoding.UTF8);
+                try
+                {
+                    File.AppendAllLines(filepath, new string[] { mes }, Encoding.UTF8);
+                }
+                catch (Exception ex)
+                {
+
+                    var result = ex.Message;
+                }
                   //  (filepath,mes,);
                 //FileStream fs1 = new FileStream(filepath, FileMode.Create, FileAccess.Write);
                 //StreamWriter sw = new StreamWriter(fs1);
@@ -127,7 +133,15 @@ namespace HttpHelp
             }
             else
             {
-                File.AppendAllLines(filepath, new string[] { mes }, Encoding.UTF8);
+                try
+                {
+                    File.AppendAllLines(filepath, new string[] { mes }, Encoding.UTF8);
+                }
+                catch (Exception ex)
+                {
+
+                    var result = ex.Message;
+                }
                 //FileStream fs = new FileStream(filepath, FileMode.Append, FileAccess.Write);
                 //StreamWriter sr = new StreamWriter(fs);
                 //sr.WriteLine(mes);//开始写入值
