@@ -1,0 +1,4 @@
+E:\ManageCode\Github\YunLianLHelp\YunLianLHelp\bin\Debug\YunLianLHelp.dll
+E:\ManageCode\Github\YunLianLHelp\YunLianLHelp\bin\Debug\YunLianLHelp.pdb
+E:\ManageCode\Github\YunLianLHelp\YunLianLHelp\obj\Debug\YunLianLHelp.dll
+E:\ManageCode\Github\YunLianLHelp\YunLianLHelp\obj\Debug\YunLianLHelp.pdb

@@ -1,0 +1,38 @@
+C:\Users\Shinelon\Documents\Visual Studio 2012\Projects\数据采集\DataCollecting\bin\Debug\DataCollecting.exe.config
+C:\Users\Shinelon\Documents\Visual Studio 2012\Projects\数据采集\DataCollecting\bin\Debug\DataCollecting.exe
+C:\Users\Shinelon\Documents\Visual Studio 2012\Projects\数据采集\DataCollecting\bin\Debug\DataCollecting.pdb
+C:\Users\Shinelon\Documents\Visual Studio 2012\Projects\数据采集\DataCollecting\obj\Debug\DataCollecting.csprojResolveAssemblyReference.cache
+C:\Users\Shinelon\Documents\Visual Studio 2012\Projects\数据采集\DataCollecting\obj\Debug\DataCollecting.Properties.Resources.resources
+C:\Users\Shinelon\Documents\Visual Studio 2012\Projects\数据采集\DataCollecting\obj\Debug\DataCollecting.csproj.GenerateResource.Cache
+C:\Users\Shinelon\Documents\Visual Studio 2012\Projects\数据采集\DataCollecting\obj\Debug\DataCollecting.exe
+C:\Users\Shinelon\Documents\Visual Studio 2012\Projects\数据采集\DataCollecting\obj\Debug\DataCollecting.pdb
+C:\Users\Shinelon\Documents\Visual Studio 2012\Projects\数据采集\DataCollecting\obj\Debug\DataCollecting.richTextBox1.resources
+E:\数据采集\DataCollecting\bin\Debug\DataCollecting.exe.config
+E:\数据采集\DataCollecting\obj\Debug\DataCollecting.exe
+E:\数据采集\DataCollecting\obj\Debug\DataCollecting.pdb
+E:\数据采集\DataCollecting\obj\Debug\DataCollecting.csprojResolveAssemblyReference.cache
+E:\数据采集\DataCollecting\obj\Debug\DataCollecting.richTextBox1.resources
+E:\数据采集\DataCollecting\obj\Debug\DataCollecting.Properties.Resources.resources
+E:\数据采集\DataCollecting\obj\Debug\DataCollecting.csproj.GenerateResource.Cache
+E:\数据采集\DataCollecting\bin\Debug\DataCollecting.exe
+E:\数据采集\DataCollecting\bin\Debug\DataCollecting.pdb
+E:\数据采集\DataCollecting\bin\Debug\HtmlAgilityPack.dll
+C:\Users\Shinelon\Desktop\数据采集\DataCollecting\bin\Debug\DataCollecting.exe.config
+C:\Users\Shinelon\Desktop\数据采集\DataCollecting\obj\Debug\DataCollecting.exe
+C:\Users\Shinelon\Desktop\数据采集\DataCollecting\obj\Debug\DataCollecting.pdb
+C:\Users\Shinelon\Desktop\数据采集\DataCollecting\obj\Debug\DataCollecting.csprojResolveAssemblyReference.cache
+C:\Users\Shinelon\Desktop\数据采集\DataCollecting\obj\Debug\DataCollecting.richTextBox1.resources
+C:\Users\Shinelon\Desktop\数据采集\DataCollecting\obj\Debug\DataCollecting.Properties.Resources.resources
+C:\Users\Shinelon\Desktop\数据采集\DataCollecting\obj\Debug\DataCollecting.csproj.GenerateResource.Cache
+C:\Users\Shinelon\Desktop\数据采集\DataCollecting\bin\Debug\DataCollecting.exe
+C:\Users\Shinelon\Desktop\数据采集\DataCollecting\bin\Debug\DataCollecting.pdb
+C:\Users\Shinelon\Desktop\数据采集\DataCollecting\bin\Debug\HtmlAgilityPack.dll
+E:\ManageCode\Github\数据采集\数据采集\DataCollecting\bin\Debug\DataCollecting.exe.config
+E:\ManageCode\Github\数据采集\数据采集\DataCollecting\bin\Debug\DataCollecting.exe
+E:\ManageCode\Github\数据采集\数据采集\DataCollecting\bin\Debug\DataCollecting.pdb
+E:\ManageCode\Github\数据采集\数据采集\DataCollecting\obj\Debug\DataCollecting.csprojResolveAssemblyReference.cache
+E:\ManageCode\Github\数据采集\数据采集\DataCollecting\obj\Debug\DataCollecting.richTextBox1.resources
+E:\ManageCode\Github\数据采集\数据采集\DataCollecting\obj\Debug\DataCollecting.Properties.Resources.resources
+E:\ManageCode\Github\数据采集\数据采集\DataCollecting\obj\Debug\DataCollecting.csproj.GenerateResource.Cache
+E:\ManageCode\Github\数据采集\数据采集\DataCollecting\obj\Debug\DataCollecting.exe
+E:\ManageCode\Github\数据采集\数据采集\DataCollecting\obj\Debug\DataCollecting.pdb

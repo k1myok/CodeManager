@@ -1,0 +1,10 @@
+E:\ManageCode\Github\YunLianLHelp\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+E:\ManageCode\Github\YunLianLHelp\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+E:\ManageCode\Github\YunLianLHelp\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+E:\ManageCode\Github\YunLianLHelp\WindowsFormsApplication1\bin\Debug\YunLianLHelp.dll
+E:\ManageCode\Github\YunLianLHelp\WindowsFormsApplication1\bin\Debug\YunLianLHelp.pdb
+E:\ManageCode\Github\YunLianLHelp\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Form1.resources
+E:\ManageCode\Github\YunLianLHelp\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+E:\ManageCode\Github\YunLianLHelp\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
+E:\ManageCode\Github\YunLianLHelp\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+E:\ManageCode\Github\YunLianLHelp\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
