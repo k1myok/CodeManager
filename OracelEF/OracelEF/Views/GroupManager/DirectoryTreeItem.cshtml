@@ -1,0 +1,14 @@
+﻿@model BigData.TeamTools.Models.UFGroup
+
+<li item-expanded='true' data-directory="@Model.Code">
+    @Model.Name
+    <ul>
+        @if (Model.Children != null && Model.Children.Count > 0)
+        {
+            foreach (var childItem in Model.Children)
+            {
+                @Html.Partial("DirectoryTreeItem", childItem)
+            }
+        }
+    </ul>
+</li>

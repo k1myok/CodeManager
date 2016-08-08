@@ -1,0 +1,78 @@
+﻿@model IEnumerable<BigData.TeamTools.Models.BaseMetadata>
+
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/HSplitLayout.cshtml";
+}
+
+@section LeftPanel{
+    <script>
+        $(document).ready(function () {
+            $('#resourceWindow').jqxWindow({
+                width: '400px',
+                height: '300px',
+                resizable: true,
+
+            });
+
+            $('#metaDataContentContainer').ready(function () {
+                showList();
+            });
+        });
+        function createMetadata() {
+            $('#loader').show();
+            $.ajax({
+                url: '../MetadataManager/Create',
+                success: function (data) {
+                    $('#resourceWindow #titleContainer').html('添加元数据信息');
+                    $('#resourceWindow #customWindowContent').empty().html(data);
+                    $('#resourceWindow').jqxWindow('open');
+                },
+                complete: function () {
+                    $('#loader').hide();
+                }
+            });
+        }
+        function showList() {
+            $('#loader').show();
+            $.ajax({
+                url: "../MetadataManager/GetMetadataList",
+                success: function (data) {
+                    $('#metaDataContentContainer').empty().html(data);
+                },
+                complete: function () {
+                    $('#loader').hide();
+                }
+            });
+        }
+
+     
+
+    </script>
+    <div class="SimpleWindow">
+        <div class="TitleContainer">
+            <div class="Title">
+                @*<img src="~/Images/server.png" />*@
+                <img src="~/Images/metadata_manager.png" />
+                <a>元数据管理</a>
+            </div>
+        </div>
+        <div class="Content">
+            <div class="SimpleListView">
+            </div>
+        </div>
+    </div>
+
+}
+
+
+@section RightPanel{
+    <div id="metaDataContentContainer">
+       
+    </div>
+}
+
+
+
+
+

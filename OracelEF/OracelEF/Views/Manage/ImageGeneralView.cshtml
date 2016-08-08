@@ -1,0 +1,16 @@
+﻿
+<table class="UFTable" style="float:left;position:absolute;">
+    <tr>
+        <th>名称</th>
+        <th>状态</th>
+        <th>日期</th>
+    </tr>
+    @foreach (var item in ViewBag.updateServices)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>更新</td>
+            <td>@item.UpdateDate</td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,89 @@
+﻿@model IEnumerable<BigData.TeamTools.Models.ConfigArgs>
+
+@{
+    ViewBag.Title = "系统设置";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+<div style="background-color:lightgray; width:100%;height:40px;">
+    <div class="UFButton" style="margin-top:2px;">
+        @Html.ActionLink("创建方案", "Create", null, new { @style = " clear:both;color:white;margin-left:5px; margin-right:5px;" })
+    </div>
+</div>
+<table class="UFTable">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PlanName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsEnabled)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BusUpdateTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TaxiUpdateTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ShipUpdateTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TransportUpdateTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OtherUpdateTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BaseMapURL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ServiceURL)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PlanName)
+        </td>
+        <td>
+            @if(item.IsEnabled)
+            {
+                <div>已启用</div>
+            }
+            else
+            {
+                <div>未启用</div>
+            }
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BusUpdateTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TaxiUpdateTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ShipUpdateTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TransportUpdateTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OtherUpdateTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BaseMapURL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ServiceURL)
+        </td>
+        <td>
+            @Html.ActionLink("编辑", "Edit", new { id=item.Code }) |
+            @Html.ActionLink("详细信息", "Details", new { id=item.Code }) |
+            @Html.ActionLink("删除", "Delete", new { id=item.Code })
+        </td>
+    </tr>
+}
+
+</table>

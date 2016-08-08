@@ -1,0 +1,87 @@
+﻿@model IEnumerable<BigData.TeamTools.Models.BaseMetadata>
+<script type="text/javascript">
+    function editMetadataResource(code) {
+        $('#loader').show();
+        $.ajax({
+            url: '../MetadataManager/Edit?Code=' + code,
+            success: function (data) {
+                $('#resourceWindow #titleContainer').html('编辑元数据信息');
+                $('#resourceWindow #customWindowContent').empty().html(data);
+                $('#resourceWindow').jqxWindow('open');
+            },
+            complete: function () {
+                $('#loader').hide();
+            }
+        });
+    }
+
+    function deleteMetadataResource(code) {
+        if (confirm("确定删除？")) {
+            $('#loader').show();
+            $.ajax({
+                url: '../MetadataManager/Delete?Code=' + code,
+                success: function (result) {
+                    if (result) {
+                        alert("删除成功！");
+                        showList();
+                    }
+                },
+                complete: function () {
+                    $('#loader').hide();
+                }
+            });
+        }
+    }
+</script>
+<div class="NavWindow">
+    <div class="NavHeader">
+        <img src="~/Images/home.png" />
+        <span>您当前的位置：元数据管理</span>
+    </div>
+    <div class="NavContent">
+        <div class="Title">
+            <div style="float:left;margin-left:10px;font-weight:bold;">元数据管理</div>
+
+            <div onclick="javascript:createMetadata();" class="UFButton">
+                添加
+            </div>
+            <div onclick="javascript:showList();" class="UFButton">
+                刷新
+            </div>
+        </div>
+        <div class="Content">
+            <table class="UFTable">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FieldName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FieldType)
+                    </th>
+                    <th>
+                        操作
+                    </th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FieldName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FieldType)
+                        </td>
+                        <td>
+                            <a onclick="javascript:editMetadataResource('@item.Code');" style="cursor:pointer;">编辑</a>
+                            @*<a onclick="javascript:viewMetadataResource('@item.Code')" style="cursor:pointer;">详细信息</a>*@
+                            <a onclick="javascript:deleteMetadataResource('@item.Code');" style="cursor:pointer;">删除</a>
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </div>
+</div>
+

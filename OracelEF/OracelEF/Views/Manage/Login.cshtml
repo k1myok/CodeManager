@@ -1,0 +1,73 @@
+﻿@using BigData.TeamTools.Models
+@model LoginViewModel
+<style>
+    .align-center {
+        margin: 0 auto; /* 居中 这个是必须的，，其它的属性非必须 */
+        background-color: #f4f5f5;
+        filter: alpha(opacity=50); /*IE滤镜，透明度50%*/
+        -moz-opacity: 0.5; /*Firefox私有，透明度50%*/
+        border-radius: 5px;
+        /*border-color: lightblue;*/
+        /*border-style: solid;
+        border-width: 2px;*/
+    }
+    li {
+    margin :0 10px;
+    }
+    h1 {
+        font-size:36px;
+
+    }
+   
+</style>
+<script>
+    function cancel() {
+        $("li > input").each(function (i, e) {
+            $(e).val("");
+        });
+    }
+</script>
+
+<div style="text-align:center;margin-top:60px;">
+    <h1 style="text-shadow:3px 3px 3px white; font-weight:bold;">@*SpaceBIA-共享服务平台*@数据采集系统</h1>
+</div>
+<div class="align-center" style="width:296px;height:150px;margin-top:12%;margin-left:47%;z-index:100;">
+    @*<h3 style="text-align:center;">用户登陆</h3>*@
+    @using (Html.BeginForm("Login", "Manage", new { returnUrl = ViewBag.ReturnUrl }, FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <fieldset>
+                    <ol>
+                        <li>
+                            @*@Html.LabelFor(m => m.UserName, new { @class = "control-label" })*@
+                            @*<span class="glyphicon glyphicon-lock"></span>*@
+                            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", @placeholder="请输入用户名" })
+                            @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+
+                        </li>
+                        <li>
+                            @*@Html.LabelFor(m => m.Password, new { @class = "control-label" })*@
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder="请输入密码"})
+                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+
+                        </li>
+                        @*<li>
+                            
+                                @Html.CheckBoxFor(m => m.RememberMe, new { @style = "" })
+                                @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox", @style = "" })
+                            
+                        </li>*@                       
+                    </ol>
+                    <div style="text-align:center;">
+                        <input type="submit" value="登录" style="width:60px;height:28px;padding:0;margin-right:15px;background-image:url(../Images/loginBtn.png);border-radius:3px;"/>
+                        <input type="button" value="取消" onclick="javascript:cancel();" style="background-image:url(../Images/loginBtn.png);width:60px;height:28px;padding:0;margin-left:15px;border-radius:3px;"/>
+                    </div>
+
+                </fieldset>
+        @*<p>
+            如果您没有帐户，请 @Html.ActionLink("注册", "Register")！
+        </p>*@
+    }
+
+</div>
