@@ -84,8 +84,8 @@ namespace BigData.TeamTools.Controllers
                         var model = new  TB_NSR_EDIT();
                         model.NSR_MC = CName;
                         model.ID = code;
-                        model.LON =re.Lon;
-                        model.LAT =re.Lat;
+                        model.LON =(decimal)re.Lon;
+                        model.LAT = (decimal)re.Lat;
                         model.FADDRESS = address;
                         model.ZYZL = ZYZL;
                         model.EDITTIME = DateTime.Now;
@@ -108,9 +108,9 @@ namespace BigData.TeamTools.Controllers
                     {
                         temp.NSR_MC = CName;
                         temp.ID = code;
-                        temp.LON = re.Lon;
+                        temp.LON = (decimal)re.Lon;
                         temp.ZYZL = ZYZL;
-                        temp.LAT = re.Lat;
+                        temp.LAT = (decimal)re.Lat;
                         temp.FADDRESS = address;
                         temp.EDITTIME = DateTime.Now;
                         temp.XYSYSTEM = "WGS84";
@@ -158,9 +158,9 @@ namespace BigData.TeamTools.Controllers
             var re = CoordinateTransformUtility.GCJ02toWGS84(map);
             temp.NSR_MC = CName;
             temp.ID= code;
-            temp.LON =re.Lon;
+            temp.LON = (decimal)re.Lon;
             temp.ZYZL = ZYZL;
-            temp.LAT =re.Lat;
+            temp.LAT = (decimal)re.Lat;
             temp.FADDRESS = address;
             temp.EDITTIME = DateTime.Now;
             temp.XYSYSTEM = "WGS84";

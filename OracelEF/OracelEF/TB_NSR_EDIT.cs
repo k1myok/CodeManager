@@ -17,8 +17,8 @@ namespace OracelEF
         public string ID { get; set; }
         public string NSR_MC { get; set; }
         public string FADDRESS { get; set; }
-        public double LON { get; set; }
-        public double LAT { get; set; }
+        public Nullable<decimal> LON { get; set; }
+        public Nullable<decimal> LAT { get; set; }
         public string ZYZL { get; set; }
         public System.DateTime EDITTIME { get; set; }
         public string XYSYSTEM { get; set; }

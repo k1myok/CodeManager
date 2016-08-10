@@ -73,11 +73,11 @@ namespace OracelEF
         public string ZDSYRDBJ { get; set; }
         public string NSRZT_DM { get; set; }
         public string ADDRESS { get; set; }
-        public double LON { get; set; }
-        public double LAT { get; set; }
+        public Nullable<decimal> LON { get; set; }
+        public Nullable<decimal> LAT { get; set; }
         public string LEVEL_NUM { get; set; }
         public string STATUS { get; set; }
         public string FORMATADDRESS { get; set; }
-        public string  ID { get; set; }
+        public string ID { get; set; }
     }
 }

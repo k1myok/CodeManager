@@ -20,13 +20,17 @@ namespace OracelEF
         {
         }
     
+        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        //{
+        //    throw new UnintentionalCodeFirstException();
+        //}
+    
+        public virtual DbSet<TB_NSR_EDIT> TB_NSR_EDIT { get; set; }
+        public virtual DbSet<TB_QYINFO> TB_QYINFO { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            throw new UnintentionalCodeFirstException();
+            modelBuilder.HasDefaultSchema("CSMCC");
         }
-    
-        public virtual DbSet<TB_UNIT> TB_UNIT { get; set; }
-        public virtual DbSet<TB_QYINFO> TB_QYINFO { get; set; }
-        public virtual DbSet<TB_NSR_EDIT> TB_NSR_EDIT { get; set; }
+
     }
 }
