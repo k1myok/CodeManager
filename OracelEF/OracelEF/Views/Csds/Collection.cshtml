@@ -47,6 +47,21 @@
             -moz-opacity: 0; /* 兼容老式浏览器 */
             filter: alpha(opacity=0); /* 兼容IE */
         }
+        .amap-maptype-con {
+            height:40px;
+        }
+       
+       
+        .amap-maptype-list
+        {
+            margin-top:-60px;
+            
+            position:fixed;
+        }
+        .amap-maptype-item {
+            display:none;
+
+        }
     </style>
 </head>
 <body>
@@ -159,7 +174,7 @@
                 </div>
             </div>
         </div>
-        <div id="iCenter" style="width:100%; height:400px;"></div>
+        <div id="iCenter" style="width:100%; height:400px;margin-top:60px;"></div>
         <div class="navbar navbar-fixed-top">
             <div class="alert alert-info" style="margin-top:0px;" id="warning">
                 <div class="am-ft-center" style="font-size:20px;"><img src="~/Images/location.png" />请点击地图，确定单位准确位置</div>
@@ -183,7 +198,8 @@
         var result;
         var marker = [];
         var windowsArr = [];
-
+        $(".amap-maptype-item").attr("display", "none");
+        $("amap - maptype - list").hide();
         var currentPointMarker = null;
         var selectPointMarker = null;
         function zoomToCurrentPoint() {
@@ -198,33 +214,42 @@
             $("#iCenter").width(window.innerWidth);
             $("#iCenter").height(window.innerHeight);
             if (mapObj == null) {
-                //mapObj = new AMap.Map('iCenter');    //默认定位：初始化加载地图时，center及level属性缺省，地图默认显示用户所在城市范围
                 mapObj = new AMap.Map('iCenter', {
                     resizeEnable: true,
                     center: [120.66711, 31.296494],
-                    zoom: 15
+                    level: 16,
+                    zooms: [3,17]
                 });
-
+                mapObj.plugin(["AMap.MapType"], function () {
+                    //地图类型切换
+                    var type = new AMap.MapType({
+                        defaultType: 0, //使用2D地图
+                        showTraffic:false,
+                        showRoad:false
+                    });
+                    mapObj.addControl(type);
+                });
+                
                 mapObj.on('click', function (e) {
 
                     selectPoint(e.lnglat.getLng(), e.lnglat.getLat());
                 });
-
-
-
                 mapObj.setCity('苏州市');
-
-
-
                 updatePositonByGPS();
             }
         };
+        function showdefaultLayer() {
 
+            defaultLayer.setMap(mapObj);
+        }
+        function showSatellite() {
+            satellite.setMap(mapObj); 
+        }
         var watchPositionId, target, options;
 
         function watchPositionSuccess(pos) {
             $("#note").hide();
-            //alert("watchPositionSuccess");
+           
             var crd = pos.coords;
             //alert('watchPosition success.'  + crd.longitude + "," + crd.latitude);
             if (crd.accuracy < 2000) {
@@ -247,10 +272,7 @@
         }
 
         function watchPositionError(err) {
-            //alert("watchPositionError");
-            //console.warn('ERROR(' + err.code + '): ' + err.message);
-
-            //alert('watchPosition error:' + err.message);
+           
         }
 
         target = {
@@ -264,7 +286,7 @@
             maximumAge: 0
         };
         function updatePositonByGPS() {
-            // alert("updatePositonByGPS");
+           
             if (navigator.geolocation) {
 
 
@@ -273,7 +295,7 @@
 
                 navigator.geolocation.getCurrentPosition(function (position) {
                     $("#note").hide();
-                    // alert("getCurrentPosition succ");
+                   
                     var coords = position.coords;
                     AMap.convertFrom([coords.longitude, coords.latitude], 'gps', function (status, result) {
                         if (result.info == 'ok') {
@@ -283,7 +305,7 @@
 
                 }, function (data) {
                     $("#note").hide();
-                    //alert("getCurrentPosition err");
+                  
                     mapObj.setCity('苏州市');
                 }, options);
 
@@ -301,7 +323,6 @@
             lat: 31.296494,
             lon: 120.66711
         };
-
 
         function CurrentPoint(lon, lat) {
             //mapObj.clearMap();//清除原有的标记
