@@ -8,3 +8,4 @@ F:\ManagerCode\GitHub\YunLianLHelp\YunLianLHelp\bin\Debug\System.Configuration.d
 F:\ManagerCode\GitHub\YunLianLHelp\YunLianLHelp\bin\Debug\System.Web.dll
 F:\ManagerCode\GitHub\YunLianLHelp\YunLianLHelp\obj\Debug\YunLianLHelp.dll
 F:\ManagerCode\GitHub\YunLianLHelp\YunLianLHelp\obj\Debug\YunLianLHelp.pdb
+F:\ManagerCode\GitHub\YunLianLHelp\YunLianLHelp\obj\Debug\YunLianLHelp.csprojResolveAssemblyReference.cache
