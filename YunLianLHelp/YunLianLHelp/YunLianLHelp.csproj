@@ -76,6 +76,7 @@
     <Compile Include="ImageHelp.cs" />
     <Compile Include="JsonHelp.cs" />
     <Compile Include="MapHelp.cs" />
+    <Compile Include="PageHelp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SQLHelper.cs" />
   </ItemGroup>

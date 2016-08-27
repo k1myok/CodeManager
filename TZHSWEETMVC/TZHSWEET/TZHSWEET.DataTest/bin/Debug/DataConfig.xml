@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+    <objects xmlns="http://www.springframework.net"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.springframework.net
+		http://www.springframework.net/xsd/spring-objects.xsd">
+
+      <object id="DepartmentDao" type="TZHSWEET.EFDao.DepartmentEFDao, TZHSWEET.EFDao" />
+      <object id="FavoriteDao" type="TZHSWEET.EFDao.FavoriteEFDao, TZHSWEET.EFDao" />
+      <object id="ModuleDao" type="TZHSWEET.EFDao.ModuleEFDao, TZHSWEET.EFDao" />
+      <object id="ModulePermissionDao" type="TZHSWEET.EFDao.ModulePermissionEFDao, TZHSWEET.EFDao" />
+      <object id="PermissionDao" type="TZHSWEET.EFDao.PermissionEFDao, TZHSWEET.EFDao" />
+      <object id="RoleDao" type="TZHSWEET.EFDao.RoleEFDao, TZHSWEET.EFDao" />
+      <object id="RolePermissionDao" type="TZHSWEET.EFDao.RolePermissionEFDao, TZHSWEET.EFDao" />
+      <object id="UserRoleDao" type="TZHSWEET.EFDao.UserRoleEFDao, TZHSWEET.EFDao" />
+      <object id="UserDao" type="TZHSWEET.EFDao.UserEFDao, TZHSWEET.EFDao" />
+      <object id="OperateLogEFDao" type="TZHSWEET.EFDao.OperateLogEFDao, TZHSWEET.EFDao" />
+    </objects>

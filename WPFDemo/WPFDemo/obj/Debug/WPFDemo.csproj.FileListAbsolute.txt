@@ -1,0 +1,12 @@
+F:\ManagerCode\GitHub\WPFDemo\WPFDemo\bin\Debug\WPFDemo.exe
+F:\ManagerCode\GitHub\WPFDemo\WPFDemo\bin\Debug\WPFDemo.pdb
+F:\ManagerCode\GitHub\WPFDemo\WPFDemo\obj\Debug\WPFDemo.csprojResolveAssemblyReference.cache
+F:\ManagerCode\GitHub\WPFDemo\WPFDemo\obj\Debug\MainWindow.baml
+F:\ManagerCode\GitHub\WPFDemo\WPFDemo\obj\Debug\MainWindow.g.cs
+F:\ManagerCode\GitHub\WPFDemo\WPFDemo\obj\Debug\App.g.cs
+F:\ManagerCode\GitHub\WPFDemo\WPFDemo\obj\Debug\WPFDemo_MarkupCompile.cache
+F:\ManagerCode\GitHub\WPFDemo\WPFDemo\obj\Debug\WPFDemo.g.resources
+F:\ManagerCode\GitHub\WPFDemo\WPFDemo\obj\Debug\WPFDemo.Properties.Resources.resources
+F:\ManagerCode\GitHub\WPFDemo\WPFDemo\obj\Debug\WPFDemo.csproj.GenerateResource.Cache
+F:\ManagerCode\GitHub\WPFDemo\WPFDemo\obj\Debug\WPFDemo.exe
+F:\ManagerCode\GitHub\WPFDemo\WPFDemo\obj\Debug\WPFDemo.pdb

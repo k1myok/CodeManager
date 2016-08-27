@@ -31,9 +31,9 @@ public class DealImage
         try
         {
             var path = System.IO.Path.GetDirectoryName(fileName);
-            if (System.IO.Directory.Exists(path))
+            if (System.IO.File.Exists(path))
             {
-                DeleteFolder(path);
+                File.Delete(path);
             }
             Directory.CreateDirectory(path);
             if (this.DataType == "base64")

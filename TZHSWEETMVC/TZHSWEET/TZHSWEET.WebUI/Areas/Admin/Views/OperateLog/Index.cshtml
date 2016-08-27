@@ -1,0 +1,118 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Index</title>
+     <!--主框架颜色-->
+      <link href=" @Url.Content("~/Content/ligerUI/skins/Aqua/css/ligerui-all.css")" rel="stylesheet" type="text/css" />
+     <!--当前后台(首页)的样式-->
+     <link href="@Url.Content("~/Content/css/common.css")" rel="stylesheet" type="text/css" />
+       <!--主框架js-->
+    <script src="@Url.Content("~/Scripts/jquery/jquery-1.5.2.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/ligerUI/js/ligerui.min.js")" type="text/javascript"></script>
+    <!--封装的后台LigerUI友好的各种ajax请求函数-->
+       <script src="@Url.Content("~/Scripts/js/LG.js")" type="text/javascript"></script>
+      <script src="@Url.Content("~/Scripts/js/common.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/js/ligerui.expand.js")" type="text/javascript"></script> 
+    <script src="@Url.Content("~/Content/json2.js")" type="text/javascript"></script>
+
+</head>
+<body style="padding:10px;height:100%; text-align:center;">
+   <ipnut type="hidden" id="MenuNo" value="OperateLog" />
+  <div id="mainsearch" style=" width:98%">
+    <div class="searchtitle">
+        <span>搜索</span><img src="@Url.Content("~/Content/icons/32X32/searchtool.gif")" />
+        <div class="togglebtn"></div> 
+    </div>
+    <div class="navline" style="margin-bottom:4px; margin-top:4px;"></div>
+    <div class="searchbox">
+        <form id="formsearch" class="l-form"></form>
+    </div>
+  </div>
+  <div id="maingrid"></div> 
+  <script type="text/javascript">
+      //相对路径
+      var rootPath = "@Url.Content("~/Admin/")";
+      //列表结构
+      var grid = $("#maingrid").ligerGrid({
+          columns: [
+          {hide:true,name:'ID'},
+          { display: "操作人ID", name: "UserID", width: 180 },
+          { display: "操作人名称", name: "UserName", width: 180 },
+          { display: "访问IP地址",isSort :false, name: "IPAddress", width: 180 },
+           { display: "访问时间", name: "CreateDate",type:"date", width: 180},
+           { display: "控制器名称", name: "ProcessName", width: 180 },
+           { display: "动作名称", name: "MethodName", width: 180 },
+            { display: "控制器备注",isSort :false, name: "ProcessDesc", width: 180,hide:true },
+              { display: "动作备注",isSort :false, name: "MethodDesc", width: 180,hide:true }, 
+                {display: "备注",isSort :false, name: "Description", width: 300}
+                ],
+                 dataAction: 'server', pageSize: 20, toolbar: {},
+          url: rootPath + 'OperateLog/GetLogsGrid?view=OperateLog', sortName: 'CreateDate',sortOrder:'desc',
+          width: '98%', height: '100%', heightDiff: -10, checkbox: false
+      });
+
+      //双击事件
+      LG.setGridDoubleClick(grid, 'Detail');
+
+      //搜索表单应用ligerui样式
+      $("#formsearch").ligerForm({
+          fields: [
+           {display: "用户名", name: "UserName", newline: true, labelWidth: 100, width: 220, space: 30, type: "text",
+                attr: { op: "equal" }, cssClass: "field"}
+                ,
+           { display: "IP地址", name: "IPAddress", newline: false, labelWidth: 100, width: 220, space: 30, type: "text", cssClass: "field"},
+           { display: "开始时间", name: "CreateDate", newline: true, labelWidth: 100, width: 220, space: 30, type: "date", cssClass: "field", attr: { "op": "greaterorequal"}},
+           { display: "结束时间", name: "CreateDate", newline:false , labelWidth: 100, width: 220, space: 30, type: "date", cssClass: "field", attr: { "op": "lessorequal"}}
+           ],
+          appendID: false,
+          toJSON: JSON2.stringify
+      });
+
+      //增加搜索按钮,并创建事件
+      LG.appendSearchButtons("#formsearch", grid);
+
+
+      //加载toolbar
+      LG.loadToolbar(grid, toolbarBtnItemClick);
+
+      //工具条事件
+      function toolbarBtnItemClick(item) {
+          switch (item.id) {
+              case "Detail":
+                  var selected = grid.getSelected();
+                  if (!selected) { LG.tip('请选择行!'); return }
+                  top.f_addTab(null, '查看日志信息',rootPath+ 'OperateLog/Detail?IsView=1&ID=' + selected.ID);
+                  break;
+              case "DeleteThreeMonthLog":
+                  jQuery.ligerDialog.confirm('确定删除吗?该操作将会删除三个月以前的所有日志?(保留最近三个月的日志)', function (confirm) {
+                      if (confirm)
+                          f_delete();
+                  });
+                  break;
+          }
+      }
+      function f_reload() {
+          grid.loadData();
+      }
+      function f_delete() {
+        
+              LG.ajax({
+                    url:rootPath+'OperateLog/DeleteThreeMonthLog',
+                  loading: '正在删除中...',
+                  data: {},
+                  success: function () {
+                      LG.showSuccess('删除成功');
+                      f_reload();
+                  },
+                  error: function (message) {
+                      LG.showError(message);
+                  }
+              });
+      }
+  </script>
+</body>
+</html>

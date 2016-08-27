@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages>
+  <!--这里都是虚拟路径(相对于Admin后台的)-->
+  <page>/Admin/Manage/UserLogin</page>
+  <page>/Admin/Manage/Error</page>
+  <Admin>
+    <!--管理员用户ID-->
+    <AdminUserID value="1"/>
+    <!--管理员角色身份-->
+    <AdminUserRoleID value="1" />
+  </Admin>
+</pages>

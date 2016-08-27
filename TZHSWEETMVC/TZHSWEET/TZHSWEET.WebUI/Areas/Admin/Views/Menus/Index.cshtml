@@ -1,0 +1,410 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Index</title>
+    <link href="@Url.Content("~/Content/ligerUI/skins/Aqua/css/ligerui-all.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Scripts/jquery/jquery-1.5.2.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/ligerUI/js/ligerui.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/ligerUI/js/plugins/ligerGrid.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/ligerUI/js/plugins/ligerDialog.js")" type="text/javascript"></script>
+    <link href="@Url.Content("~/Content/css/common.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Content/ligerUI/js/plugins/ligerTextBox.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/js/ligerui.expand.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/js/common.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/js/LG.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/json2.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery-validation/jquery.validate.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery-validation/jquery.metadata.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery-validation/messages_cn.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/jquery.form.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/js/iconselector.js")" type="text/javascript"></script>
+    <style type="text/css">
+        .l-panel td.l-grid-row-cell-editing
+        {
+            padding-bottom: 2px;
+            padding-top: 2px;
+        }
+    </style>
+</head>
+<body style="padding: 2px; height: 100%; text-align: center;">
+  <ipnut type="hidden" id="MenuNo" value="Menus" />
+    <div id="layout">
+        <div position="left" title="主菜单模块" id="mainmenu">
+            <ul id="maintree">
+            </ul>
+        </div>
+        <div position="center" title="子菜单列表">
+            <form id="mainform">
+            <div id="maingrid" style="margin: 2px;">
+            </div>
+            </form>
+        </div>
+    </div>
+    <ul class="iconlist">
+    </ul>
+    <script type="text/javascript" language="javascript">
+
+    var rootPath='@Url.Content("~/Admin/")';
+    var selectCombox;
+      //验证
+      var maingform = $("#mainform");
+      $.metadata.setType("attr", "validate");
+      LG.validate(maingform, { debug: true });
+      //覆盖本页面grid的loading效果
+      LG.overrideGridLoading();
+
+      function toolbarBtnItemClick(item) {
+          var editingrow = grid.getEditingRow();
+          switch (item.id) {
+              case "Add":
+                  if (editingrow == null) {
+                      addNewRow();
+                  } else {
+                      LG.tip('请先提交或取消修改');
+                  }
+                  break;
+              case "Update":
+                  if (editingrow == null) {
+                      beginEdit();
+                  } else {
+                      LG.tip('请先提交或取消修改');
+                  }
+                  break;
+              case "Save":
+                  if (editingrow != null) {
+                      grid.endEdit(editingrow);
+                  } else {
+                      LG.tip('现在不在编辑状态!');
+                  }
+                  break;
+              case "Cancel":
+                  if (editingrow != null) {
+                      grid.cancelEdit(editingrow);
+                  } else {
+                      LG.tip('现在不在编辑状态!');
+                  }
+                  break;
+              case "Delete":
+                  $.ligerDialog.confirm('确定删除吗(该删除操作只是软删除)?', function (confirm) {
+                      if (confirm)
+                          f_delete();
+                  });
+                  break;
+              case "RealDelete":
+                  $.ligerDialog.confirm('确定删除吗(该删除操作将会永久删除,一旦删除将无法挽回)?', function (confirm) {
+                      if (confirm){
+                           // LG.showError('不允许永久删除,未开放此功能!');
+                          f_realdelete();
+                          }
+                           });
+                  break;
+                  case "MenuButtonConfig":
+                    
+                     if (editingrow == null) {
+                      f_MenuButtonManage();
+                      
+                  
+                  } else {
+                      LG.tip('请先提交或取消修改!');
+                  }
+                  break;
+          }
+      }
+     function f_MenuButtonManage(){
+      var selected = grid.getSelected();
+       if (selected) {
+         if(!selected.MenuNo)
+          return;
+          else{ 
+            LG.ajax({
+            
+                  url: rootPath + 'Menus/MenuButtonConfig',
+                  data:{ControllerName:'MenusButtonsManage'},
+                  loading: '获取选中菜单权限...',
+                  success: function (data) {
+                  var params= 'controllerName='+selected.Controller+'&MenuNo='+data+'&MenuID='+selected.ModuleID;
+                top.f_addTab(null,'['+selected.MenuName+ ']菜单按钮管理', rootPath + 'MenusButtonsManage/Index?'+params); 
+                  },
+                  error: function (message) {
+                      LG.showError(message);
+                  }
+              });
+       
+        }
+        }
+      else
+       LG.tip('请选择行!');
+     }
+      function f_reload() {
+          grid.loadData();
+      }
+       function f_realdelete() {
+          var selected = grid.getSelected();
+          if (selected) {
+              if (!selected.MenuNo) {
+                  grid.deleteRow(selected);
+                  return;
+              }
+               var data = {};
+              data.MenuNo = selected.MenuNo;
+              data.ModuleID=selected.ModuleID;
+              LG.ajax({
+                  url: rootPath + 'Menus/RealDelete',
+                  loading: '正在删除中...',
+                  data: data,
+                  success: function () {
+                      LG.showSuccess('删除成功');
+                      f_reload();
+                  },
+                  error: function (message) {
+                      LG.showError(message);
+                  }
+              });
+          }
+          else {
+              LG.tip('请选择行!');
+          }
+      }
+      function f_delete() {
+          var selected = grid.getSelected();
+          if (selected) {
+              if (!selected.MenuNo) {
+                  grid.deleteRow(selected);
+                  return;
+              }
+          var data = $.extend({ MenuParentNo: currentMenuParentNo }, selected);
+              data.MenuNo = selected.MenuNo;
+              data.ModuleID=selected.ModuleID;
+              LG.ajax({
+                  url: rootPath + 'Menus/Delete',
+                  loading: '正在删除中...',
+                  data:data,
+                  success: function () {
+                      LG.showSuccess('删除成功');
+                      f_reload();
+                  },
+                  error: function (message) {
+                      LG.showError(message);
+                  }
+              });
+          }
+          else {
+              LG.tip('请选择行!');
+          }
+      }
+     
+      var currentMenuParentNo;
+      var treefilter = {
+          op: 'or',
+          rules: [
+        { field: 'ParentNo', value: '0', op: 'equal' }
+        ]
+      };
+      var tree = $("#maintree").ligerTree({
+          url: rootPath + 'Menus/GetParentMenuTree?' +
+    $.param({
+
+        root: '主菜单',
+        rooticon: '@Url.Content("~/Content/icons/32X32/category.gif")',
+        view: 'Sys_Menu',
+        idfield: '0',
+        pidfield: 'MenuParentNo',
+        textfield: 'MenuName',
+        iconfield: 'MenuIcon',
+        iconroot: '/',
+        where: JSON2.stringify(treefilter)
+    }),
+          checkbox: false,
+          onClick: function (node) {
+//              if (!node.data||!node.data.MenuNo) return;
+              var where = {
+                  op: 'and',
+                  rules: [{ field: 'ParentNo', value: node.data.MenuNo, op: 'equal'}]
+              };
+              currentMenuParentNo = node.data.MenuNo;
+              grid.set('parms', { where: JSON2.stringify(where),sortname:'Sort'});
+              grid.set('url', rootPath + 'Menus/GetMenusGrid');
+            
+          }
+      });
+
+      var layout = $("#layout").ligerLayout({ leftWidth: 140 });
+
+   
+      var grid = $("#maingrid").ligerGrid({
+//          headerImg: '@Url.Content("~/Content/icons/silkicons/table.png")', title: '菜单模块',
+          columns: [
+                { display: '菜单名', name: 'MenuName', align: 'left', width: 150, minWidth: 60
+                ,isSort :false, validate: { required: true }
+                , editor: { type: 'text' }
+                },
+             
+                  { display: '模块ID', name: 'ModuleID', align: 'left', width: 100, minWidth: 60
+                ,hide:true
+                },
+                { display: '菜单编号', name: 'MenuNo', align: 'left', width: 100, minWidth: 60
+                },
+                 { display: '上级编号', name: 'MenuParentNo', align: 'left', width: 100, minWidth: 60
+                },
+                 { display: '控制器', name: 'Controller', align: 'left', width: 130,isSort :false, minWidth: 60
+//                , validate: { required: true }
+                , editor: {type: 'select',
+                 ext:
+                    function (rowdata) {
+                        return {
+                            onBeforeOpen:function(){
+                             selectCombox=this;
+                             f_selectContact();
+                           
+                             return false;
+                             }
+                           ,
+                            render: function () {
+                                return rowdata.ControllerName;
+                            }
+                        };
+                    }
+                } , render: function (item) {
+                    return  item.Controller;
+                }
+                 },
+                  { display: '是否显示', name: 'IsVisible', align: 'left',isSort :false, width: 60, minWidth: 60
+                , editor: { type: 'checkbox' }
+                , render: function (item) {
+                    if(item.IsVisible)
+                    return "显示";
+                    else
+                    return "隐藏";
+                }
+                },
+                 { display: '是否为菜单', name: 'IsMenu', align: 'left',isSort :false, width: 80, minWidth: 60
+                , editor: { type: 'checkbox' }
+                , render: function (item) {
+                    if(item.IsMenu)
+                    return "菜单";
+                    else
+                    return "模块";
+                }
+                }, { display: '删除状态', name: 'IsDeleted', align: 'left',isSort :false, width: 60, minWidth: 60
+                , render: function (item) {
+                    if(item.IsDeleted)
+                    return "删除";
+                    else
+                    return "正常";
+                }
+                },
+              { display: '图标', name: 'MenuIcon', align: 'left',isSort :false, width: 200, minWidth: 50
+                , editor: { type: 'select',
+                    ext:
+                    function (rowdata) {
+                        return {
+                            onBeforeOpen: function () {
+                                currentComboBox = this;
+                                f_openIconsWin();
+                                return false;
+                            },
+                            render: function () {
+                                return rowdata.MenuIcon;
+                            }
+                        };
+                    }
+                }
+                , render: function (item) {
+                    return "<div style='width:100%;height:100%;'><img src='" + item.MenuIcon + "' /></div>";
+                }
+                },
+                 { display: '菜单链接地址', name: 'MenuUrl',isSort :false, align: 'left', width: 300, minWidth: 60
+               }
+                ], dataAction: 'server', pageSize: 10, toolbar: {}, sortName: 'MenuNo',
+          width: '98%', height: '100%', heightDiff: -5, checkbox: false, usePager: true, enabledEdit: true, clickToEdit: false,
+          fixedCellHeight: true, rowHeight: 25
+      });
+       //,enabledSort:false
+   
+      //本地按钮
+      var toolbarOptions = [
+             { text: '保存',id:'Save', click: toolbarBtnItemClick, img: "@Url.Content("~/Content/icons/silkicons/page_save.png")" },
+                  { text: '取消',id:'Cancel', click: toolbarBtnItemClick, img: "@Url.Content("~/Content/icons/silkicons/cancel.png")" }
+    ];
+      //加载toolbar
+      LG.loadToolbar(grid, toolbarBtnItemClick,toolbarOptions);
+
+      grid.bind('beforeSubmitEdit', function (e) {
+             //如果编辑状态则不允许提交
+//      var editingrow=grid.getEditingRow();
+//        if(editingrow!=null){
+//        return false;
+//        }
+          if (!LG.validator.form()) {
+              LG.showInvalid();
+              return false;
+          }
+          return true;
+      });
+      grid.bind('afterSubmitEdit', function (e) {
+          var isAddNew = e.record['__status'] == "add";
+          var data = $.extend({ MenuParentNo: currentMenuParentNo }, e.newdata);
+          if (!isAddNew){
+              data.MenuNo = e.record.MenuNo;
+              data.ModuleID=e.record.ModuleID;
+              }
+          LG.ajax({
+              loading: '正在保存数据中...',
+              url: rootPath + 'Menus/'+(isAddNew ? "Add" : "Update"),
+              data: data,
+              success: function () {
+                  grid.loadData();
+                  LG.tip('保存成功!');
+              },
+              error: function (message) {
+                  LG.tip(message);
+              }
+          });
+      });
+        function beginEdit() {
+          var row = grid.getSelectedRow();
+          if (!row) { LG.tip('请选择行'); return; }
+          grid.beginEdit(row);
+      }
+      function addNewRow() {
+          grid.addEditRow();
+      }
+      @*弹出框效果开始*@
+      function f_selectContact() {
+          $.ligerDialog.open({ title: '选择菜单控制器', name: 'winselector', width: 700, height: 300, url:rootPath+ 'Menus/SelectController', buttons: [
+                { text: '确定', onclick: f_selectContactOK },
+                { text: '取消', onclick: f_selectContactCancel }
+            ]
+          });
+          return false;
+      }
+      function f_selectContactOK(item, dialog) {
+          var fn = dialog.frame.f_select || dialog.frame.window.f_select;
+          var data = fn();
+          if (!data) {
+              alert('请选择行!');
+              return;
+          }
+     var editingrow = grid.getEditingRow();
+    if (editingrow)
+    {
+        if (selectCombox)
+        {
+            selectCombox.inputText.val(data.ControllerName);
+            selectCombox.valueField.val( data.ControllerName);
+        }
+    }
+
+          dialog.close();
+      }
+      function f_selectContactCancel(item, dialog) {
+          dialog.close();
+      }
+       @*弹出框效果结束*@
+    
+    </script>
+</body>
+</html>

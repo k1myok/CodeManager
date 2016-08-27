@@ -61,13 +61,14 @@ namespace BigData.TeamTools.Controllers
         }
 
         [HttpPost]
-        public JsonResult AddLocation(double real_lon, double real_lat, string address, string CName, string  code, string ZYZL, string file)
+        public JsonResult AddLocation(double real_lon, double real_lat, string address, string CName, string code, string ZYZL, string file)
         {
             var path = System.IO.Path.Combine(ConfigurationManager.AppSettings["FilePath"]);
             path += @"/"+code+"/";
+           
             var tempbase =  new DealImage(file);
-            
-            var fileName = System.IO.Path.Combine(path, string.Format("{0}.{1}",code, tempbase.ExtensionName));
+            var time = DateTime.Now.ToString("yyyyMMddHHmmss");
+            var fileName = System.IO.Path.Combine(path, string.Format("{0}.{1}",time, tempbase.ExtensionName));
             var tempresult = tempbase.ExportToFile(fileName);
               try
                 {

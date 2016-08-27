@@ -1,0 +1,269 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Index</title>
+    <link href="@Url.Content("~/Content/ligerUI/skins/Aqua/css/ligerui-all.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Scripts/jquery/jquery-1.5.2.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/ligerUI/js/ligerui.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/ligerUI/js/plugins/ligerGrid.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/ligerUI/js/plugins/ligerDialog.js")" type="text/javascript"></script>
+    <link href="@Url.Content("~/Content/css/common.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Content/ligerUI/js/plugins/ligerTextBox.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/js/ligerui.expand.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/js/common.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/js/LG.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/json2.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery-validation/jquery.validate.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery-validation/jquery.metadata.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery-validation/messages_cn.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/jquery.form.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/js/iconselector.js")" type="text/javascript"></script>
+    <style type="text/css">
+        .l-panel td.l-grid-row-cell-editing
+        {
+            padding-bottom: 2px;
+            padding-top: 2px;
+        }
+    </style>
+</head>
+<body style="padding: 2px; height: 100%; text-align: center;">
+  <ipnut type="hidden" id="MenuNo" value="RolePermission" />
+    <div id="layout">
+        <div position="left" title="角色组" id="mainmenu">
+            <ul id="maintree">
+            </ul>
+        </div>
+        <div position="center" title="权限控制">
+            <form id="mainform">
+            <div id="maingrid" style="margin: 2px;">
+            </div>
+            </form>
+        </div>
+    </div>
+    <ul class="iconlist">
+    </ul>
+    <script type="text/javascript" language="javascript">
+
+    var rootPath='@Url.Content("~/Admin/")';
+    //选择的角色ID
+    var SelectRoleID;
+      //验证
+      var maingform = $("#mainform");
+      $.metadata.setType("attr", "validate");
+      LG.validate(maingform, { debug: true });
+      //覆盖本页面grid的loading效果
+      LG.overrideGridLoading();
+
+      function toolbarBtnItemClick(item) {
+          switch (item.id) {
+              case "GrantRolePermission":
+                  if (SelectRoleID != null) {
+                  f_GrantRolePermission();
+                  } else {
+                      LG.tip('请选择角色组并分配权限!');
+                  }
+                  break;
+
+          }
+      }
+   
+      function f_reload() {
+          grid.loadData();
+      }
+        //屏蔽系统管理员角色
+        var gridRoleFilter = {
+            op: 'and',
+            rules: [
+                    { field: 'RoleID', value: @ViewBag.AdminRoleID, op: 'notequal' }
+                ]
+        };
+      var tree = $("#maintree").ligerTree({
+          url: rootPath + 'Role/GetRolesForTree?' +
+    $.param({
+
+        root: '角色组',
+        rooticon: '@Url.Content("~/Content/icons/32X32/category.gif")',
+        idfield: 'id',
+        pidfield: '',
+        textfield: 'text',
+        iconfield: 'icon',
+        iconroot: '/',
+        where: JSON2.stringify(gridRoleFilter)
+    }),
+          checkbox: false,
+          onClick: function (node) {
+              if (!node.data||!node.data.id) return;
+              //在这里需要设置权限选择项
+              SelectRoleID=node.data.id;
+             f_BindGridPermission();
+          }
+      });
+      //绑定权限信息
+     function f_BindGridPermission(){
+         var where = {
+                  op: 'and',
+                  rules: [{ field: 'RoleID', value:SelectRoleID, op: 'equal'}]
+              };
+       LG.ajax({
+              loading: '加载权限中...',
+              url: rootPath + 'RolePermission/GetRolePermissionForData',
+              data:{where:JSON2.stringify(where)},
+              success: function (data) {
+                f_LoadPermission(data);
+              },
+              error: function (message) {
+                  LG.tip(message);
+              }
+          });
+      }
+              //判断是否有权限
+            function checkPermit(rowdata, data){
+                if (!data || !data.length) return false;
+                var HasPermission = rowdata.ModulePermissionID != null && rowdata.ModulePermissionID != 0;
+                for (var i = 0, l = data.length; i < l; i++)
+                {
+                    if (HasPermission && data[i].ModulePermissionID == rowdata.ModulePermissionID)
+                        return true;
+                }
+                return false;
+            }
+            //为Grid加载信息
+            function  f_LoadPermission(data){
+                    var rows = grid.rows;
+                    for (var i = 0, l = rows.length; i < l; i++)
+                    {
+                        rows[i].IsChecked = checkPermit(rows[i], data);
+                    }
+                    grid.reRender();
+             }
+      var layout = $("#layout").ligerLayout({ leftWidth: 140 });
+      var grid = $("#maingrid").ligerGrid({
+          headerImg: '@Url.Content("~/Content/icons/silkicons/table.png")', title: '权限分配',
+          columns: [
+             { display: '分配权限' , name:'IsChecked',align: 'left', width: 60, minWidth: 60,isAllowHide :false,
+              render:checkboxRender
+                },
+                { display: '权限动作', name: 'PermissionAction', align: 'left', width: 300, minWidth: 60
+                },
+                 { display: '动作名称', name: 'PermissionName', align: 'left', width: 150, minWidth: 60
+                },
+                { display: '动作图标', name: 'Icon', align: 'left',isSort :false, width: 60, minWidth: 50
+                , render: function (item) {
+                    return "<div style='width:100%;height:100%;'><img src='" + item.Icon + "' /></div>";
+                }
+                },
+                   { display: '所属模块名称', name: 'ModuleName', align: 'left', width: 150, minWidth: 60
+                },
+                  { display: '所属控制器', name: 'ModuleController', align: 'left', width: 150, minWidth: 60
+                },
+                 { display: '模块图标', name: 'ModuleIcon', align: 'left',isSort :false, width: 60, minWidth: 50
+                , render: function (item) {
+                    return "<div style='width:100%;height:100%;'><img src='" + item.ModuleIcon + "' /></div>";
+                }
+                },
+               { display: '权限ID', name: 'PermissionID', align: 'left', width: 100, minWidth: 60
+                ,hide:true
+                },
+                 { display: '模块权限ID', name: 'ModulePermissionID', align: 'left', width: 100, minWidth: 60
+                ,hide:true
+                },
+                 { display: '动作描述', name: 'Description',isSort :false, align: 'left', width: 200, minWidth: 60
+               }
+                ], dataAction: 'server', pageSize: 10, toolbar: {}, sortName: 'PermissionController',
+          width: '98%', height: '100%', heightDiff: -5, usePager: false, enabledEdit: false, clickToEdit: false,
+          tree: { columnName: 'PermissionAction' },url:rootPath + 'RolePermission/GetPermissionGrid',
+          fixedCellHeight: true, rowHeight: 25,checkbox:false
+      });
+      //加载toolbar
+      LG.loadToolbar(grid, toolbarBtnItemClick);
+      //获取所有选择项
+      function GetAllCheck(){
+             var modulePermissionIDs="";
+             var rows = grid.rows;
+                    for (var i = 0, l = rows.length; i < l; i++)
+                    {
+                        if(rows[i].IsChecked)
+                        {
+                         modulePermissionIDs+=rows[i].ModulePermissionID+",";
+                        }
+                    }
+             return modulePermissionIDs;
+      
+      }
+      //授予角色权限
+      function f_GrantRolePermission(){
+       var SelectData=GetAllCheck();
+       if(SelectData==""){
+       LG.tip("未选择权限,请选择!");
+       return;
+       }
+       else{
+        LG.ajax({
+              loading: '正在授予角色权限中...',
+              url: rootPath + 'RolePermission/GrantRolePermission',
+              data: {ModulePermissions:SelectData,RoleID:SelectRoleID},
+              success: function () {
+                  LG.tip('保存成功!');
+              },
+              error: function (message) {
+                  LG.tip(message);
+              }
+          });
+      }
+      }
+      //检查选中状态
+      function f_CheckStatus(rowdata){
+       if (rowdata.IsChecked) 
+                return true;
+            return false;
+      }
+     
+        //是否类型的模拟复选框的渲染函数
+        function checkboxRender(rowdata, rowindex, value, column)
+        {
+            var iconHtml = '<div class="chk-icon';
+            if (value) iconHtml += " chk-icon-selected";
+            iconHtml += '"';
+            iconHtml += ' rowid = "' + rowdata['__id'] + '"';
+            iconHtml += ' gridid = "' + this.id + '"';
+            iconHtml += ' columnname = "' + column.name + '"';
+            iconHtml += '></div>';
+            return iconHtml;
+        }
+        //表字段配置信息 是否类型的模拟复选框的点击事件
+        $("div.chk-icon").live('click', function ()
+        {
+            var grid = $.ligerui.get($(this).attr("gridid"));
+            var rowdata = grid.getRow($(this).attr("rowid"));
+            var columnname = $(this).attr("columnname");
+            var checked = rowdata[columnname]; 
+            f_Permit(rowdata,!checked);
+            //grid.updateCell(columnname, !checked, rowdata);
+        });
+         //为当前选择记录 分配权限
+        //1,同时分配给下级记录 
+        function f_Permit(rowdata, selected)
+        {
+            selected = selected ? true : false;
+            rowdata.IsChecked = rowdata.IsChecked ? true : false;
+            if (rowdata.IsChecked == selected) return;
+            rowdata.IsChecked = selected;
+            var children = grid.getChildren(rowdata);
+            if (children)
+            {
+                for (var i = 0, l = children.length; i < l; i++)
+                {
+                    f_Permit(children[i], selected);
+                }
+            }
+            grid.reRender({ rowdata: rowdata });
+        }
+
+
+    
+    </script>
+</body>
+</html>

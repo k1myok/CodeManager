@@ -483,13 +483,13 @@
 
         function checkZYZL() {
             var temp = $("#ZYZL").val();
-            if (temp == "--请选择--") {
+            if ((temp == "自用的有土地证土地") || (temp == "租用的有土地证土地") || (temp == "使用无土地证土地")) {
+                return true;
+            }
+            else {
                 $("#note").hide();
                 alert("请选择自有或者租赁");
                 return false;
-            }
-            else {
-                return true;
             }
         }
         function checkLocation() {
@@ -653,7 +653,7 @@
                         $("#UnitName").html(data);
                     }
                     else {
-                        // location.href = "../Csds/Error";
+                       //location.href = "../Csds/Error";
 
                     }
                     complete: {
