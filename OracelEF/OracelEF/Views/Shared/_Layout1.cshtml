@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=6b91c8e7794066e50727187805153ee9"></script> 
+    <script>
+        function onMenuClick(url) {
+            if (url != "") {
+                if (url == "../Manage/Default" || url == "../ConfigArgsManager/List") {
+                    window.location.href = url;
+                }
+                else {
+                    $('#loader').show();
+                    $.ajax({
+                        url: url,
+                        success: function (data) {
+                            $('#MainContent').empty().html(data);
+                       
+                        },
+                        complete: function () {
+                            $('#loader').hide();
+                        }
+                    });
+                }
+            }
+            else
+                $('#MainContent').empty();
+        }
+    </script>
+    <link href="~/Content/SimpleTheme.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="Header">
+        <div class="Title">
+            @*SpaceBIA-共享服务平台*@ 数据采集系统
+        </div>
+        <div class="MenuLink">
+            <div onclick="javascript: onMenuClick('../Manage/Infocollection');">
+                <img src="~/Images/首页.png" />
+                <div>
+                    数据采集
+                </div>
+            </div>
+            @*<div onclick="javascript: onMenuClick('../DirectoryManager/List');">
+                <img src="~/Images/service_resource_generel32.png" />
+                <div>
+                    功能管理
+                </div>
+            </div>*@
+            @*<div onclick="javascript:onMenuClick('../SecurityManager/List');">
+                <img src="~/Images/security_manage.png" />
+                <div>
+                    安全管理
+                </div>
+            </div>*@
+            @*<div onclick="javascript: onMenuClick('../ConfigArgsManager/List');">
+                <img src="~/Images/security_manage.png" />
+                <div>
+                    系统设置
+                </div>
+            </div>*@
+        </div>
+    </div>
+
+    <div class="MainContentContainer">
+        <div class="MainContent" id="MainContent">
+            @RenderBody()
+        </div>
+    </div>
+
+    <div id="resourceWindow" style="display:none;">
+        <div id="customWindowHeader">
+            <span id="titleContainer" style="float: left"></span>
+        </div>
+        <div id="customWindowContent" style="overflow-x:hidden; overflow-y:auto;">
+        </div>
+    </div>
+
+    <div id="loader" class="Loading">
+        请 稍 后...
+    </div>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

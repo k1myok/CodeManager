@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="CSDSEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="TB_NSR_EDIT" EntityType="Model.TB_NSR_EDIT" />
+    <EntitySet Name="TB_QYINFO" EntityType="Model.TB_QYINFO" />
+  </EntityContainer>
+  <EntityType Name="TB_NSR_EDIT">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="NSR_MC" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="FADDRESS" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="LON" Type="Decimal" Precision="16" Scale="8" />
+    <Property Name="LAT" Type="Decimal" Precision="16" Scale="8" />
+    <Property Name="ZYZL" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="EDITTIME" Type="DateTime" Nullable="false" />
+    <Property Name="XYSYSTEM" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="TB_QYINFO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="SWGLM" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="NSRSBM" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="ZZJGTYDM" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="ZZDM" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="NSR_MC" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+    <Property Name="SWDJLX" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ZCLX" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="PJSLJG" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ZZLB" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="KYSLRQ" Type="DateTime" Precision="6" />
+    <Property Name="ZZLB2" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ZZHM" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ZCDZ" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+    <Property Name="ZCDLXDH" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="SJJYDZ" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+    <Property Name="SCJYDLXDH" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="HSFS" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="DWXZ" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="JYFWZY" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="GBHY_DM" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="HYML" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="HYDL" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="HYZXL" Type="String" MaxLength="160" FixedLength="false" Unicode="false" />
+    <Property Name="FRXM" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="FRZJLX" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="FRZJ" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="FRYD_DH" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="CWXM" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="CWZJLX" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="CWZJ" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="CWYD_DH" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="BSRXM" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="BSRZJLX" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="BSRZJ" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="BSRYD_DH" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="ZCZB" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="BZ" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="DSFZ_RQ" Type="DateTime" Precision="6" />
+    <Property Name="DJJGLX" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="JG_MC" Type="String" MaxLength="160" FixedLength="false" Unicode="false" />
+    <Property Name="JGNSRSBM" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="JGZCDZ" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+    <Property Name="JGJYFW" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="JGFR" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="XZQHDS" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="XZQHXQ" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="XZJD" Type="String" MaxLength="160" FixedLength="false" Unicode="false" />
+    <Property Name="DLWZZRC" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="GLJG_DM" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="GLJG" Type="String" MaxLength="160" FixedLength="false" Unicode="false" />
+    <Property Name="ZSJG_DM" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="ZSJG" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="JIANCJG_DM" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="JIANCJG" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="JCJG_DM" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="JCJG" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ZDSYRDBJ" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NSRZT_DM" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ADDRESS" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="LON" Type="Decimal" Precision="16" Scale="8" />
+    <Property Name="LAT" Type="Decimal" Precision="16" Scale="8" />
+    <Property Name="LEVEL_NUM" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="STATUS" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="FORMATADDRESS" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="ID" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

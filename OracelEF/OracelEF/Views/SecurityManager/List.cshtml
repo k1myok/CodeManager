@@ -1,0 +1,64 @@
+﻿@{
+    Layout = "~/Views/Shared/HSplitLayout.cshtml";
+}
+
+@section LeftPanel
+{
+    <script>
+        function showUsersList()
+        {
+            showList('../UserManager/List');
+        }
+        function showGroupsList() {
+            showList('../GroupManager/List');
+        }
+        function showRolesList() {
+            showList('../RoleManager/List');
+        }
+
+        function showList(url)
+        {
+            $('#loader').show();
+            $.ajax({
+                url: url,
+                success: function (data) {
+                    $('#securityContentContainer').empty().html(data);
+                },
+                complete: function () {
+                    $('#loader').hide();
+                }
+            });
+        }
+        $(document).ready(function () {
+            showUsersList();
+        });
+
+    </script>
+
+    <div class="SimpleWindow">
+        <div class="TitleContainer">
+            <div class="Title">
+                @*<img src="~/Images/server.png" />*@
+                @*<img src="~/Images/安全管理.png" />*@
+                <img src="~/Images/security_manage.png" />
+                <a>系统安全</a>
+            </div>
+        </div>
+        <div class="Content">
+            <div class="SimpleListView">
+                <div onclick="javascript:showUsersList();" class="ListItem"><span>用户管理</span></div>
+                <div onclick="javascript:showGroupsList();" class="ListItem"><span>部门管理</span></div>
+                <div onclick="javascript:showRolesList();" class="ListItem"><span>角色管理</span></div>
+            </div>
+        </div>
+    </div>
+}
+
+@section RightPanel
+{
+    <div id="securityContentContainer" style="width:100%; height:100%;">
+    </div>
+}
+
+
+

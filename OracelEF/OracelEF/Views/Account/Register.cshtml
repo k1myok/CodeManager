@@ -1,0 +1,48 @@
+﻿@model BigData.TeamTools.Models.RegisterViewModel
+@{
+    ViewBag.Title = "注册";
+}
+<style>
+    .align-center {
+        margin: 0 auto; /* 居中 这个是必须的，，其它的属性非必须 */
+        background-color: rgba(255,255,255,0.5);
+        filter: alpha(opacity=50); /*IE滤镜，透明度50%*/
+        -moz-opacity: 0.5; /*Firefox私有，透明度50%*/
+        border-radius: 5px;
+        border-color: lightblue;
+        border-style: solid;
+        border-width: 2px;
+    }
+</style>
+
+<div style="width:360px; padding-left:40px; padding-top:10px; padding-right:40px;padding-bottom:10px; margin-top:10%;" class="align-center">
+    <h3 style="text-align:center;">用户注册</h3>
+    @using (Html.BeginForm("Register", "Account", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary("", new { @class = "text-danger" })
+        <fieldset>
+            <ol>
+                <li>
+                    @Html.LabelFor(m => m.UserName, new { @class = "control-label" })
+                    @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                </li>
+                <li>
+                    @Html.LabelFor(m => m.Password, new { @class = "control-label" })
+                    @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                </li>
+                <li>
+                    @Html.LabelFor(m => m.ConfirmPassword, new { @class = "control-label" })
+                    @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                </li>
+            </ol>
+            <input type="submit" class="btn btn-default" value="注册" style="float:right;padding-left:15px;padding-right:15px;" />
+
+        </fieldset>
+
+    }
+
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

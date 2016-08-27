@@ -1,0 +1,1298 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DBCommonManageModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="DBCommonManageModelStoreContainer">
+          <EntitySet Name="sysdiagrams" EntityType="DBCommonManageModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tbDepartment" EntityType="DBCommonManageModel.Store.tbDepartment" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tbFavorite" EntityType="DBCommonManageModel.Store.tbFavorite" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tbModule" EntityType="DBCommonManageModel.Store.tbModule" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tbModulePermission" EntityType="DBCommonManageModel.Store.tbModulePermission" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tbOperateLog" EntityType="DBCommonManageModel.Store.tbOperateLog" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tbPermission" EntityType="DBCommonManageModel.Store.tbPermission" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tbRole" EntityType="DBCommonManageModel.Store.tbRole" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tbRolePermission" EntityType="DBCommonManageModel.Store.tbRolePermission" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tbUser" EntityType="DBCommonManageModel.Store.tbUser" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tbUserRole" EntityType="DBCommonManageModel.Store.tbUserRole" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="VModulePermission" EntityType="DBCommonManageModel.Store.VModulePermission" store:Type="Views" store:Schema="dbo" store:Name="VModulePermission">
+            <DefiningQuery>SELECT 
+      [VModulePermission].[ButtonName] AS [ButtonName], 
+      [VModulePermission].[ModulePermissionID] AS [ModulePermissionID], 
+      [VModulePermission].[MenuID] AS [MenuID], 
+      [VModulePermission].[ButtonID] AS [ButtonID], 
+      [VModulePermission].[MenuName] AS [MenuName], 
+      [VModulePermission].[MenuUrl] AS [MenuUrl], 
+      [VModulePermission].[ModuleIcon] AS [ModuleIcon], 
+      [VModulePermission].[ParentNo] AS [ParentNo], 
+      [VModulePermission].[Sort] AS [Sort], 
+      [VModulePermission].[IsLeaf] AS [IsLeaf], 
+      [VModulePermission].[IsMenu] AS [IsMenu], 
+      [VModulePermission].[ModuleController] AS [ModuleController], 
+      [VModulePermission].[ButtonAction] AS [ButtonAction], 
+      [VModulePermission].[ButtonIcon] AS [ButtonIcon], 
+      [VModulePermission].[MenuController] AS [MenuController], 
+      [VModulePermission].[modPermissionIsDeleted] AS [modPermissionIsDeleted], 
+      [VModulePermission].[ParentID] AS [ParentID], 
+      [VModulePermission].[Description] AS [Description]
+      FROM [dbo].[VModulePermission] AS [VModulePermission]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="VRoleGrantPermission" EntityType="DBCommonManageModel.Store.VRoleGrantPermission" store:Type="Views" store:Schema="dbo" store:Name="VRoleGrantPermission">
+            <DefiningQuery>SELECT 
+      [VRoleGrantPermission].[PermissionID] AS [PermissionID], 
+      [VRoleGrantPermission].[PermissionAction] AS [PermissionAction], 
+      [VRoleGrantPermission].[PermissionName] AS [PermissionName], 
+      [VRoleGrantPermission].[Icon] AS [Icon], 
+      [VRoleGrantPermission].[PermissionController] AS [PermissionController], 
+      [VRoleGrantPermission].[Description] AS [Description], 
+      [VRoleGrantPermission].[ParentID] AS [ParentID], 
+      [VRoleGrantPermission].[ModuleController] AS [ModuleController], 
+      [VRoleGrantPermission].[ModuleName] AS [ModuleName], 
+      [VRoleGrantPermission].[ModuleIcon] AS [ModuleIcon], 
+      [VRoleGrantPermission].[ModulePermissionID] AS [ModulePermissionID]
+      FROM [dbo].[VRoleGrantPermission] AS [VRoleGrantPermission]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="VRoleMenuPermission" EntityType="DBCommonManageModel.Store.VRoleMenuPermission" store:Type="Views" store:Schema="dbo" store:Name="VRoleMenuPermission">
+            <DefiningQuery>SELECT 
+      [VRoleMenuPermission].[ModuleID] AS [ModuleID], 
+      [VRoleMenuPermission].[ModuleName] AS [ModuleName], 
+      [VRoleMenuPermission].[ModuleLinkUrl] AS [ModuleLinkUrl], 
+      [VRoleMenuPermission].[ModuleIcon] AS [ModuleIcon], 
+      [VRoleMenuPermission].[ParentNo] AS [ParentNo], 
+      [VRoleMenuPermission].[Sort] AS [Sort], 
+      [VRoleMenuPermission].[IsLeaf] AS [IsLeaf], 
+      [VRoleMenuPermission].[IsVisible] AS [IsVisible], 
+      [VRoleMenuPermission].[RoleID] AS [RoleID], 
+      [VRoleMenuPermission].[ModuleController] AS [ModuleController], 
+      [VRoleMenuPermission].[IsDeleted] AS [IsDeleted], 
+      [VRoleMenuPermission].[IsMenu] AS [IsMenu]
+      FROM [dbo].[VRoleMenuPermission] AS [VRoleMenuPermission]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="VRoleModulePermission" EntityType="DBCommonManageModel.Store.VRoleModulePermission" store:Type="Views" store:Schema="dbo" store:Name="VRoleModulePermission">
+            <DefiningQuery>SELECT 
+      [VRoleModulePermission].[ModuleID] AS [ModuleID], 
+      [VRoleModulePermission].[ModuleName] AS [ModuleName], 
+      [VRoleModulePermission].[ModuleLinkUrl] AS [ModuleLinkUrl], 
+      [VRoleModulePermission].[ModuleIcon] AS [ModuleIcon], 
+      [VRoleModulePermission].[ParentNo] AS [ParentNo], 
+      [VRoleModulePermission].[Sort] AS [Sort], 
+      [VRoleModulePermission].[IsVisible] AS [IsVisible], 
+      [VRoleModulePermission].[IsLeaf] AS [IsLeaf], 
+      [VRoleModulePermission].[IsMenu] AS [IsMenu], 
+      [VRoleModulePermission].[PermissionName] AS [PermissionName], 
+      [VRoleModulePermission].[PermissionID] AS [PermissionID], 
+      [VRoleModulePermission].[RoleID] AS [RoleID], 
+      [VRoleModulePermission].[ModuleController] AS [ModuleController], 
+      [VRoleModulePermission].[PermissionAction] AS [PermissionAction], 
+      [VRoleModulePermission].[Script] AS [Script], 
+      [VRoleModulePermission].[Icon] AS [Icon], 
+      [VRoleModulePermission].[PermissionController] AS [PermissionController], 
+      [VRoleModulePermission].[IsButton] AS [IsButton]
+      FROM [dbo].[VRoleModulePermission] AS [VRoleModulePermission]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="VRolePermission" EntityType="DBCommonManageModel.Store.VRolePermission" store:Type="Views" store:Schema="dbo" store:Name="VRolePermission">
+            <DefiningQuery>SELECT 
+      [VRolePermission].[ModulePermissionID] AS [ModulePermissionID], 
+      [VRolePermission].[RoleID] AS [RoleID], 
+      [VRolePermission].[RoleName] AS [RoleName], 
+      [VRolePermission].[RolePermissionID] AS [RolePermissionID]
+      FROM [dbo].[VRolePermission] AS [VRolePermission]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_TBFAVORI_REFERENCE_TBUSER" Association="DBCommonManageModel.Store.FK_TBFAVORI_REFERENCE_TBUSER">
+            <End Role="tbUser" EntitySet="tbUser" />
+            <End Role="tbFavorite" EntitySet="tbFavorite" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBMODULE_REFERENCE_TBMODULE" Association="DBCommonManageModel.Store.FK_TBMODULE_REFERENCE_TBMODULE">
+            <End Role="tbModule" EntitySet="tbModule" />
+            <End Role="tbModulePermission" EntitySet="tbModulePermission" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBMODULE_REFERENCE_TBPERMIS" Association="DBCommonManageModel.Store.FK_TBMODULE_REFERENCE_TBPERMIS">
+            <End Role="tbPermission" EntitySet="tbPermission" />
+            <End Role="tbModulePermission" EntitySet="tbModulePermission" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBROLEPE_REFERENCE_TBMODULE" Association="DBCommonManageModel.Store.FK_TBROLEPE_REFERENCE_TBMODULE">
+            <End Role="tbModulePermission" EntitySet="tbModulePermission" />
+            <End Role="tbRolePermission" EntitySet="tbRolePermission" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBROLEPE_REFERENCE_TBROLE" Association="DBCommonManageModel.Store.FK_TBROLEPE_REFERENCE_TBROLE">
+            <End Role="tbRole" EntitySet="tbRole" />
+            <End Role="tbRolePermission" EntitySet="tbRolePermission" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBUSER_REFERENCE_TBDEPART" Association="DBCommonManageModel.Store.FK_TBUSER_REFERENCE_TBDEPART">
+            <End Role="tbDepartment" EntitySet="tbDepartment" />
+            <End Role="tbUser" EntitySet="tbUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBUSERRO_REFERENCE_TBROLE" Association="DBCommonManageModel.Store.FK_TBUSERRO_REFERENCE_TBROLE">
+            <End Role="tbRole" EntitySet="tbRole" />
+            <End Role="tbUserRole" EntitySet="tbUserRole" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBUSERRO_REFERENCE_TBUSER" Association="DBCommonManageModel.Store.FK_TBUSERRO_REFERENCE_TBUSER">
+            <End Role="tbUser" EntitySet="tbUser" />
+            <End Role="tbUserRole" EntitySet="tbUserRole" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="tbDepartment">
+          <Key>
+            <PropertyRef Name="DeptID" />
+          </Key>
+          <Property Name="DeptID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="DeptName" Type="nvarchar" MaxLength="30" />
+          <Property Name="DeptDescription" Type="nvarchar" MaxLength="200" />
+          <Property Name="ParentID" Type="int" />
+          <Property Name="CreateUserID" Type="int" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="ModifyUserID" Type="int" />
+          <Property Name="ModifyDate" Type="datetime" />
+          <Property Name="RecordStatus" Type="nvarchar" MaxLength="200" />
+          <Property Name="IsDeleted" Type="bit" />
+        </EntityType>
+        <EntityType Name="tbFavorite">
+          <Key>
+            <PropertyRef Name="FavoriteID" />
+          </Key>
+          <Property Name="FavoriteID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FavoriteTitle" Type="nvarchar" MaxLength="50" />
+          <Property Name="FavoriteAddTime" Type="datetime" />
+          <Property Name="FavoriteContent" Type="nvarchar" MaxLength="200" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="Url" Type="nvarchar" MaxLength="100" />
+          <Property Name="Icon" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="tbModule">
+          <Key>
+            <PropertyRef Name="ModuleID" />
+          </Key>
+          <Property Name="ModuleID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ModuleName" Type="nvarchar" MaxLength="30" />
+          <Property Name="ModuleLinkUrl" Type="nvarchar" MaxLength="100" />
+          <Property Name="ModuleIcon" Type="nvarchar" MaxLength="100" />
+          <Property Name="ParentNo" Type="int" />
+          <Property Name="Sort" Type="tinyint" />
+          <Property Name="IsVisible" Type="bit" />
+          <Property Name="IsLeaf" Type="bit" />
+          <Property Name="IsMenu" Type="bit" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="ModuleController" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbModulePermission">
+          <Key>
+            <PropertyRef Name="ModulePermissionID" />
+          </Key>
+          <Property Name="ModulePermissionID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ModuleID" Type="int" />
+          <Property Name="PermissionID" Type="int" />
+          <Property Name="CreateUserID" Type="int" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="ModifyUserID" Type="int" />
+          <Property Name="ModifyDate" Type="datetime" />
+          <Property Name="RecordStatus" Type="nvarchar" MaxLength="200" />
+          <Property Name="IsDeleted" Type="bit" />
+        </EntityType>
+        <EntityType Name="tbOperateLog">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ProcessName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProcessDesc" Type="nvarchar" MaxLength="100" />
+          <Property Name="MethodName" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="30" />
+          <Property Name="IPAddress" Type="nvarchar" MaxLength="100" />
+          <Property Name="Description" Type="nvarchar" MaxLength="200" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="MethodDesc" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="tbPermission">
+          <Key>
+            <PropertyRef Name="PermissionID" />
+          </Key>
+          <Property Name="PermissionID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="PermissionAction" Type="nvarchar" MaxLength="30" />
+          <Property Name="PermissionName" Type="nvarchar" MaxLength="30" />
+          <Property Name="Sort" Type="tinyint" />
+          <Property Name="IsVisible" Type="bit" />
+          <Property Name="Script" Type="nvarchar" MaxLength="100" />
+          <Property Name="Icon" Type="nvarchar" MaxLength="100" />
+          <Property Name="PermissionController" Type="nvarchar" MaxLength="30" />
+          <Property Name="Description" Type="nvarchar" MaxLength="200" />
+          <Property Name="IsButton" Type="bit" />
+          <Property Name="ParentID" Type="int" />
+        </EntityType>
+        <EntityType Name="tbRole">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="RoleNo" Type="nvarchar" MaxLength="30" />
+          <Property Name="RoleName" Type="nvarchar" MaxLength="30" />
+          <Property Name="Description" Type="nvarchar" MaxLength="200" />
+          <Property Name="Sort" Type="tinyint" />
+          <Property Name="IsVisible" Type="bit" />
+          <Property Name="CreateUserID" Type="int" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="ModifyUserID" Type="int" />
+          <Property Name="ModifyDate" Type="datetime" />
+          <Property Name="RecordStatus" Type="nvarchar" MaxLength="200" />
+          <Property Name="IsDeleted" Type="bit" />
+        </EntityType>
+        <EntityType Name="tbRolePermission">
+          <Key>
+            <PropertyRef Name="RolePermissionID" />
+          </Key>
+          <Property Name="RolePermissionID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="RoleID" Type="int" />
+          <Property Name="ModulePermissionID" Type="bigint" />
+          <Property Name="CreateUserID" Type="int" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="ModifyUserID" Type="int" />
+          <Property Name="ModifyDate" Type="datetime" />
+          <Property Name="RecordStatus" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="tbUser">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserPassword" Type="nvarchar" MaxLength="50" />
+          <Property Name="RoleID" Type="int" />
+          <Property Name="DeptID" Type="int" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="13" />
+          <Property Name="Fax" Type="nvarchar" MaxLength="13" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" />
+          <Property Name="QQ" Type="nvarchar" MaxLength="13" />
+          <Property Name="NickName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="200" />
+          <Property Name="RealName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Sex" Type="bit" />
+          <Property Name="Enabled" Type="bit" />
+          <Property Name="LastLoginTime" Type="datetime" />
+          <Property Name="CreateUserID" Type="int" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="ModifyUserID" Type="int" />
+          <Property Name="ModifyDate" Type="datetime" />
+          <Property Name="RecordStatus" Type="nvarchar" MaxLength="200" />
+          <Property Name="IsDeleted" Type="bit" />
+        </EntityType>
+        <EntityType Name="tbUserRole">
+          <Key>
+            <PropertyRef Name="UserRoleID" />
+          </Key>
+          <Property Name="UserRoleID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="RoleID" Type="int" />
+          <Property Name="CreateUserID" Type="int" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="ModifyUserID" Type="int" />
+          <Property Name="ModifyDate" Type="datetime" />
+          <Property Name="RecordStatus" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <!--生成过程中发现错误:
+      警告 6002: 表/视图“DBCommonManage.dbo.VModulePermission”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+      -->
+        <EntityType Name="VModulePermission">
+          <Key>
+            <PropertyRef Name="ModulePermissionID" />
+          </Key>
+          <Property Name="ButtonName" Type="nvarchar" MaxLength="30" />
+          <Property Name="ModulePermissionID" Type="bigint" Nullable="false" />
+          <Property Name="MenuID" Type="int" />
+          <Property Name="ButtonID" Type="int" />
+          <Property Name="MenuName" Type="nvarchar" MaxLength="30" />
+          <Property Name="MenuUrl" Type="nvarchar" MaxLength="100" />
+          <Property Name="ModuleIcon" Type="nvarchar" MaxLength="100" />
+          <Property Name="ParentNo" Type="int" />
+          <Property Name="Sort" Type="tinyint" />
+          <Property Name="IsLeaf" Type="bit" />
+          <Property Name="IsMenu" Type="bit" />
+          <Property Name="ModuleController" Type="nvarchar" MaxLength="50" />
+          <Property Name="ButtonAction" Type="nvarchar" MaxLength="30" />
+          <Property Name="ButtonIcon" Type="nvarchar" MaxLength="100" />
+          <Property Name="MenuController" Type="nvarchar" MaxLength="30" />
+          <Property Name="modPermissionIsDeleted" Type="bit" />
+          <Property Name="ParentID" Type="int" />
+          <Property Name="Description" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <!--生成过程中发现错误:
+      警告 6002: 表/视图“DBCommonManage.dbo.VRoleGrantPermission”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+      -->
+        <EntityType Name="VRoleGrantPermission">
+          <Key>
+            <PropertyRef Name="PermissionID" />
+          </Key>
+          <Property Name="PermissionID" Type="int" Nullable="false" />
+          <Property Name="PermissionAction" Type="nvarchar" MaxLength="30" />
+          <Property Name="PermissionName" Type="nvarchar" MaxLength="30" />
+          <Property Name="Icon" Type="nvarchar" MaxLength="100" />
+          <Property Name="PermissionController" Type="nvarchar" MaxLength="30" />
+          <Property Name="Description" Type="nvarchar" MaxLength="200" />
+          <Property Name="ParentID" Type="int" />
+          <Property Name="ModuleController" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModuleName" Type="nvarchar" MaxLength="30" />
+          <Property Name="ModuleIcon" Type="nvarchar" MaxLength="100" />
+          <Property Name="ModulePermissionID" Type="bigint" />
+        </EntityType>
+        <!--生成过程中发现错误:
+      警告 6002: 表/视图“DBCommonManage.dbo.VRoleMenuPermission”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+      -->
+        <EntityType Name="VRoleMenuPermission">
+          <Key>
+            <PropertyRef Name="ModuleID" />
+          </Key>
+          <Property Name="ModuleID" Type="int" Nullable="false" />
+          <Property Name="ModuleName" Type="nvarchar" MaxLength="30" />
+          <Property Name="ModuleLinkUrl" Type="nvarchar" MaxLength="100" />
+          <Property Name="ModuleIcon" Type="nvarchar" MaxLength="100" />
+          <Property Name="ParentNo" Type="int" />
+          <Property Name="Sort" Type="tinyint" />
+          <Property Name="IsLeaf" Type="bit" />
+          <Property Name="IsVisible" Type="bit" />
+          <Property Name="RoleID" Type="int" />
+          <Property Name="ModuleController" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="IsMenu" Type="bit" />
+        </EntityType>
+        <!--生成过程中发现错误:
+      警告 6002: 表/视图“DBCommonManage.dbo.VRoleModulePermission”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+      -->
+        <EntityType Name="VRoleModulePermission">
+          <Key>
+            <PropertyRef Name="ModuleID" />
+            <PropertyRef Name="PermissionID" />
+          </Key>
+          <Property Name="ModuleID" Type="int" Nullable="false" />
+          <Property Name="ModuleName" Type="nvarchar" MaxLength="30" />
+          <Property Name="ModuleLinkUrl" Type="nvarchar" MaxLength="100" />
+          <Property Name="ModuleIcon" Type="nvarchar" MaxLength="100" />
+          <Property Name="ParentNo" Type="int" />
+          <Property Name="Sort" Type="tinyint" />
+          <Property Name="IsVisible" Type="bit" />
+          <Property Name="IsLeaf" Type="bit" />
+          <Property Name="IsMenu" Type="bit" />
+          <Property Name="PermissionName" Type="nvarchar" MaxLength="30" />
+          <Property Name="PermissionID" Type="int" Nullable="false" />
+          <Property Name="RoleID" Type="int" />
+          <Property Name="ModuleController" Type="nvarchar" MaxLength="50" />
+          <Property Name="PermissionAction" Type="nvarchar" MaxLength="30" />
+          <Property Name="Script" Type="nvarchar" MaxLength="100" />
+          <Property Name="Icon" Type="nvarchar" MaxLength="100" />
+          <Property Name="PermissionController" Type="nvarchar" MaxLength="30" />
+          <Property Name="IsButton" Type="bit" />
+        </EntityType>
+        <!--生成过程中发现错误:
+      警告 6002: 表/视图“DBCommonManage.dbo.VRolePermission”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+      -->
+        <EntityType Name="VRolePermission">
+          <Key>
+            <PropertyRef Name="RolePermissionID" />
+          </Key>
+          <Property Name="ModulePermissionID" Type="bigint" />
+          <Property Name="RoleID" Type="int" />
+          <Property Name="RoleName" Type="nvarchar" MaxLength="30" />
+          <Property Name="RolePermissionID" Type="bigint" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_TBFAVORI_REFERENCE_TBUSER">
+          <End Role="tbUser" Type="DBCommonManageModel.Store.tbUser" Multiplicity="0..1" />
+          <End Role="tbFavorite" Type="DBCommonManageModel.Store.tbFavorite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbUser">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="tbFavorite">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBMODULE_REFERENCE_TBMODULE">
+          <End Role="tbModule" Type="DBCommonManageModel.Store.tbModule" Multiplicity="0..1" />
+          <End Role="tbModulePermission" Type="DBCommonManageModel.Store.tbModulePermission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbModule">
+              <PropertyRef Name="ModuleID" />
+            </Principal>
+            <Dependent Role="tbModulePermission">
+              <PropertyRef Name="ModuleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBMODULE_REFERENCE_TBPERMIS">
+          <End Role="tbPermission" Type="DBCommonManageModel.Store.tbPermission" Multiplicity="0..1" />
+          <End Role="tbModulePermission" Type="DBCommonManageModel.Store.tbModulePermission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbPermission">
+              <PropertyRef Name="PermissionID" />
+            </Principal>
+            <Dependent Role="tbModulePermission">
+              <PropertyRef Name="PermissionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBROLEPE_REFERENCE_TBMODULE">
+          <End Role="tbModulePermission" Type="DBCommonManageModel.Store.tbModulePermission" Multiplicity="0..1" />
+          <End Role="tbRolePermission" Type="DBCommonManageModel.Store.tbRolePermission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbModulePermission">
+              <PropertyRef Name="ModulePermissionID" />
+            </Principal>
+            <Dependent Role="tbRolePermission">
+              <PropertyRef Name="ModulePermissionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBROLEPE_REFERENCE_TBROLE">
+          <End Role="tbRole" Type="DBCommonManageModel.Store.tbRole" Multiplicity="0..1" />
+          <End Role="tbRolePermission" Type="DBCommonManageModel.Store.tbRolePermission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbRole">
+              <PropertyRef Name="RoleID" />
+            </Principal>
+            <Dependent Role="tbRolePermission">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBUSER_REFERENCE_TBDEPART">
+          <End Role="tbDepartment" Type="DBCommonManageModel.Store.tbDepartment" Multiplicity="0..1" />
+          <End Role="tbUser" Type="DBCommonManageModel.Store.tbUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbDepartment">
+              <PropertyRef Name="DeptID" />
+            </Principal>
+            <Dependent Role="tbUser">
+              <PropertyRef Name="DeptID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBUSERRO_REFERENCE_TBROLE">
+          <End Role="tbRole" Type="DBCommonManageModel.Store.tbRole" Multiplicity="0..1" />
+          <End Role="tbUserRole" Type="DBCommonManageModel.Store.tbUserRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbRole">
+              <PropertyRef Name="RoleID" />
+            </Principal>
+            <Dependent Role="tbUserRole">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBUSERRO_REFERENCE_TBUSER">
+          <End Role="tbUser" Type="DBCommonManageModel.Store.tbUser" Multiplicity="0..1" />
+          <End Role="tbUserRole" Type="DBCommonManageModel.Store.tbUserRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbUser">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="tbUserRole">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DBCommonManageModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="BaseManageEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="sysdiagrams" EntityType="DBCommonManageModel.sysdiagram" />
+          <EntitySet Name="tbDepartments" EntityType="DBCommonManageModel.tbDepartment" />
+          <EntitySet Name="tbFavorites" EntityType="DBCommonManageModel.tbFavorite" />
+          <EntitySet Name="tbModules" EntityType="DBCommonManageModel.tbModule" />
+          <EntitySet Name="tbModulePermissions" EntityType="DBCommonManageModel.tbModulePermission" />
+          <EntitySet Name="tbRoles" EntityType="DBCommonManageModel.tbRole" />
+          <EntitySet Name="tbRolePermissions" EntityType="DBCommonManageModel.tbRolePermission" />
+          <EntitySet Name="tbUsers" EntityType="DBCommonManageModel.tbUser" />
+          <EntitySet Name="tbUserRoles" EntityType="DBCommonManageModel.tbUserRole" />
+          <AssociationSet Name="FK_TBUSER_REFERENCE_TBDEPART" Association="DBCommonManageModel.FK_TBUSER_REFERENCE_TBDEPART">
+            <End Role="tbDepartment" EntitySet="tbDepartments" />
+            <End Role="tbUser" EntitySet="tbUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBFAVORI_REFERENCE_TBUSER" Association="DBCommonManageModel.FK_TBFAVORI_REFERENCE_TBUSER">
+            <End Role="tbUser" EntitySet="tbUsers" />
+            <End Role="tbFavorite" EntitySet="tbFavorites" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBMODULE_REFERENCE_TBMODULE" Association="DBCommonManageModel.FK_TBMODULE_REFERENCE_TBMODULE">
+            <End Role="tbModule" EntitySet="tbModules" />
+            <End Role="tbModulePermission" EntitySet="tbModulePermissions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBROLEPE_REFERENCE_TBMODULE" Association="DBCommonManageModel.FK_TBROLEPE_REFERENCE_TBMODULE">
+            <End Role="tbModulePermission" EntitySet="tbModulePermissions" />
+            <End Role="tbRolePermission" EntitySet="tbRolePermissions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBROLEPE_REFERENCE_TBROLE" Association="DBCommonManageModel.FK_TBROLEPE_REFERENCE_TBROLE">
+            <End Role="tbRole" EntitySet="tbRoles" />
+            <End Role="tbRolePermission" EntitySet="tbRolePermissions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBUSERRO_REFERENCE_TBROLE" Association="DBCommonManageModel.FK_TBUSERRO_REFERENCE_TBROLE">
+            <End Role="tbRole" EntitySet="tbRoles" />
+            <End Role="tbUserRole" EntitySet="tbUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBUSERRO_REFERENCE_TBUSER" Association="DBCommonManageModel.FK_TBUSERRO_REFERENCE_TBUSER">
+            <End Role="tbUser" EntitySet="tbUsers" />
+            <End Role="tbUserRole" EntitySet="tbUserRoles" />
+          </AssociationSet>
+          <EntitySet Name="VRolePermissions" EntityType="DBCommonManageModel.VRolePermission" />
+          <EntitySet Name="tbPermissions" EntityType="DBCommonManageModel.tbPermission" />
+          <AssociationSet Name="FK_TBMODULE_REFERENCE_TBPERMIS" Association="DBCommonManageModel.FK_TBMODULE_REFERENCE_TBPERMIS">
+            <End Role="tbPermission" EntitySet="tbPermissions" />
+            <End Role="tbModulePermission" EntitySet="tbModulePermissions" />
+          </AssociationSet>
+          <EntitySet Name="tbOperateLogs" EntityType="DBCommonManageModel.tbOperateLog" />
+          <EntitySet Name="VRoleMenuPermissions" EntityType="DBCommonManageModel.VRoleMenuPermission" />
+          <EntitySet Name="VRoleModulePermissions" EntityType="DBCommonManageModel.VRoleModulePermission" />
+          <EntitySet Name="VModulePermissions" EntityType="DBCommonManageModel.VModulePermission" />
+          <EntitySet Name="VRoleGrantPermissions" EntityType="DBCommonManageModel.VRoleGrantPermission" />
+          </EntityContainer>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="tbDepartment">
+          <Key>
+            <PropertyRef Name="DeptID" />
+          </Key>
+          <Property Name="DeptID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DeptName" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="DeptDescription" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="ParentID" Type="Int32" />
+          <Property Name="CreateUserID" Type="Int32" />
+          <Property Name="CreateDate" Type="DateTime" />
+          <Property Name="ModifyUserID" Type="Int32" />
+          <Property Name="ModifyDate" Type="DateTime" />
+          <Property Name="RecordStatus" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <NavigationProperty Name="tbUsers" Relationship="DBCommonManageModel.FK_TBUSER_REFERENCE_TBDEPART" FromRole="tbDepartment" ToRole="tbUser" />
+        </EntityType>
+        <EntityType Name="tbFavorite">
+          <Key>
+            <PropertyRef Name="FavoriteID" />
+          </Key>
+          <Property Name="FavoriteID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FavoriteTitle" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="FavoriteAddTime" Type="DateTime" />
+          <Property Name="FavoriteContent" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="Url" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Icon" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="tbUser" Relationship="DBCommonManageModel.FK_TBFAVORI_REFERENCE_TBUSER" FromRole="tbFavorite" ToRole="tbUser" />
+        </EntityType>
+        <EntityType Name="tbModule">
+          <Key>
+            <PropertyRef Name="ModuleID" />
+          </Key>
+          <Property Name="ModuleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ModuleName" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="ModuleLinkUrl" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="ModuleIcon" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="ParentNo" Type="Int32" Nullable="true" />
+          <Property Name="Sort" Type="Byte" />
+          <Property Name="IsVisible" Type="Boolean" />
+          <Property Name="IsLeaf" Type="Boolean" />
+          <Property Name="IsMenu" Type="Boolean" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <NavigationProperty Name="tbModulePermissions" Relationship="DBCommonManageModel.FK_TBMODULE_REFERENCE_TBMODULE" FromRole="tbModule" ToRole="tbModulePermission" />
+          <Property Type="String" Name="ModuleController" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbModulePermission">
+          <Key>
+            <PropertyRef Name="ModulePermissionID" />
+          </Key>
+          <Property Name="ModulePermissionID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ModuleID" Type="Int32" />
+          <Property Name="PermissionID" Type="Int32" />
+          <Property Name="CreateUserID" Type="Int32" />
+          <Property Name="CreateDate" Type="DateTime" />
+          <Property Name="ModifyUserID" Type="Int32" />
+          <Property Name="ModifyDate" Type="DateTime" />
+          <Property Name="RecordStatus" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="tbModule" Relationship="DBCommonManageModel.FK_TBMODULE_REFERENCE_TBMODULE" FromRole="tbModulePermission" ToRole="tbModule" />
+          <NavigationProperty Name="tbRolePermissions" Relationship="DBCommonManageModel.FK_TBROLEPE_REFERENCE_TBMODULE" FromRole="tbModulePermission" ToRole="tbRolePermission" />
+          <NavigationProperty Name="tbPermission" Relationship="DBCommonManageModel.FK_TBMODULE_REFERENCE_TBPERMIS" FromRole="tbModulePermission" ToRole="tbPermission" />
+          <Property Type="Boolean" Name="IsDeleted" />
+        </EntityType>
+        <EntityType Name="tbRole">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleNo" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="RoleName" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="Sort" Type="Byte" />
+          <Property Name="IsVisible" Type="Boolean" />
+          <Property Name="CreateUserID" Type="Int32" />
+          <Property Name="CreateDate" Type="DateTime" />
+          <Property Name="ModifyUserID" Type="Int32" />
+          <Property Name="ModifyDate" Type="DateTime" />
+          <Property Name="RecordStatus" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <NavigationProperty Name="tbRolePermissions" Relationship="DBCommonManageModel.FK_TBROLEPE_REFERENCE_TBROLE" FromRole="tbRole" ToRole="tbRolePermission" />
+          <NavigationProperty Name="tbUserRoles" Relationship="DBCommonManageModel.FK_TBUSERRO_REFERENCE_TBROLE" FromRole="tbRole" ToRole="tbUserRole" />
+          <Property Type="String" Name="Description" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbRolePermission">
+          <Key>
+            <PropertyRef Name="RolePermissionID" />
+          </Key>
+          <Property Name="RolePermissionID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleID" Type="Int32" />
+          <Property Name="ModulePermissionID" Type="Int64" />
+          <Property Name="CreateUserID" Type="Int32" />
+          <Property Name="CreateDate" Type="DateTime" />
+          <Property Name="ModifyUserID" Type="Int32" />
+          <Property Name="ModifyDate" Type="DateTime" />
+          <Property Name="RecordStatus" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="tbModulePermission" Relationship="DBCommonManageModel.FK_TBROLEPE_REFERENCE_TBMODULE" FromRole="tbRolePermission" ToRole="tbModulePermission" />
+          <NavigationProperty Name="tbRole" Relationship="DBCommonManageModel.FK_TBROLEPE_REFERENCE_TBROLE" FromRole="tbRolePermission" ToRole="tbRole" />
+        </EntityType>
+        <EntityType Name="tbUser">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="UserPassword" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="RoleID" Type="Int32" />
+          <Property Name="DeptID" Type="Int32" />
+          <Property Name="Phone" Type="String" MaxLength="13" Unicode="true" FixedLength="false" />
+          <Property Name="Fax" Type="String" MaxLength="13" Unicode="true" FixedLength="false" />
+          <Property Name="Email" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="QQ" Type="String" MaxLength="13" Unicode="true" FixedLength="false" />
+          <Property Name="NickName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Address" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="RealName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Sex" Type="Boolean" />
+          <Property Name="Enabled" Type="Boolean" />
+          <Property Name="LastLoginTime" Type="DateTime" />
+          <Property Name="CreateUserID" Type="Int32" />
+          <Property Name="CreateDate" Type="DateTime" />
+          <Property Name="ModifyUserID" Type="Int32" />
+          <Property Name="ModifyDate" Type="DateTime" />
+          <Property Name="RecordStatus" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <NavigationProperty Name="tbDepartment" Relationship="DBCommonManageModel.FK_TBUSER_REFERENCE_TBDEPART" FromRole="tbUser" ToRole="tbDepartment" />
+          <NavigationProperty Name="tbFavorites" Relationship="DBCommonManageModel.FK_TBFAVORI_REFERENCE_TBUSER" FromRole="tbUser" ToRole="tbFavorite" />
+          <NavigationProperty Name="tbUserRoles" Relationship="DBCommonManageModel.FK_TBUSERRO_REFERENCE_TBUSER" FromRole="tbUser" ToRole="tbUserRole" />
+        </EntityType>
+        <EntityType Name="tbUserRole">
+          <Key>
+            <PropertyRef Name="UserRoleID" />
+          </Key>
+          <Property Name="UserRoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="RoleID" Type="Int32" />
+          <Property Name="CreateUserID" Type="Int32" />
+          <Property Name="CreateDate" Type="DateTime" />
+          <Property Name="ModifyUserID" Type="Int32" />
+          <Property Name="ModifyDate" Type="DateTime" />
+          <Property Name="RecordStatus" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="tbRole" Relationship="DBCommonManageModel.FK_TBUSERRO_REFERENCE_TBROLE" FromRole="tbUserRole" ToRole="tbRole" />
+          <NavigationProperty Name="tbUser" Relationship="DBCommonManageModel.FK_TBUSERRO_REFERENCE_TBUSER" FromRole="tbUserRole" ToRole="tbUser" />
+        </EntityType>
+        <Association Name="FK_TBUSER_REFERENCE_TBDEPART">
+          <End Role="tbDepartment" Type="DBCommonManageModel.tbDepartment" Multiplicity="0..1" >
+          </End>
+          <End Role="tbUser" Type="DBCommonManageModel.tbUser" Multiplicity="*" >
+          </End>
+          <ReferentialConstraint>
+            <Principal Role="tbDepartment">
+              <PropertyRef Name="DeptID" />
+            </Principal>
+            <Dependent Role="tbUser">
+              <PropertyRef Name="DeptID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBFAVORI_REFERENCE_TBUSER">
+          <End Role="tbUser" Type="DBCommonManageModel.tbUser" Multiplicity="0..1" >
+          </End>
+          <End Role="tbFavorite" Type="DBCommonManageModel.tbFavorite" Multiplicity="*" >
+          </End>
+          <ReferentialConstraint>
+            <Principal Role="tbUser">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="tbFavorite">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBMODULE_REFERENCE_TBMODULE">
+          <End Role="tbModule" Type="DBCommonManageModel.tbModule" Multiplicity="0..1" >
+          </End>
+          <End Role="tbModulePermission" Type="DBCommonManageModel.tbModulePermission" Multiplicity="*" >
+          </End>
+          <ReferentialConstraint>
+            <Principal Role="tbModule">
+              <PropertyRef Name="ModuleID" />
+            </Principal>
+            <Dependent Role="tbModulePermission">
+              <PropertyRef Name="ModuleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBROLEPE_REFERENCE_TBMODULE">
+          <End Role="tbModulePermission" Type="DBCommonManageModel.tbModulePermission" Multiplicity="0..1" >
+          </End>
+          <End Role="tbRolePermission" Type="DBCommonManageModel.tbRolePermission" Multiplicity="*" >
+          </End>
+          <ReferentialConstraint>
+            <Principal Role="tbModulePermission">
+              <PropertyRef Name="ModulePermissionID" />
+            </Principal>
+            <Dependent Role="tbRolePermission">
+              <PropertyRef Name="ModulePermissionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBROLEPE_REFERENCE_TBROLE">
+          <End Role="tbRole" Type="DBCommonManageModel.tbRole" Multiplicity="0..1" >
+          </End>
+          <End Role="tbRolePermission" Type="DBCommonManageModel.tbRolePermission" Multiplicity="*" >
+          </End>
+          <ReferentialConstraint>
+            <Principal Role="tbRole">
+              <PropertyRef Name="RoleID" />
+            </Principal>
+            <Dependent Role="tbRolePermission">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBUSERRO_REFERENCE_TBROLE">
+          <End Role="tbRole" Type="DBCommonManageModel.tbRole" Multiplicity="0..1" >
+          </End>
+          <End Role="tbUserRole" Type="DBCommonManageModel.tbUserRole" Multiplicity="*" >
+          </End>
+          <ReferentialConstraint>
+            <Principal Role="tbRole">
+              <PropertyRef Name="RoleID" />
+            </Principal>
+            <Dependent Role="tbUserRole">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBUSERRO_REFERENCE_TBUSER">
+          <End Role="tbUser" Type="DBCommonManageModel.tbUser" Multiplicity="0..1" >
+          </End>
+          <End Role="tbUserRole" Type="DBCommonManageModel.tbUserRole" Multiplicity="*" >
+          </End>
+          <ReferentialConstraint>
+            <Principal Role="tbUser">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="tbUserRole">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="VRolePermission">
+          <Key>
+            <PropertyRef Name="RolePermissionID" />
+          </Key>
+          <Property Type="Int64" Name="ModulePermissionID" />
+          <Property Type="Int32" Name="RoleID" />
+          <Property Type="String" Name="RoleName" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="RolePermissionID" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbPermission">
+          <Key>
+            <PropertyRef Name="PermissionID" />
+          </Key>
+          <Property Type="Int32" Name="PermissionID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="PermissionAction" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PermissionName" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="Byte" Name="Sort" />
+          <Property Type="Boolean" Name="IsVisible" />
+          <Property Type="String" Name="Script" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tbModulePermissions" Relationship="DBCommonManageModel.FK_TBMODULE_REFERENCE_TBPERMIS" FromRole="tbPermission" ToRole="tbModulePermission" />
+          <Property Type="String" Name="Icon" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PermissionController" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsButton" />
+          <Property Type="Int32" Name="ParentID" />
+        </EntityType>
+        <Association Name="FK_TBMODULE_REFERENCE_TBPERMIS">
+          <End Type="DBCommonManageModel.tbPermission" Role="tbPermission" Multiplicity="0..1" >
+          </End>
+          <End Type="DBCommonManageModel.tbModulePermission" Role="tbModulePermission" Multiplicity="*" >
+          </End>
+          <ReferentialConstraint>
+            <Principal Role="tbPermission">
+              <PropertyRef Name="PermissionID" />
+            </Principal>
+            <Dependent Role="tbModulePermission">
+              <PropertyRef Name="PermissionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="tbOperateLog">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="ProcessName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ProcessDesc" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MethodName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="UserID" />
+          <Property Type="String" Name="UserName" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="IPAddress" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="CreateDate" />
+          <Property Type="String" Name="MethodDesc" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="VRoleMenuPermission">
+          <Key>
+            <PropertyRef Name="ModuleID" />
+          </Key>
+          <Property Type="Int32" Name="ModuleID" Nullable="false" />
+          <Property Type="String" Name="ModuleName" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ModuleLinkUrl" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ModuleIcon" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="ParentNo" />
+          <Property Type="Byte" Name="Sort" />
+          <Property Type="Boolean" Name="IsLeaf" />
+          <Property Type="Boolean" Name="IsVisible" />
+          <Property Type="Int32" Name="RoleID" />
+          <Property Type="String" Name="ModuleController" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsDeleted" />
+          <Property Type="Boolean" Name="IsMenu" />
+        </EntityType>
+        <EntityType Name="VRoleModulePermission">
+          <Key>
+            <PropertyRef Name="ModuleID" />
+            <PropertyRef Name="PermissionID" />
+          </Key>
+          <Property Type="Int32" Name="ModuleID" Nullable="false" />
+          <Property Type="String" Name="ModuleName" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ModuleLinkUrl" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ModuleIcon" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="ParentNo" />
+          <Property Type="Byte" Name="Sort" />
+          <Property Type="Boolean" Name="IsVisible" />
+          <Property Type="Boolean" Name="IsLeaf" />
+          <Property Type="Boolean" Name="IsMenu" />
+          <Property Type="String" Name="PermissionName" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="PermissionID" Nullable="false" />
+          <Property Type="Int32" Name="RoleID" />
+          <Property Type="String" Name="ModuleController" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PermissionAction" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Script" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Icon" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PermissionController" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsButton" />
+        </EntityType>
+        <EntityType Name="VModulePermission">
+          <Key>
+            <PropertyRef Name="ModulePermissionID" />
+          </Key>
+          <Property Type="String" Name="ButtonName" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="ModulePermissionID" Nullable="false" />
+          <Property Type="Int32" Name="MenuID" />
+          <Property Type="Int32" Name="ButtonID" />
+          <Property Type="String" Name="MenuName" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MenuUrl" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ModuleIcon" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="ParentNo" />
+          <Property Type="Byte" Name="Sort" />
+          <Property Type="Boolean" Name="IsLeaf" />
+          <Property Type="Boolean" Name="IsMenu" />
+          <Property Type="String" Name="ModuleController" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ButtonAction" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ButtonIcon" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MenuController" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="modPermissionIsDeleted" />
+          <Property Type="Int32" Name="ParentID" />
+          <Property Type="String" Name="Description" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="VRoleGrantPermission">
+          <Key>
+            <PropertyRef Name="PermissionID" />
+          </Key>
+          <Property Type="Int32" Name="PermissionID" Nullable="false" />
+          <Property Type="String" Name="PermissionAction" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PermissionName" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Icon" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PermissionController" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="ParentID" />
+          <Property Type="String" Name="ModuleController" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ModuleName" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ModuleIcon" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="ModulePermissionID" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DBCommonManageModelStoreContainer" CdmEntityContainer="BaseManageEntities">
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="DBCommonManageModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbDepartments">
+            <EntityTypeMapping TypeName="DBCommonManageModel.tbDepartment">
+              <MappingFragment StoreEntitySet="tbDepartment">
+                <ScalarProperty Name="DeptID" ColumnName="DeptID" />
+                <ScalarProperty Name="DeptName" ColumnName="DeptName" />
+                <ScalarProperty Name="DeptDescription" ColumnName="DeptDescription" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="CreateUserID" ColumnName="CreateUserID" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ModifyUserID" ColumnName="ModifyUserID" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="RecordStatus" ColumnName="RecordStatus" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbFavorites">
+            <EntityTypeMapping TypeName="DBCommonManageModel.tbFavorite">
+              <MappingFragment StoreEntitySet="tbFavorite">
+                <ScalarProperty Name="FavoriteID" ColumnName="FavoriteID" />
+                <ScalarProperty Name="FavoriteTitle" ColumnName="FavoriteTitle" />
+                <ScalarProperty Name="FavoriteAddTime" ColumnName="FavoriteAddTime" />
+                <ScalarProperty Name="FavoriteContent" ColumnName="FavoriteContent" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="Icon" ColumnName="Icon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbModules">
+            <EntityTypeMapping TypeName="DBCommonManageModel.tbModule">
+              <MappingFragment StoreEntitySet="tbModule">
+                <ScalarProperty Name="ModuleController" ColumnName="ModuleController" />
+                <ScalarProperty Name="ModuleID" ColumnName="ModuleID" />
+                <ScalarProperty Name="ModuleName" ColumnName="ModuleName" />
+                <ScalarProperty Name="ModuleLinkUrl" ColumnName="ModuleLinkUrl" />
+                <ScalarProperty Name="ModuleIcon" ColumnName="ModuleIcon" />
+                <ScalarProperty Name="ParentNo" ColumnName="ParentNo" />
+                <ScalarProperty Name="Sort" ColumnName="Sort" />
+                <ScalarProperty Name="IsVisible" ColumnName="IsVisible" />
+                <ScalarProperty Name="IsLeaf" ColumnName="IsLeaf" />
+                <ScalarProperty Name="IsMenu" ColumnName="IsMenu" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbModulePermissions">
+            <EntityTypeMapping TypeName="DBCommonManageModel.tbModulePermission">
+              <MappingFragment StoreEntitySet="tbModulePermission">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="ModulePermissionID" ColumnName="ModulePermissionID" />
+                <ScalarProperty Name="ModuleID" ColumnName="ModuleID" />
+                <ScalarProperty Name="PermissionID" ColumnName="PermissionID" />
+                <ScalarProperty Name="CreateUserID" ColumnName="CreateUserID" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ModifyUserID" ColumnName="ModifyUserID" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="RecordStatus" ColumnName="RecordStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbRoles">
+            <EntityTypeMapping TypeName="DBCommonManageModel.tbRole">
+              <MappingFragment StoreEntitySet="tbRole">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="RoleNo" ColumnName="RoleNo" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="Sort" ColumnName="Sort" />
+                <ScalarProperty Name="IsVisible" ColumnName="IsVisible" />
+                <ScalarProperty Name="CreateUserID" ColumnName="CreateUserID" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ModifyUserID" ColumnName="ModifyUserID" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="RecordStatus" ColumnName="RecordStatus" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbRolePermissions">
+            <EntityTypeMapping TypeName="DBCommonManageModel.tbRolePermission">
+              <MappingFragment StoreEntitySet="tbRolePermission">
+                <ScalarProperty Name="RolePermissionID" ColumnName="RolePermissionID" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="ModulePermissionID" ColumnName="ModulePermissionID" />
+                <ScalarProperty Name="CreateUserID" ColumnName="CreateUserID" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ModifyUserID" ColumnName="ModifyUserID" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="RecordStatus" ColumnName="RecordStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbUsers">
+            <EntityTypeMapping TypeName="DBCommonManageModel.tbUser">
+              <MappingFragment StoreEntitySet="tbUser">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="DeptID" ColumnName="DeptID" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="QQ" ColumnName="QQ" />
+                <ScalarProperty Name="NickName" ColumnName="NickName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="RealName" ColumnName="RealName" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="Enabled" ColumnName="Enabled" />
+                <ScalarProperty Name="LastLoginTime" ColumnName="LastLoginTime" />
+                <ScalarProperty Name="CreateUserID" ColumnName="CreateUserID" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ModifyUserID" ColumnName="ModifyUserID" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="RecordStatus" ColumnName="RecordStatus" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbUserRoles">
+            <EntityTypeMapping TypeName="DBCommonManageModel.tbUserRole">
+              <MappingFragment StoreEntitySet="tbUserRole">
+                <ScalarProperty Name="UserRoleID" ColumnName="UserRoleID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="CreateUserID" ColumnName="CreateUserID" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ModifyUserID" ColumnName="ModifyUserID" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="RecordStatus" ColumnName="RecordStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VRolePermissions">
+            <EntityTypeMapping TypeName="DBCommonManageModel.VRolePermission">
+              <MappingFragment StoreEntitySet="VRolePermission">
+                <ScalarProperty Name="RolePermissionID" ColumnName="RolePermissionID" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="ModulePermissionID" ColumnName="ModulePermissionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbPermissions">
+            <EntityTypeMapping TypeName="DBCommonManageModel.tbPermission">
+              <MappingFragment StoreEntitySet="tbPermission">
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="IsButton" ColumnName="IsButton" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="PermissionController" ColumnName="PermissionController" />
+                <ScalarProperty Name="Icon" ColumnName="Icon" />
+                <ScalarProperty Name="Script" ColumnName="Script" />
+                <ScalarProperty Name="IsVisible" ColumnName="IsVisible" />
+                <ScalarProperty Name="Sort" ColumnName="Sort" />
+                <ScalarProperty Name="PermissionName" ColumnName="PermissionName" />
+                <ScalarProperty Name="PermissionAction" ColumnName="PermissionAction" />
+                <ScalarProperty Name="PermissionID" ColumnName="PermissionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbOperateLogs">
+            <EntityTypeMapping TypeName="DBCommonManageModel.tbOperateLog">
+              <MappingFragment StoreEntitySet="tbOperateLog">
+                <ScalarProperty Name="MethodDesc" ColumnName="MethodDesc" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="MethodName" ColumnName="MethodName" />
+                <ScalarProperty Name="ProcessDesc" ColumnName="ProcessDesc" />
+                <ScalarProperty Name="ProcessName" ColumnName="ProcessName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VRoleMenuPermissions">
+            <EntityTypeMapping TypeName="DBCommonManageModel.VRoleMenuPermission">
+              <MappingFragment StoreEntitySet="VRoleMenuPermission">
+                <ScalarProperty Name="IsMenu" ColumnName="IsMenu" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="ModuleController" ColumnName="ModuleController" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="IsVisible" ColumnName="IsVisible" />
+                <ScalarProperty Name="IsLeaf" ColumnName="IsLeaf" />
+                <ScalarProperty Name="Sort" ColumnName="Sort" />
+                <ScalarProperty Name="ParentNo" ColumnName="ParentNo" />
+                <ScalarProperty Name="ModuleIcon" ColumnName="ModuleIcon" />
+                <ScalarProperty Name="ModuleLinkUrl" ColumnName="ModuleLinkUrl" />
+                <ScalarProperty Name="ModuleName" ColumnName="ModuleName" />
+                <ScalarProperty Name="ModuleID" ColumnName="ModuleID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VRoleModulePermissions">
+            <EntityTypeMapping TypeName="DBCommonManageModel.VRoleModulePermission">
+              <MappingFragment StoreEntitySet="VRoleModulePermission">
+                <ScalarProperty Name="IsButton" ColumnName="IsButton" />
+                <ScalarProperty Name="PermissionController" ColumnName="PermissionController" />
+                <ScalarProperty Name="Icon" ColumnName="Icon" />
+                <ScalarProperty Name="Script" ColumnName="Script" />
+                <ScalarProperty Name="PermissionAction" ColumnName="PermissionAction" />
+                <ScalarProperty Name="ModuleController" ColumnName="ModuleController" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="PermissionID" ColumnName="PermissionID" />
+                <ScalarProperty Name="PermissionName" ColumnName="PermissionName" />
+                <ScalarProperty Name="IsMenu" ColumnName="IsMenu" />
+                <ScalarProperty Name="IsLeaf" ColumnName="IsLeaf" />
+                <ScalarProperty Name="IsVisible" ColumnName="IsVisible" />
+                <ScalarProperty Name="Sort" ColumnName="Sort" />
+                <ScalarProperty Name="ParentNo" ColumnName="ParentNo" />
+                <ScalarProperty Name="ModuleIcon" ColumnName="ModuleIcon" />
+                <ScalarProperty Name="ModuleLinkUrl" ColumnName="ModuleLinkUrl" />
+                <ScalarProperty Name="ModuleName" ColumnName="ModuleName" />
+                <ScalarProperty Name="ModuleID" ColumnName="ModuleID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VModulePermissions">
+            <EntityTypeMapping TypeName="DBCommonManageModel.VModulePermission">
+              <MappingFragment StoreEntitySet="VModulePermission">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="modPermissionIsDeleted" ColumnName="modPermissionIsDeleted" />
+                <ScalarProperty Name="MenuController" ColumnName="MenuController" />
+                <ScalarProperty Name="ButtonIcon" ColumnName="ButtonIcon" />
+                <ScalarProperty Name="ButtonAction" ColumnName="ButtonAction" />
+                <ScalarProperty Name="ModuleController" ColumnName="ModuleController" />
+                <ScalarProperty Name="IsMenu" ColumnName="IsMenu" />
+                <ScalarProperty Name="IsLeaf" ColumnName="IsLeaf" />
+                <ScalarProperty Name="Sort" ColumnName="Sort" />
+                <ScalarProperty Name="ParentNo" ColumnName="ParentNo" />
+                <ScalarProperty Name="ModuleIcon" ColumnName="ModuleIcon" />
+                <ScalarProperty Name="MenuUrl" ColumnName="MenuUrl" />
+                <ScalarProperty Name="MenuName" ColumnName="MenuName" />
+                <ScalarProperty Name="ButtonID" ColumnName="ButtonID" />
+                <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+                <ScalarProperty Name="ModulePermissionID" ColumnName="ModulePermissionID" />
+                <ScalarProperty Name="ButtonName" ColumnName="ButtonName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VRoleGrantPermissions">
+            <EntityTypeMapping TypeName="DBCommonManageModel.VRoleGrantPermission">
+              <MappingFragment StoreEntitySet="VRoleGrantPermission">
+                <ScalarProperty Name="ModulePermissionID" ColumnName="ModulePermissionID" />
+                <ScalarProperty Name="ModuleIcon" ColumnName="ModuleIcon" />
+                <ScalarProperty Name="ModuleName" ColumnName="ModuleName" />
+                <ScalarProperty Name="ModuleController" ColumnName="ModuleController" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="PermissionController" ColumnName="PermissionController" />
+                <ScalarProperty Name="Icon" ColumnName="Icon" />
+                <ScalarProperty Name="PermissionName" ColumnName="PermissionName" />
+                <ScalarProperty Name="PermissionAction" ColumnName="PermissionAction" />
+                <ScalarProperty Name="PermissionID" ColumnName="PermissionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="BaseManage" ZoomLevel="58">
+        <EntityTypeShape EntityType="DBCommonManageModel.sysdiagram" Width="1.5" PointX="0.75" PointY="11.125" Height="1.9700325520833317" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBCommonManageModel.tbDepartment" Width="1.5" PointX="0.75" PointY="5" Height="3.1161507161458317" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBCommonManageModel.tbFavorite" Width="1.5" PointX="5.25" PointY="5.375" Height="2.5430916341145817" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBCommonManageModel.tbModule" Width="1.5" PointX="5.75" PointY="9.375" Height="3.3071704101562496" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBCommonManageModel.tbModulePermission" Width="1.5" PointX="8" PointY="9.375" Height="3.1161507161458335" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBCommonManageModel.tbRole" Width="1.5" PointX="6" PointY="0.75" Height="3.6892097981770826" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBCommonManageModel.tbRolePermission" Width="1.5" PointX="11.25" PointY="5.25" Height="2.9251310221354165" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBCommonManageModel.tbUser" Width="1.5" PointX="3" PointY="3.75" Height="5.5994067382812531" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBCommonManageModel.tbUserRole" Width="1.5" PointX="8.75" PointY="4.5" Height="2.9251310221354174" IsExpanded="true" />
+        <AssociationConnector Association="DBCommonManageModel.FK_TBUSER_REFERENCE_TBDEPART" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="6.5580753580729159" />
+          <ConnectorPoint PointX="3" PointY="6.5580753580729159" />
+        </AssociationConnector>
+        <AssociationConnector Association="DBCommonManageModel.FK_TBFAVORI_REFERENCE_TBUSER" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="6.6465458170572909" />
+          <ConnectorPoint PointX="5.25" PointY="6.6465458170572909" />
+        </AssociationConnector>
+        <AssociationConnector Association="DBCommonManageModel.FK_TBMODULE_REFERENCE_TBMODULE" ManuallyRouted="false">
+          <ConnectorPoint PointX="7.25" PointY="11.028585205078125" />
+          <ConnectorPoint PointX="8" PointY="11.028585205078125" />
+        </AssociationConnector>
+        <AssociationConnector Association="DBCommonManageModel.FK_TBROLEPE_REFERENCE_TBMODULE" ManuallyRouted="false">
+          <ConnectorPoint PointX="8.34375" PointY="9.375" />
+          <ConnectorPoint PointX="8.34375" PointY="7.7514936751302077" />
+          <ConnectorPoint PointX="11.25" PointY="7.7514936751302077" />
+        </AssociationConnector>
+        <AssociationConnector Association="DBCommonManageModel.FK_TBROLEPE_REFERENCE_TBROLE" ManuallyRouted="false">
+          <ConnectorPoint PointX="7.15625" PointY="4.4392097981770826" />
+          <ConnectorPoint PointX="7.15625" PointY="8.077861328125" />
+          <ConnectorPoint PointX="8.2604166666666661" PointY="8.077861328125" />
+          <ConnectorPoint PointX="8.4270833333333339" PointY="8.077861328125" />
+          <ConnectorPoint PointX="11.25" PointY="8.077861328125" />
+        </AssociationConnector>
+        <AssociationConnector Association="DBCommonManageModel.FK_TBUSERRO_REFERENCE_TBROLE" ManuallyRouted="false">
+          <ConnectorPoint PointX="7.5" PointY="2.5946048990885417" />
+          <ConnectorPoint PointX="9.5" PointY="2.5946048990885417" />
+          <ConnectorPoint PointX="9.5" PointY="4.5" />
+        </AssociationConnector>
+        <AssociationConnector Association="DBCommonManageModel.FK_TBUSERRO_REFERENCE_TBUSER" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="4.90625" />
+          <ConnectorPoint PointX="7.072916666666667" PointY="4.9062499999999991" />
+          <ConnectorPoint PointX="7.239583333333333" PointY="4.90625" />
+          <ConnectorPoint PointX="8.75" PointY="4.90625" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="DBCommonManageModel.VRolePermission" Width="3.375" PointX="0.75" PointY="0.75" Height="1.7790128580729174" />
+        <EntityTypeShape EntityType="DBCommonManageModel.tbPermission" Width="1.5" PointX="12.375" PointY="10" Height="2.3520719401041674" />
+        <AssociationConnector Association="DBCommonManageModel.FK_TBMODULE_REFERENCE_TBPERMIS" >
+          <ConnectorPoint PointX="12.375" PointY="11.176035970052084" />
+          <ConnectorPoint PointX="9.5" PointY="11.176035970052084" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="DBCommonManageModel.tbOperateLog" Width="1.5" PointX="13.375" PointY="5.75" Height="2.9251310221354174" />
+        <EntityTypeShape EntityType="DBCommonManageModel.VRoleMenuPermission" Width="1.5" PointX="11.375" PointY="0.75" Height="3.3071704101562531" />
+        <EntityTypeShape EntityType="DBCommonManageModel.VRoleModulePermission" Width="1.5" PointX="5.375" PointY="13.75" Height="4.4532885742187531" />
+        <EntityTypeShape EntityType="DBCommonManageModel.VModulePermission" Width="1.5" PointX="13.375" PointY="0.75" Height="4.0712491861979174" />
+        <EntityTypeShape EntityType="DBCommonManageModel.VRoleGrantPermission" Width="1.5" PointX="7.375" PointY="13.75" Height="3.1161507161458353" />
+        </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

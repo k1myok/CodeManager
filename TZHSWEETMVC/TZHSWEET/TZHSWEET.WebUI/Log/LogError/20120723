@@ -1,0 +1,1622 @@
+
+异常时间：2012-07-23 00:13:00,737 [6] 
+异常级别：ERROR 
+异 常 类：logerror [(null)] 
+
+客户机IP:::1
+错误地址:http://localhost:8134/Admin/OperateLog/GetLogsGrid?view=OperateLog
+异常信息:此操作的参数类型“Edm.Int32”和“Edm.String”不兼容。 附近 等于表达式, 列 6, 列 14. 
+ System.Data.EntitySqlException: 此操作的参数类型“Edm.Int32”和“Edm.String”不兼容。 附近 等于表达式, 列 6, 列 14.
+   在 System.Data.Common.EntitySql.SemanticAnalyzer.ConvertEqualCompArgs(BuiltInExpr astBuiltInExpr, SemanticResolver sr)
+   在 System.Data.Common.EntitySql.SemanticAnalyzer.<CreateBuiltInExprConverter>b__83(BuiltInExpr bltInExpr, SemanticResolver sr)
+   在 System.Data.Common.EntitySql.SemanticAnalyzer.ConvertBuiltIn(Node astExpr, SemanticResolver sr)
+   在 System.Data.Common.EntitySql.SemanticAnalyzer.Convert(Node astExpr, SemanticResolver sr)
+   在 System.Data.Common.EntitySql.SemanticAnalyzer.ConvertValueExpressionAllowUntypedNulls(Node astExpr, SemanticResolver sr)
+   在 System.Data.Common.EntitySql.SemanticAnalyzer.ConvertLogicalArgs(BuiltInExpr astBuiltInExpr, SemanticResolver sr)
+   在 System.Data.Common.EntitySql.SemanticAnalyzer.<CreateBuiltInExprConverter>b__80(BuiltInExpr bltInExpr, SemanticResolver sr)
+   在 System.Data.Common.EntitySql.SemanticAnalyzer.ConvertBuiltIn(Node astExpr, SemanticResolver sr)
+   在 System.Data.Common.EntitySql.SemanticAnalyzer.Convert(Node astExpr, SemanticResolver sr)
+   在 System.Data.Common.EntitySql.SemanticAnalyzer.ConvertValueExpressionAllowUntypedNulls(Node astExpr, SemanticResolver sr)
+   在 System.Data.Common.EntitySql.SemanticAnalyzer.ConvertParenExpr(Node astExpr, SemanticResolver sr)
+   在 System.Data.Common.EntitySql.SemanticAnalyzer.Convert(Node astExpr, SemanticResolver sr)
+   在 System.Data.Common.EntitySql.SemanticAnalyzer.ConvertValueExpressionAllowUntypedNulls(Node astExpr, SemanticResolver sr)
+   在 System.Data.Common.EntitySql.SemanticAnalyzer.ConvertValueExpression(Node astExpr, SemanticResolver sr)
+   在 System.Data.Common.EntitySql.SemanticAnalyzer.ProcessWhereHavingClausePredicate(DbExpressionBinding source, Node predicate, ErrorContext errCtx, String bindingNameTemplate, SemanticResolver sr)
+   在 System.Data.Common.EntitySql.SemanticAnalyzer.ConvertQueryExpr(Node expr, SemanticResolver sr)
+   在 System.Data.Common.EntitySql.SemanticAnalyzer.Convert(Node astExpr, SemanticResolver sr)
+   在 System.Data.Common.EntitySql.SemanticAnalyzer.ConvertValueExpressionAllowUntypedNulls(Node astExpr, SemanticResolver sr)
+   在 System.Data.Common.EntitySql.SemanticAnalyzer.ConvertQueryStatementToDbExpression(Statement astStatement, SemanticResolver sr, List`1& functionDefs)
+   在 System.Data.Common.EntitySql.SemanticAnalyzer.AnalyzeQueryCommand(Node astExpr)
+   在 System.Data.Common.EntitySql.CqlQuery.<AnalyzeQueryExpressionSemantics>b__8(SemanticAnalyzer analyzer, Node astExpr)
+   在 System.Data.Common.EntitySql.CqlQuery.AnalyzeSemanticsCommon[TResult](Node astExpr, Perspective perspective, ParserOptions parserOptions, IEnumerable`1 parameters, IEnumerable`1 variables, Func`3 analysisFunction)
+   在 System.Data.Common.EntitySql.CqlQuery.AnalyzeQueryExpressionSemantics(Node astQueryCommand, Perspective perspective, ParserOptions parserOptions, IEnumerable`1 parameters, IEnumerable`1 variables)
+   在 System.Data.Common.EntitySql.CqlQuery.<>c__DisplayClass4.<CompileQueryCommandLambda>b__3(Node astCommand, ParserOptions validatedParserOptions)
+   在 System.Data.Common.EntitySql.CqlQuery.CompileCommon[TResult](String commandText, Perspective perspective, ParserOptions parserOptions, Func`3 compilationFunction)
+   在 System.Data.Common.EntitySql.CqlQuery.CompileQueryCommandLambda(String queryCommandText, Perspective perspective, ParserOptions parserOptions, IEnumerable`1 parameters, IEnumerable`1 variables)
+   在 System.Data.Objects.EntitySqlQueryState.Parse()
+   在 System.Data.Objects.EntitySqlQueryState.GetExecutionPlan(Nullable`1 forMergeOption)
+   在 System.Data.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   在 System.Data.Objects.ObjectQuery`1.System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+   在 System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   在 System.Linq.OrderedEnumerable`1.<GetEnumerator>d__0.MoveNext()
+   在 System.Linq.Enumerable.<SkipIterator>d__4d`1.MoveNext()
+   在 System.Linq.Enumerable.<TakeIterator>d__3a`1.MoveNext()
+   在 System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   在 System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   在 TZHSWEET.EFDao.BaseEFDao`1.GetEntitiesForPaging(Int32 pageNumber, Int32 pageSize, Func`2 orderName, Boolean sortOrder, String CommandText, ObjectParameter[] objParams) 位置 E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.EFDao\BaseEFDao.cs:行号 129
+   在 TZHSWEET.BLL.BaseService`1.GetAllEntitiesByPaging(LigerUIGridRequest gridData) 位置 E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.BLL\BaseService.cs:行号 50
+   在 TZHSWEET.BLL.OperateLogService.GetAllLogsGridToJson(LigerUIGridRequest gridData) 位置 E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.BLL\OperateLogService.cs:行号 47
+   在 TZHSWEET.WebUI.Areas.Admin.Controllers.OperateLogController.GetLogsGrid() 位置 E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.WebUI\Areas\Admin\Controllers\OperateLogController.cs:行号 39
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<InvokeActionMethodWithFilters>b__12()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodFilter(IActionFilter filter, ActionExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<>c__DisplayClass17.<InvokeActionMethodWithFilters>b__14()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodFilter(IActionFilter filter, ActionExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<>c__DisplayClass17.<InvokeActionMethodWithFilters>b__14()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodWithFilters(ControllerContext controllerContext, IList`1 filters, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeAction(ControllerContext controllerContext, String actionName)
+   在 System.Web.Mvc.Controller.ExecuteCore()
+   在 System.Web.Mvc.ControllerBase.Execute(RequestContext requestContext)
+   在 System.Web.Mvc.ControllerBase.System.Web.Mvc.IController.Execute(RequestContext requestContext)
+   在 System.Web.Mvc.MvcHandler.<>c__DisplayClass6.<>c__DisplayClassb.<BeginProcessRequest>b__5()
+   在 System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass1.<MakeVoidDelegate>b__0()
+   在 System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   在 System.Web.Mvc.MvcHandler.<>c__DisplayClasse.<EndProcessRequest>b__d()
+   在 System.Web.Mvc.SecurityUtil.<GetCallInAppTrustThunk>b__0(Action f)
+   在 System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust(Action action)
+   在 System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   在 System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+异常时间：2012-07-23 00:40:56,116 [5] 
+异常级别：ERROR 
+异 常 类：logerror [(null)] 
+
+客户机IP:::1
+错误地址:http://localhost:8134/Admin/OperateLog/GetLogsGrid?view=OperateLog
+异常信息:命令参数语法“@1”无效。 附近 列 6, 列 16. 
+ System.Data.EntitySqlException: 命令参数语法“@1”无效。 附近 列 6, 列 16.
+   在 System.Data.Common.EntitySql.AST.QueryParameter..ctor(String parameterName, String query, Int32 inputPos)
+   在 System.Data.Common.EntitySql.CqlLexer.Accept_11()
+   在 System.Data.Common.EntitySql.CqlLexer.yylex()
+   在 System.Data.Common.EntitySql.CqlParser.yylex()
+   在 System.Data.Common.EntitySql.CqlParser.yyparse()
+   在 System.Data.Common.EntitySql.CqlParser.internalParseEntryPoint()
+   在 System.Data.Common.EntitySql.CqlParser.Parse(String query)
+   在 System.Data.Common.EntitySql.CqlQuery.Parse(String commandText, ParserOptions parserOptions)
+   在 System.Data.Common.EntitySql.CqlQuery.CompileCommon[TResult](String commandText, Perspective perspective, ParserOptions parserOptions, Func`3 compilationFunction)
+   在 System.Data.Common.EntitySql.CqlQuery.CompileQueryCommandLambda(String queryCommandText, Perspective perspective, ParserOptions parserOptions, IEnumerable`1 parameters, IEnumerable`1 variables)
+   在 System.Data.Objects.EntitySqlQueryState.Parse()
+   在 System.Data.Objects.EntitySqlQueryState.GetExecutionPlan(Nullable`1 forMergeOption)
+   在 System.Data.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   在 System.Data.Objects.ObjectQuery`1.System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+   在 System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   在 System.Linq.OrderedEnumerable`1.<GetEnumerator>d__0.MoveNext()
+   在 System.Linq.Enumerable.<SkipIterator>d__4d`1.MoveNext()
+   在 System.Linq.Enumerable.<TakeIterator>d__3a`1.MoveNext()
+   在 System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   在 System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   在 TZHSWEET.EFDao.BaseEFDao`1.GetEntitiesForPaging(Int32 pageNumber, Int32 pageSize, Func`2 orderName, Boolean sortOrder, String CommandText, ObjectParameter[] objParams) 位置 E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.EFDao\BaseEFDao.cs:行号 143
+   在 TZHSWEET.BLL.BaseService`1.GetAllEntitiesByPaging(LigerUIGridRequest gridData) 位置 E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.BLL\BaseService.cs:行号 50
+   在 TZHSWEET.BLL.OperateLogService.GetAllLogsGridToJson(LigerUIGridRequest gridData) 位置 E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.BLL\OperateLogService.cs:行号 47
+   在 TZHSWEET.WebUI.Areas.Admin.Controllers.OperateLogController.GetLogsGrid() 位置 E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.WebUI\Areas\Admin\Controllers\OperateLogController.cs:行号 39
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<InvokeActionMethodWithFilters>b__12()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodFilter(IActionFilter filter, ActionExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<>c__DisplayClass17.<InvokeActionMethodWithFilters>b__14()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodFilter(IActionFilter filter, ActionExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<>c__DisplayClass17.<InvokeActionMethodWithFilters>b__14()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodWithFilters(ControllerContext controllerContext, IList`1 filters, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeAction(ControllerContext controllerContext, String actionName)
+   在 System.Web.Mvc.Controller.ExecuteCore()
+   在 System.Web.Mvc.ControllerBase.Execute(RequestContext requestContext)
+   在 System.Web.Mvc.ControllerBase.System.Web.Mvc.IController.Execute(RequestContext requestContext)
+   在 System.Web.Mvc.MvcHandler.<>c__DisplayClass6.<>c__DisplayClassb.<BeginProcessRequest>b__5()
+   在 System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass1.<MakeVoidDelegate>b__0()
+   在 System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   在 System.Web.Mvc.MvcHandler.<>c__DisplayClasse.<EndProcessRequest>b__d()
+   在 System.Web.Mvc.SecurityUtil.<GetCallInAppTrustThunk>b__0(Action f)
+   在 System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust(Action action)
+   在 System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   在 System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+异常时间：2012-07-23 15:25:13,155 [8] 
+异常级别：ERROR 
+异 常 类：logerror [(null)] 
+
+客户机IP:::1
+错误地址:http://localhost:8134/Admin/OperateLog/GetLogsGrid?view=OperateLog
+异常信息:不存在从对象类型 System.Data.Objects.ObjectParameter 到已知的托管提供程序本机类型的映射。 
+ System.ArgumentException: 不存在从对象类型 System.Data.Objects.ObjectParameter 到已知的托管提供程序本机类型的映射。
+   在 System.Data.SqlClient.MetaType.GetMetaTypeFromValue(Type dataType, Object value, Boolean inferLen, Boolean streamAllowed)
+   在 System.Data.SqlClient.SqlParameter.GetMetaTypeOnly()
+   在 System.Data.SqlClient.SqlParameter.Validate(Int32 index, Boolean isCommandProc)
+   在 System.Data.SqlClient.SqlCommand.BuildParamList(TdsParser parser, SqlParameterCollection parameters)
+   在 System.Data.SqlClient.SqlCommand.BuildExecuteSql(CommandBehavior behavior, String commandText, SqlParameterCollection parameters, _SqlRPC& rpc)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.ExecuteReader()
+   在 System.Data.Objects.ObjectContext.ExecuteStoreQueryInternal[TElement](String commandText, String entitySetName, MergeOption mergeOption, Object[] parameters)
+   在 System.Data.Objects.ObjectContext.ExecuteStoreQuery[TElement](String commandText, Object[] parameters)
+   在 TZHSWEET.EFDao.BaseEFDao`1.GetEntitiesForPaging(String tableName, Int32 pageNumber, Int32 pageSize, String orderName, String sortOrder, String CommandText, ObjectParameter[] objParams) 位置 E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.EFDao\BaseEFDao.cs:行号 131
+   在 TZHSWEET.BLL.BaseService`1.GetAllEntitiesByPaging(String tableName, LigerUIGridRequest gridData) 位置 E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.BLL\BaseService.cs:行号 50
+   在 TZHSWEET.BLL.OperateLogService.GetAllLogsGridToJson(LigerUIGridRequest gridData) 位置 E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.BLL\OperateLogService.cs:行号 47
+   在 TZHSWEET.WebUI.Areas.Admin.Controllers.OperateLogController.GetLogsGrid() 位置 E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.WebUI\Areas\Admin\Controllers\OperateLogController.cs:行号 39
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<InvokeActionMethodWithFilters>b__12()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodFilter(IActionFilter filter, ActionExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<>c__DisplayClass17.<InvokeActionMethodWithFilters>b__14()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodFilter(IActionFilter filter, ActionExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<>c__DisplayClass17.<InvokeActionMethodWithFilters>b__14()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodWithFilters(ControllerContext controllerContext, IList`1 filters, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeAction(ControllerContext controllerContext, String actionName)
+   在 System.Web.Mvc.Controller.ExecuteCore()
+   在 System.Web.Mvc.ControllerBase.Execute(RequestContext requestContext)
+   在 System.Web.Mvc.ControllerBase.System.Web.Mvc.IController.Execute(RequestContext requestContext)
+   在 System.Web.Mvc.MvcHandler.<>c__DisplayClass6.<>c__DisplayClassb.<BeginProcessRequest>b__5()
+   在 System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass1.<MakeVoidDelegate>b__0()
+   在 System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   在 System.Web.Mvc.MvcHandler.<>c__DisplayClasse.<EndProcessRequest>b__d()
+   在 System.Web.Mvc.SecurityUtil.<GetCallInAppTrustThunk>b__0(Action f)
+   在 System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust(Action action)
+   在 System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   在 System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+异常时间：2012-07-23 15:41:28,467 [4] 
+异常级别：ERROR 
+异 常 类：logerror [(null)] 
+
+客户机IP:::1
+错误地址:http://localhost:8134/Admin/OperateLog/GetLogsGrid?view=OperateLog
+异常信息:必须声明标量变量 "@p1"。 
+ System.Data.SqlClient.SqlException (0x80131904): 必须声明标量变量 "@p1"。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.ExecuteReader()
+   在 System.Data.Objects.ObjectContext.ExecuteStoreQueryInternal[TElement](String commandText, String entitySetName, MergeOption mergeOption, Object[] parameters)
+   在 System.Data.Objects.ObjectContext.ExecuteStoreQuery[TElement](String commandText, Object[] parameters)
+   在 TZHSWEET.EFDao.BaseEFDao`1.GetEntitiesForPaging(String tableName, Int32 pageNumber, Int32 pageSize, String orderName, String sortOrder, String CommandText, ObjectParameter[] objParams) 位置 E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.EFDao\BaseEFDao.cs:行号 129
+   在 TZHSWEET.BLL.BaseService`1.GetAllEntitiesByPaging(String tableName, LigerUIGridRequest gridData) 位置 E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.BLL\BaseService.cs:行号 50
+   在 TZHSWEET.BLL.OperateLogService.GetAllLogsGridToJson(LigerUIGridRequest gridData) 位置 E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.BLL\OperateLogService.cs:行号 47
+   在 TZHSWEET.WebUI.Areas.Admin.Controllers.OperateLogController.GetLogsGrid() 位置 E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.WebUI\Areas\Admin\Controllers\OperateLogController.cs:行号 39
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<InvokeActionMethodWithFilters>b__12()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodFilter(IActionFilter filter, ActionExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<>c__DisplayClass17.<InvokeActionMethodWithFilters>b__14()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodFilter(IActionFilter filter, ActionExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<>c__DisplayClass17.<InvokeActionMethodWithFilters>b__14()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodWithFilters(ControllerContext controllerContext, IList`1 filters, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeAction(ControllerContext controllerContext, String actionName)
+   在 System.Web.Mvc.Controller.ExecuteCore()
+   在 System.Web.Mvc.ControllerBase.Execute(RequestContext requestContext)
+   在 System.Web.Mvc.ControllerBase.System.Web.Mvc.IController.Execute(RequestContext requestContext)
+   在 System.Web.Mvc.MvcHandler.<>c__DisplayClass6.<>c__DisplayClassb.<BeginProcessRequest>b__5()
+   在 System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass1.<MakeVoidDelegate>b__0()
+   在 System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   在 System.Web.Mvc.MvcHandler.<>c__DisplayClasse.<EndProcessRequest>b__d()
+   在 System.Web.Mvc.SecurityUtil.<GetCallInAppTrustThunk>b__0(Action f)
+   在 System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust(Action action)
+   在 System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   在 System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+ClientConnectionId:2b80f4c6-19b7-43ee-b450-c6aa032137e4
+
+异常时间：2012-07-23 15:42:57,421 [23] 
+异常级别：ERROR 
+异 常 类：logerror [(null)] 
+
+客户机IP:::1
+错误地址:http://localhost:8134/Admin/OperateLog/GetLogsGrid?view=OperateLog
+异常信息:必须声明标量变量 "@1"。 
+ System.Data.SqlClient.SqlException (0x80131904): 必须声明标量变量 "@1"。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.ExecuteReader()
+   在 System.Data.Objects.ObjectContext.ExecuteStoreQueryInternal[TElement](String commandText, String entitySetName, MergeOption mergeOption, Object[] parameters)
+   在 System.Data.Objects.ObjectContext.ExecuteStoreQuery[TElement](String commandText, Object[] parameters)
+   在 TZHSWEET.EFDao.BaseEFDao`1.GetEntitiesForPaging(String tableName, Int32 pageNumber, Int32 pageSize, String orderName, String sortOrder, String CommandText, ObjectParameter[] objParams) 位置 E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.EFDao\BaseEFDao.cs:行号 129
+   在 TZHSWEET.BLL.BaseService`1.GetAllEntitiesByPaging(String tableName, LigerUIGridRequest gridData) 位置 E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.BLL\BaseService.cs:行号 50
+   在 TZHSWEET.BLL.OperateLogService.GetAllLogsGridToJson(LigerUIGridRequest gridData) 位置 E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.BLL\OperateLogService.cs:行号 47
+   在 TZHSWEET.WebUI.Areas.Admin.Controllers.OperateLogController.GetLogsGrid() 位置 E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.WebUI\Areas\Admin\Controllers\OperateLogController.cs:行号 39
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<InvokeActionMethodWithFilters>b__12()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodFilter(IActionFilter filter, ActionExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<>c__DisplayClass17.<InvokeActionMethodWithFilters>b__14()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodFilter(IActionFilter filter, ActionExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<>c__DisplayClass17.<InvokeActionMethodWithFilters>b__14()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodWithFilters(ControllerContext controllerContext, IList`1 filters, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeAction(ControllerContext controllerContext, String actionName)
+   在 System.Web.Mvc.Controller.ExecuteCore()
+   在 System.Web.Mvc.ControllerBase.Execute(RequestContext requestContext)
+   在 System.Web.Mvc.ControllerBase.System.Web.Mvc.IController.Execute(RequestContext requestContext)
+   在 System.Web.Mvc.MvcHandler.<>c__DisplayClass6.<>c__DisplayClassb.<BeginProcessRequest>b__5()
+   在 System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass1.<MakeVoidDelegate>b__0()
+   在 System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   在 System.Web.Mvc.MvcHandler.<>c__DisplayClasse.<EndProcessRequest>b__d()
+   在 System.Web.Mvc.SecurityUtil.<GetCallInAppTrustThunk>b__0(Action f)
+   在 System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust(Action action)
+   在 System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   在 System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+ClientConnectionId:6514d792-4566-41b4-bef6-5318bd28515a
+
+异常时间：2012-07-23 15:44:20,769 [4] 
+异常级别：ERROR 
+异 常 类：logerror [(null)] 
+
+客户机IP:::1
+错误地址:http://localhost:8134/Admin/OperateLog/GetLogsGrid?view=OperateLog
+异常信息:必须声明标量变量 "@1"。 
+ System.Data.SqlClient.SqlException (0x80131904): 必须声明标量变量 "@1"。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.ExecuteReader()
+   在 System.Data.Objects.ObjectContext.ExecuteStoreQueryInternal[TElement](String commandText, String entitySetName, MergeOption mergeOption, Object[] parameters)
+   在 System.Data.Objects.ObjectContext.ExecuteStoreQuery[TElement](String commandText, Object[] parameters)
+   在 TZHSWEET.EFDao.BaseEFDao`1.GetEntitiesForPaging(String tableName, Int32 pageNumber, Int32 pageSize, String orderName, String sortOrder, String CommandText, ObjectParameter[] objParams) 位置 E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.EFDao\BaseEFDao.cs:行号 129
+   在 TZHSWEET.BLL.BaseService`1.GetAllEntitiesByPaging(String tableName, LigerUIGridRequest gridData) 位置 E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.BLL\BaseService.cs:行号 50
+   在 TZHSWEET.BLL.OperateLogService.GetAllLogsGridToJson(LigerUIGridRequest gridData) 位置 E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.BLL\OperateLogService.cs:行号 47
+   在 TZHSWEET.WebUI.Areas.Admin.Controllers.OperateLogController.GetLogsGrid() 位置 E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.WebUI\Areas\Admin\Controllers\OperateLogController.cs:行号 39
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<InvokeActionMethodWithFilters>b__12()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodFilter(IActionFilter filter, ActionExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<>c__DisplayClass17.<InvokeActionMethodWithFilters>b__14()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodFilter(IActionFilter filter, ActionExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<>c__DisplayClass17.<InvokeActionMethodWithFilters>b__14()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodWithFilters(ControllerContext controllerContext, IList`1 filters, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeAction(ControllerContext controllerContext, String actionName)
+   在 System.Web.Mvc.Controller.ExecuteCore()
+   在 System.Web.Mvc.ControllerBase.Execute(RequestContext requestContext)
+   在 System.Web.Mvc.ControllerBase.System.Web.Mvc.IController.Execute(RequestContext requestContext)
+   在 System.Web.Mvc.MvcHandler.<>c__DisplayClass6.<>c__DisplayClassb.<BeginProcessRequest>b__5()
+   在 System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass1.<MakeVoidDelegate>b__0()
+   在 System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   在 System.Web.Mvc.MvcHandler.<>c__DisplayClasse.<EndProcessRequest>b__d()
+   在 System.Web.Mvc.SecurityUtil.<GetCallInAppTrustThunk>b__0(Action f)
+   在 System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust(Action action)
+   在 System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   在 System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+ClientConnectionId:6514d792-4566-41b4-bef6-5318bd28515a
+
+异常时间：2012-07-23 15:45:47,183 [4] 
+异常级别：ERROR 
+异 常 类：logerror [(null)] 
+
+客户机IP:::1
+错误地址:http://localhost:8134/Admin/OperateLog/GetLogsGrid?view=OperateLog
+异常信息:'1' 附近有语法错误。 
+ System.Data.SqlClient.SqlException (0x80131904): '1' 附近有语法错误。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.ExecuteReader()
+   在 System.Data.Objects.ObjectContext.ExecuteStoreQueryInternal[TElement](String commandText, String entitySetName, MergeOption mergeOption, Object[] parameters)
+   在 System.Data.Objects.ObjectContext.ExecuteStoreQuery[TElement](String commandText, Object[] parameters)
+   在 TZHSWEET.EFDao.BaseEFDao`1.GetEntitiesForPaging(String tableName, Int32 pageNumber, Int32 pageSize, String orderName, String sortOrder, String CommandText, ObjectParameter[] objParams) 位置 E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.EFDao\BaseEFDao.cs:行号 129
+   在 TZHSWEET.BLL.BaseService`1.GetAllEntitiesByPaging(String tableName, LigerUIGridRequest gridData) 位置 E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.BLL\BaseService.cs:行号 50
+   在 TZHSWEET.BLL.OperateLogService.GetAllLogsGridToJson(LigerUIGridRequest gridData) 位置 E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.BLL\OperateLogService.cs:行号 47
+   在 TZHSWEET.WebUI.Areas.Admin.Controllers.OperateLogController.GetLogsGrid() 位置 E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.WebUI\Areas\Admin\Controllers\OperateLogController.cs:行号 39
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<InvokeActionMethodWithFilters>b__12()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodFilter(IActionFilter filter, ActionExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<>c__DisplayClass17.<InvokeActionMethodWithFilters>b__14()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodFilter(IActionFilter filter, ActionExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<>c__DisplayClass17.<InvokeActionMethodWithFilters>b__14()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodWithFilters(ControllerContext controllerContext, IList`1 filters, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeAction(ControllerContext controllerContext, String actionName)
+   在 System.Web.Mvc.Controller.ExecuteCore()
+   在 System.Web.Mvc.ControllerBase.Execute(RequestContext requestContext)
+   在 System.Web.Mvc.ControllerBase.System.Web.Mvc.IController.Execute(RequestContext requestContext)
+   在 System.Web.Mvc.MvcHandler.<>c__DisplayClass6.<>c__DisplayClassb.<BeginProcessRequest>b__5()
+   在 System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass1.<MakeVoidDelegate>b__0()
+   在 System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   在 System.Web.Mvc.MvcHandler.<>c__DisplayClasse.<EndProcessRequest>b__d()
+   在 System.Web.Mvc.SecurityUtil.<GetCallInAppTrustThunk>b__0(Action f)
+   在 System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust(Action action)
+   在 System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   在 System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+ClientConnectionId:b05b46d8-eea2-41dc-916c-58e8bab03dc0
+
+异常时间：2012-07-23 16:14:26,892 [10] 
+异常级别：ERROR 
+异 常 类：logerror [(null)] 
+
+客户机IP:::1
+错误地址:http://localhost:8134/Admin/OperateLog/GetLogsGrid?view=OperateLog
+异常信息:数据读取器与指定的“DBCommonManageModel.tbOperateLog”不兼容。某个类型为“ID”的成员在同名的数据读取器中没有对应的列。 
+ System.Data.EntityCommandExecutionException: 数据读取器与指定的“DBCommonManageModel.tbOperateLog”不兼容。某个类型为“ID”的成员在同名的数据读取器中没有对应的列。
+   在 System.Data.Query.InternalTrees.ColumnMapFactory.GetMemberOrdinalFromReader(DbDataReader storeDataReader, EdmMember member, EdmType currentType, Dictionary`2 renameList)
+   在 System.Data.Query.InternalTrees.ColumnMapFactory.GetColumnMapsForType(DbDataReader storeDataReader, EdmType edmType, Dictionary`2 renameList)
+   在 System.Data.Query.InternalTrees.ColumnMapFactory.CreateColumnMapFromReaderAndType(DbDataReader storeDataReader, EdmType edmType, EntitySet entitySet, Dictionary`2 renameList)
+   在 System.Data.Objects.ObjectContext.InternalTranslate[TElement](DbDataReader reader, String entitySetName, MergeOption mergeOption, Boolean readerOwned)
+   在 System.Data.Objects.ObjectContext.ExecuteStoreQueryInternal[TElement](String commandText, String entitySetName, MergeOption mergeOption, Object[] parameters)
+   在 System.Data.Objects.ObjectContext.ExecuteStoreQuery[TElement](String commandText, Object[] parameters)
+   在 TZHSWEET.EFDao.BaseEFDao`1.GetEntitiesCount(String CommandText) 位置 E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.EFDao\BaseEFDao.cs:行号 109
+   在 TZHSWEET.BLL.BaseService`1.GetAllEntitiesByPaging(LigerUIGridRequest gridData, Int32& Count) 位置 E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.BLL\BaseService.cs:行号 56
+   在 TZHSWEET.BLL.OperateLogService.GetAllLogsGridToJson(LigerUIGridRequest gridData) 位置 E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.BLL\OperateLogService.cs:行号 48
+   在 TZHSWEET.WebUI.Areas.Admin.Controllers.OperateLogController.GetLogsGrid() 位置 E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.WebUI\Areas\Admin\Controllers\OperateLogController.cs:行号 39
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<InvokeActionMethodWithFilters>b__12()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodFilter(IActionFilter filter, ActionExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<>c__DisplayClass17.<InvokeActionMethodWithFilters>b__14()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodFilter(IActionFilter filter, ActionExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<>c__DisplayClass17.<InvokeActionMethodWithFilters>b__14()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodWithFilters(ControllerContext controllerContext, IList`1 filters, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeAction(ControllerContext controllerContext, String actionName)
+   在 System.Web.Mvc.Controller.ExecuteCore()
+   在 System.Web.Mvc.ControllerBase.Execute(RequestContext requestContext)
+   在 System.Web.Mvc.ControllerBase.System.Web.Mvc.IController.Execute(RequestContext requestContext)
+   在 System.Web.Mvc.MvcHandler.<>c__DisplayClass6.<>c__DisplayClassb.<BeginProcessRequest>b__5()
+   在 System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass1.<MakeVoidDelegate>b__0()
+   在 System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   在 System.Web.Mvc.MvcHandler.<>c__DisplayClasse.<EndProcessRequest>b__d()
+   在 System.Web.Mvc.SecurityUtil.<GetCallInAppTrustThunk>b__0(Action f)
+   在 System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust(Action action)
+   在 System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   在 System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+异常时间：2012-07-23 16:38:39,138 [44] 
+异常级别：ERROR 
+异 常 类：logerror [(null)] 
+
+客户机IP:::1
+错误地址:http://localhost:8134/Admin/undefined
+异常信息:未找到路径“/Admin/undefined”的控制器或该控制器未实现 IController。 
+ System.Web.HttpException (0x80004005): 未找到路径“/Admin/undefined”的控制器或该控制器未实现 IController。
+   在 System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   在 System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   在 System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   在 System.Web.Mvc.MvcHandler.<>c__DisplayClass6.<BeginProcessRequest>b__2()
+   在 System.Web.Mvc.SecurityUtil.<>c__DisplayClassb`1.<ProcessInApplicationTrust>b__a()
+   在 System.Web.Mvc.SecurityUtil.<GetCallInAppTrustThunk>b__0(Action f)
+   在 System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust(Action action)
+   在 System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust[TResult](Func`1 func)
+   在 System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   在 System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   在 System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+异常时间：2012-07-23 16:40:45,183 [46] 
+异常级别：ERROR 
+异 常 类：logerror [(null)] 
+
+客户机IP:::1
+错误地址:http://localhost:8134/Admin/undefined
+异常信息:未找到路径“/Admin/undefined”的控制器或该控制器未实现 IController。 
+ System.Web.HttpException (0x80004005): 未找到路径“/Admin/undefined”的控制器或该控制器未实现 IController。
+   在 System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   在 System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   在 System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   在 System.Web.Mvc.MvcHandler.<>c__DisplayClass6.<BeginProcessRequest>b__2()
+   在 System.Web.Mvc.SecurityUtil.<>c__DisplayClassb`1.<ProcessInApplicationTrust>b__a()
+   在 System.Web.Mvc.SecurityUtil.<GetCallInAppTrustThunk>b__0(Action f)
+   在 System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust(Action action)
+   在 System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust[TResult](Func`1 func)
+   在 System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   在 System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   在 System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+异常时间：2012-07-23 16:41:12,855 [44] 
+异常级别：ERROR 
+异 常 类：logerror [(null)] 
+
+客户机IP:::1
+错误地址:http://localhost:8134/Admin/undefined
+异常信息:未找到路径“/Admin/undefined”的控制器或该控制器未实现 IController。 
+ System.Web.HttpException (0x80004005): 未找到路径“/Admin/undefined”的控制器或该控制器未实现 IController。
+   在 System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   在 System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   在 System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   在 System.Web.Mvc.MvcHandler.<>c__DisplayClass6.<BeginProcessRequest>b__2()
+   在 System.Web.Mvc.SecurityUtil.<>c__DisplayClassb`1.<ProcessInApplicationTrust>b__a()
+   在 System.Web.Mvc.SecurityUtil.<GetCallInAppTrustThunk>b__0(Action f)
+   在 System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust(Action action)
+   在 System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust[TResult](Func`1 func)
+   在 System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   在 System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   在 System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+异常时间：2012-07-23 16:44:15,320 [55] 
+异常级别：ERROR 
+异 常 类：logerror [(null)] 
+
+客户机IP:::1
+错误地址:http://localhost:8134/undefined
+异常信息:未找到路径“/undefined”的控制器或该控制器未实现 IController。 
+ System.Web.HttpException (0x80004005): 未找到路径“/undefined”的控制器或该控制器未实现 IController。
+   在 System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   在 System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   在 System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   在 System.Web.Mvc.MvcHandler.<>c__DisplayClass6.<BeginProcessRequest>b__2()
+   在 System.Web.Mvc.SecurityUtil.<>c__DisplayClassb`1.<ProcessInApplicationTrust>b__a()
+   在 System.Web.Mvc.SecurityUtil.<GetCallInAppTrustThunk>b__0(Action f)
+   在 System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust(Action action)
+   在 System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust[TResult](Func`1 func)
+   在 System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   在 System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   在 System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+异常时间：2012-07-23 16:44:15,372 [57] 
+异常级别：ERROR 
+异 常 类：logerror [(null)] 
+
+客户机IP:::1
+错误地址:http://localhost:8134/undefined
+异常信息:未找到路径“/undefined”的控制器或该控制器未实现 IController。 
+ System.Web.HttpException (0x80004005): 未找到路径“/undefined”的控制器或该控制器未实现 IController。
+   在 System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   在 System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   在 System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   在 System.Web.Mvc.MvcHandler.<>c__DisplayClass6.<BeginProcessRequest>b__2()
+   在 System.Web.Mvc.SecurityUtil.<>c__DisplayClassb`1.<ProcessInApplicationTrust>b__a()
+   在 System.Web.Mvc.SecurityUtil.<GetCallInAppTrustThunk>b__0(Action f)
+   在 System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust(Action action)
+   在 System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust[TResult](Func`1 func)
+   在 System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   在 System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   在 System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+异常时间：2012-07-23 17:05:12,034 [6] 
+异常级别：ERROR 
+异 常 类：logerror [(null)] 
+
+客户机IP:::1
+错误地址:http://localhost:8134/undefined
+异常信息:未找到路径“/undefined”的控制器或该控制器未实现 IController。 
+ System.Web.HttpException (0x80004005): 未找到路径“/undefined”的控制器或该控制器未实现 IController。
+   在 System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   在 System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   在 System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   在 System.Web.Mvc.MvcHandler.<>c__DisplayClass6.<BeginProcessRequest>b__2()
+   在 System.Web.Mvc.SecurityUtil.<>c__DisplayClassb`1.<ProcessInApplicationTrust>b__a()
+   在 System.Web.Mvc.SecurityUtil.<GetCallInAppTrustThunk>b__0(Action f)
+   在 System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust(Action action)
+   在 System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust[TResult](Func`1 func)
+   在 System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   在 System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   在 System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+异常时间：2012-07-23 17:05:12,201 [11] 
+异常级别：ERROR 
+异 常 类：logerror [(null)] 
+
+客户机IP:::1
+错误地址:http://localhost:8134/undefined
+异常信息:未找到路径“/undefined”的控制器或该控制器未实现 IController。 
+ System.Web.HttpException (0x80004005): 未找到路径“/undefined”的控制器或该控制器未实现 IController。
+   在 System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   在 System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   在 System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   在 System.Web.Mvc.MvcHandler.<>c__DisplayClass6.<BeginProcessRequest>b__2()
+   在 System.Web.Mvc.SecurityUtil.<>c__DisplayClassb`1.<ProcessInApplicationTrust>b__a()
+   在 System.Web.Mvc.SecurityUtil.<GetCallInAppTrustThunk>b__0(Action f)
+   在 System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust(Action action)
+   在 System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust[TResult](Func`1 func)
+   在 System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   在 System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   在 System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+异常时间：2012-07-23 17:05:39,105 [6] 
+异常级别：ERROR 
+异 常 类：logerror [(null)] 
+
+客户机IP:::1
+错误地址:http://localhost:8134/Admin/Manage/GetMenus?rnd=0.06481398715370057
+异常信息:指定的架构无效。错误: 
+BaseManage.csdl(3,4) : 错误 0019: EntityContainer 名称必须唯一。已定义名为“BaseManageEntities”的 EntityContainer。
+BaseManage.csdl(52,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.sysdiagram”。
+BaseManage.csdl(62,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbDepartment”。
+BaseManage.csdl(78,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbFavorite”。
+BaseManage.csdl(91,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbModule”。
+BaseManage.csdl(109,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbModulePermission”。
+BaseManage.csdl(125,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbRole”。
+BaseManage.csdl(144,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbRolePermission”。
+BaseManage.csdl(159,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbUser”。
+BaseManage.csdl(188,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbUserRole”。
+BaseManage.csdl(203,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBUSER_REFERENCE_TBDEPART”。
+BaseManage.csdl(215,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBFAVORI_REFERENCE_TBUSER”。
+BaseManage.csdl(227,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBMODULE_REFERENCE_TBMODULE”。
+BaseManage.csdl(239,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBROLEPE_REFERENCE_TBMODULE”。
+BaseManage.csdl(251,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBROLEPE_REFERENCE_TBROLE”。
+BaseManage.csdl(263,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBUSERRO_REFERENCE_TBROLE”。
+BaseManage.csdl(275,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBUSERRO_REFERENCE_TBUSER”。
+BaseManage.csdl(287,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.VRoleMenuPermission”。
+BaseManage.csdl(304,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.VRolePermission”。
+BaseManage.csdl(313,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbPermission”。
+BaseManage.csdl(326,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBMODULE_REFERENCE_TBPERMIS”。
+BaseManage.csdl(338,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.VModulePermission”。
+BaseManage.csdl(357,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.VRoleModulePermission”。
+BaseManage.csdl(380,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbOperateLog”。 
+ System.Data.MetadataException: 指定的架构无效。错误: 
+BaseManage.csdl(3,4) : 错误 0019: EntityContainer 名称必须唯一。已定义名为“BaseManageEntities”的 EntityContainer。
+BaseManage.csdl(52,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.sysdiagram”。
+BaseManage.csdl(62,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbDepartment”。
+BaseManage.csdl(78,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbFavorite”。
+BaseManage.csdl(91,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbModule”。
+BaseManage.csdl(109,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbModulePermission”。
+BaseManage.csdl(125,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbRole”。
+BaseManage.csdl(144,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbRolePermission”。
+BaseManage.csdl(159,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbUser”。
+BaseManage.csdl(188,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbUserRole”。
+BaseManage.csdl(203,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBUSER_REFERENCE_TBDEPART”。
+BaseManage.csdl(215,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBFAVORI_REFERENCE_TBUSER”。
+BaseManage.csdl(227,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBMODULE_REFERENCE_TBMODULE”。
+BaseManage.csdl(239,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBROLEPE_REFERENCE_TBMODULE”。
+BaseManage.csdl(251,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBROLEPE_REFERENCE_TBROLE”。
+BaseManage.csdl(263,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBUSERRO_REFERENCE_TBROLE”。
+BaseManage.csdl(275,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBUSERRO_REFERENCE_TBUSER”。
+BaseManage.csdl(287,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.VRoleMenuPermission”。
+BaseManage.csdl(304,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.VRolePermission”。
+BaseManage.csdl(313,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbPermission”。
+BaseManage.csdl(326,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBMODULE_REFERENCE_TBPERMIS”。
+BaseManage.csdl(338,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.VModulePermission”。
+BaseManage.csdl(357,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.VRoleModulePermission”。
+BaseManage.csdl(380,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbOperateLog”。
+   在 System.Data.Metadata.Edm.EdmItemCollection.LoadItems(IEnumerable`1 xmlReaders, IEnumerable`1 sourceFilePaths, SchemaDataModelOption dataModelOption, DbProviderManifest providerManifest, ItemCollection itemCollection, Boolean throwOnError)
+   在 System.Data.Metadata.Edm.EdmItemCollection.Init(IEnumerable`1 xmlReaders, IEnumerable`1 filePaths, Boolean throwOnError)
+   在 System.Data.Metadata.Edm.EdmItemCollection..ctor(IEnumerable`1 xmlReaders, IEnumerable`1 filePaths)
+   在 System.Data.Metadata.Edm.MetadataCache.EdmMetadataEntry.LoadEdmItemCollection(MetadataArtifactLoader loader)
+   在 System.Data.Metadata.Edm.MetadataCache.EdmItemCollectionLoader.LoadItemCollection(EdmMetadataEntry entry)
+   在 System.Data.Metadata.Edm.MetadataCache.LoadItemCollection[T](IItemCollectionLoader`1 itemCollectionLoader, T entry)
+   在 System.Data.Metadata.Edm.MetadataCache.GetOrCreateEdmItemCollection(String cacheKey, MetadataArtifactLoader loader, Object& entryToken)
+   在 System.Data.EntityClient.EntityConnection.LoadEdmItemCollection(MetadataWorkspace workspace, MetadataArtifactLoader artifactLoader)
+   在 System.Data.EntityClient.EntityConnection.GetMetadataWorkspace(Boolean initializeAllCollections)
+   在 System.Data.Objects.ObjectContext.RetrieveMetadataWorkspaceFromConnection()
+   在 System.Data.Objects.ObjectContext..ctor(EntityConnection connection, Boolean isConnectionConstructor)
+   在 System.Data.Objects.ObjectContext..ctor(String connectionString, String defaultContainerName)
+   在 TZHSWEET.Entity.BaseManageEntities..ctor() 位置 E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.Model\Manage.Context.cs:行号 32
+   在 TZHSWEET.EFDao.UserEFDao.GetUserMenuPermission(String Where, ObjectParameter[] parameters) 位置 E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.EFDao\UserEFDao.cs:行号 21
+   在 TZHSWEET.BLL.UserService.GetRoleMenu(String Roles) 位置 E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.BLL\UserService.cs:行号 121
+   在 TZHSWEET.BLL.UserService.GetUserPermissionMenus(String Roles) 位置 E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.BLL\UserService.cs:行号 133
+   在 TZHSWEET.WebUI.Areas.Admin.Controllers.ManageController.GetMenus() 位置 E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.WebUI\Areas\Admin\Controllers\ManageController.cs:行号 40
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<InvokeActionMethodWithFilters>b__12()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodFilter(IActionFilter filter, ActionExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<>c__DisplayClass17.<InvokeActionMethodWithFilters>b__14()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodFilter(IActionFilter filter, ActionExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<>c__DisplayClass17.<InvokeActionMethodWithFilters>b__14()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodWithFilters(ControllerContext controllerContext, IList`1 filters, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeAction(ControllerContext controllerContext, String actionName)
+   在 System.Web.Mvc.Controller.ExecuteCore()
+   在 System.Web.Mvc.ControllerBase.Execute(RequestContext requestContext)
+   在 System.Web.Mvc.ControllerBase.System.Web.Mvc.IController.Execute(RequestContext requestContext)
+   在 System.Web.Mvc.MvcHandler.<>c__DisplayClass6.<>c__DisplayClassb.<BeginProcessRequest>b__5()
+   在 System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass1.<MakeVoidDelegate>b__0()
+   在 System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   在 System.Web.Mvc.MvcHandler.<>c__DisplayClasse.<EndProcessRequest>b__d()
+   在 System.Web.Mvc.SecurityUtil.<GetCallInAppTrustThunk>b__0(Action f)
+   在 System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust(Action action)
+   在 System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   在 System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+异常时间：2012-07-23 17:05:39,645 [4] 
+异常级别：ERROR 
+异 常 类：logerror [(null)] 
+
+客户机IP:::1
+错误地址:http://localhost:8134/Admin/Manage/GetCurrentUser
+异常信息:指定的架构无效。错误: 
+BaseManage.csdl(3,4) : 错误 0019: EntityContainer 名称必须唯一。已定义名为“BaseManageEntities”的 EntityContainer。
+BaseManage.csdl(52,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.sysdiagram”。
+BaseManage.csdl(62,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbDepartment”。
+BaseManage.csdl(78,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbFavorite”。
+BaseManage.csdl(91,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbModule”。
+BaseManage.csdl(109,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbModulePermission”。
+BaseManage.csdl(125,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbRole”。
+BaseManage.csdl(144,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbRolePermission”。
+BaseManage.csdl(159,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbUser”。
+BaseManage.csdl(188,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbUserRole”。
+BaseManage.csdl(203,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBUSER_REFERENCE_TBDEPART”。
+BaseManage.csdl(215,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBFAVORI_REFERENCE_TBUSER”。
+BaseManage.csdl(227,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBMODULE_REFERENCE_TBMODULE”。
+BaseManage.csdl(239,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBROLEPE_REFERENCE_TBMODULE”。
+BaseManage.csdl(251,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBROLEPE_REFERENCE_TBROLE”。
+BaseManage.csdl(263,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBUSERRO_REFERENCE_TBROLE”。
+BaseManage.csdl(275,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBUSERRO_REFERENCE_TBUSER”。
+BaseManage.csdl(287,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.VRoleMenuPermission”。
+BaseManage.csdl(304,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.VRolePermission”。
+BaseManage.csdl(313,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbPermission”。
+BaseManage.csdl(326,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBMODULE_REFERENCE_TBPERMIS”。
+BaseManage.csdl(338,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.VModulePermission”。
+BaseManage.csdl(357,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.VRoleModulePermission”。
+BaseManage.csdl(380,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbOperateLog”。 
+ System.Data.MetadataException: 指定的架构无效。错误: 
+BaseManage.csdl(3,4) : 错误 0019: EntityContainer 名称必须唯一。已定义名为“BaseManageEntities”的 EntityContainer。
+BaseManage.csdl(52,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.sysdiagram”。
+BaseManage.csdl(62,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbDepartment”。
+BaseManage.csdl(78,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbFavorite”。
+BaseManage.csdl(91,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbModule”。
+BaseManage.csdl(109,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbModulePermission”。
+BaseManage.csdl(125,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbRole”。
+BaseManage.csdl(144,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbRolePermission”。
+BaseManage.csdl(159,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbUser”。
+BaseManage.csdl(188,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbUserRole”。
+BaseManage.csdl(203,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBUSER_REFERENCE_TBDEPART”。
+BaseManage.csdl(215,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBFAVORI_REFERENCE_TBUSER”。
+BaseManage.csdl(227,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBMODULE_REFERENCE_TBMODULE”。
+BaseManage.csdl(239,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBROLEPE_REFERENCE_TBMODULE”。
+BaseManage.csdl(251,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBROLEPE_REFERENCE_TBROLE”。
+BaseManage.csdl(263,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBUSERRO_REFERENCE_TBROLE”。
+BaseManage.csdl(275,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBUSERRO_REFERENCE_TBUSER”。
+BaseManage.csdl(287,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.VRoleMenuPermission”。
+BaseManage.csdl(304,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.VRolePermission”。
+BaseManage.csdl(313,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbPermission”。
+BaseManage.csdl(326,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBMODULE_REFERENCE_TBPERMIS”。
+BaseManage.csdl(338,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.VModulePermission”。
+BaseManage.csdl(357,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.VRoleModulePermission”。
+BaseManage.csdl(380,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbOperateLog”。
+   在 System.Data.Metadata.Edm.EdmItemCollection.LoadItems(IEnumerable`1 xmlReaders, IEnumerable`1 sourceFilePaths, SchemaDataModelOption dataModelOption, DbProviderManifest providerManifest, ItemCollection itemCollection, Boolean throwOnError)
+   在 System.Data.Metadata.Edm.EdmItemCollection.Init(IEnumerable`1 xmlReaders, IEnumerable`1 filePaths, Boolean throwOnError)
+   在 System.Data.Metadata.Edm.EdmItemCollection..ctor(IEnumerable`1 xmlReaders, IEnumerable`1 filePaths)
+   在 System.Data.Metadata.Edm.MetadataCache.EdmMetadataEntry.LoadEdmItemCollection(MetadataArtifactLoader loader)
+   在 System.Data.Metadata.Edm.MetadataCache.EdmItemCollectionLoader.LoadItemCollection(EdmMetadataEntry entry)
+   在 System.Data.Metadata.Edm.MetadataCache.LoadItemCollection[T](IItemCollectionLoader`1 itemCollectionLoader, T entry)
+   在 System.Data.Metadata.Edm.MetadataCache.GetOrCreateEdmItemCollection(String cacheKey, MetadataArtifactLoader loader, Object& entryToken)
+   在 System.Data.EntityClient.EntityConnection.LoadEdmItemCollection(MetadataWorkspace workspace, MetadataArtifactLoader artifactLoader)
+   在 System.Data.EntityClient.EntityConnection.GetMetadataWorkspace(Boolean initializeAllCollections)
+   在 System.Data.Objects.ObjectContext.RetrieveMetadataWorkspaceFromConnection()
+   在 System.Data.Objects.ObjectContext..ctor(EntityConnection connection, Boolean isConnectionConstructor)
+   在 System.Data.Objects.ObjectContext..ctor(String connectionString, String defaultContainerName)
+   在 TZHSWEET.Entity.BaseManageEntities..ctor() 位置 E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.Model\Manage.Context.cs:行号 32
+   在 TZHSWEET.EFDao.BaseEFDao`1.GetEntity(Func`2 exp) 位置 E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.EFDao\BaseEFDao.cs:行号 78
+   在 TZHSWEET.BLL.BaseService`1.GetEntity(Func`2 exp) 位置 E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.BLL\BaseService.cs:行号 65
+   在 TZHSWEET.UI.SysCurrentUser.GetCurrentUserInfo() 位置 E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.UI\User\SysCurrentUser.cs:行号 106
+   在 TZHSWEET.UI.SysCurrentUser..ctor(Boolean IsLoadUserInfo) 位置 E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.UI\User\SysCurrentUser.cs:行号 67
+   在 TZHSWEET.WebUI.Areas.Admin.Controllers.ManageController.GetCurrentUser() 位置 E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.WebUI\Areas\Admin\Controllers\ManageController.cs:行号 67
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<InvokeActionMethodWithFilters>b__12()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodFilter(IActionFilter filter, ActionExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<>c__DisplayClass17.<InvokeActionMethodWithFilters>b__14()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodFilter(IActionFilter filter, ActionExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<>c__DisplayClass17.<InvokeActionMethodWithFilters>b__14()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodWithFilters(ControllerContext controllerContext, IList`1 filters, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeAction(ControllerContext controllerContext, String actionName)
+   在 System.Web.Mvc.Controller.ExecuteCore()
+   在 System.Web.Mvc.ControllerBase.Execute(RequestContext requestContext)
+   在 System.Web.Mvc.ControllerBase.System.Web.Mvc.IController.Execute(RequestContext requestContext)
+   在 System.Web.Mvc.MvcHandler.<>c__DisplayClass6.<>c__DisplayClassb.<BeginProcessRequest>b__5()
+   在 System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass1.<MakeVoidDelegate>b__0()
+   在 System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   在 System.Web.Mvc.MvcHandler.<>c__DisplayClasse.<EndProcessRequest>b__d()
+   在 System.Web.Mvc.SecurityUtil.<GetCallInAppTrustThunk>b__0(Action f)
+   在 System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust(Action action)
+   在 System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   在 System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+异常时间：2012-07-23 17:07:09,025 [6] 
+异常级别：ERROR 
+异 常 类：logerror [(null)] 
+
+客户机IP:::1
+错误地址:http://localhost:8134/undefined
+异常信息:未找到路径“/undefined”的控制器或该控制器未实现 IController。 
+ System.Web.HttpException (0x80004005): 未找到路径“/undefined”的控制器或该控制器未实现 IController。
+   在 System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   在 System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   在 System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   在 System.Web.Mvc.MvcHandler.<>c__DisplayClass6.<BeginProcessRequest>b__2()
+   在 System.Web.Mvc.SecurityUtil.<>c__DisplayClassb`1.<ProcessInApplicationTrust>b__a()
+   在 System.Web.Mvc.SecurityUtil.<GetCallInAppTrustThunk>b__0(Action f)
+   在 System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust(Action action)
+   在 System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust[TResult](Func`1 func)
+   在 System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   在 System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   在 System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+异常时间：2012-07-23 17:07:09,143 [15] 
+异常级别：ERROR 
+异 常 类：logerror [(null)] 
+
+客户机IP:::1
+错误地址:http://localhost:8134/undefined
+异常信息:未找到路径“/undefined”的控制器或该控制器未实现 IController。 
+ System.Web.HttpException (0x80004005): 未找到路径“/undefined”的控制器或该控制器未实现 IController。
+   在 System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   在 System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   在 System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   在 System.Web.Mvc.MvcHandler.<>c__DisplayClass6.<BeginProcessRequest>b__2()
+   在 System.Web.Mvc.SecurityUtil.<>c__DisplayClassb`1.<ProcessInApplicationTrust>b__a()
+   在 System.Web.Mvc.SecurityUtil.<GetCallInAppTrustThunk>b__0(Action f)
+   在 System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust(Action action)
+   在 System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust[TResult](Func`1 func)
+   在 System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   在 System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   在 System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+异常时间：2012-07-23 17:08:12,689 [11] 
+异常级别：ERROR 
+异 常 类：logerror [(null)] 
+
+客户机IP:::1
+错误地址:http://localhost:8134/Admin/Manage/GetCurrentUser
+异常信息:指定的架构无效。错误: 
+BaseManage.csdl(3,4) : 错误 0019: EntityContainer 名称必须唯一。已定义名为“BaseManageEntities”的 EntityContainer。
+BaseManage.csdl(52,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.sysdiagram”。
+BaseManage.csdl(62,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbDepartment”。
+BaseManage.csdl(78,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbFavorite”。
+BaseManage.csdl(91,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbModule”。
+BaseManage.csdl(109,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbModulePermission”。
+BaseManage.csdl(125,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbRole”。
+BaseManage.csdl(144,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbRolePermission”。
+BaseManage.csdl(159,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbUser”。
+BaseManage.csdl(188,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbUserRole”。
+BaseManage.csdl(203,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBUSER_REFERENCE_TBDEPART”。
+BaseManage.csdl(215,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBFAVORI_REFERENCE_TBUSER”。
+BaseManage.csdl(227,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBMODULE_REFERENCE_TBMODULE”。
+BaseManage.csdl(239,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBROLEPE_REFERENCE_TBMODULE”。
+BaseManage.csdl(251,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBROLEPE_REFERENCE_TBROLE”。
+BaseManage.csdl(263,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBUSERRO_REFERENCE_TBROLE”。
+BaseManage.csdl(275,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBUSERRO_REFERENCE_TBUSER”。
+BaseManage.csdl(287,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.VRoleMenuPermission”。
+BaseManage.csdl(304,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.VRolePermission”。
+BaseManage.csdl(313,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbPermission”。
+BaseManage.csdl(326,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBMODULE_REFERENCE_TBPERMIS”。
+BaseManage.csdl(338,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.VModulePermission”。
+BaseManage.csdl(357,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.VRoleModulePermission”。
+BaseManage.csdl(380,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbOperateLog”。 
+ System.Data.MetadataException: 指定的架构无效。错误: 
+BaseManage.csdl(3,4) : 错误 0019: EntityContainer 名称必须唯一。已定义名为“BaseManageEntities”的 EntityContainer。
+BaseManage.csdl(52,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.sysdiagram”。
+BaseManage.csdl(62,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbDepartment”。
+BaseManage.csdl(78,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbFavorite”。
+BaseManage.csdl(91,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbModule”。
+BaseManage.csdl(109,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbModulePermission”。
+BaseManage.csdl(125,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbRole”。
+BaseManage.csdl(144,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbRolePermission”。
+BaseManage.csdl(159,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbUser”。
+BaseManage.csdl(188,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbUserRole”。
+BaseManage.csdl(203,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBUSER_REFERENCE_TBDEPART”。
+BaseManage.csdl(215,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBFAVORI_REFERENCE_TBUSER”。
+BaseManage.csdl(227,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBMODULE_REFERENCE_TBMODULE”。
+BaseManage.csdl(239,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBROLEPE_REFERENCE_TBMODULE”。
+BaseManage.csdl(251,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBROLEPE_REFERENCE_TBROLE”。
+BaseManage.csdl(263,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBUSERRO_REFERENCE_TBROLE”。
+BaseManage.csdl(275,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBUSERRO_REFERENCE_TBUSER”。
+BaseManage.csdl(287,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.VRoleMenuPermission”。
+BaseManage.csdl(304,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.VRolePermission”。
+BaseManage.csdl(313,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbPermission”。
+BaseManage.csdl(326,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBMODULE_REFERENCE_TBPERMIS”。
+BaseManage.csdl(338,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.VModulePermission”。
+BaseManage.csdl(357,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.VRoleModulePermission”。
+BaseManage.csdl(380,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbOperateLog”。
+   在 System.Data.Metadata.Edm.EdmItemCollection.LoadItems(IEnumerable`1 xmlReaders, IEnumerable`1 sourceFilePaths, SchemaDataModelOption dataModelOption, DbProviderManifest providerManifest, ItemCollection itemCollection, Boolean throwOnError)
+   在 System.Data.Metadata.Edm.EdmItemCollection.Init(IEnumerable`1 xmlReaders, IEnumerable`1 filePaths, Boolean throwOnError)
+   在 System.Data.Metadata.Edm.EdmItemCollection..ctor(IEnumerable`1 xmlReaders, IEnumerable`1 filePaths)
+   在 System.Data.Metadata.Edm.MetadataCache.EdmMetadataEntry.LoadEdmItemCollection(MetadataArtifactLoader loader)
+   在 System.Data.Metadata.Edm.MetadataCache.EdmItemCollectionLoader.LoadItemCollection(EdmMetadataEntry entry)
+   在 System.Data.Metadata.Edm.MetadataCache.LoadItemCollection[T](IItemCollectionLoader`1 itemCollectionLoader, T entry)
+   在 System.Data.Metadata.Edm.MetadataCache.GetOrCreateEdmItemCollection(String cacheKey, MetadataArtifactLoader loader, Object& entryToken)
+   在 System.Data.EntityClient.EntityConnection.LoadEdmItemCollection(MetadataWorkspace workspace, MetadataArtifactLoader artifactLoader)
+   在 System.Data.EntityClient.EntityConnection.GetMetadataWorkspace(Boolean initializeAllCollections)
+   在 System.Data.Objects.ObjectContext.RetrieveMetadataWorkspaceFromConnection()
+   在 System.Data.Objects.ObjectContext..ctor(EntityConnection connection, Boolean isConnectionConstructor)
+   在 System.Data.Objects.ObjectContext..ctor(String connectionString, String defaultContainerName)
+   在 TZHSWEET.Entity.BaseManageEntities..ctor() 位置 E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.Model\Manage.Context.cs:行号 32
+   在 TZHSWEET.EFDao.BaseEFDao`1.GetEntity(Func`2 exp) 位置 E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.EFDao\BaseEFDao.cs:行号 78
+   在 TZHSWEET.BLL.BaseService`1.GetEntity(Func`2 exp) 位置 E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.BLL\BaseService.cs:行号 65
+   在 TZHSWEET.UI.SysCurrentUser.GetCurrentUserInfo() 位置 E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.UI\User\SysCurrentUser.cs:行号 106
+   在 TZHSWEET.UI.SysCurrentUser..ctor(Boolean IsLoadUserInfo) 位置 E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.UI\User\SysCurrentUser.cs:行号 67
+   在 TZHSWEET.WebUI.Areas.Admin.Controllers.ManageController.GetCurrentUser() 位置 E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.WebUI\Areas\Admin\Controllers\ManageController.cs:行号 67
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<InvokeActionMethodWithFilters>b__12()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodFilter(IActionFilter filter, ActionExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<>c__DisplayClass17.<InvokeActionMethodWithFilters>b__14()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodFilter(IActionFilter filter, ActionExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<>c__DisplayClass17.<InvokeActionMethodWithFilters>b__14()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodWithFilters(ControllerContext controllerContext, IList`1 filters, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeAction(ControllerContext controllerContext, String actionName)
+   在 System.Web.Mvc.Controller.ExecuteCore()
+   在 System.Web.Mvc.ControllerBase.Execute(RequestContext requestContext)
+   在 System.Web.Mvc.ControllerBase.System.Web.Mvc.IController.Execute(RequestContext requestContext)
+   在 System.Web.Mvc.MvcHandler.<>c__DisplayClass6.<>c__DisplayClassb.<BeginProcessRequest>b__5()
+   在 System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass1.<MakeVoidDelegate>b__0()
+   在 System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   在 System.Web.Mvc.MvcHandler.<>c__DisplayClasse.<EndProcessRequest>b__d()
+   在 System.Web.Mvc.SecurityUtil.<GetCallInAppTrustThunk>b__0(Action f)
+   在 System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust(Action action)
+   在 System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   在 System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+异常时间：2012-07-23 17:08:13,214 [6] 
+异常级别：ERROR 
+异 常 类：logerror [(null)] 
+
+客户机IP:::1
+错误地址:http://localhost:8134/Admin/Manage/GetMenus?rnd=0.6392341560564643
+异常信息:指定的架构无效。错误: 
+BaseManage.csdl(3,4) : 错误 0019: EntityContainer 名称必须唯一。已定义名为“BaseManageEntities”的 EntityContainer。
+BaseManage.csdl(52,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.sysdiagram”。
+BaseManage.csdl(62,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbDepartment”。
+BaseManage.csdl(78,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbFavorite”。
+BaseManage.csdl(91,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbModule”。
+BaseManage.csdl(109,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbModulePermission”。
+BaseManage.csdl(125,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbRole”。
+BaseManage.csdl(144,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbRolePermission”。
+BaseManage.csdl(159,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbUser”。
+BaseManage.csdl(188,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbUserRole”。
+BaseManage.csdl(203,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBUSER_REFERENCE_TBDEPART”。
+BaseManage.csdl(215,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBFAVORI_REFERENCE_TBUSER”。
+BaseManage.csdl(227,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBMODULE_REFERENCE_TBMODULE”。
+BaseManage.csdl(239,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBROLEPE_REFERENCE_TBMODULE”。
+BaseManage.csdl(251,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBROLEPE_REFERENCE_TBROLE”。
+BaseManage.csdl(263,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBUSERRO_REFERENCE_TBROLE”。
+BaseManage.csdl(275,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBUSERRO_REFERENCE_TBUSER”。
+BaseManage.csdl(287,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.VRoleMenuPermission”。
+BaseManage.csdl(304,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.VRolePermission”。
+BaseManage.csdl(313,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbPermission”。
+BaseManage.csdl(326,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBMODULE_REFERENCE_TBPERMIS”。
+BaseManage.csdl(338,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.VModulePermission”。
+BaseManage.csdl(357,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.VRoleModulePermission”。
+BaseManage.csdl(380,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbOperateLog”。 
+ System.Data.MetadataException: 指定的架构无效。错误: 
+BaseManage.csdl(3,4) : 错误 0019: EntityContainer 名称必须唯一。已定义名为“BaseManageEntities”的 EntityContainer。
+BaseManage.csdl(52,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.sysdiagram”。
+BaseManage.csdl(62,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbDepartment”。
+BaseManage.csdl(78,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbFavorite”。
+BaseManage.csdl(91,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbModule”。
+BaseManage.csdl(109,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbModulePermission”。
+BaseManage.csdl(125,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbRole”。
+BaseManage.csdl(144,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbRolePermission”。
+BaseManage.csdl(159,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbUser”。
+BaseManage.csdl(188,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbUserRole”。
+BaseManage.csdl(203,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBUSER_REFERENCE_TBDEPART”。
+BaseManage.csdl(215,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBFAVORI_REFERENCE_TBUSER”。
+BaseManage.csdl(227,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBMODULE_REFERENCE_TBMODULE”。
+BaseManage.csdl(239,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBROLEPE_REFERENCE_TBMODULE”。
+BaseManage.csdl(251,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBROLEPE_REFERENCE_TBROLE”。
+BaseManage.csdl(263,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBUSERRO_REFERENCE_TBROLE”。
+BaseManage.csdl(275,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBUSERRO_REFERENCE_TBUSER”。
+BaseManage.csdl(287,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.VRoleMenuPermission”。
+BaseManage.csdl(304,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.VRolePermission”。
+BaseManage.csdl(313,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbPermission”。
+BaseManage.csdl(326,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBMODULE_REFERENCE_TBPERMIS”。
+BaseManage.csdl(338,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.VModulePermission”。
+BaseManage.csdl(357,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.VRoleModulePermission”。
+BaseManage.csdl(380,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbOperateLog”。
+   在 System.Data.Metadata.Edm.EdmItemCollection.LoadItems(IEnumerable`1 xmlReaders, IEnumerable`1 sourceFilePaths, SchemaDataModelOption dataModelOption, DbProviderManifest providerManifest, ItemCollection itemCollection, Boolean throwOnError)
+   在 System.Data.Metadata.Edm.EdmItemCollection.Init(IEnumerable`1 xmlReaders, IEnumerable`1 filePaths, Boolean throwOnError)
+   在 System.Data.Metadata.Edm.EdmItemCollection..ctor(IEnumerable`1 xmlReaders, IEnumerable`1 filePaths)
+   在 System.Data.Metadata.Edm.MetadataCache.EdmMetadataEntry.LoadEdmItemCollection(MetadataArtifactLoader loader)
+   在 System.Data.Metadata.Edm.MetadataCache.EdmItemCollectionLoader.LoadItemCollection(EdmMetadataEntry entry)
+   在 System.Data.Metadata.Edm.MetadataCache.LoadItemCollection[T](IItemCollectionLoader`1 itemCollectionLoader, T entry)
+   在 System.Data.Metadata.Edm.MetadataCache.GetOrCreateEdmItemCollection(String cacheKey, MetadataArtifactLoader loader, Object& entryToken)
+   在 System.Data.EntityClient.EntityConnection.LoadEdmItemCollection(MetadataWorkspace workspace, MetadataArtifactLoader artifactLoader)
+   在 System.Data.EntityClient.EntityConnection.GetMetadataWorkspace(Boolean initializeAllCollections)
+   在 System.Data.Objects.ObjectContext.RetrieveMetadataWorkspaceFromConnection()
+   在 System.Data.Objects.ObjectContext..ctor(EntityConnection connection, Boolean isConnectionConstructor)
+   在 System.Data.Objects.ObjectContext..ctor(String connectionString, String defaultContainerName)
+   在 TZHSWEET.Entity.BaseManageEntities..ctor() 位置 E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.Model\Manage.Context.cs:行号 32
+   在 TZHSWEET.EFDao.UserEFDao.GetUserMenuPermission(String Where, ObjectParameter[] parameters) 位置 E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.EFDao\UserEFDao.cs:行号 21
+   在 TZHSWEET.BLL.UserService.GetRoleMenu(String Roles) 位置 E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.BLL\UserService.cs:行号 121
+   在 TZHSWEET.BLL.UserService.GetUserPermissionMenus(String Roles) 位置 E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.BLL\UserService.cs:行号 133
+   在 TZHSWEET.WebUI.Areas.Admin.Controllers.ManageController.GetMenus() 位置 E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.WebUI\Areas\Admin\Controllers\ManageController.cs:行号 40
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<InvokeActionMethodWithFilters>b__12()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodFilter(IActionFilter filter, ActionExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<>c__DisplayClass17.<InvokeActionMethodWithFilters>b__14()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodFilter(IActionFilter filter, ActionExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<>c__DisplayClass17.<InvokeActionMethodWithFilters>b__14()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodWithFilters(ControllerContext controllerContext, IList`1 filters, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeAction(ControllerContext controllerContext, String actionName)
+   在 System.Web.Mvc.Controller.ExecuteCore()
+   在 System.Web.Mvc.ControllerBase.Execute(RequestContext requestContext)
+   在 System.Web.Mvc.ControllerBase.System.Web.Mvc.IController.Execute(RequestContext requestContext)
+   在 System.Web.Mvc.MvcHandler.<>c__DisplayClass6.<>c__DisplayClassb.<BeginProcessRequest>b__5()
+   在 System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass1.<MakeVoidDelegate>b__0()
+   在 System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   在 System.Web.Mvc.MvcHandler.<>c__DisplayClasse.<EndProcessRequest>b__d()
+   在 System.Web.Mvc.SecurityUtil.<GetCallInAppTrustThunk>b__0(Action f)
+   在 System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust(Action action)
+   在 System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   在 System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+异常时间：2012-07-23 17:08:37,932 [6] 
+异常级别：ERROR 
+异 常 类：logerror [(null)] 
+
+客户机IP:::1
+错误地址:http://localhost:8134/undefined
+异常信息:未找到路径“/undefined”的控制器或该控制器未实现 IController。 
+ System.Web.HttpException (0x80004005): 未找到路径“/undefined”的控制器或该控制器未实现 IController。
+   在 System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   在 System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   在 System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   在 System.Web.Mvc.MvcHandler.<>c__DisplayClass6.<BeginProcessRequest>b__2()
+   在 System.Web.Mvc.SecurityUtil.<>c__DisplayClassb`1.<ProcessInApplicationTrust>b__a()
+   在 System.Web.Mvc.SecurityUtil.<GetCallInAppTrustThunk>b__0(Action f)
+   在 System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust(Action action)
+   在 System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust[TResult](Func`1 func)
+   在 System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   在 System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   在 System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+异常时间：2012-07-23 17:08:38,036 [6] 
+异常级别：ERROR 
+异 常 类：logerror [(null)] 
+
+客户机IP:::1
+错误地址:http://localhost:8134/undefined
+异常信息:未找到路径“/undefined”的控制器或该控制器未实现 IController。 
+ System.Web.HttpException (0x80004005): 未找到路径“/undefined”的控制器或该控制器未实现 IController。
+   在 System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   在 System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   在 System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   在 System.Web.Mvc.MvcHandler.<>c__DisplayClass6.<BeginProcessRequest>b__2()
+   在 System.Web.Mvc.SecurityUtil.<>c__DisplayClassb`1.<ProcessInApplicationTrust>b__a()
+   在 System.Web.Mvc.SecurityUtil.<GetCallInAppTrustThunk>b__0(Action f)
+   在 System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust(Action action)
+   在 System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust[TResult](Func`1 func)
+   在 System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   在 System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   在 System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+异常时间：2012-07-23 17:10:09,968 [6] 
+异常级别：ERROR 
+异 常 类：logerror [(null)] 
+
+客户机IP:::1
+错误地址:http://localhost:8134/Admin/Manage/GetMenus?rnd=0.8006052128070022
+异常信息:指定的架构无效。错误: 
+BaseManage.csdl(3,4) : 错误 0019: EntityContainer 名称必须唯一。已定义名为“BaseManageEntities”的 EntityContainer。
+BaseManage.csdl(52,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.sysdiagram”。
+BaseManage.csdl(62,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbDepartment”。
+BaseManage.csdl(78,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbFavorite”。
+BaseManage.csdl(91,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbModule”。
+BaseManage.csdl(109,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbModulePermission”。
+BaseManage.csdl(125,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbRole”。
+BaseManage.csdl(144,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbRolePermission”。
+BaseManage.csdl(159,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbUser”。
+BaseManage.csdl(188,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbUserRole”。
+BaseManage.csdl(203,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBUSER_REFERENCE_TBDEPART”。
+BaseManage.csdl(215,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBFAVORI_REFERENCE_TBUSER”。
+BaseManage.csdl(227,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBMODULE_REFERENCE_TBMODULE”。
+BaseManage.csdl(239,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBROLEPE_REFERENCE_TBMODULE”。
+BaseManage.csdl(251,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBROLEPE_REFERENCE_TBROLE”。
+BaseManage.csdl(263,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBUSERRO_REFERENCE_TBROLE”。
+BaseManage.csdl(275,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBUSERRO_REFERENCE_TBUSER”。
+BaseManage.csdl(287,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.VRoleMenuPermission”。
+BaseManage.csdl(304,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.VRolePermission”。
+BaseManage.csdl(313,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbPermission”。
+BaseManage.csdl(326,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBMODULE_REFERENCE_TBPERMIS”。
+BaseManage.csdl(338,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.VModulePermission”。
+BaseManage.csdl(357,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.VRoleModulePermission”。
+BaseManage.csdl(380,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbOperateLog”。 
+ System.Data.MetadataException: 指定的架构无效。错误: 
+BaseManage.csdl(3,4) : 错误 0019: EntityContainer 名称必须唯一。已定义名为“BaseManageEntities”的 EntityContainer。
+BaseManage.csdl(52,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.sysdiagram”。
+BaseManage.csdl(62,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbDepartment”。
+BaseManage.csdl(78,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbFavorite”。
+BaseManage.csdl(91,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbModule”。
+BaseManage.csdl(109,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbModulePermission”。
+BaseManage.csdl(125,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbRole”。
+BaseManage.csdl(144,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbRolePermission”。
+BaseManage.csdl(159,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbUser”。
+BaseManage.csdl(188,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbUserRole”。
+BaseManage.csdl(203,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBUSER_REFERENCE_TBDEPART”。
+BaseManage.csdl(215,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBFAVORI_REFERENCE_TBUSER”。
+BaseManage.csdl(227,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBMODULE_REFERENCE_TBMODULE”。
+BaseManage.csdl(239,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBROLEPE_REFERENCE_TBMODULE”。
+BaseManage.csdl(251,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBROLEPE_REFERENCE_TBROLE”。
+BaseManage.csdl(263,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBUSERRO_REFERENCE_TBROLE”。
+BaseManage.csdl(275,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBUSERRO_REFERENCE_TBUSER”。
+BaseManage.csdl(287,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.VRoleMenuPermission”。
+BaseManage.csdl(304,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.VRolePermission”。
+BaseManage.csdl(313,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbPermission”。
+BaseManage.csdl(326,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBMODULE_REFERENCE_TBPERMIS”。
+BaseManage.csdl(338,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.VModulePermission”。
+BaseManage.csdl(357,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.VRoleModulePermission”。
+BaseManage.csdl(380,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbOperateLog”。
+   在 System.Data.Metadata.Edm.EdmItemCollection.LoadItems(IEnumerable`1 xmlReaders, IEnumerable`1 sourceFilePaths, SchemaDataModelOption dataModelOption, DbProviderManifest providerManifest, ItemCollection itemCollection, Boolean throwOnError)
+   在 System.Data.Metadata.Edm.EdmItemCollection.Init(IEnumerable`1 xmlReaders, IEnumerable`1 filePaths, Boolean throwOnError)
+   在 System.Data.Metadata.Edm.EdmItemCollection..ctor(IEnumerable`1 xmlReaders, IEnumerable`1 filePaths)
+   在 System.Data.Metadata.Edm.MetadataCache.EdmMetadataEntry.LoadEdmItemCollection(MetadataArtifactLoader loader)
+   在 System.Data.Metadata.Edm.MetadataCache.EdmItemCollectionLoader.LoadItemCollection(EdmMetadataEntry entry)
+   在 System.Data.Metadata.Edm.MetadataCache.LoadItemCollection[T](IItemCollectionLoader`1 itemCollectionLoader, T entry)
+   在 System.Data.Metadata.Edm.MetadataCache.GetOrCreateEdmItemCollection(String cacheKey, MetadataArtifactLoader loader, Object& entryToken)
+   在 System.Data.EntityClient.EntityConnection.LoadEdmItemCollection(MetadataWorkspace workspace, MetadataArtifactLoader artifactLoader)
+   在 System.Data.EntityClient.EntityConnection.GetMetadataWorkspace(Boolean initializeAllCollections)
+   在 System.Data.Objects.ObjectContext.RetrieveMetadataWorkspaceFromConnection()
+   在 System.Data.Objects.ObjectContext..ctor(EntityConnection connection, Boolean isConnectionConstructor)
+   在 System.Data.Objects.ObjectContext..ctor(String connectionString, String defaultContainerName)
+   在 TZHSWEET.Entity.BaseManageEntities..ctor() 位置 E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.Entity\Manage.Context.cs:行号 32
+   在 TZHSWEET.EFDao.UserEFDao.GetUserMenuPermission(String Where, ObjectParameter[] parameters) 位置 E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.EFDao\UserEFDao.cs:行号 21
+   在 TZHSWEET.BLL.UserService.GetRoleMenu(String Roles) 位置 E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.BLL\UserService.cs:行号 121
+   在 TZHSWEET.BLL.UserService.GetUserPermissionMenus(String Roles) 位置 E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.BLL\UserService.cs:行号 133
+   在 TZHSWEET.WebUI.Areas.Admin.Controllers.ManageController.GetMenus() 位置 E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.WebUI\Areas\Admin\Controllers\ManageController.cs:行号 40
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<InvokeActionMethodWithFilters>b__12()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodFilter(IActionFilter filter, ActionExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<>c__DisplayClass17.<InvokeActionMethodWithFilters>b__14()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodFilter(IActionFilter filter, ActionExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<>c__DisplayClass17.<InvokeActionMethodWithFilters>b__14()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodWithFilters(ControllerContext controllerContext, IList`1 filters, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeAction(ControllerContext controllerContext, String actionName)
+   在 System.Web.Mvc.Controller.ExecuteCore()
+   在 System.Web.Mvc.ControllerBase.Execute(RequestContext requestContext)
+   在 System.Web.Mvc.ControllerBase.System.Web.Mvc.IController.Execute(RequestContext requestContext)
+   在 System.Web.Mvc.MvcHandler.<>c__DisplayClass6.<>c__DisplayClassb.<BeginProcessRequest>b__5()
+   在 System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass1.<MakeVoidDelegate>b__0()
+   在 System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   在 System.Web.Mvc.MvcHandler.<>c__DisplayClasse.<EndProcessRequest>b__d()
+   在 System.Web.Mvc.SecurityUtil.<GetCallInAppTrustThunk>b__0(Action f)
+   在 System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust(Action action)
+   在 System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   在 System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+异常时间：2012-07-23 17:10:10,492 [6] 
+异常级别：ERROR 
+异 常 类：logerror [(null)] 
+
+客户机IP:::1
+错误地址:http://localhost:8134/Admin/Manage/GetCurrentUser
+异常信息:指定的架构无效。错误: 
+BaseManage.csdl(3,4) : 错误 0019: EntityContainer 名称必须唯一。已定义名为“BaseManageEntities”的 EntityContainer。
+BaseManage.csdl(52,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.sysdiagram”。
+BaseManage.csdl(62,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbDepartment”。
+BaseManage.csdl(78,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbFavorite”。
+BaseManage.csdl(91,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbModule”。
+BaseManage.csdl(109,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbModulePermission”。
+BaseManage.csdl(125,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbRole”。
+BaseManage.csdl(144,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbRolePermission”。
+BaseManage.csdl(159,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbUser”。
+BaseManage.csdl(188,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbUserRole”。
+BaseManage.csdl(203,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBUSER_REFERENCE_TBDEPART”。
+BaseManage.csdl(215,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBFAVORI_REFERENCE_TBUSER”。
+BaseManage.csdl(227,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBMODULE_REFERENCE_TBMODULE”。
+BaseManage.csdl(239,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBROLEPE_REFERENCE_TBMODULE”。
+BaseManage.csdl(251,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBROLEPE_REFERENCE_TBROLE”。
+BaseManage.csdl(263,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBUSERRO_REFERENCE_TBROLE”。
+BaseManage.csdl(275,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBUSERRO_REFERENCE_TBUSER”。
+BaseManage.csdl(287,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.VRoleMenuPermission”。
+BaseManage.csdl(304,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.VRolePermission”。
+BaseManage.csdl(313,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbPermission”。
+BaseManage.csdl(326,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBMODULE_REFERENCE_TBPERMIS”。
+BaseManage.csdl(338,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.VModulePermission”。
+BaseManage.csdl(357,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.VRoleModulePermission”。
+BaseManage.csdl(380,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbOperateLog”。 
+ System.Data.MetadataException: 指定的架构无效。错误: 
+BaseManage.csdl(3,4) : 错误 0019: EntityContainer 名称必须唯一。已定义名为“BaseManageEntities”的 EntityContainer。
+BaseManage.csdl(52,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.sysdiagram”。
+BaseManage.csdl(62,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbDepartment”。
+BaseManage.csdl(78,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbFavorite”。
+BaseManage.csdl(91,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbModule”。
+BaseManage.csdl(109,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbModulePermission”。
+BaseManage.csdl(125,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbRole”。
+BaseManage.csdl(144,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbRolePermission”。
+BaseManage.csdl(159,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbUser”。
+BaseManage.csdl(188,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbUserRole”。
+BaseManage.csdl(203,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBUSER_REFERENCE_TBDEPART”。
+BaseManage.csdl(215,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBFAVORI_REFERENCE_TBUSER”。
+BaseManage.csdl(227,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBMODULE_REFERENCE_TBMODULE”。
+BaseManage.csdl(239,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBROLEPE_REFERENCE_TBMODULE”。
+BaseManage.csdl(251,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBROLEPE_REFERENCE_TBROLE”。
+BaseManage.csdl(263,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBUSERRO_REFERENCE_TBROLE”。
+BaseManage.csdl(275,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBUSERRO_REFERENCE_TBUSER”。
+BaseManage.csdl(287,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.VRoleMenuPermission”。
+BaseManage.csdl(304,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.VRolePermission”。
+BaseManage.csdl(313,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbPermission”。
+BaseManage.csdl(326,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.FK_TBMODULE_REFERENCE_TBPERMIS”。
+BaseManage.csdl(338,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.VModulePermission”。
+BaseManage.csdl(357,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.VRoleModulePermission”。
+BaseManage.csdl(380,4) : 错误 0019: 架构中的每个类型名都必须唯一。已定义类型名“DBCommonManageModel.tbOperateLog”。
+   在 System.Data.Metadata.Edm.EdmItemCollection.LoadItems(IEnumerable`1 xmlReaders, IEnumerable`1 sourceFilePaths, SchemaDataModelOption dataModelOption, DbProviderManifest providerManifest, ItemCollection itemCollection, Boolean throwOnError)
+   在 System.Data.Metadata.Edm.EdmItemCollection.Init(IEnumerable`1 xmlReaders, IEnumerable`1 filePaths, Boolean throwOnError)
+   在 System.Data.Metadata.Edm.EdmItemCollection..ctor(IEnumerable`1 xmlReaders, IEnumerable`1 filePaths)
+   在 System.Data.Metadata.Edm.MetadataCache.EdmMetadataEntry.LoadEdmItemCollection(MetadataArtifactLoader loader)
+   在 System.Data.Metadata.Edm.MetadataCache.EdmItemCollectionLoader.LoadItemCollection(EdmMetadataEntry entry)
+   在 System.Data.Metadata.Edm.MetadataCache.LoadItemCollection[T](IItemCollectionLoader`1 itemCollectionLoader, T entry)
+   在 System.Data.Metadata.Edm.MetadataCache.GetOrCreateEdmItemCollection(String cacheKey, MetadataArtifactLoader loader, Object& entryToken)
+   在 System.Data.EntityClient.EntityConnection.LoadEdmItemCollection(MetadataWorkspace workspace, MetadataArtifactLoader artifactLoader)
+   在 System.Data.EntityClient.EntityConnection.GetMetadataWorkspace(Boolean initializeAllCollections)
+   在 System.Data.Objects.ObjectContext.RetrieveMetadataWorkspaceFromConnection()
+   在 System.Data.Objects.ObjectContext..ctor(EntityConnection connection, Boolean isConnectionConstructor)
+   在 System.Data.Objects.ObjectContext..ctor(String connectionString, String defaultContainerName)
+   在 TZHSWEET.Entity.BaseManageEntities..ctor() 位置 E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.Entity\Manage.Context.cs:行号 32
+   在 TZHSWEET.EFDao.BaseEFDao`1.GetEntity(Func`2 exp) 位置 E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.EFDao\BaseEFDao.cs:行号 78
+   在 TZHSWEET.BLL.BaseService`1.GetEntity(Func`2 exp) 位置 E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.BLL\BaseService.cs:行号 65
+   在 TZHSWEET.UI.SysCurrentUser.GetCurrentUserInfo() 位置 E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.UI\User\SysCurrentUser.cs:行号 106
+   在 TZHSWEET.UI.SysCurrentUser..ctor(Boolean IsLoadUserInfo) 位置 E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.UI\User\SysCurrentUser.cs:行号 67
+   在 TZHSWEET.WebUI.Areas.Admin.Controllers.ManageController.GetCurrentUser() 位置 E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.WebUI\Areas\Admin\Controllers\ManageController.cs:行号 67
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<InvokeActionMethodWithFilters>b__12()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodFilter(IActionFilter filter, ActionExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<>c__DisplayClass17.<InvokeActionMethodWithFilters>b__14()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodFilter(IActionFilter filter, ActionExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<>c__DisplayClass17.<InvokeActionMethodWithFilters>b__14()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodWithFilters(ControllerContext controllerContext, IList`1 filters, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeAction(ControllerContext controllerContext, String actionName)
+   在 System.Web.Mvc.Controller.ExecuteCore()
+   在 System.Web.Mvc.ControllerBase.Execute(RequestContext requestContext)
+   在 System.Web.Mvc.ControllerBase.System.Web.Mvc.IController.Execute(RequestContext requestContext)
+   在 System.Web.Mvc.MvcHandler.<>c__DisplayClass6.<>c__DisplayClassb.<BeginProcessRequest>b__5()
+   在 System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass1.<MakeVoidDelegate>b__0()
+   在 System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   在 System.Web.Mvc.MvcHandler.<>c__DisplayClasse.<EndProcessRequest>b__d()
+   在 System.Web.Mvc.SecurityUtil.<GetCallInAppTrustThunk>b__0(Action f)
+   在 System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust(Action action)
+   在 System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   在 System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+异常时间：2012-07-23 17:11:12,667 [14] 
+异常级别：ERROR 
+异 常 类：logerror [(null)] 
+
+客户机IP:::1
+错误地址:http://localhost:8134/undefined
+异常信息:未找到路径“/undefined”的控制器或该控制器未实现 IController。 
+ System.Web.HttpException (0x80004005): 未找到路径“/undefined”的控制器或该控制器未实现 IController。
+   在 System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   在 System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   在 System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   在 System.Web.Mvc.MvcHandler.<>c__DisplayClass6.<BeginProcessRequest>b__2()
+   在 System.Web.Mvc.SecurityUtil.<>c__DisplayClassb`1.<ProcessInApplicationTrust>b__a()
+   在 System.Web.Mvc.SecurityUtil.<GetCallInAppTrustThunk>b__0(Action f)
+   在 System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust(Action action)
+   在 System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust[TResult](Func`1 func)
+   在 System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   在 System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   在 System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+异常时间：2012-07-23 17:11:15,792 [17] 
+异常级别：ERROR 
+异 常 类：logerror [(null)] 
+
+客户机IP:::1
+错误地址:http://localhost:8134/undefined
+异常信息:未找到路径“/undefined”的控制器或该控制器未实现 IController。 
+ System.Web.HttpException (0x80004005): 未找到路径“/undefined”的控制器或该控制器未实现 IController。
+   在 System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   在 System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   在 System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   在 System.Web.Mvc.MvcHandler.<>c__DisplayClass6.<BeginProcessRequest>b__2()
+   在 System.Web.Mvc.SecurityUtil.<>c__DisplayClassb`1.<ProcessInApplicationTrust>b__a()
+   在 System.Web.Mvc.SecurityUtil.<GetCallInAppTrustThunk>b__0(Action f)
+   在 System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust(Action action)
+   在 System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust[TResult](Func`1 func)
+   在 System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   在 System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   在 System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+异常时间：2012-07-23 19:18:36,854 [14] 
+异常级别：ERROR 
+异 常 类：logerror [(null)] 
+
+客户机IP:::1
+错误地址:http://localhost:8134/undefined
+异常信息:未找到路径“/undefined”的控制器或该控制器未实现 IController。 
+ System.Web.HttpException (0x80004005): 未找到路径“/undefined”的控制器或该控制器未实现 IController。
+   在 System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   在 System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   在 System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   在 System.Web.Mvc.MvcHandler.<>c__DisplayClass6.<BeginProcessRequest>b__2()
+   在 System.Web.Mvc.SecurityUtil.<>c__DisplayClassb`1.<ProcessInApplicationTrust>b__a()
+   在 System.Web.Mvc.SecurityUtil.<GetCallInAppTrustThunk>b__0(Action f)
+   在 System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust(Action action)
+   在 System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust[TResult](Func`1 func)
+   在 System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   在 System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   在 System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+异常时间：2012-07-23 19:18:36,978 [14] 
+异常级别：ERROR 
+异 常 类：logerror [(null)] 
+
+客户机IP:::1
+错误地址:http://localhost:8134/undefined
+异常信息:未找到路径“/undefined”的控制器或该控制器未实现 IController。 
+ System.Web.HttpException (0x80004005): 未找到路径“/undefined”的控制器或该控制器未实现 IController。
+   在 System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   在 System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   在 System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   在 System.Web.Mvc.MvcHandler.<>c__DisplayClass6.<BeginProcessRequest>b__2()
+   在 System.Web.Mvc.SecurityUtil.<>c__DisplayClassb`1.<ProcessInApplicationTrust>b__a()
+   在 System.Web.Mvc.SecurityUtil.<GetCallInAppTrustThunk>b__0(Action f)
+   在 System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust(Action action)
+   在 System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust[TResult](Func`1 func)
+   在 System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   在 System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   在 System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+异常时间：2012-07-23 19:50:30,066 [13] 
+异常级别：ERROR 
+异 常 类：logerror [(null)] 
+
+客户机IP:::1
+错误地址:http://localhost:8134/handler/tree.ashx?view=MyMenus
+异常信息:未找到路径“/handler/tree.ashx”的控制器或该控制器未实现 IController。 
+ System.Web.HttpException (0x80004005): 未找到路径“/handler/tree.ashx”的控制器或该控制器未实现 IController。
+   在 System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   在 System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   在 System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   在 System.Web.Mvc.MvcHandler.<>c__DisplayClass6.<BeginProcessRequest>b__2()
+   在 System.Web.Mvc.SecurityUtil.<>c__DisplayClassb`1.<ProcessInApplicationTrust>b__a()
+   在 System.Web.Mvc.SecurityUtil.<GetCallInAppTrustThunk>b__0(Action f)
+   在 System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust(Action action)
+   在 System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust[TResult](Func`1 func)
+   在 System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   在 System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   在 System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+异常时间：2012-07-23 21:07:18,316 [74] 
+异常级别：ERROR 
+异 常 类：logerror [(null)] 
+
+客户机IP:::1
+错误地址:http://localhost:8134/Admin/Scripts/js/ligerui.expand.js
+异常信息:未找到路径“/Admin/Scripts/js/ligerui.expand.js”的控制器或该控制器未实现 IController。 
+ System.Web.HttpException (0x80004005): 未找到路径“/Admin/Scripts/js/ligerui.expand.js”的控制器或该控制器未实现 IController。
+   在 System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   在 System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   在 System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   在 System.Web.Mvc.MvcHandler.<>c__DisplayClass6.<BeginProcessRequest>b__2()
+   在 System.Web.Mvc.SecurityUtil.<>c__DisplayClassb`1.<ProcessInApplicationTrust>b__a()
+   在 System.Web.Mvc.SecurityUtil.<GetCallInAppTrustThunk>b__0(Action f)
+   在 System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust(Action action)
+   在 System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust[TResult](Func`1 func)
+   在 System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   在 System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   在 System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+异常时间：2012-07-23 21:07:20,001 [64] 
+异常级别：ERROR 
+异 常 类：logerror [(null)] 
+
+客户机IP:::1
+错误地址:http://localhost:8134/Admin/Scripts/js/ligerui.expand.js
+异常信息:未找到路径“/Admin/Scripts/js/ligerui.expand.js”的控制器或该控制器未实现 IController。 
+ System.Web.HttpException (0x80004005): 未找到路径“/Admin/Scripts/js/ligerui.expand.js”的控制器或该控制器未实现 IController。
+   在 System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   在 System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   在 System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   在 System.Web.Mvc.MvcHandler.<>c__DisplayClass6.<BeginProcessRequest>b__2()
+   在 System.Web.Mvc.SecurityUtil.<>c__DisplayClassb`1.<ProcessInApplicationTrust>b__a()
+   在 System.Web.Mvc.SecurityUtil.<GetCallInAppTrustThunk>b__0(Action f)
+   在 System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust(Action action)
+   在 System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust[TResult](Func`1 func)
+   在 System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   在 System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   在 System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+异常时间：2012-07-23 21:25:16,123 [53] 
+异常级别：ERROR 
+异 常 类：logerror [(null)] 
+
+客户机IP:::1
+错误地址:http://localhost:8134/Content/ligerUI/skins/Aqua/image/common/invalid-line.gif
+异常信息:文件不存在。 
+ System.Web.HttpException (0x80004005): 文件不存在。
+   在 System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)
+   在 System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context, String overrideVirtualPath)
+   在 System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+异常时间：2012-07-23 21:25:32,737 [52] 
+异常级别：ERROR 
+异 常 类：logerror [(null)] 
+
+客户机IP:::1
+错误地址:http://localhost:8134/Admin/Manage/AddFavorite
+异常信息:未将对象引用设置到对象的实例。 
+ System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 TZHSWEET.ViewModel.RequestFavorite..ctor(HttpContextBase context) 位置 E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.ViewModel\RequestModel\RequestFavorite.cs:行号 24
+   在 TZHSWEET.WebUI.Areas.Admin.Controllers.ManageController.AddFavorite() 位置 E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.WebUI\Areas\Admin\Controllers\ManageController.cs:行号 96
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<InvokeActionMethodWithFilters>b__12()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodFilter(IActionFilter filter, ActionExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<>c__DisplayClass17.<InvokeActionMethodWithFilters>b__14()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodFilter(IActionFilter filter, ActionExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<>c__DisplayClass17.<InvokeActionMethodWithFilters>b__14()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodWithFilters(ControllerContext controllerContext, IList`1 filters, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeAction(ControllerContext controllerContext, String actionName)
+   在 System.Web.Mvc.Controller.ExecuteCore()
+   在 System.Web.Mvc.ControllerBase.Execute(RequestContext requestContext)
+   在 System.Web.Mvc.ControllerBase.System.Web.Mvc.IController.Execute(RequestContext requestContext)
+   在 System.Web.Mvc.MvcHandler.<>c__DisplayClass6.<>c__DisplayClassb.<BeginProcessRequest>b__5()
+   在 System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass1.<MakeVoidDelegate>b__0()
+   在 System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   在 System.Web.Mvc.MvcHandler.<>c__DisplayClasse.<EndProcessRequest>b__d()
+   在 System.Web.Mvc.SecurityUtil.<GetCallInAppTrustThunk>b__0(Action f)
+   在 System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust(Action action)
+   在 System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   在 System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+异常时间：2012-07-23 21:25:58,390 [52] 
+异常级别：ERROR 
+异 常 类：logerror [(null)] 
+
+客户机IP:::1
+错误地址:http://localhost:8134/Content/ligerUI/skins/Aqua/image/common/invalid-line.gif
+异常信息:文件不存在。 
+ System.Web.HttpException (0x80004005): 文件不存在。
+   在 System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)
+   在 System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context, String overrideVirtualPath)
+   在 System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+异常时间：2012-07-23 21:27:33,141 [21] 
+异常级别：ERROR 
+异 常 类：logerror [(null)] 
+
+客户机IP:::1
+错误地址:http://localhost:8134/Admin/Manage/AddFavorite
+异常信息:未将对象引用设置到对象的实例。 
+ System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 TZHSWEET.ViewModel.RequestFavorite.GetFavoriteModuleInfo(tbModule module) 位置 E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.ViewModel\RequestModel\RequestFavorite.cs:行号 34
+   在 TZHSWEET.WebUI.Areas.Admin.Controllers.ManageController.AddFavorite() 位置 E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.WebUI\Areas\Admin\Controllers\ManageController.cs:行号 100
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<InvokeActionMethodWithFilters>b__12()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodFilter(IActionFilter filter, ActionExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<>c__DisplayClass17.<InvokeActionMethodWithFilters>b__14()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodFilter(IActionFilter filter, ActionExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<>c__DisplayClass17.<InvokeActionMethodWithFilters>b__14()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodWithFilters(ControllerContext controllerContext, IList`1 filters, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeAction(ControllerContext controllerContext, String actionName)
+   在 System.Web.Mvc.Controller.ExecuteCore()
+   在 System.Web.Mvc.ControllerBase.Execute(RequestContext requestContext)
+   在 System.Web.Mvc.ControllerBase.System.Web.Mvc.IController.Execute(RequestContext requestContext)
+   在 System.Web.Mvc.MvcHandler.<>c__DisplayClass6.<>c__DisplayClassb.<BeginProcessRequest>b__5()
+   在 System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass1.<MakeVoidDelegate>b__0()
+   在 System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   在 System.Web.Mvc.MvcHandler.<>c__DisplayClasse.<EndProcessRequest>b__d()
+   在 System.Web.Mvc.SecurityUtil.<GetCallInAppTrustThunk>b__0(Action f)
+   在 System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust(Action action)
+   在 System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   在 System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+异常时间：2012-07-23 21:28:38,828 [75] 
+异常级别：ERROR 
+异 常 类：logerror [(null)] 
+
+客户机IP:::1
+错误地址:http://localhost:8134/Content/ligerUI/skins/Aqua/image/common/invalid-line.gif
+异常信息:文件不存在。 
+ System.Web.HttpException (0x80004005): 文件不存在。
+   在 System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)
+   在 System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context, String overrideVirtualPath)
+   在 System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+异常时间：2012-07-23 21:28:47,841 [51] 
+异常级别：ERROR 
+异 常 类：logerror [(null)] 
+
+客户机IP:::1
+错误地址:http://localhost:8134/Admin/Manage/AddFavorite
+异常信息:未将对象引用设置到对象的实例。 
+ System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 TZHSWEET.ViewModel.RequestFavorite.GetFavoriteModuleInfo(tbModule module) 位置 E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.ViewModel\RequestModel\RequestFavorite.cs:行号 34
+   在 TZHSWEET.WebUI.Areas.Admin.Controllers.ManageController.AddFavorite() 位置 E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.WebUI\Areas\Admin\Controllers\ManageController.cs:行号 100
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<InvokeActionMethodWithFilters>b__12()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodFilter(IActionFilter filter, ActionExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<>c__DisplayClass17.<InvokeActionMethodWithFilters>b__14()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodFilter(IActionFilter filter, ActionExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<>c__DisplayClass17.<InvokeActionMethodWithFilters>b__14()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodWithFilters(ControllerContext controllerContext, IList`1 filters, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeAction(ControllerContext controllerContext, String actionName)
+   在 System.Web.Mvc.Controller.ExecuteCore()
+   在 System.Web.Mvc.ControllerBase.Execute(RequestContext requestContext)
+   在 System.Web.Mvc.ControllerBase.System.Web.Mvc.IController.Execute(RequestContext requestContext)
+   在 System.Web.Mvc.MvcHandler.<>c__DisplayClass6.<>c__DisplayClassb.<BeginProcessRequest>b__5()
+   在 System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass1.<MakeVoidDelegate>b__0()
+   在 System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   在 System.Web.Mvc.MvcHandler.<>c__DisplayClasse.<EndProcessRequest>b__d()
+   在 System.Web.Mvc.SecurityUtil.<GetCallInAppTrustThunk>b__0(Action f)
+   在 System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust(Action action)
+   在 System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   在 System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+异常时间：2012-07-23 21:29:18,151 [51] 
+异常级别：ERROR 
+异 常 类：logerror [(null)] 
+
+客户机IP:::1
+错误地址:http://localhost:8134/Content/ligerUI/skins/Aqua/image/common/invalid-line.gif
+异常信息:文件不存在。 
+ System.Web.HttpException (0x80004005): 文件不存在。
+   在 System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)
+   在 System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context, String overrideVirtualPath)
+   在 System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+异常时间：2012-07-23 23:38:31,955 [4] 
+异常级别：ERROR 
+异 常 类：logerror [(null)] 
+
+客户机IP:::1
+错误地址:http://localhost:8134/Admin/Scripts/js/ligerui.expand.js
+异常信息:未找到路径“/Admin/Scripts/js/ligerui.expand.js”的控制器或该控制器未实现 IController。 
+ System.Web.HttpException (0x80004005): 未找到路径“/Admin/Scripts/js/ligerui.expand.js”的控制器或该控制器未实现 IController。
+   在 System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   在 System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   在 System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   在 System.Web.Mvc.MvcHandler.<>c__DisplayClass6.<BeginProcessRequest>b__2()
+   在 System.Web.Mvc.SecurityUtil.<>c__DisplayClassb`1.<ProcessInApplicationTrust>b__a()
+   在 System.Web.Mvc.SecurityUtil.<GetCallInAppTrustThunk>b__0(Action f)
+   在 System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust(Action action)
+   在 System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust[TResult](Func`1 func)
+   在 System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   在 System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   在 System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)

@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3DFB2906-858A-4290-8989-60F6840A7E16}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TZHSWEET.ViewModel</RootNamespace>
+    <AssemblyName>TZHSWEET.ViewModel</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=3.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\TZHSWEET.Core\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActionModel\MVCAction.cs" />
+    <Compile Include="ActionModel\MVCController.cs" />
+    <Compile Include="LigerUIViewModel\LigerUIGrid.cs" />
+    <Compile Include="LigerUIViewModel\LigerUITree.cs" />
+    <Compile Include="RequestModel\GrantRoleRequest.cs" />
+    <Compile Include="ViewModel\ViewModelBase.cs" />
+    <Compile Include="ViewModel\ViewModelMyButton.cs" />
+    <Compile Include="LigerUIViewModel\LigerUISelect.cs" />
+    <Compile Include="LigerUIRequestModel\LigerUIGridRequest.cs" />
+    <Compile Include="ViewModel\ViewModelMenu.cs" />
+    <Compile Include="LigerUIRequestModel\LigerUIGridTreeRequest.cs" />
+    <Compile Include="LigerUIRequestModel\LigerUISelectRequest.cs" />
+    <Compile Include="LigerUIRequestModel\LigerUITreeRequest.cs" />
+    <Compile Include="RequestModel\RequestBase.cs" />
+    <Compile Include="RequestModel\FavoriteRequest.cs" />
+    <Compile Include="RequestModel\MenusRequest.cs" />
+    <Compile Include="RequestModel\UserRequest.cs" />
+    <Compile Include="ViewModel\ViewModelDeptment.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RequestModel\ButtonRequest.cs" />
+    <Compile Include="RequestModel\DepartmentRequest.cs" />
+    <Compile Include="ViewModel\ViewModelFavorite.cs" />
+    <Compile Include="ViewModel\ViewModelMenuButtons.cs" />
+    <Compile Include="ViewModel\ViewModelOperateLog.cs" />
+    <Compile Include="ViewModel\ViewModelButton.cs" />
+    <Compile Include="ViewModel\ViewModelRole.cs" />
+    <Compile Include="ViewModel\ViewModelRolePermission.cs" />
+    <Compile Include="ViewModel\ViewModelUser.cs" />
+    <Compile Include="ViewPage\ViewDetailPage.cs" />
+    <Compile Include="ViewPage\ViewSelectParamPage.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TZHSWEET.Common\TZHSWEET.Common.csproj">
+      <Project>{900EE6E9-83A0-4CA1-9616-7990FBBBBE70}</Project>
+      <Name>TZHSWEET.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TZHSWEET.Entity\TZHSWEET.Entity.csproj">
+      <Project>{BD0A416D-4F15-49A7-BAF8-EDD6A0F251C9}</Project>
+      <Name>TZHSWEET.Entity</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

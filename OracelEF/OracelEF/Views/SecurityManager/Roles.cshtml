@@ -1,0 +1,203 @@
+﻿@model IEnumerable<BigData.TeamTools.Models.AspNetRoles>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Roles</title>
+   
+</head>
+<body>
+    <script>
+        var selectedRoleRow = null;
+        var selectedRoleIndex = -1;
+        $(document).ready(function () {
+            $("#rolesTable").jqxDataTable(
+                {
+                    sortable: true,
+                    editable: false,
+                    width: '100%',
+                    selectionMode: 'singleRow',
+                    columns: [
+                      { text: 'ID', dataField: 'Id', width: '70%', align: 'center', cellsAlign: 'center' },
+                      { text: '角色名', dataField: 'Name', width: '30%', align: 'center', cellsAlign: 'center' },
+                    ]
+                });
+            $('#rolesTable').on('rowSelect',
+                function (event) {
+                    selectedRoleRow = args.row;
+                    selectedRoleIndex = args.index;
+                }
+            );
+
+            initRolesButtons();
+        });
+        function initRolesButtons() {
+            $("#leftRolesButtons").jqxButtonGroup({ mode: 'default' });
+            $("#rightRolesButtons").jqxButtonGroup({ mode: 'default' });
+            $("#leftRolesButtons").unbind('buttonclick').on('buttonclick', function (event) {
+                var clickedButton = event.args.button;
+                var id = clickedButton[0].id;
+                if (id == "add") {
+                    AddRoleRow();
+                }
+                else if (id == "delete") {
+                    if (selectedRoleRow != null) {
+                        if (confirm("确定删除？")) {
+                            //alert(selectedRoleRow.Id);
+                            DeleteRole(selectedRoleRow.Id);
+
+                        }
+
+                    } else { alert("请选择项！");}
+                }
+            });
+
+            $("#rightRolesButtons").unbind('buttonclick').on('buttonclick', function (event) {
+                var clickedButton = event.args.button;
+                var id = clickedButton[0].id;
+                if (id == "group") {
+                    if (selectedRoleRow != null) {
+                        EditGroupsInRole(selectedRoleRow.Id);
+                    }
+                    else {
+                        alert('请选择项！');
+                    }
+                } else if (id == "user")
+                {
+                    if (selectedRoleRow != null) {
+                        EditUsersInRole(selectedRoleRow.Id);
+                    }
+                    else {
+                        alert('请选择项！');
+                    }
+                }
+            });
+        }
+        function AddRoleRow() {
+            $('#createRoleWindow').jqxWindow({
+                width: 360,
+                height: 240,
+                resizable: false
+            });
+            $('#createRoleWindow').jqxWindow('open');
+
+        }
+
+        function DeleteRole(id) {
+            var url = "http://localhost/BigData.TeamTools/SecurityManager/DeleteRoleByID?id=" + id;
+            $.ajax({
+                url: url,
+                type: "get",
+                success: function (msg) {
+                    if (msg.message = "successed") {
+                        alert("删除成功!");
+                        location.reload();
+                    } else {
+                        alert("删除失败！");
+                        location.reload();
+                    }
+                }
+            });
+        }
+        function EditGroupsInRole(id) {
+            LoadGroupsOfRole(id);
+            $('#EditGroupsInRoleWindow').jqxWindow({
+                width: 500,
+                height: 360,
+                resizable: false,
+                isModal: true,
+                modalOpacity: 0.3,
+            });
+            $('#EditGroupsInRoleWindow').jqxWindow('open');
+        }
+        function EditUsersInRole(id)
+        {
+            LoadUsersOfRole(id);
+            $('#EditUsersInRoleWindow').jqxWindow({
+                width: 500,
+                height: 360,
+                resizable: false,
+                isModal: true,
+                modalOpacity: 0.3,
+            });
+            $('#EditUsersInRoleWindow').jqxWindow('open');
+        }
+    </script>
+    <div style="height:35px; background-color:lightgray; margin-top:1px; margin-bottom:1px;">
+        <div id='leftRolesButtons' class="leftDock">
+            <button style="padding:4px 16px;" id="add">
+                新建
+            </button>
+            <button style="padding:4px 16px;" id="delete">
+                删除
+            </button>
+        </div>
+        <div id='rightRolesButtons' class="rightDock">
+            <button style="padding:4px 16px;" id="group">
+                组
+            </button>
+            <button style="padding:4px 16px;" id="user">
+                用户
+            </button>
+        </div>
+    </div>
+    <table id="rolesTable" style="width:100%;" border="1">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+            </tr>
+        </thead>
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)                
+            </td>
+        </tr>
+    }    
+    </table>
+    <div id="createRoleWindow" style="display:none;">
+        <div id="customWindowHeader">
+            <span id="captureContainer" style="float: left">新建角色</span>
+        </div>
+        <div id="customWindowContent" style="overflow: hidden">
+            <div style="margin: 10px">
+                @{ Html.RenderPartial("CreateRole", new BigData.TeamTools.Models.AspNetRoles());}
+            </div>
+        </div>
+    </div>
+    <div id="EditGroupsInRoleWindow" style="display:none;">
+        <div id="customWindowHeader">
+            <span id="captureContainer" style="float: left">编辑组与角色</span>
+        </div>
+        <div id="customWindowContent" style="overflow: hidden">
+            <div style="margin: 10px">
+                @{Html.RenderPartial("EditGroupsInRole");}
+            </div>
+        </div>
+    </div>
+    <div id="EditUsersInRoleWindow" style="display:none;">
+        <div id="customWindowHeader">
+            <span id="captureContainer" style="float: left">编辑用户与角色</span>
+        </div>
+        <div id="customWindowContent" style="overflow: hidden">
+            <div style="margin: 10px">
+                @{Html.RenderPartial("EditUsersInRole");}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

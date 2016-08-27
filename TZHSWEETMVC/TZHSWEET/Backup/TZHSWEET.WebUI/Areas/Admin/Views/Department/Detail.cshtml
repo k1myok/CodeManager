@@ -1,0 +1,111 @@
+﻿@model TZHSWEET.ViewModel.ViewDetailPage
+@{
+    Layout = null;
+ 
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>部门 明细</title>
+      <link href="@Url.Content("~/Content/ligerUI/skins/Aqua/css/ligerui-all.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/css/common.css")" rel="stylesheet" type="text/css" />
+
+      <script src="@Url.Content("~/Scripts/jquery/jquery-1.5.2.min.js")" type="text/javascript"></script>
+     <script src="@Url.Content("~/Content/ligerUI/js/ligerui.min.js")" type="text/javascript"></script>
+     <script src="@Url.Content("~/Scripts/js/common.js")" type="text/javascript"></script>
+     <script src="@Url.Content("~/Scripts/js/LG.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/js/ligerui.expand.js")" type="text/javascript"></script> 
+    <script src="@Url.Content("~/Content/json2.js")" type="text/javascript"></script>
+
+       <script src="@Url.Content("~/Scripts/jquery-validation/jquery.validate.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery-validation/jquery.metadata.js") " type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery-validation/messages_cn.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/js/validator.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/jquery.form.js")" type="text/javascript"></script>
+   
+</head>
+<body style="padding-bottom:31px;">
+    <form id="mainform" method="post"></form> 
+    <script type="text/javascript"> 
+    var rootPath='@Url.Content("~/Admin/")';
+        //当前ID
+        var currentID = '@ViewBag.CurrentID';
+        //是否新增状态
+        var isAddNew = currentID == "" || currentID == "0";
+        //是否查看状态
+        var isView = @ViewBag.IsView ;
+        //是否编辑状态
+        var isEdit = !isAddNew && !isView;
+       
+        //覆盖本页面grid的loading效果
+        LG.overrideGridLoading(); 
+
+        //表单底部按钮 
+        LG.setFormDefaultBtn(f_cancel,isView ? null : f_save);
+
+        //创建表单结构
+        var mainform = $("#mainform");  
+        mainform.ligerForm({ 
+         inputWidth: 280,
+         fields : [
+         {name:"DeptID",type:"hidden"},
+         {display:"部门名称",name:"DeptName",newline:true,labelWidth:100,width:520,space:30,type:"text",validate:{maxlength:50}},
+         {display:"部门描述",name:"DeptDesc",newline:true,labelWidth:100,width:520,space:30,type:"textarea",validate:{maxlength:255}},
+        {display:"上级部门",name:"ParentID",newline:true,labelWidth:100,width:520,space:30,type:"select",comboboxName:"DeptIDDeptName",options:{valueFieldID:"ParentID",url:rootPath+'Department/GetDeptSelect?idfield=DeptID&textfield=DeptName'}}],
+
+		 toJSON:JSON2.stringify
+        });
+
+        var actionRoot = rootPath+'Department/';
+        if(isEdit){ 
+            $("#DeptName").attr("readonly", "readonly").removeAttr("validate");
+            mainform.attr("action", actionRoot + "Update"); 
+        }
+        if (isAddNew) {
+            mainform.attr("action", actionRoot + "Add");
+        }
+        else { 
+            LG.loadForm(mainform, { url:actionRoot+'Get', data: { ID: currentID} },f_loaded);
+        }  
+
+        
+          
+        if(!isView) 
+        {
+            //验证
+            jQuery.metadata.setType("attr", "validate"); 
+            LG.validate(mainform);
+        } 
+
+		function f_loaded()
+        {
+            if(!isView) return; 
+            //查看状态，控制不能编辑
+            $("input,select,textarea",mainform).attr("readonly", "readonly");
+        }
+        function f_save()
+        {
+            LG.submitForm(mainform, function (data) {
+                var win = parent || window;
+                if (data.IsError) {  
+                    win.LG.showError('错误:' + data.Message);
+                }
+                else { 
+                    win.LG.showSuccess('保存成功', function () { 
+                        win.LG.closeAndReloadParent(null, "ManageDepartment");
+                    });
+                }
+            });
+        }
+        function f_cancel()
+        {
+            var win = parent || window;
+            win.LG.closeCurrentTab(null);
+        }
+
+		 
+    </script>
+</body>
+</html>

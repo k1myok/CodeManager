@@ -1,0 +1,57 @@
+﻿@model BigData.TeamTools.Models.RegisterViewModel
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+@using (Html.BeginForm("CreateUser", "SecurityManager", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+   
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.Label("用户名（邮箱）", htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-9">
+                @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control",@name="username",@id= "username" } })
+                @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("密码", htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-9">
+                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control",@name="password", @id ="password" } })
+                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("确认密码", htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-9">
+                @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "form-control",@name="confirmPassword",@id="confirmPassword"} })
+                @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-3 col-md-9" style="margin-bottom:10px;position:relative;">
+                <input type="button" value="创建用户" class="btn btn-default" onclick="javascript:CreateUserByAjax();"id="submitBtn"/>
+                <script>
+                    function CreateUserByAjax() {
+                        var url = "http://localhost/BigData.TeamTools/SecurityManager/CreateUser?" + "username=" + $("#username").val() + "&password=" + $("#password").val();
+                        $.ajax({
+                            url: url,
+                            type: "post",
+                            success: function (msg) {                               
+                                //alert(msg.message);
+                                if (msg.message == "sucessed") {
+                                    //$('#createUserWindow').jqxWindow('close');
+                                    location.reload();
+                                }
+                                else {
+                                    //$('#createUserWindow').jqxWindow('close');
+                                    alert(msg.message);
+                                    location.reload();
+                                }
+                            }
+                        });
+                    }
+                </script>
+            </div>
+        </div>
+    </div>
+}

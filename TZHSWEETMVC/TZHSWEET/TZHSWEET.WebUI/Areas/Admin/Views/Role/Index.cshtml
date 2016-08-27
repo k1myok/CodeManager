@@ -1,0 +1,237 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Index</title>
+    <link href="@Url.Content("~/Content/ligerUI/skins/Aqua/css/ligerui-all.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Scripts/jquery/jquery-1.5.2.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/ligerUI/js/ligerui.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/ligerUI/js/plugins/ligerGrid.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/ligerUI/js/plugins/ligerDialog.js")" type="text/javascript"></script>
+    <link href="@Url.Content("~/Content/css/common.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Content/ligerUI/js/plugins/ligerTextBox.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/js/ligerui.expand.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/js/common.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/js/LG.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/json2.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery-validation/jquery.validate.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery-validation/jquery.metadata.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery-validation/messages_cn.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/jquery.form.js")" type="text/javascript"></script>
+    <style type="text/css">
+        .l-panel td.l-grid-row-cell-editing
+        {
+            padding-bottom: 2px;
+            padding-top: 2px;
+        }
+    </style>
+</head>
+<body style="padding: 2px; height: 100%; text-align: center;">
+    <div id="layout">
+      <ipnut type="hidden" id="MenuNo" value="Role" />
+        <div position="center" title="角色管理">
+            <form id="mainform">
+            <div id="maingrid" style="margin: 2px;">
+            </div>
+            </form>
+        </div>
+    </div>
+    <ul class="iconlist">
+    </ul>
+    <script type="text/javascript">
+
+    var rootPath='@Url.Content("~/Admin/")';
+    var selectCombox;
+    var selectController;
+      //验证
+      var maingform = $("#mainform");
+      $.metadata.setType("attr", "validate");
+      LG.validate(maingform, { debug: true });
+      //覆盖本页面grid的loading效果
+      LG.overrideGridLoading();
+
+      function toolbarBtnItemClick(item) {
+          var editingrow = grid.getEditingRow();
+          switch (item.id) {
+              case "Add":
+                  if (editingrow == null) {
+                      addNewRow();
+                  } else {
+                      LG.tip('请先提交或取消修改');
+                  }
+                  break;
+              case "Update":
+                  if (editingrow == null) {
+                      beginEdit();
+                  } else {
+                      LG.tip('请先提交或取消修改');
+                  }
+                  break;
+              case "Save":
+                  if (editingrow != null) {
+                      grid.endEdit(editingrow);
+                  } else {
+                      LG.tip('现在不在编辑状态!');
+                  }
+                  break;
+              case "Cancel":
+                  if (editingrow != null) {
+                      grid.cancelEdit(editingrow);
+                  } else {
+                      LG.tip('现在不在编辑状态!');
+                  }
+                  break;
+              case "Delete":
+                  $.ligerDialog.confirm('确定删除吗(该删除操作只是软删除)?', function (confirm) {
+                      if (confirm)
+                          f_delete();
+                  });
+                  break;
+              case "RealDelete":
+                  $.ligerDialog.confirm('确定删除吗(该删除操作将会永久删除,一旦删除将无法挽回)?', function (confirm) {
+                      if (confirm){
+//                            LG.showError('不允许永久删除,未开放此功能!');
+                                f_realdelete();
+                          }
+                           });
+                  break;
+          }
+      }
+      function f_reload() {
+          grid.loadData();
+      }
+       function f_realdelete() {
+          var selected = grid.getSelected();
+          if (selected) {
+              if (!selected.RoleID) {
+                  grid.deleteRow(selected);
+                  return;
+              }
+               var data = {};
+              data.RoleID = selected.RoleID;
+              LG.ajax({
+                  url: rootPath + 'Role/RealDelete',
+                  loading: '正在删除中...',
+                  data: data,
+                  success: function () {
+                      LG.showSuccess('删除成功');
+                      f_reload();
+                  },
+                  error: function (message) {
+                      LG.showError(message);
+                  }
+              });
+          }
+          else {
+              LG.tip('请选择行!');
+          }
+      }
+      function f_delete() {
+          var selected = grid.getSelected();
+          if (selected) {
+              if (!selected.RoleID) {
+               grid.deleteRow(selected);
+                  return;
+              }
+          var data = selected;
+              data.RoleID = selected.RoleID;
+              LG.ajax({
+                  url: rootPath + 'Role/Delete',
+                  loading: '正在删除中...',
+                  data:data,
+                  success: function () {
+                      LG.showSuccess('删除成功');
+                      f_reload();
+                  },
+                  error: function (message) {
+                      LG.showError(message);
+                  }
+              });
+          }
+          else {
+              LG.tip('请选择行!');
+          }
+      }
+    
+
+      var layout = $("#layout").ligerLayout({ leftWidth: 140 });
+          var where = JSON2.stringify({
+                  op: 'and',
+                  rules: [{ field: 'IsDeleted', value: '0', op: 'equal'}]
+                  });
+      var grid = $("#maingrid").ligerGrid({
+          columns: [
+                {display: 'RoleID',name: 'RoleID',hide:true},
+                { display: '角色编号', name: 'RoleNo', align: 'left', width: 150, minWidth: 60
+                , editor: { type: 'text' }
+                },
+                { display: '角色名称', name: 'RoleName', align: 'left', width: 100, minWidth: 60
+                , validate: { required: true }
+                 , editor: { type: 'text' }
+                },
+                 { display: '当前状态', name: 'IsVisible',isSort :false, align: 'left', width: 100, minWidth: 60  ,validate: { required: true }
+                , editor: {type: 'checkbox'}
+                , render: function (item) {
+                    if(item.IsVisible)
+                    return "启用";
+                    else
+                    return "禁用";
+                }
+                },
+            { display: '描述', name: 'Description',isSort:false, align: 'left', width: 300, minWidth: 60
+              , editor: { type: 'text' }
+            }
+        ], dataAction: 'server', pageSize: 10, toolbar: {}, sortName: 'Sort',url:rootPath+'Role/GetAllRolesForGrid',
+          width: '98%', height: '100%', heightDiff: -5, checkbox: false, usePager: true, enabledEdit: true, clickToEdit: false,
+          fixedCellHeight: true,rowHeight: 25,parms:{where:where }
+      });
+
+      //本地按钮
+      var toolbarOptions = [
+             { text: '保存',id:'Save', click: toolbarBtnItemClick, img: "@Url.Content("~/Content/icons/silkicons/page_save.png")" },
+                  { text: '取消',id:'Cancel', click: toolbarBtnItemClick, img: "@Url.Content("~/Content/icons/silkicons/cancel.png")" }
+    ];
+      //加载toolbar
+      LG.loadToolbar(grid, toolbarBtnItemClick,toolbarOptions);
+
+      grid.bind('beforeSubmitEdit', function (e) {
+          if (!LG.validator.form()) {
+              LG.showInvalid();
+              return false;
+          }
+          return true;
+      });
+      grid.bind('afterSubmitEdit', function (e) {
+          var isAddNew = e.record['__status'] == "add";
+          var data = e.newdata;
+          if (!isAddNew){
+              data.RoleID=e.record.RoleID;
+              }
+          LG.ajax({
+              loading: '正在保存数据中...',
+              url: rootPath + 'Role/'+(isAddNew ? "Add" : "Update"),
+              data: data,
+              success: function () {
+                  grid.loadData();
+                  LG.tip('保存成功!');
+              },
+              error: function (message) {
+                  LG.tip(message);
+              }
+          });
+      });
+        function beginEdit() {
+          var row = grid.getSelectedRow();
+          if (!row) { LG.tip('请选择行'); return; }
+          grid.beginEdit(row);
+      }
+      function addNewRow() {
+          grid.addEditRow();
+      }
+
+    
+    </script>
+</body>
+</html>

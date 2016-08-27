@@ -1,0 +1,222 @@
+﻿@{
+    Layout = null;
+}
+<div class="container-fluid" style="margin-top:10px;">
+    <div class="row">
+        <div class="col-xs-8 col-sm-6" style="width:75%">
+            <div id="iCenter" style="height:550px;"></div>
+        </div>
+        <div class="col-xs-8 col-sm-6" style="width:25%">
+            <input id="real_lon" type="hidden" value="" placeholder="">
+            <input id="real_lat" type="hidden" value="">
+            <div class="form-group">
+                <label>地理位置</label>
+                <input type="text" class="form-control" id="address" placeholder="请输入位置或者企业名称">
+                <button class="btn btn-info" type="button" onclick="geocoderlocation()">查询</button>
+            </div>
+            <div class="form-group">
+                <label>税务管理码：</label>
+                <input type="text" class="form-control" id="TaxNo" placeholder="请输入税务管理码">
+            </div>
+            <div class="form-group">
+                <label>企业名称</label>
+                <input type="text" class="form-control" id="CName" placeholder="请输入企业名称">
+            </div>
+        </div>
+        <div style="text-align:center">
+            <button type="button" class="btn btn-primary" id="add" onclick="AddLocation()">提交</button>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function(){ mapInit(); });
+    var mapObj;
+    var result;
+    var marker = [];
+    var windowsArr = [];
+    function mapInit() {
+        mapObj = new AMap.Map('iCenter');    //默认定位：初始化加载地图时，center及level属性缺省，地图默认显示用户所在城市范围
+        mapObj.plugin(['AMap.Geolocation', 'AMap.Geocoder'], function () {
+            geolocation = new AMap.Geolocation({
+                enableHighAccuracy: true,//是否使用高精度定位，默认:true
+                timeout: 10000,          //超过10秒后停止定位，默认：无穷大
+                maximumAge: 0,           //定位结果缓存0毫秒，默认：0
+                convert: false,           //自动偏移坐标，偏移后的坐标为高德坐标，默认：true
+                showButton: false,        //显示定位按钮，默认：true
+                buttonPosition: 'RT',    //定位按钮停靠位置，默认：'LB'，左下角
+                buttonOffset: new AMap.Pixel(10, 20),//定位按钮与设置的停靠位置的偏移量，默认：Pixel(10, 20)
+                showMarker: true,        //定位成功后在定位到的位置显示点标记，默认：true
+                showCircle: true,        //定位成功后用圆圈表示定位精度范围，默认：true
+                panToLocation: true,     //定位成功后将定位到的位置作为地图中心点，默认：true
+                zoomToAccuracy: true,      //定位成功后调整地图视野范围使定位位置及精度范围视野内可见，默认：false
+            });
+         // geolocation.getCurrentPosition();
+            //mapObj.addControl(geolocation);
+           AMap.event.addListener(geolocation, 'complete', onComplete);//返回定位信息
+          AMap.event.addListener(geolocation, 'error', onError);
+        });
+        var marker = new AMap.Marker({
+            position: mapObj.getCenter()
+        });
+       //  marker.setMap(mapObj);
+        var clickEventListener = AMap.event.addListener(mapObj, 'click', function (e) {
+            document.getElementById("real_lon").value = e.lnglat.getLng();
+            document.getElementById("real_lat").value = e.lnglat.getLat();
+            geocoder(e.lnglat.getLng(), e.lnglat.getLat())
+            mapObj.setCenter(new AMap.LngLat(e.lnglat.getLng(), e.lnglat.getLat()));
+            marker = new AMap.Marker({
+                position: new AMap.LngLat(e.lnglat.getLng(), e.lnglat.getLat())
+            });
+            mapObj.clearMap();//清除原有的标记
+            marker.setMap(mapObj);
+        });
+        function onError() {
+            alert("定位失败");
+        }
+        function onComplete(data) {
+            geocoder(data.position.getLng(), data.position.getLat());
+            document.getElementById("real_lon").value = data.position.getLng();
+            document.getElementById("real_lat").value = data.position.getLat();
+        }
+    };
+    var MGeocoder;
+    function geocoder(x,y) {
+        var lnglatXY = new AMap.LngLat(x,y);
+        mapObj.plugin(["AMap.Geocoder"], function () {
+            MGeocoder = new AMap.Geocoder({
+                radius: 1000,
+                extensions: "all"
+            });
+            AMap.event.addListener(MGeocoder,"complete", geocoder_CallBack);
+            MGeocoder.getAddress(lnglatXY);
+        });
+        var marker = new AMap.Marker({
+            map: mapObj,
+            icon: new AMap.Icon({
+                image: "http://api.amap.com/Public/images/js/mark.png",
+
+                size: new AMap.Size(28, 30),
+                imageOffset: new AMap.Pixel(-32, -0)
+            }),
+            position: lnglatXY,
+            offset: new AMap.Pixel(-5, -30)
+        });
+        mapObj.setFitView();
+    }
+    function geocoder_CallBack(data) { //回调函数
+        $("#address").val(data.regeocode.formattedAddress);
+    }
+    function geocoderlocation() {
+        mapObj.clearMap();
+        var locationName = $("#address").val();
+        var geocoder = new AMap.Geocoder({
+            city: "0512", //城市，默认：“全国”
+            radius: 1000 //范围，默认：500
+        });
+        geocoder.getLocation(locationName, function (status, result) {
+            if (status === 'complete' && result.info === 'OK') {
+                geocoder_CallBacklocation(result);
+            }
+        });
+    }
+  
+    function addMarker(i, d) {
+        var marker = new AMap.Marker({
+            map: mapObj,
+            position: [d.location.getLng(), d.location.getLat()]
+        });
+        var infoWindow = new AMap.InfoWindow({
+            content: d.formattedAddress,
+            offset: { x: 0, y: -30 }
+        });
+        marker.on("mouseover", function (e) {
+            infoWindow.open(mapObj, marker.getPosition());
+        });
+    }
+    function geocoder_CallBacklocation(data) {
+        var geocode = data.geocodes;
+        for (var i = 0; i < geocode.length; i++) {
+            $("#real_lon").val(geocode[0].location.getLng());
+            $("#real_lat").val(geocode[0].location.getLat());
+            $("#address").val(geocode[0].formattedAddress);
+            addMarker(i, geocode[0]);
+        }
+        mapObj.setFitView();
+    }
+    function AddLocation()
+    {
+        var address = $("#address").val().trim();
+        var TaxNo = $("#TaxNo").val().trim();
+        var CName = $("#CName").val().trim();
+        if (address != "" && TaxNo != "" && CName != "") {
+            var url = "../Manage/AddLocation";
+            $.ajax({
+                url: url,
+                data: {
+                    real_lon: $("#real_lon").val(),
+                    real_lat: $("#real_lat").val(),
+                    address: $("#address").val(),
+                    TaxNo: $("#TaxNo").val(),
+                    CName: $("#CName").val()
+                },
+                success: function (data) {
+                    if (data.State == true) {
+                        alert("数据采集成功");
+                    }
+                    else if (data.State == "exsit") {
+                        var status = confirm("当前企业信息已经添加，是否更新？")
+                        {
+                            if (status==true) {
+                                update();
+                            }
+                            else { return false; }
+                        }
+                    }
+                    else { alert("数据添加失败,请重试！"); }
+                },
+                complete: function ()
+                { }
+            });
+        }
+        else {
+            if (address == "") {
+                alert("请先确定位置");
+                return false;
+            }
+            if (TaxNo == "") {
+                alert("请输入税务管理码");
+                return false;
+            }
+            if (CName == "") {
+                alert("请输入企业名字");
+                return false;
+
+            }
+        }
+    }
+    function update()
+    {
+        var url = "../Manage/UpdateLocation";
+        $.ajax({
+            url: url,
+            data: {
+                real_lon: $("#real_lon").val(),
+                real_lat: $("#real_lat").val(),
+                address: $("#address").val(),
+                TaxNo: $("#TaxNo").val(),
+                CName: $("#CName").val()
+            },
+            success: function (data) {
+                if (data.State == true) {
+                    alert("数据更新成功");
+                }
+                else {
+                    alert("数据更新失败,请重试！");
+                }
+            },
+            complete: function ()
+            { }
+        });
+    }
+</script>
+

@@ -1,0 +1,61 @@
+﻿@{
+    ViewBag.Title = "Default";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+<script>
+    $(document).ready(function () {
+        onMenuClick('../Manage/Infocollection');
+        //$('#HsplitLayout_Splitter').jqxSplitter({ width: '100%', height: '100%', panels: [{ size: 260 }] });
+        //$("#splitter-panel").ready(function () {
+        //    $('#loader').show();
+        //    $.ajax({
+        //        url: '../Manage/GeneralFrameView',
+        //        success: function (data) {
+        //            $('#splitter-panel').empty().html(data);
+        //        },
+        //        complete: function () {
+        //            $('#loader').hide();
+        //        }
+        //    });
+        //});
+    });
+</script>
+@*<div id="HsplitLayout_Splitter">
+    <div class="splitter-panel">
+        @{
+            Html.RenderAction("UserInfo", "SecurityManager");
+        }
+       <div class="HsplitLayout_LeftPanel" id="HsplitLayout_LeftPanel">
+            <div class="SimpleWindow">
+                <div class="Content">
+                    <div class="SimpleListView">
+                        <div class="Title" style="margin-left:40px;">
+                            <img src="~/Images/cluster_general32.png" />
+                            <span style="color:#ffffff;font-family:'Microsoft YaHei';font-size:16px;padding-left:10px;">服务器集群</span>
+                        </div>
+                        <div class="Title" style="margin-left:40px;margin-top:10px;">
+                            <img src="~/Images/service_resource_generel32.png" />
+                            <span style="color:#ffffff;font-family:'Microsoft YaHei';font-size:16px;padding-left:10px;">服务资源</span>
+                        </div>
+                        <div class="Title" style="margin-left:40px;margin-top:10px;">
+                            <img src="~/Images/resource_hot32.png" />
+                            <span style="color:#ffffff;font-family:'Microsoft YaHei';font-size:16px;padding-left:10px;">资源热度</span>
+                        </div>
+                        <div class="Title" style="margin-left:40px;margin-top:10px;">
+                            <img src="~/Images/dynamic32.png" />
+                            <span style="color:#ffffff;font-family:'Microsoft YaHei';font-size:16px;padding-left:10px;">近期动态</span>
+                        </div>
+                        <div class="Title" style="margin-left:40px;margin-top:10px;">
+                            <img src="~/Images/exit32.png"/>
+                            <span style="color:#ffffff;font-family:'Microsoft YaHei';font-size:16px;padding-left:10px;">退出系统</span>
+                        </div>
+                    </div>
+                </div>         
+            </div>
+            
+        </div>*@
+    @*</div>
+    <div class="splitter-panel" id="splitter-panel" style="height:100%;width:100%;">*@
+        @*@RenderSection("RightPanel")*@
+    @*</div>
+</div>*@

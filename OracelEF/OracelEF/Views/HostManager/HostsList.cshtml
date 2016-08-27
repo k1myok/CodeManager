@@ -1,0 +1,136 @@
+﻿@model IEnumerable<BigData.TeamTools.Models.ServerInstance>
+
+<script>
+    var farmCode = '@(ViewBag.FarmCode)';
+    $(document).ready(function () {
+        $('#resourceWindow').jqxWindow({
+            width: '400px',
+            height: '340px',
+            resizable: true,
+            initContent: function () {
+            }
+        });
+    });
+
+    function addServerInstance()
+    {
+        $('#loader').show();
+        $.ajax({
+            url: '../HostManager/CreateServerInstance?farmCode=' + farmCode,
+            success: function (data) {
+                $('#resourceWindow #titleContainer').html('添加服务器');
+                $('#resourceWindow #customWindowContent').empty().html(data);
+                $('#resourceWindow').jqxWindow('open');
+            },
+            complete: function () {
+                $('#loader').hide();
+            }
+        });
+    }
+
+    function editServer(code) {
+        $('#loader').show();
+        $.ajax({
+            url: '../HostManager/EditServerInstance?code=' + code,
+            success: function (data) {
+                $('#resourceWindow #titleContainer').html('编辑服务器');
+                $('#resourceWindow #customWindowContent').empty().html(data);
+                $('#resourceWindow').jqxWindow('open');
+            },
+            complete: function (){
+                $('#loader').hide();
+            }
+        });
+    }
+
+    function deleteServer(code) {
+        if (confirm('您确定删除该服务器吗？')) {
+            $('#loader').show();
+            $.ajax({
+                url: '../HostManager/DeleteServerInstance?code=' + code,
+                success: function (result) {
+                    if (result.State) {
+                        showServerInstances(farmCode);
+                    }
+                    else {
+                        alert("删除该服务器时发生错误，删除失败！");
+                    }
+                },
+                error: function (msg) {
+                    alert("与服务器通讯发生异常，请检查网络状况！");
+                },
+                complete: function () {
+                    $('#loader').hide();
+                }
+            });
+        }
+    }
+
+</script>
+
+<div class="NavWindow">
+    <div class="NavHeader">
+        <img src="~/Images/home.png"/>
+        <span>您当前的位置：服务器管理</span>
+    </div>
+    <div class="NavContent">
+        <div class="Title">
+            <div style="float:left;margin-left:10px;font-weight:bold;">服务器列表</div>
+            <div  onclick="javascript:addServerInstance();" class="UFButton">
+                添加
+            </div>
+            <div onclick="javascript:showServerInstances('@(ViewBag.FarmCode)');" class="UFButton">
+                刷新
+            </div>
+        </div>
+        <div class="Content">
+            <table id="ServerInstancesTable" class="UFTable">
+                <tr>
+                    <th>
+                        主机
+                    </th>
+                    <th>
+                        端口
+                    </th>
+                    <th>
+                        是否启用
+                    </th>
+                    <th>
+                        操作
+                    </th>
+                    <th style="display:none;">GUID</th>
+                </tr>
+                @if (null != Model && Model.Count() > 0)
+                {
+                    foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Address)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.HttpPort)
+                            </td>
+                            <td>
+                                @*@Html.DisplayFor(modelItem => item.Enable)*@
+                                @if (item.Enable == true)
+                    {
+                                    <label>是</label>
+                                }
+                                else
+                                {
+                                    <label>否</label>
+                                }
+                            </td>
+                            <td>
+                                <a onclick="javascript:editServer('@item.Code');" style="cursor:pointer;">编辑</a>
+                                <a onclick="javascript:deleteServer('@item.Code');" style="cursor:pointer;">删除</a>
+                            </td>
+                        </tr>
+                    }
+                }
+            </table>
+        </div>
+    </div>
+</div>
+

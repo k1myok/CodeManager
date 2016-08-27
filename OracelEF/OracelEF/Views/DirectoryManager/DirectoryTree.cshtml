@@ -1,0 +1,243 @@
+﻿@model IEnumerable<BigData.TeamTools.Models.ServiceDirectory>
+
+<script>
+    $(document).ready(function () {
+        $('#resourceTree').jqxTree({ width: '100%', height: '100%' });
+        $('#inputWindow').jqxWindow({
+            width: 400,
+            height: 130,
+            resizable: false,
+            okButton: $('#okButton'),
+            initContent: function () {
+                $('#okButton').jqxButton({ width: '80px', disabled: false });
+            }
+        });
+        attachEvents();
+    });
+
+    //添加监听事件
+    function attachEvents() {
+        var contextMenu = $("#contextMenu").jqxMenu({ width: '120px', height: '60px', autoOpenPopup: false, mode: 'popup' });
+        $("#resourceTree").unbind().on('mousedown', function (event) {
+            var target = $(event.target).parents('li:first')[0];
+            var rightClick = isRightClick(event);
+            //客户端若是右键，显示菜单
+            if (rightClick)
+            {
+                if (target != null)
+                    $("#resourceTree").jqxTree('selectItem', target);
+                var scrollTop = $(window).scrollTop();
+                var scrollLeft = $(window).scrollLeft();
+                var selectedItem = $("#resourceTree").jqxTree("getSelectedItem");
+                var code = $(selectedItem.element).data('directory');
+                if (code==null) {
+                    $('#contextMenu ul #menuItemDelete').hide();
+                   
+                } else {
+                    $('#contextMenu ul #menuItemDelete').show();
+
+                }
+                contextMenu.jqxMenu('open', parseInt(event.clientX) + 5 + scrollLeft, parseInt(event.clientY) + 5 + scrollTop);
+
+                return false;
+            }
+        });
+
+        $('#resourceTree').on('select', function (event) {
+            var code = $(event.args.element).data("directory"); //获取所选树节点的code
+            if(code!=null)
+                showServiceList(code);
+        });
+
+        $("#contextMenu").on('itemclick', function (event) {
+            var itemId = $.trim($(event.args).attr('id')).toString();
+            switch (itemId) {
+                case "menuItemAdd":
+                    $('#inputWindow').jqxWindow('open');
+                    break;
+                case "menuItemDelete":
+                    var selectedItem = $('#resourceTree').jqxTree('selectedItem');
+                    if (selectedItem != null) {
+                        var code = $(selectedItem.element).data("directory");
+                        if (confirm("确定删除？")) {
+                            deleteTreeNode(code, selectedItem);
+                        }
+                        $("#contextMenu").jqxMenu('close');
+                    }
+                    break;
+            }
+        });
+
+        $("#okButton").bind('click', function (e) {
+            var newNodeText = $('#inputTextBox').val();
+            if (newNodeText == '') {
+                alert("名称不能为空！");
+            } else {
+                addTreeNode(newNodeText);
+            }
+        });
+    }
+
+    $(document).on('contextmenu', function (e) {
+        if ($(e.target).parents('.jqx-tree').length > 0) {
+            return false;
+        }
+        return true;
+    });
+
+    function isRightClick(event) {
+        var rightclick;
+        if (!event) var event = window.event;
+        if (event.which) rightclick = (event.which == 3);
+        else if (event.button) rightclick = (event.button == 2);
+        return rightclick;
+    }
+
+    function showServiceList(directoryCode) {
+        $('#loader').show();
+        $.ajax({
+            url: '../ServiceManager/List?directoryCode=' + directoryCode,
+            success: function (data) {
+                $('#serviceListContainer').empty().html(data);
+            },
+            complete: function () {
+                $('#loader').hide();
+            }
+        });
+    }
+  
+    function addTreeNode(newNodeName) {
+        $('#loader').show();
+        var selectedItem = $('#resourceTree').jqxTree('selectedItem');
+        var code = selectedItem ? $(selectedItem.element).data("directory") : "";
+        $.ajax({
+            url: "../DirectoryManager/AddDirectoryTreeNode?parent=" + code + "&child=" + newNodeName,
+            success: function (result) {
+                if (result.State)
+                {
+                    var selectedItem = $('#resourceTree').jqxTree('selectedItem');
+                    if (selectedItem) {
+                        $('#resourceTree').jqxTree('addTo', { label: newNodeName }, selectedItem.element);
+                        var newTreeItem = $(selectedItem.element).find('.jqx-tree-dropdown')[0].lastElementChild;
+                        //todo:将result.Code赋给新加节点的data-directory属性
+                        $(newTreeItem).data('directory', result.Code);
+                        $('#inputTextBox').val('');
+                        $('#inputWindow').jqxWindow('close');
+                    }
+                }
+                else
+                {
+                    alert("添加失败！");
+                }
+            },
+            complete: function () {
+                $('#loader').hide();
+            }
+
+        });
+    }
+
+    function deleteTreeNode(code,selectedItem) {
+        $('#loader').show();
+        //todo:获得selectedItem元素所有子节点的guid,如果子节点存在的话
+        var childCount = $(selectedItem.element).find('li').length;
+        //alert(childCount); 
+        var childCodes="";
+        for (var i = 0; i < childCount; i++) {
+            if (i == childCount - 1) {
+                childCodes += $($(selectedItem.element).find('li')[i]).data("directory");
+                continue;
+            }
+            childCodes += $($(selectedItem.element).find('li')[i]).data("directory")+",";
+            
+        }
+        
+        //alert(childCodes);
+        $.ajax({
+            url: "../DirectoryManager/DeleteDirectoryTreeNode?code=" + code + "&childCodes=" + childCodes,
+            success: function (result) {
+                if (result.State) {
+                    $('#resourceTree').jqxTree('removeItem', selectedItem.element);
+                } else {
+                    alert("删除失败！");
+                }
+            },
+            complete: function () {
+                $('#loader').hide();
+            }
+        });
+    }
+
+    function resetServices() {
+        $('#loader').show();
+        $.ajax({
+            url: '../ARRManager/ResetServices',
+            success: function (data) {
+                if (data.Result) {
+                    alert("重置所有服务成功！");
+                } else {
+                    alert("发生异常，重置所有服务失败！");
+                }
+            },
+            complete:function(){
+                $('#loader').hide();
+            }
+        });
+    }
+</script>
+
+<style>
+</style>
+<div class="SimpleWindow">
+    <div class="TitleContainer">
+        <div class="Title">
+            @*<img src="~/Images/server.png" />*@
+            <img src="~/Images/resource_show.png" />
+            <a>功能类别</a>
+        </div>
+        @*<div class="HImgToolbar">
+            <label class="btn btn-default"onclick="javascript:resetServices()"title="重置所有服务">重置</label>
+        </div>*@
+        <div class="HImgToolbar">
+            <img src="~/Images/refresh.png" title="重置" onclick="javascript:resetServices();"/>
+            @*<img src="~/Images/server.png" title="删除" />*@
+        </div>
+    </div>
+    <div class="Content">
+        <div id='resourceTree'>
+            <ul>
+                <li>
+                    功能目录
+                    <ul>
+                        @foreach (var childItem in Model)
+                        {
+                            @Html.Partial("DirectoryTreeItem", childItem)
+                        }
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div id='contextMenu'>
+            <ul>
+                <li id="menuItemAdd">添加</li>
+                <li id="menuItemDelete">删除</li>
+            </ul>
+        </div>
+
+        <div id="inputWindow" style="display:none">
+            <div id="customWindowHeader">
+                <span id="captureContainer" style="float: left">功能类别</span>
+            </div>
+            <div id="customWindowContent" style="overflow: hidden">
+                <div style="margin: 10px">
+                    名称:
+                    <input type="text" style="width: 175px; border: 1px solid #aaa" id="inputTextBox" />
+                    <div style="float: right">
+                        <input type="button" value="确定" id="okButton" />
+                    </div>
+                    <div style="margin-top:10px;">注：请输入功能类别名称</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

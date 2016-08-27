@@ -1,0 +1,52 @@
+﻿@using BigData.TeamTools.Models
+@model LoginViewModel
+<style>
+    .align-center {
+        margin: 0 auto; /* 居中 这个是必须的，，其它的属性非必须 */
+        background-color: rgba(255,255,255,0.5);
+        filter: alpha(opacity=50); /*IE滤镜，透明度50%*/
+        -moz-opacity: 0.5; /*Firefox私有，透明度50%*/
+        border-radius: 5px;
+        border-color: lightblue;
+        border-style: solid;
+        border-width: 2px;
+    }
+</style>
+<div class="align-center" style="width:360px; padding-left:40px; padding-top:10px; padding-right:40px;padding-bottom:10px; margin-top:12%;">
+    <h3 style="text-align:center;">用户登陆</h3>
+    @using (Html.BeginForm("Login", "Account", new { returnUrl = ViewBag.ReturnUrl }, FormMethod.Post))
+            {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <fieldset>
+            <ol>
+                <li>
+                    @Html.LabelFor(m => m.UserName, new { @class = "control-label" })
+                    @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+
+                </li>
+                <li>
+                    @Html.LabelFor(m => m.Password, new { @class = "control-label" })
+                    @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+
+                </li>
+                <li>
+                    <div>
+                        @Html.CheckBoxFor(m => m.RememberMe,new {@style="margin-left:5px;margin-top:5px;"})
+                        @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox", @style = "padding-left:5px;" })
+                    </div>
+                </li>
+
+            </ol>
+            <input type="submit" value="登录" class="btn btn-default" style="float:right;padding-left:15px;padding-right:15px;"/>
+
+        </fieldset>
+        <p>
+            如果您没有帐户，请 @Html.ActionLink("注册", "Register")！
+        </p>
+    }
+
+</div>
+

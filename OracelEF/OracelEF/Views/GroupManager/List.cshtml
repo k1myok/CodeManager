@@ -1,0 +1,104 @@
+﻿@model IEnumerable<BigData.TeamTools.Models.UFGroup>
+
+<script>
+    $(document).ready(function () {
+        $('#resourceWindow').jqxWindow({
+            width: '400px',
+            height: '340px',
+            resizable: true,
+            initContent: function () {
+            }
+        });
+    });
+
+    function createGroup() {
+        $('#loader').show();
+        $.ajax({
+            url: '../GroupManager/Create',
+            success: function (data) {
+                $('#resourceWindow #titleContainer').html('添加组');
+                $('#resourceWindow #customWindowContent').empty().html(data);
+                $('#resourceWindow').jqxWindow('open');
+            },
+            complete: function () {
+                $('#loader').hide();
+            }
+        });
+    }
+
+    function editGroup(code) {
+        $('#loader').show();
+        $.ajax({
+            url: '../GroupManager/Edit?code=' + code,
+            success: function (data) {
+                $('#resourceWindow #titleContainer').html('编辑组');
+                $('#resourceWindow #customWindowContent').empty().html(data);
+                $('#resourceWindow').jqxWindow('open');
+            },
+            complete: function () {
+                $('#loader').hide();
+            }
+        });
+    }
+
+    function viewGroup(code) {
+        $('#loader').show();
+        $.ajax({
+            url: '../GroupManager/Detail?code=' + code,
+            success: function (data) {
+                $('#resourceWindow #titleContainer').html('组信息');
+                $('#resourceWindow #customWindowContent').empty().html(data);
+                $('#resourceWindow').jqxWindow('open');
+            },
+            complete: function () {
+                $('#loader').hide();
+            }
+        });
+    }
+
+    function deleteGroup(code) {
+        if (confirm('您确定删除该组吗？')) {
+            $('#loader').show();
+            $.ajax({
+                url: '../GroupManager/Delete?code=' + code,
+                success: function (result) {
+                    if (result.State) {
+                        showGroupsList();
+                    }
+                    else {
+                        alert("删除该组时发生错误，删除失败！");
+                    }
+                },
+                error: function (msg) {
+                    alert("与服务器通讯发生异常，请检查网络状况！");
+                },
+                complete: function () {
+                    $('#loader').hide();
+                }
+            });
+        }
+    }
+</script>
+
+
+<div class="NavWindow">
+    <div class="NavHeader">
+        <img src="~/Images/home.png" />
+        <span>您当前的位置：安全管理 &gt; 组管理</span>
+    </div>
+    <div class="NavContent">
+        <div class="Title">
+            <div style="float:left;margin-left:10px;font-weight:bold;">组管理</div>
+        </div>
+        <div class="Content" style="width:100%; height:100%;">
+            <div style="height:100%;">
+                @{
+                    Html.RenderAction("DirectoryTree");
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

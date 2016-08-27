@@ -4,9 +4,13 @@ F:\ManagerCode\GitHub\YunLianLHelp\YunLianLHelp\bin\Debug\System.Configuration.d
 F:\ManagerCode\GitHub\YunLianLHelp\YunLianLHelp\bin\Debug\System.Web.dll
 F:\ManagerCode\GitHub\YunLianLHelp\YunLianLHelp\obj\Debug\YunLianLHelp.dll
 F:\ManagerCode\GitHub\YunLianLHelp\YunLianLHelp\obj\Debug\YunLianLHelp.pdb
+<<<<<<< HEAD
 E:\ManageCode\Github\YunLianLHelp\YunLianLHelp\bin\Debug\YunLianLHelp.dll
 E:\ManageCode\Github\YunLianLHelp\YunLianLHelp\bin\Debug\YunLianLHelp.pdb
 E:\ManageCode\Github\YunLianLHelp\YunLianLHelp\bin\Debug\System.Configuration.dll
 E:\ManageCode\Github\YunLianLHelp\YunLianLHelp\bin\Debug\System.Web.dll
 E:\ManageCode\Github\YunLianLHelp\YunLianLHelp\obj\Debug\YunLianLHelp.dll
 E:\ManageCode\Github\YunLianLHelp\YunLianLHelp\obj\Debug\YunLianLHelp.pdb
+=======
+F:\ManagerCode\GitHub\YunLianLHelp\YunLianLHelp\obj\Debug\YunLianLHelp.csprojResolveAssemblyReference.cache
+>>>>>>> 060cb590e0947de60623b57f0a7e1dcf68ee28ea

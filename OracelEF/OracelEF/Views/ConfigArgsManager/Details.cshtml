@@ -1,0 +1,92 @@
+﻿@model BigData.TeamTools.Models.ConfigArgs
+
+@{
+    ViewBag.Title = "详细信息";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PlanName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PlanName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IsEnabled)
+        </dt>
+
+        <dd>
+            @if (Model.IsEnabled)
+            {
+                <div>已启用</div>
+            }
+            else
+            {
+                <div>未启用</div>
+            }
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BusUpdateTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BusUpdateTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TaxiUpdateTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TaxiUpdateTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ShipUpdateTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShipUpdateTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TransportUpdateTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TransportUpdateTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OtherUpdateTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OtherUpdateTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BaseMapURL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BaseMapURL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceURL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ServiceURL)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("编辑", "Edit", new { id = Model.Code }) |
+</p>

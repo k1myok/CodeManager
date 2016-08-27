@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="11.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="TB_NSR_EDIT">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="varchar2" MaxLength="100" Nullable="false" />
+    <Property Name="NSR_MC" Type="varchar2" MaxLength="200" />
+    <Property Name="FADDRESS" Type="varchar2" MaxLength="200" />
+    <Property Name="LON" Type="number" Precision="16" Scale="8" />
+    <Property Name="LAT" Type="number" Precision="16" Scale="8" />
+    <Property Name="ZYZL" Type="varchar2" MaxLength="200" />
+    <Property Name="EDITTIME" Type="date" Nullable="false" />
+    <Property Name="XYSYSTEM" Type="varchar2" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="TB_QYINFO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="SWGLM" Type="varchar2" MaxLength="100" />
+    <Property Name="NSRSBM" Type="varchar2" MaxLength="60" />
+    <Property Name="ZZJGTYDM" Type="varchar2" MaxLength="40" />
+    <Property Name="ZZDM" Type="char" MaxLength="1" />
+    <Property Name="NSR_MC" Type="varchar2" MaxLength="400" />
+    <Property Name="SWDJLX" Type="varchar2" MaxLength="200" />
+    <Property Name="ZCLX" Type="varchar2" MaxLength="120" />
+    <Property Name="PJSLJG" Type="varchar2" MaxLength="200" />
+    <Property Name="ZZLB" Type="varchar2" MaxLength="200" />
+    <Property Name="KYSLRQ" Type="timestamp" Precision="6" />
+    <Property Name="ZZLB2" Type="varchar2" MaxLength="200" />
+    <Property Name="ZZHM" Type="varchar2" MaxLength="100" />
+    <Property Name="ZCDZ" Type="varchar2" MaxLength="400" />
+    <Property Name="ZCDLXDH" Type="varchar2" MaxLength="60" />
+    <Property Name="SJJYDZ" Type="varchar2" MaxLength="400" />
+    <Property Name="SCJYDLXDH" Type="varchar2" MaxLength="60" />
+    <Property Name="HSFS" Type="varchar2" MaxLength="200" />
+    <Property Name="DWXZ" Type="varchar2" MaxLength="200" />
+    <Property Name="JYFWZY" Type="varchar2" MaxLength="2000" />
+    <Property Name="GBHY_DM" Type="varchar2" MaxLength="20" />
+    <Property Name="HYML" Type="varchar2" MaxLength="120" />
+    <Property Name="HYDL" Type="varchar2" MaxLength="120" />
+    <Property Name="HYZXL" Type="varchar2" MaxLength="160" />
+    <Property Name="FRXM" Type="varchar2" MaxLength="2000" />
+    <Property Name="FRZJLX" Type="varchar2" MaxLength="2000" />
+    <Property Name="FRZJ" Type="varchar2" MaxLength="2000" />
+    <Property Name="FRYD_DH" Type="varchar2" MaxLength="2000" />
+    <Property Name="CWXM" Type="varchar2" MaxLength="2000" />
+    <Property Name="CWZJLX" Type="varchar2" MaxLength="2000" />
+    <Property Name="CWZJ" Type="varchar2" MaxLength="2000" />
+    <Property Name="CWYD_DH" Type="varchar2" MaxLength="2000" />
+    <Property Name="BSRXM" Type="varchar2" MaxLength="2000" />
+    <Property Name="BSRZJLX" Type="varchar2" MaxLength="2000" />
+    <Property Name="BSRZJ" Type="varchar2" MaxLength="2000" />
+    <Property Name="BSRYD_DH" Type="varchar2" MaxLength="2000" />
+    <Property Name="ZCZB" Type="number" Precision="38" Scale="0" />
+    <Property Name="BZ" Type="varchar2" MaxLength="2000" />
+    <Property Name="DSFZ_RQ" Type="timestamp" Precision="6" />
+    <Property Name="DJJGLX" Type="varchar2" MaxLength="200" />
+    <Property Name="JG_MC" Type="varchar2" MaxLength="160" />
+    <Property Name="JGNSRSBM" Type="varchar2" MaxLength="40" />
+    <Property Name="JGZCDZ" Type="varchar2" MaxLength="400" />
+    <Property Name="JGJYFW" Type="varchar2" MaxLength="2000" />
+    <Property Name="JGFR" Type="varchar2" MaxLength="120" />
+    <Property Name="XZQHDS" Type="varchar2" MaxLength="120" />
+    <Property Name="XZQHXQ" Type="varchar2" MaxLength="120" />
+    <Property Name="XZJD" Type="varchar2" MaxLength="160" />
+    <Property Name="DLWZZRC" Type="varchar2" MaxLength="120" />
+    <Property Name="GLJG_DM" Type="varchar2" MaxLength="40" />
+    <Property Name="GLJG" Type="varchar2" MaxLength="160" />
+    <Property Name="ZSJG_DM" Type="varchar2" MaxLength="40" />
+    <Property Name="ZSJG" Type="varchar2" MaxLength="200" />
+    <Property Name="JIANCJG_DM" Type="varchar2" MaxLength="40" />
+    <Property Name="JIANCJG" Type="varchar2" MaxLength="200" />
+    <Property Name="JCJG_DM" Type="varchar2" MaxLength="40" />
+    <Property Name="JCJG" Type="varchar2" MaxLength="200" />
+    <Property Name="ZDSYRDBJ" Type="varchar2" MaxLength="50" />
+    <Property Name="NSRZT_DM" Type="varchar2" MaxLength="200" />
+    <Property Name="ADDRESS" Type="varchar2" MaxLength="2000" />
+    <Property Name="LON" Type="number" Precision="16" Scale="8" />
+    <Property Name="LAT" Type="number" Precision="16" Scale="8" />
+    <Property Name="LEVEL_NUM" Type="varchar2" MaxLength="100" />
+    <Property Name="STATUS" Type="varchar2" MaxLength="10" />
+    <Property Name="FORMATADDRESS" Type="varchar2" MaxLength="1000" />
+    <Property Name="ID" Type="varchar2" MaxLength="32" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="TB_NSR_EDIT" EntityType="Self.TB_NSR_EDIT" Schema="YJTJ" store:Type="Tables" />
+    <EntitySet Name="TB_QYINFO" EntityType="Self.TB_QYINFO" Schema="YJTJ" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
