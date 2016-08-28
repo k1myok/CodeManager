@@ -5,14 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Security;
 using System.Security.Cryptography;
-using System.IO; 
+using System.IO;
 
 namespace YunLianLHelp
 {
     public class EncryptionHelp
     {
 
-       
+
         #region Base64加密解密
         /// <summary>
         /// Base64加密
