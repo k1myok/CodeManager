@@ -1,0 +1,14 @@
+E:\test\QCodeform\QR_Encode_Decode\bin\Debug\QR_Encode_Decode.exe.config
+E:\test\QCodeform\QR_Encode_Decode\bin\Debug\QR_Encode_Decode.exe.manifest
+E:\test\QCodeform\QR_Encode_Decode\bin\Debug\QR_Encode_Decode.application
+E:\test\QCodeform\QR_Encode_Decode\bin\Debug\QR_Encode_Decode.exe
+E:\test\QCodeform\QR_Encode_Decode\bin\Debug\QR_Encode_Decode.pdb
+E:\test\QCodeform\QR_Encode_Decode\bin\Debug\ThoughtWorks.QRCode.dll
+E:\test\QCodeform\QR_Encode_Decode\obj\Debug\QR_Encode_Decode.csprojResolveAssemblyReference.cache
+E:\test\QCodeform\QR_Encode_Decode\obj\Debug\QR_Encode_Decode.Properties.Resources.resources
+E:\test\QCodeform\QR_Encode_Decode\obj\Debug\QR_Encode_Decode.QREncode_Decode.resources
+E:\test\QCodeform\QR_Encode_Decode\obj\Debug\QR_Encode_Decode.csproj.GenerateResource.Cache
+E:\test\QCodeform\QR_Encode_Decode\obj\Debug\QR_Encode_Decode.exe.manifest
+E:\test\QCodeform\QR_Encode_Decode\obj\Debug\QR_Encode_Decode.application
+E:\test\QCodeform\QR_Encode_Decode\obj\Debug\QR_Encode_Decode.exe
+E:\test\QCodeform\QR_Encode_Decode\obj\Debug\QR_Encode_Decode.pdb
