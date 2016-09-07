@@ -1,6 +1,0 @@
-数据库放在TZHSWEET.Core中,本项目由TZHSWEET开发,大家随意使用.
-我的博客:http://mysweet.cnblogs.com/
-
-																TZHSWEET			
-					        2012-8-7
-

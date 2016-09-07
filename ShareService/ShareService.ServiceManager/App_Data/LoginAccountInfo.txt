@@ -1,9 +1,0 @@
-﻿	
-	
-	count1:	123@qq.com
-	count2:	456@qq.com
-
-	secret:	Abc_123
-
-
-	

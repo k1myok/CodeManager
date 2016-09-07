@@ -1,6 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<webFarm name="" enabled="true">
-  <server address="content.china-ccw.com" enabled="true">
-    <applicationRequestRouting httpPort="6080" />
-  </server>
-</webFarm>

@@ -1,8 +1,0 @@
-E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.Model\bin\Debug\TZHSWEET.Model.dll.config
-E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.Model\bin\Debug\TZHSWEET.Model.dll
-E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.Model\bin\Debug\TZHSWEET.Model.pdb
-E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.Model\obj\Debug\TZHSWEET.Model.dll
-E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.Model\obj\Debug\TZHSWEET.Model.pdb
-E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.Model\bin\Debug\EntityFramework.dll
-E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.Model\bin\Debug\EntityFramework.xml
-E:\大学开发学习资料\MVC学习\TZHSWEET\TZHSWEET.Model\obj\Debug\TZHSWEET.Model.csprojResolveAssemblyReference.cache

@@ -1,3 +1,0 @@
-﻿<server address="{0}" enabled="true">
-  <applicationRequestRouting httpPort="{1}" />
-</server>
