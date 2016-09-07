@@ -1,0 +1,10 @@
+{"openid":"oRwU7wBUH-E-5gwEe0doX--AUvrs",
+"nickname":"浮华一世烟云",
+"sex":1,"
+language":"zh_CN",
+"city":"",
+"province":"",
+"country":"中国",
+"headimgurl":"http:\/\/wx.qlogo.cn\/mmopen\/HKedQWtfn46QrcXWasfZQSGbqx3mgydPsVTthld10sAkE9e7FFkIwKplgISufREEfaCdXtutrZfbGibPvLjXxf8xBqnk7KNHE\/0",
+"privilege":[]
+}

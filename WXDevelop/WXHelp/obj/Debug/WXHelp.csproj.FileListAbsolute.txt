@@ -1,0 +1,5 @@
+F:\Personal\WXDevelop\WXHelp\bin\Debug\WXHelp.XML
+F:\Personal\WXDevelop\WXHelp\bin\Debug\WXHelp.dll
+F:\Personal\WXDevelop\WXHelp\bin\Debug\WXHelp.pdb
+F:\Personal\WXDevelop\WXHelp\obj\Debug\WXHelp.dll
+F:\Personal\WXDevelop\WXHelp\obj\Debug\WXHelp.pdb

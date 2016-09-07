@@ -1,0 +1,160 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WXHelp</name>
+    </assembly>
+    <members>
+        <member name="T:Access_token">
+            <summary>
+            获取Access_token 接口返回的信息
+            </summary>
+        </member>
+        <member name="P:Access_token.access_token">
+            <summary>
+            access_token
+            </summary>
+        </member>
+        <member name="P:Access_token.expires_in">
+            <summary>
+            有效期
+            </summary>
+        </member>
+        <member name="T:Access_tokenResult">
+            <summary>
+            获取Access_token 接口返回的信息
+            </summary>
+        </member>
+        <member name="P:Access_tokenResult.access_token">
+            <summary>
+            access_token
+            </summary>
+        </member>
+        <member name="P:Access_tokenResult.expires_in">
+            <summary>
+            expires_in
+            </summary>
+        </member>
+        <member name="P:Access_tokenResult.refresh_token">
+            <summary>
+            refresh_token
+            </summary>
+        </member>
+        <member name="P:Access_tokenResult.openid">
+            <summary>
+            openid
+            </summary>
+        </member>
+        <member name="P:Access_tokenResult.scope">
+            <summary>
+            scope
+            </summary>
+        </member>
+        <member name="T:PMSG">
+            <summary>
+            个人账号的信息
+            </summary>
+        </member>
+        <member name="P:PMSG.openid">
+            <summary>
+            用户OPENID
+            </summary>
+        </member>
+        <member name="P:PMSG.nickname">
+            <summary>
+            用户昵称
+            </summary>
+        </member>
+        <member name="P:PMSG.sex">
+            <summary>
+            用户性别
+            </summary>
+        </member>
+        <member name="P:PMSG.city">
+            <summary>
+            用户的城市
+            </summary>
+        </member>
+        <member name="P:PMSG.country">
+            <summary>
+            用户所在国家
+            </summary>
+        </member>
+        <member name="P:PMSG.headimgurl">
+            <summary>
+            用户的头像
+            </summary>
+        </member>
+        <member name="P:PMSG.privilege">
+            <summary>
+            用户的群组
+            </summary>
+        </member>
+        <member name="P:PMSG.unionid">
+            <summary>
+            用户的unionid
+            </summary>
+        </member>
+        <member name="M:WXHelp.HttpHelp.GetHtmlEx(System.String,System.Text.Encoding)">
+            <summary>
+            Get 方法实现获取http请求
+            </summary>
+            <param name="url"></param>
+            <param name="encoding"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WXHelp.HttpHelp.GetHtmlExByByPost(System.String,System.String,System.Text.Encoding)">
+            <summary>
+            Post方法实现获取http请求
+            </summary>
+            <param name="postUrl"></param>
+            <param name="paramData"></param>
+            <param name="dataEncode"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WXHelp.InterfaceHelp">
+            <summary>
+            调用帮助微信接口方法
+            </summary>
+        </member>
+        <member name="M:WXHelp.InterfaceHelp.GetAccess_token(System.String,System.String)">
+            <summary>
+            获取GetAccess_token
+            </summary>
+            <param name="appid">微信公众号appid</param>
+            <param name="appsecret">微信公众号appsecret</param>
+            <returns></returns>
+        </member>
+        <member name="M:WXHelp.InterfaceHelp.GetServiceIP(System.String)">
+            <summary>
+            获取服务器IP列表
+            </summary>
+            <param name="access_token">接口调用获取IP列表</param>
+            <returns></returns>
+        </member>
+        <member name="M:WXHelp.InterfaceHelp.GetAccess_token(System.String,System.String,System.String)">
+            <summary>
+            网页赋权 根据code获取access_token
+            </summary>
+            <param name="appid">微信公众号appid</param>
+            <param name="appsecret">微信公众号appsecret</param>
+            <param name="code">微信获取页面的Code</param>
+            <returns></returns>
+        </member>
+        <member name="M:WXHelp.InterfaceHelp.GetAuthorizaUrl(System.String,System.String)">
+            <summary>
+            编码回跳地址
+            </summary>
+            <param name="appid">微信公众号appidappid</param>
+            <param name="url">微信回调网址</param>
+            <returns></returns>
+        </member>
+        <member name="M:WXHelp.InterfaceHelp.GetPersonalMsg(System.String,System.String)">
+            <summary>
+            根据openid和access_token 获取用户个人的信息
+            </summary>
+            <param name="access_token">微信公众号access_token</param>
+            <param name="openid">微信公众号openid</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

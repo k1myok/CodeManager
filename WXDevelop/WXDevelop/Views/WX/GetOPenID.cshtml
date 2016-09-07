@@ -1,0 +1,57 @@
+﻿@model  Model<Access_tokenResult>
+
+@{
+    ViewBag.Title = "GetOPenID";
+}
+
+<h2>GetOPenID</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.access_token)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.expires_in)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.refresh_token)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.openid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.scope)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.access_token)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.expires_in)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.refresh_token)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.openid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.scope)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

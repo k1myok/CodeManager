@@ -1,0 +1,74 @@
+﻿@model PMSG
+
+@{
+    ViewBag.Title = "GetMsg";
+}
+
+<h2>GetMsg</h2>
+
+<fieldset>
+    <legend>PMSG</legend>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.openid)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.openid)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.nickname)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.nickname)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.sex)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.sex)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.city)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.city)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.country)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.country)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.headimgurl)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.headimgurl)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.privilege)
+    </div>
+    @for (int i = 0; i <Model.privilege.Length;i++ )
+    { 
+    <div class="display-field">
+        @Html.DisplayFor(model => Model.privilege[i])
+    </div>
+    }
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.unionid)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.unionid)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

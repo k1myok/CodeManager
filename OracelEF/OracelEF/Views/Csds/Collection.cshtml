@@ -111,7 +111,7 @@
 
                     </div>
                 </div>
-                <h5 style="line-height:18px;color:blue">第三步：增加有公司名称清晰的现场照片</h5>
+                <h5 style="line-height:18px;color:blue">第三步：增加有公司名称清晰的现场照片<span style="color:red">(可选)</span></h5>
                 <div class="am-list-header" style="color:red;"></div>
                 <div class="am-list-footer">
                     <ol>
@@ -528,7 +528,7 @@
             data.code = code;
             data.file = tempData;
             data.ZYZL = $("#ZYZL").val();
-            if (checkAddress() && checkLocation() && checkpic(tempData) && checkZYZL()) {
+            if (checkAddress() && checkLocation()&& checkZYZL()) {
                 var url = "../Csds/AddLocation";
                 $.ajax({
                     url: url,

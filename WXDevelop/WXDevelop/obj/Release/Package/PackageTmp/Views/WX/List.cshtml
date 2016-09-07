@@ -1,0 +1,50 @@
+﻿@model Access_tokenResult
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List</h2>
+
+<fieldset>
+    <legend>Access_tokenResult</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.access_token)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.access_token)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.expires_in)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.expires_in)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.refresh_token)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.refresh_token)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.openid)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.openid)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.scope)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.scope)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
