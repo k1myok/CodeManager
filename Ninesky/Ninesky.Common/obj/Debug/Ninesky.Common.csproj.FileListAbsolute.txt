@@ -1,0 +1,4 @@
+F:\Personal\Ninesky\Ninesky.Common\bin\Debug\Ninesky.Common.dll
+F:\Personal\Ninesky\Ninesky.Common\bin\Debug\Ninesky.Common.pdb
+F:\Personal\Ninesky\Ninesky.Common\obj\Debug\Ninesky.Common.dll
+F:\Personal\Ninesky\Ninesky.Common\obj\Debug\Ninesky.Common.pdb

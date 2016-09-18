@@ -1,0 +1,16 @@
+F:\Personal\Ninesky\Ninesky.BLL\bin\Debug\Ninesky.BLL.dll
+F:\Personal\Ninesky\Ninesky.BLL\bin\Debug\Ninesky.BLL.pdb
+F:\Personal\Ninesky\Ninesky.BLL\obj\Debug\Ninesky.BLL.dll
+F:\Personal\Ninesky\Ninesky.BLL\obj\Debug\Ninesky.BLL.pdb
+F:\Personal\Ninesky\Ninesky.BLL\bin\Debug\Ninesky.DAL.dll
+F:\Personal\Ninesky\Ninesky.BLL\bin\Debug\Ninesky.IBLL.dll
+F:\Personal\Ninesky\Ninesky.BLL\bin\Debug\Ninesky.IDAL.dll
+F:\Personal\Ninesky\Ninesky.BLL\bin\Debug\Ninesky.Models.dll
+F:\Personal\Ninesky\Ninesky.BLL\bin\Debug\Ninesky.DAL.pdb
+F:\Personal\Ninesky\Ninesky.BLL\bin\Debug\Ninesky.IBLL.pdb
+F:\Personal\Ninesky\Ninesky.BLL\bin\Debug\Ninesky.IDAL.pdb
+F:\Personal\Ninesky\Ninesky.BLL\bin\Debug\Ninesky.Models.pdb
+F:\Personal\Ninesky\Ninesky.BLL\obj\Debug\Ninesky.BLL.csprojResolveAssemblyReference.cache
+F:\Personal\Ninesky\Ninesky.BLL\bin\Debug\EntityFramework.dll
+F:\Personal\Ninesky\Ninesky.BLL\bin\Debug\EntityFramework.xml
+F:\Personal\Ninesky\Ninesky.BLL\bin\Debug\zh-Hans\EntityFramework.resources.dll

@@ -1,0 +1,11 @@
+F:\Personal\Ninesky\Ninesky.Models\bin\Debug\Ninesky.Models.dll.config
+F:\Personal\Ninesky\Ninesky.Models\bin\Debug\Ninesky.Models.dll
+F:\Personal\Ninesky\Ninesky.Models\bin\Debug\Ninesky.Models.pdb
+F:\Personal\Ninesky\Ninesky.Models\bin\Debug\EntityFramework.dll
+F:\Personal\Ninesky\Ninesky.Models\bin\Debug\EntityFramework.SqlServer.dll
+F:\Personal\Ninesky\Ninesky.Models\bin\Debug\EntityFramework.xml
+F:\Personal\Ninesky\Ninesky.Models\bin\Debug\EntityFramework.SqlServer.xml
+F:\Personal\Ninesky\Ninesky.Models\bin\Debug\zh-Hans\EntityFramework.resources.dll
+F:\Personal\Ninesky\Ninesky.Models\bin\Debug\zh-Hans\EntityFramework.SqlServer.resources.dll
+F:\Personal\Ninesky\Ninesky.Models\obj\Debug\Ninesky.Models.dll
+F:\Personal\Ninesky\Ninesky.Models\obj\Debug\Ninesky.Models.pdb

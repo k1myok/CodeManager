@@ -1,0 +1,7 @@
+F:\Personal\Ninesky\Ninesky.IBLL\bin\Debug\Ninesky.IBLL.dll
+F:\Personal\Ninesky\Ninesky.IBLL\bin\Debug\Ninesky.IBLL.pdb
+F:\Personal\Ninesky\Ninesky.IBLL\obj\Debug\Ninesky.IBLL.dll
+F:\Personal\Ninesky\Ninesky.IBLL\obj\Debug\Ninesky.IBLL.pdb
+F:\Personal\Ninesky\Ninesky.IBLL\bin\Debug\Ninesky.Models.dll
+F:\Personal\Ninesky\Ninesky.IBLL\bin\Debug\Ninesky.Models.pdb
+F:\Personal\Ninesky\Ninesky.IBLL\obj\Debug\Ninesky.IBLL.csprojResolveAssemblyReference.cache
