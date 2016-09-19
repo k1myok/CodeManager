@@ -10,7 +10,7 @@ using Ninesky.DAL;
 
 namespace Ninesky.BLL
 {
-    public abstract class BaseService<T> : InterfaceBaseService<T> where T : class
+    public abstract class BaseService<T> :InterfaceBaseService<T> where T : class
     {
         protected InterfaceBaseRepository<T> CurrentRepository { get; set; }
 
