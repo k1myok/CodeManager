@@ -6,7 +6,7 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>F:\新建</_PublishTargetUrl>
+    <_PublishTargetUrl>F:\新建文件夹 (2)</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="ApplicationInsights.config">
@@ -91,7 +91,7 @@
       <publishTime>06/13/2016 23:06:14</publishTime>
     </File>
     <File Include="bin/OracelEF.dll">
-      <publishTime>08/10/2016 14:50:43</publishTime>
+      <publishTime>10/25/2016 22:27:03</publishTime>
     </File>
     <File Include="bin/Oracle.ManagedDataAccess.dll">
       <publishTime>04/22/2016 16:00:16</publishTime>
@@ -805,7 +805,7 @@
       <publishTime>06/12/2016 11:56:56</publishTime>
     </File>
     <File Include="Views/Csds/Collection.cshtml">
-      <publishTime>08/03/2016 09:26:07</publishTime>
+      <publishTime>10/25/2016 22:18:11</publishTime>
     </File>
     <File Include="Views/Csds/Error.cshtml">
       <publishTime>06/23/2016 14:18:50</publishTime>
@@ -865,7 +865,7 @@
       <publishTime>06/12/2016 11:56:56</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>08/10/2016 14:14:10</publishTime>
+      <publishTime>10/25/2016 22:27:04</publishTime>
     </File>
   </ItemGroup>
 </Project>

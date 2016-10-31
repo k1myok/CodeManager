@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OracelEF", "OracelEF\OracelEF.csproj", "{8C868308-78E5-45B5-9170-8A5D82F5CBF9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DSMobileCollection", "OracelEF\DSMobileCollection.csproj", "{8C868308-78E5-45B5-9170-8A5D82F5CBF9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
