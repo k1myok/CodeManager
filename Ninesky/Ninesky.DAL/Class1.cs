@@ -11,7 +11,8 @@ namespace Ninesky.DAL
    public class NineskyDbContext:DbContext
     {
         public DbSet<User> Users { get; set; }
-        public DbSet<UserGroup> UserGroups { get; set; }
+        public DbSet<Role> UserGroups { get; set; }
+        public DbSet<UserRoleRelation> UserRoleRelations { get; set; }
         public DbSet<UserConfig> UserConfig { get; set; }
         public NineskyDbContext()
             : base("DefaultConnection")

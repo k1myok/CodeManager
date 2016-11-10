@@ -17,9 +17,9 @@ namespace Ninesky.Models
         public string UserName { get; set; }
 
 
-        [Required(ErrorMessage = "必填")]
-        [Display(Name = "用户组ID")]
-        public int GroupID { get; set; }
+        //[Required(ErrorMessage = "必填")]
+        //[Display(Name = "用户组ID")]
+        //public int GroupID { get; set; }
         [Required(ErrorMessage = "必填")]
         [StringLength(20, MinimumLength = 4, ErrorMessage = "{1}到{0}个字符")]
         [Display(Name = "显示名")]
@@ -35,12 +35,12 @@ namespace Ninesky.Models
         public int Status { get; set; }
         public DateTime RegistrationTime {get;set;}
         public DateTime LoginTime { get; set; }
-        public virtual UserGroup Group { get; set; }
+      //  public virtual UserGroup Group { get; set; }
     }
-    public class UserGroup
+    public class Role
     { 
     [Key]
-        public Guid GroupID { get; set; }
+        public Guid RoleID { get; set; }
 
     /// <summary>
     /// 名称
@@ -51,12 +51,12 @@ namespace Ninesky.Models
     public string Name { get; set; }
 
     /// <summary>
-    /// 用户组类型<br />
+    /// 角色类型<br />
     /// 0普通类型（普通注册用户），1特权类型（像VIP之类的类型），3管理类型（管理权限的类型）
     /// </summary>
     [Required(ErrorMessage = "必填")]
     [Display(Name = "用户组类型")]
-    public int GroupType { get; set; }
+    public int Type { get; set; }
 
     /// <summary>
     /// 说明
@@ -65,7 +65,29 @@ namespace Ninesky.Models
     [StringLength(50, ErrorMessage = "少于{0}个字")]
     [Display(Name = "说明")]
     public string Description { get; set; }
+    public string TypeToString()
+    {
+        switch (Type)
+        {
+            case 0:
+                return "普通";
+            case 1:
+                return "特权";
+            case 2:
+                return "管理";
+            default:
+                return "未知";
+
+
+        }
     }
+   
+   
+
+    }
+
+
+
     /// <summary>
     /// 用户配置
     /// <remarks>
@@ -111,5 +133,21 @@ namespace Ninesky.Models
         [Display(Name = "默认用户组Id")]
         [Required(ErrorMessage = "必填")]
         public int DefaultGroupId { get; set; }
+    }
+    /// <summary>
+    /// 用户角色关系
+    /// </summary>
+    public class UserRoleRelation
+    {
+        [Key]
+        public Guid RelationID { get; set; }
+        /// <summary>
+        /// 用户ID
+        /// </summary>
+        [Required()]
+        public Guid UserID { get; set; }
+        [Required()]
+        public Guid RoleID { get; set; }
+    
     }
 }

@@ -9,3 +9,4 @@ F:\Personal\Ninesky\Ninesky.Models\bin\Debug\zh-Hans\EntityFramework.resources.d
 F:\Personal\Ninesky\Ninesky.Models\bin\Debug\zh-Hans\EntityFramework.SqlServer.resources.dll
 F:\Personal\Ninesky\Ninesky.Models\obj\Debug\Ninesky.Models.dll
 F:\Personal\Ninesky\Ninesky.Models\obj\Debug\Ninesky.Models.pdb
+F:\Personal\Ninesky\Ninesky.Models\obj\Debug\Ninesky.Models.csprojResolveAssemblyReference.cache
