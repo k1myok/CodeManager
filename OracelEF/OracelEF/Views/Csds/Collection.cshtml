@@ -596,31 +596,41 @@
             });
         }
         $("#sure").click(function () {
-            var real_lon = $("#real_lon").val();
-            var real_lat = $("#real_lat").val();
-            var url = "../Csds/CheckIn";
-            $.ajax(url, {
-                data: {
-                    real_lat: real_lat,
-                    real_lon: real_lon
-                },
-                success: function (data) {
-                    var temp = JSON.parse(data);
-                    if (temp.objectIds != "" && temp.objectIds != null) {
-                        $("#map").hide();
-                        $("#").show();
-                        $(".container").show();
-                        $("#map").hide();
-                        $("#address").html("已选点");
-                    }
-                    else {
-                        $("#toast").show();
+            $("#note").show();
+           // var real_lon = $("#real_lon").val();
+           // var real_lat = $("#real_lat").val();
+          //  var url = "../Csds/CheckIn";
+           // $.ajax(url, {
+             ////   data: {
+             //       real_lat: real_lat,
+             //       real_lon: real_lon
+             //   },
+             //   success: function (data) {
+             //       var temp = JSON.parse(data);
+             //       if (temp.objectIds != "" && temp.objectIds != null) {
+                        //$("#map").hide();
+                        //$("#note").show();
+                        //$(".container").show();
+                        //$("#map").hide();
+                        //$("#address").html("已选点");
+            //        }
+            //        else {
+            //            $("#toast").show();
 
 
-                    }
-                }
+            //        }
+            //    },
+            //    error: function ()
+            //    {
+            //        $("#map").hide();
+            //        $(".container").show();
+            //        $("#map").hide();
+            //        $("#address").html("已选点");
 
-            });
+
+            //    }
+
+            //});
 
         });
         function chooseagain() {
