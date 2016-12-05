@@ -1,0 +1,1 @@
+本项目主要是使用WCF 项目的测试项目，主要使用是先创建WEbservice，然后添加web服务(asmx)即可创建wcf

@@ -1,0 +1,5 @@
+E:\test\WCF\WcfService1\bin\WcfService1.dll.config
+E:\test\WCF\WcfService1\bin\WcfService1.dll
+E:\test\WCF\WcfService1\bin\WcfService1.pdb
+E:\test\WCF\WcfService1\obj\Debug\WcfService1.dll
+E:\test\WCF\WcfService1\obj\Debug\WcfService1.pdb
