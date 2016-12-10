@@ -1,0 +1,39 @@
+﻿<html>
+<head>
+    <link rel="stylesheet" href="http://app.china-ccw.com:8011/arcgis_js_api/library/3.16/3.16/esri/css/esri.css" />
+    <link rel="stylesheet" href="http://app.china-ccw.com:8011/arcgis_js_api/library/3.16/3.16/dijit/themes/claro/claro.css">
+
+    <script src="http://app.china-ccw.com:8011/arcgis_js_api/library/3.16/3.16compact/init.js"></script>
+    <script>
+        var map;
+        var infoTemplate;
+        require([
+    "esri/map", "esri/geometry/Point", "esri/SpatialReference",
+    "esri/symbols/PictureMarkerSymbol", "esri/graphic", "esri/layers/ArcGISTiledMapServiceLayer","esri/InfoTemplate","esri/dijit/InfoWindow","dojo/dom-construct","dojo/dom","esri/geometry/ScreenPoint","esri/dijit/LayerSwipe", "dojo/domReady!"
+        ], function (Map, Point, SpatialReference, PictureMarkerSymbol, Graphic, Tiled,InfoTemplate,InfoWindow,domConstruct,dom,ScreenPoint,LayerSwipe) {
+            map  = new Map("map",{
+                logo:false,
+                zoom: 8,
+            });
+            var map1 = new Tiled("http://content.china-ccw.com:6080/arcgis/rest/services/SZDOM2013_wgs84/MapServer");
+
+			map2 = new Tiled("http://content.china-ccw.com:6080/arcgis/rest/services/szdzdt_wgs84_3/MapServer");
+            map.addLayers([map1,map2]);
+
+			//卷帘
+			var swipeLayer = map.getLayer(map.layerIds[1]);
+          var swipeWidget = new LayerSwipe({
+            type: "vertical",  //Try switching to "scope" or "horizontal"
+            map: map,
+            layers: [swipeLayer]
+          }, "swipeDiv");
+          swipeWidget.startup();
+
+        });
+    </script>
+</head>
+<body>
+    <div id="map" style="background-color:cadetblue"></div>
+        <div id="swipeDiv"></div>
+</body>
+</html>

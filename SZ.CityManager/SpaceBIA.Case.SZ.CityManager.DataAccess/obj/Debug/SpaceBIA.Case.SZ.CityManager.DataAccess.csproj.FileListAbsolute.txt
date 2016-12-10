@@ -1,0 +1,4 @@
+E:\Projects\MegadataAanalysis\Source\SpaceBIA.Case\SZ.CityManager\SpaceBIA.Case.SZ.CityManager.DataAccess\bin\Debug\SpaceBIA.Case.SZ.CityManager.DataAccess.dll
+E:\Projects\MegadataAanalysis\Source\SpaceBIA.Case\SZ.CityManager\SpaceBIA.Case.SZ.CityManager.DataAccess\bin\Debug\SpaceBIA.Case.SZ.CityManager.DataAccess.pdb
+E:\Projects\MegadataAanalysis\Source\SpaceBIA.Case\SZ.CityManager\SpaceBIA.Case.SZ.CityManager.DataAccess\obj\Debug\SpaceBIA.Case.SZ.CityManager.DataAccess.dll
+E:\Projects\MegadataAanalysis\Source\SpaceBIA.Case\SZ.CityManager\SpaceBIA.Case.SZ.CityManager.DataAccess\obj\Debug\SpaceBIA.Case.SZ.CityManager.DataAccess.pdb

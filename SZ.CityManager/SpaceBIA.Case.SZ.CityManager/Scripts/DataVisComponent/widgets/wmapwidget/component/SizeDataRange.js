@@ -1,0 +1,1 @@
+define(["dojo/_base/declare","./DataRange","../common/WMapUtils","../common/MVCObject"],function(e,n,t){return e("SizeDataRange",[n],{constructor:function(){var e=this,n=new t;n.extend(e,{})}})});

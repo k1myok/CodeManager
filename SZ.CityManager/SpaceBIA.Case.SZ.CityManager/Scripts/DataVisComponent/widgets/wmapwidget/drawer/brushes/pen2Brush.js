@@ -1,0 +1,1 @@
+!function(){function o(o,e){o.beginPath();var r=e[0];o.lineWidth=1;for(var t=1;t<e.length;t++){var i=e[t];o.moveTo(r[0]-n(0,2),r[1]-n(0,2)),o.lineTo(i[0]-n(0,2),i[1]-n(0,2)),o.moveTo(r[0],r[1]),o.lineTo(i[0],i[1]),o.moveTo(r[0]+n(0,2),r[1]+n(0,2)),o.lineTo(i[0]+n(0,2),i[1]+n(0,2)),r=i}o.stroke()}function n(o,n){return Math.floor(Math.random()*(n-o+1))+o}brushes.pen2=o}();

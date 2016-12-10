@@ -1,0 +1,1 @@
+define(["dojo/_base/declare","../common/Class","../common/WMapUtils","../common/MVCObject"],function(n,e,o,c){return n("TimeLine",[c],{constructor:function(){var n=this,e=new o;e.extend(n,{})}})});

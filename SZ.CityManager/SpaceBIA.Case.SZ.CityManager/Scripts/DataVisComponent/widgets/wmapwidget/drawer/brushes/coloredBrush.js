@@ -1,0 +1,1 @@
+!function(){function r(r,n){r.beginPath();for(var o=0;o<n.length;o++)e(r,n[o][0],n[o][1])}function e(r,e,o){for(var l=-10;10>l;l+=4)for(var t=-10;10>t;t+=4)Math.random()>.5&&(r.fillStyle=["red","orange","yellow","green","light-blue","blue","purple"][n(0,6)],r.fillRect(e+l,o+t,2,4))}function n(r,e){return Math.floor(Math.random()*(e-r+1))+r}brushes.colored=r}();

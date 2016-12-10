@@ -1,0 +1,1 @@
+!function(){function r(r,t){r.beginPath();for(var a=50,o=0;o<t.length;o++)for(var f=a;f--;){var e=10,h=n(-e,e),i=n(-e,e);r.fillRect(t[o][0]+h,t[o][1]+i,1,1)}}function n(r,n){return Math.floor(Math.random()*(n-r+1))+r}brushes.spray=r}();

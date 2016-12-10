@@ -1,0 +1,111 @@
+﻿
+<script>
+    var map = null;
+    var drawTool = null;
+
+    function mapDiv_onLoad()
+    {
+        console.log('init map');
+        init();
+    }
+
+    function init() {
+        require([
+            "esri/map",
+            "esri/InfoTemplate",
+            "esri/geometry/Extent",
+            "esri/SpatialReference",
+            "esri/layers/ArcGISTiledMapServiceLayer",
+            "esri/layers/ArcGISDynamicMapServiceLayer",
+            "esri/layers/FeatureLayer",
+            "esri/dijit/AttributeInspector",
+            "esri/Color",
+            "esri/geometry/Point",
+            "esri/symbols/PictureMarkerSymbol",
+            "esri/symbols/SimpleMarkerSymbol",
+            "esri/symbols/SimpleLineSymbol",
+            "esri/symbols/SimpleFillSymbol",
+            "esri/tasks/IdentifyTask",
+            "esri/tasks/IdentifyParameters",
+            "esri/dijit/Popup",
+            "dojo/_base/array",
+            "esri/graphic",
+            "esri/tasks/QueryTask",
+            "esri/tasks/query",
+            "esri/dijit/HomeButton",
+            "dojo/json",
+            "dojo/dom-construct",
+            "dijit/TooltipDialog",
+            "dijit/layout/TabContainer",
+            "dijit/layout/ContentPane",
+            "dijit/layout/BorderContainer",
+            "esri/ccw/drawTools",
+            "dojo/domReady!"
+        ],
+            function (
+            Map, InfoTemplate, Extent, SpatialReference, ArcGISTiledMapServiceLayer, ArcGISDynamicMapServiceLayer,
+            FeatureLayer, AttributeInspector, Color, Point, PictureMarkerSymbol,
+            SimpleMarkerSymbol, SimpleLineSymbol, SimpleFillSymbol, IdentifyTask, IdentifyParameters, Popup,
+            arrayUtils, popupMessage, drawTools, Graphic, QueryTask, Query, ccwmap, HomeButton,
+            JSON, domConstruct, TooltipDialog, TabContainer, ContentPane, drawTools
+            ) {
+                debugger;
+                var initExtent = new Extent(119.49265932218395, 31.45839690434518, 122.10054858457394, 32.13178436899515, new SpatialReference({ wkid: 4326 }));
+                map = new Map("mapDiv", {
+                    extent: initExtent,
+                    logo: false,
+                    showAttribution: false,
+                    sliderPosition: "top-right",
+                    showLabels: true
+                });
+
+                var layer = new esri.layers.ArcGISTiledMapServiceLayer('http://content.china-ccw.com:6080/arcgis/rest/services/sz84_blue/MapServer', { opacity: 1 });
+                map.addLayer(layer);
+
+                drawTool = new esri.ccw.drawTools(map);
+                if (mapComplete)
+                    mapComplete(map, 'mapDiv');
+            });
+    }
+
+    function zoomToPoint(x, y) {
+        require([
+            "esri/map",
+            "esri/SpatialReference",
+            "esri/geometry/Point",
+            "esri/Color",
+            "esri/symbols/PictureMarkerSymbol",
+            "esri/symbols/SimpleMarkerSymbol",
+            "esri/symbols/SimpleLineSymbol",
+            "esri/symbols/SimpleFillSymbol",
+            "dojo/_base/array",
+            "esri/graphic",
+            "esri/layers/GraphicsLayer",
+            "dojo/dom-construct",
+            "dojo/domReady!"],
+            function (
+            Map, SpatialReference, Point, Color, PictureMarkerSymbol, SimpleMarkerSymbol, SimpleLineSymbol, SimpleFillSymbol,
+            arrayUtils, Graphic, GraphicsLayer, domConstruct) {
+                var symbol = new PictureMarkerSymbol({
+                    "url": '../Images/location.png',
+                    "height": 16,
+                    "width": 16,
+                    "type": "esriPMS",
+                    "angle": 0,
+                    "xoffset": 0,
+                    "yoffset": 6
+                });
+                var point = new Point(x, y);
+                var graphic = new Graphic(point, symbol);
+
+                map.graphics.add(graphic);
+                map.centerAndZoom(point, 14);
+                console.log(graphic);
+            })
+    }
+
+</script>
+<div id="mapDiv" style="width:100%; height:100%;" onload="alert(0);">
+
+</div>
+

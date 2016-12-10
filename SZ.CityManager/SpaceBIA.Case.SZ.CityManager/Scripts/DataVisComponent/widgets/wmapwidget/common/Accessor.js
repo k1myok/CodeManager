@@ -1,0 +1,1 @@
+define(["dojo/_base/declare"],function(t){return t("Accessor",null,{constructor:function(t,r){var e=this;e.target=t,e.targetKey=r},transform:function(t,r){var e=this;return e.from=t,e.to=r,e.target.notify(e.targetKey),e}})});

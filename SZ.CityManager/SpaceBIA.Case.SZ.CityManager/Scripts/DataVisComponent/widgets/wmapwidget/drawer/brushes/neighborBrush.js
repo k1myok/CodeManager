@@ -1,0 +1,1 @@
+!function(){function o(o,e){o.beginPath();for(var n=1;n<e.length;n++){o.moveTo(e[n-1][0],e[n-1][1]),o.lineTo(e[n][0],e[n][1]);for(var r=0,i=n;i>r;r++){var t=e[r][0]-e[n][0],v=e[r][1]-e[n][1],a=t*t+v*v;a>100&&900>a&&(o.moveTo(e[n][0]+.2*t,e[n][1]+.2*v),o.lineTo(e[r][0]-.2*t,e[r][1]-.2*v))}}o.stroke()}brushes.neighbor=o}();

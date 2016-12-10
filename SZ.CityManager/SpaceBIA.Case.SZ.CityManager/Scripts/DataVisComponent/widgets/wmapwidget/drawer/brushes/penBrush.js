@@ -1,0 +1,1 @@
+!function(){function n(n,t){n.beginPath();for(var e=1;e<t.length;e++)n.beginPath(),n.moveTo(t[e-1][0],t[e-1][1]),n.lineWidth=o(3,5),n.lineTo(t[e][0],t[e][1]),n.stroke()}function o(n,o){return Math.floor(Math.random()*(o-n+1))+n}brushes.pen=n}();

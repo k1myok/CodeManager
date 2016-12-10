@@ -1,0 +1,1 @@
+!function(){function r(r,n){r.beginPath(),r.moveTo(n[0][0],n[0][1]);for(var o=n[0],t=n[1],u=1;u<n.length;u++){var i=e(o,t);r.quadraticCurveTo(o[0],o[1],i.x,i.y),o=n[u],t=n[u+1]}r.stroke()}function e(r,e){return{x:r[0]+(e[0]-r[0])/2,y:r[1]+(e[1]-r[1])/2}}brushes.bezier=r}();

@@ -1,0 +1,37 @@
+﻿@model System.Guid
+
+@{
+    ViewBag.Title = "SingleForm";
+    Layout = "~/Views/Shared/_DefaultReactLayout.cshtml";
+}
+
+<script src="http://localhost/SpaceBIA.Web.EasyPortal/Scripts/EMC/EMap/Templates/MigrationOption.js" type="text/javascript"></script>
+<script src="http://localhost/SpaceBIA.Web.EasyPortal/Scripts/EMC/EMap/Templates/DensityMapOption.js" type="text/javascript"></script>
+
+
+<script src="http://localhost/SpaceBIA.Web.EasyPortal/Scripts/EMC/EMap/Templates/HeatMapOption.js" type="text/javascript"></script>
+<script src="http://localhost/SpaceBIA.Web.EasyPortal/Scripts/EMC/EMap/Templates/MarkPointOption.js" type="text/javascript"></script>
+<script src="http://localhost/SpaceBIA.Web.EasyPortal/Scripts/EMC/EMap/Templates/MarkLineOption.js" type="text/javascript"></script>
+
+<script src="http://localhost/SpaceBIA.Web.EasyPortal/Scripts/EMC/ECharts/Templates/BasePieChart.js" type="text/javascript"></script>
+<script src="http://localhost/SpaceBIA.Web.EasyPortal/Scripts/EMC/ECharts/Templates/BaseLineChart.js" type="text/javascript"></script>
+<script src="http://localhost/SpaceBIA.Web.EasyPortal/Scripts/EMC/ECharts/Templates/BaseBarChart.js" type="text/javascript"></script>
+<script src="http://localhost/SpaceBIA.Web.EasyPortal/Scripts/EMC/ECharts/Templates/BaseGaugeChart.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="http://app.china-ccw.com:8011/arcgis_js_api/library/3.16/3.16compact/dijit/themes/claro/claro.css" />
+<link rel="stylesheet" href="http://app.china-ccw.com:8011/arcgis_js_api/library/3.16/3.16compact/dijit/themes/tundra/tundra.css" />
+<link rel="stylesheet" href="http://app.china-ccw.com:8011/arcgis_js_api/library/3.16/3.16compact/esri/css/esri.css" />
+<script src="http://app.china-ccw.com:8011/arcgis_js_api/library/3.16/3.16compact/init.js"></script>
+
+
+<script src="http://localhost/SpaceBIA.Web.EasyPortal/Scripts/EMC/js/echarts/echarts-all.js" type="text/javascript"></script>
+<script src="http://localhost/SpaceBIA.Web.EasyPortal/Scripts/EMC/EMap/EMCore.js" type="text/javascript"></script>
+<script src="http://localhost/SpaceBIA.Web.EasyPortal/Scripts/EMC/ECharts/ECCore.js" type="text/javascript"></script>
+<script src="http://localhost/SpaceBIA.Web.EasyPortal/Scripts/EMC/Core.js" type="text/javascript"></script>
+
+<div id="container">
+</div>
+<script type="text/babel">
+    ReactDOM.render(
+    <SingleDockForm dockFormID="@Model" />, document.getElementById('container'));
+</script>

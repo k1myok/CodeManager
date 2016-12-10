@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewBag.Title = "ReactSample";
+    Layout = "~/Views/Shared/_DefaultReactLayout.cshtml";
+}
+<script>
+    @{
+        var baseMap = System.Configuration.ConfigurationManager.AppSettings["baseMap"];
+    }
+    function KSConfig() { };
+    KSConfig.baseMap = '@baseMap';
+   
+</script>
+
+@*加载Control对应的React组件*@
+<script src="~/Scripts/React/Components/MapView.jsx" ></script>
+<script src="~/Scripts/React/Components/MapViewControl.jsx"></script>
+<script src="~/Scripts/React/Components/PieSample1.jsx"></script>
+<script src="~/Scripts/React/Components/LineSample.jsx"></script>
+
+<script src="~/Scripts/React/Components/DensityMapSample.jsx"></script>
+<script src="~/Scripts/React/Components/HeatMapSample.jsx"></script>
+<script src="~/Scripts/React/Components/MarkPointSample.jsx"></script>
+<script src="~/Scripts/React/Components/MarkLineSample.jsx"></script>
+<script src="~/Scripts/React/Components/MigrationSample.jsx"></script>
+<script src="~/Scripts/React/Components/Timeline_DensityMapSample.jsx"></script>
+<script src="~/Scripts/React/Components/Timeline_HeatMapSample.jsx"></script>
+<script src="~/Scripts/React/Components/Timeline_MarkPointSample.jsx"></script>
+<script src="~/Scripts/React/Components/Timeline_MarkLineSample.jsx"></script>
+<script src="~/Scripts/React/Components/Timeline_MigrationSample.jsx"></script>
+<script src="~/Scripts/React/Components/LayerSwipeMap.jsx"></script>
+<script src="~/Scripts/React/Components/KSComponents.jsx"></script>
+<link href="~/Content/Site.css" rel="stylesheet" />
+
+@*加载自定义组件现已在bundle中绑定*@
+<link rel="stylesheet" href="http://app.china-ccw.com:8011/arcgis_js_api/library/3.16/3.16compact/dijit/themes/claro/claro.css" />
+<link rel="stylesheet" href="http://app.china-ccw.com:8011/arcgis_js_api/library/3.16/3.16compact/dijit/themes/tundra/tundra.css" />
+<link rel="stylesheet" href="http://app.china-ccw.com:8011/arcgis_js_api/library/3.16/3.16compact/esri/css/esri.css" />
+<script src="~/Scripts/DataVisComponent/js/dojoConfig.js"></script>
+<script src="http://app.china-ccw.com:8011/arcgis_js_api/library/3.16/3.16compact/init.js"></script>
+
+<script src="~/Scripts/Business/mapSample.js"></script>
+<script src="~/Scripts/Business/LayerSwipeMapFactory.js"></script>
+<div id="container">
+</div>
+<script type="text/babel">
+    ReactDOM.render(<GlobleWindow projectID="00000000-0000-0000-0000-000000000002"/>, document.getElementById('container'));
+</script>
+
+

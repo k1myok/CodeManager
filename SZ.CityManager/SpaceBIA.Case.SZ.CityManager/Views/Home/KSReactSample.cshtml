@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "KSReactSample";
+    Layout = "~/Views/Shared/_DefaultReactLayout.cshtml";
+}
+<script>
+    @{
+        var baseMap = System.Configuration.ConfigurationManager.AppSettings["baseMap"];
+    }
+    function KSBaseMap() { };
+    KSBaseMap.URL = @baseMap;
+    console.log(KSBaseMap.URL);
+</script>
+<script src="~/Scripts/React/Components/MapView.jsx"></script>
+<script src="~/Scripts/React/Components/PieSample1.jsx"></script>
+<script src="http://localhost/SpaceBIA.Web.EasyPortal/Scripts/EMC/EMap/Templates/DataMoveOption.js" type="text/javascript"></script>
+<script src="http://localhost/SpaceBIA.Web.EasyPortal/Scripts/EMC/EMap/Templates/MarkerPointsOption.js" type="text/javascript"></script>
+<script src="http://localhost/SpaceBIA.Web.EasyPortal/Scripts/EMC/ECharts/Templates/BasePieChart.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="http://app.china-ccw.com:8011/arcgis_js_api/library/3.16/3.16compact/dijit/themes/claro/claro.css" />
+<link rel="stylesheet" href="http://app.china-ccw.com:8011/arcgis_js_api/library/3.16/3.16compact/dijit/themes/tundra/tundra.css" />
+<link rel="stylesheet" href="http://app.china-ccw.com:8011/arcgis_js_api/library/3.16/3.16compact/esri/css/esri.css" />
+<script src="~/Scripts/EMC/js/dojoConfig.js"></script>
+<script src="http://app.china-ccw.com:8011/arcgis_js_api/library/3.16/3.16compact/init.js"></script>
+
+
+<script src="http://localhost/SpaceBIA.Web.EasyPortal/Scripts/EMC/js/echarts/echarts-all.js" type="text/javascript"></script>
+<script src="http://localhost/SpaceBIA.Web.EasyPortal/Scripts/EMC/EMap/Core.js" type="text/javascript"></script>
+<script src="http://localhost/SpaceBIA.Web.EasyPortal/Scripts/EMC/EMap/EMCore.js" type="text/javascript"></script>
+<script src="http://localhost/SpaceBIA.Web.EasyPortal/Scripts/EMC/ECharts/ECCore.js" type="text/javascript"></script>
+<script src="http://localhost/SpaceBIA.Web.EasyPortal/Scripts/EMC/Core.js" type="text/javascript"></script>
+
+<script src="~/Scripts/Business/mapSample.js"></script>
+
+<div id="container">
+</div>
+
+<script type="text/babel">
+
+    ReactDOM.render(
+    <GlobleWindow projectID="1" />, document.getElementById('container'));
+</script>
+
+
