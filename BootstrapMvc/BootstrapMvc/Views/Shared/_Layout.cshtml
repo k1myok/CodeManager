@@ -10,13 +10,29 @@
     @Scripts.Render("~/bootstrapjs")*@
     <link href="~/Content/css/bootstrap-min.css"  type="text/css" rel="stylesheet">
     <link href="~/Content/css/bootstrap-theme.css" type="text/css" rel="stylesheet" />
+    <link href="~/Content/css/main.css" type="text/css" rel="stylesheet" />
     <script type="text/javascript" src="~/Scripts/jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="~/Scripts/bootstrap-min.js"></script>
+
 </head>
 <body>
-    @RenderBody()
+    <div class="m_header">
+        <ul>
+            <li>测试</li>
+            <li>发布</li>
+            <li>关系</li>
+        </ul>
 
-    @Scripts.Render("~/bundles/jquery")
-    @RenderSection("scripts", required: false)
+    </div>
+    <div class="m_contain">
+        <div class="m_left">
+       
+        </div>
+        <div class="m_right">@RenderBody()</div>
+    </div>
+        <div class="m_foot">eregrthtr</div>
+
+        @Scripts.Render("~/bundles/jquery")
+        @RenderSection("scripts", required: false)
 </body>
 </html>

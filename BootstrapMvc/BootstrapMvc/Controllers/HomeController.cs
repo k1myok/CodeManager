@@ -15,6 +15,10 @@ namespace BootstrapMvc.Controllers
         {
             return View();
         }
+        public ActionResult Default()
+        {
+            return View();
+        }
 
     }
 }
