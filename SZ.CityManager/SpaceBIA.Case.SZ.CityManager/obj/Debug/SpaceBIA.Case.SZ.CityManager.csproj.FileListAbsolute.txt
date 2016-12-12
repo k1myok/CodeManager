@@ -46,6 +46,7 @@ E:\Projects\MegadataAanalysis\Source\SpaceBIA.Case\SZ.CityManager\SpaceBIA.Case.
 E:\Projects\MegadataAanalysis\Source\SpaceBIA.Case\SZ.CityManager\SpaceBIA.Case.SZ.CityManager\bin\React.Core.dll
 E:\Projects\MegadataAanalysis\Source\SpaceBIA.Case\SZ.CityManager\SpaceBIA.Case.SZ.CityManager\bin\React.Web.dll
 E:\Projects\MegadataAanalysis\Source\SpaceBIA.Case\SZ.CityManager\SpaceBIA.Case.SZ.CityManager\bin\React.Web.Mvc4.dll
+E:\Projects\MegadataAanalysis\Source\SpaceBIA.Case\SZ.CityManager\SpaceBIA.Case.SZ.CityManager\bin\SpaceBIA.Case.SZ.CityManager.DataAccess.dll
 E:\Projects\MegadataAanalysis\Source\SpaceBIA.Case\SZ.CityManager\SpaceBIA.Case.SZ.CityManager\bin\System.Web.Helpers.dll
 E:\Projects\MegadataAanalysis\Source\SpaceBIA.Case\SZ.CityManager\SpaceBIA.Case.SZ.CityManager\bin\System.Web.Mvc.dll
 E:\Projects\MegadataAanalysis\Source\SpaceBIA.Case\SZ.CityManager\SpaceBIA.Case.SZ.CityManager\bin\System.Web.Optimization.dll
@@ -62,6 +63,7 @@ E:\Projects\MegadataAanalysis\Source\SpaceBIA.Case\SZ.CityManager\SpaceBIA.Case.
 E:\Projects\MegadataAanalysis\Source\SpaceBIA.Case\SZ.CityManager\SpaceBIA.Case.SZ.CityManager\bin\React.Core.xml
 E:\Projects\MegadataAanalysis\Source\SpaceBIA.Case\SZ.CityManager\SpaceBIA.Case.SZ.CityManager\bin\React.Web.xml
 E:\Projects\MegadataAanalysis\Source\SpaceBIA.Case\SZ.CityManager\SpaceBIA.Case.SZ.CityManager\bin\React.Web.Mvc4.xml
+E:\Projects\MegadataAanalysis\Source\SpaceBIA.Case\SZ.CityManager\SpaceBIA.Case.SZ.CityManager\bin\SpaceBIA.Case.SZ.CityManager.DataAccess.pdb
 E:\Projects\MegadataAanalysis\Source\SpaceBIA.Case\SZ.CityManager\SpaceBIA.Case.SZ.CityManager\bin\System.Web.Helpers.xml
 E:\Projects\MegadataAanalysis\Source\SpaceBIA.Case\SZ.CityManager\SpaceBIA.Case.SZ.CityManager\bin\System.Web.Mvc.xml
 E:\Projects\MegadataAanalysis\Source\SpaceBIA.Case\SZ.CityManager\SpaceBIA.Case.SZ.CityManager\bin\System.Web.Optimization.xml
@@ -106,8 +108,6 @@ E:\Projects\MegadataAanalysis\Source\SpaceBIA.Case\SZ.CityManager\SpaceBIA.Case.
 E:\Projects\MegadataAanalysis\Source\SpaceBIA.Case\SZ.CityManager\SpaceBIA.Case.SZ.CityManager\bin\zh-Hans\Microsoft.Owin.Security.Google.resources.dll
 E:\Projects\MegadataAanalysis\Source\SpaceBIA.Case\SZ.CityManager\SpaceBIA.Case.SZ.CityManager\bin\zh-Hans\Microsoft.Owin.Security.Twitter.resources.dll
 E:\Projects\MegadataAanalysis\Source\SpaceBIA.Case\SZ.CityManager\SpaceBIA.Case.SZ.CityManager\bin\zh-Hans\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
+E:\Projects\MegadataAanalysis\Source\SpaceBIA.Case\SZ.CityManager\SpaceBIA.Case.SZ.CityManager\obj\Debug\SpaceBIA.Case.SZ.CityManager.csprojResolveAssemblyReference.cache
 E:\Projects\MegadataAanalysis\Source\SpaceBIA.Case\SZ.CityManager\SpaceBIA.Case.SZ.CityManager\obj\Debug\SpaceBIA.Case.SZ.CityManager.dll
 E:\Projects\MegadataAanalysis\Source\SpaceBIA.Case\SZ.CityManager\SpaceBIA.Case.SZ.CityManager\obj\Debug\SpaceBIA.Case.SZ.CityManager.pdb
-E:\Projects\MegadataAanalysis\Source\SpaceBIA.Case\SZ.CityManager\SpaceBIA.Case.SZ.CityManager\bin\SpaceBIA.Case.SZ.CityManager.DataAccess.dll
-E:\Projects\MegadataAanalysis\Source\SpaceBIA.Case\SZ.CityManager\SpaceBIA.Case.SZ.CityManager\bin\SpaceBIA.Case.SZ.CityManager.DataAccess.pdb
-E:\Projects\MegadataAanalysis\Source\SpaceBIA.Case\SZ.CityManager\SpaceBIA.Case.SZ.CityManager\obj\Debug\SpaceBIA.Case.SZ.CityManager.csprojResolveAssemblyReference.cache

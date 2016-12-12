@@ -8,7 +8,7 @@
         var baseMap = System.Configuration.ConfigurationManager.AppSettings["baseMap"];
     }
     function KSBaseMap() { };
-    KSBaseMap.URL = @baseMap;
+    KSBaseMap.URL="@baseMap";
     console.log(KSBaseMap.URL);
 </script>
 <script src="~/Scripts/React/Components/MapView.jsx"></script>
@@ -36,9 +36,8 @@
 </div>
 
 <script type="text/babel">
-
     ReactDOM.render(
-    <GlobleWindow projectID="1" />, document.getElementById('container'));
+    <globlewindow projectid="1" />, document.getElementById('container'));
 </script>
 
 

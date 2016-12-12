@@ -10,6 +10,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using SpaceBIA.Case.SZ.CityManager.Models;
 
+
 namespace SpaceBIA.Case.SZ.CityManager.Controllers
 {
     [Authorize]
